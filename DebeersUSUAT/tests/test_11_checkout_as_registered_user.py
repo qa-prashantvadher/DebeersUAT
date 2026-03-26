@@ -112,7 +112,7 @@ def test_checkout_as_registered_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
     login_logout.test_logout_from_order_confirmation_page()
 
-    # Case 4.2: Registered User + Premium Deivery + Back to Cart from Payment + Change Delivery to Self Collect
+    # Case 4.2: Registered User + Premium Delivery + Back to Cart from Payment + Change Delivery to Self Collect
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()

@@ -30,7 +30,7 @@ class Checkout_Review(BasePage):
             self.timeout(10000)
             order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
             print(f"[ORDER CREATED] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date}..")
-            self.screenshot.take_order_page_screenshot(f"ORDER#_{order_number}_{delivery_date}")
+            self.screenshot.take_order_page_screenshot(f"UK_ORDER#_{order_number}_{delivery_date}")
 
 
         except:
