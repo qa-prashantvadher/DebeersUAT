@@ -45,7 +45,7 @@ class Checkout_Delivery(BasePage):
     collector_last_name_text = "Rodriguez"
     collector_phone_text = "8989089890"
 
-    gift_message_text = "May this festive season light up your life the way this piece lights up your smile.."
+    gift_message_text = "Testing this gift message for an order containing two products. I hope these two pieces add a nice touch to your collection. Enjoy your jewellery now!"
 
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
 
