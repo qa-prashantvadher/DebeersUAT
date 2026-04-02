@@ -124,7 +124,7 @@ class Checkout_Delivery(BasePage):
     def test_add_new_address_as_register(self):
         try:
             self.timeout(2000)
-            self.click(self.premium_add_new_address_option)
+            #self.click(self.premium_add_new_address_option)
             self.timeout(2000)
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN ADD NEW ADDRESS SECTION..*****")
@@ -133,8 +133,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(2000)
             self.fill(self.premium_address_input, self.premium_address_text)
-            # State dropdown
-            self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
+            self.fill(self.premium_county_input, self.premium_county_text)
             self.fill(self.premium_city_input, self.premium_city_text)
             self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
             self.timeout(2000)
@@ -148,7 +147,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(2000)
             self.fill(self.premium_address_input, self.premium_address_text)
             # State dropdown
-            self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
+            self.fill(self.premium_county_input, "TESTING")
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(2000)
