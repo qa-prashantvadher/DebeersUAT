@@ -12,7 +12,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
     SKU1_LIST = ["E103376", "E103115","E103454", "E103116"]
     
     # SPP WITHOUT SIZE  - WITHOUT ENGRAVING
-    SKU2_LIST = ["E103379", "E102189", "E103475", "E102161", "E103450", "E102190", "E103533", "E103380", "E102143", "E103385", "E102158"] 
+    SKU2_LIST = ["E103379", "E102189", "E103475", "E102161", "E103450", "E102190", "E103380", "E103385", "E102158"]
 
     ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/button[1]"
     ADD_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
