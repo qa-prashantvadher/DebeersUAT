@@ -7,8 +7,8 @@ from pages.base_page import BasePage
 class PageScreenshot(BasePage):
     date_folder = time.strftime('%d%m%Y')
     base_path = r"D:\Python Code\Screenshots\DB-UAT"
-    order_sub_folder = "\ORDERS"
-    other_sub_folder = "\OTHERS"
+    order_sub_folder = "ORDERS"
+    other_sub_folder = "OTHERS"
 
 
     def __init__(self, page):
