@@ -157,16 +157,16 @@ class Checkout_Delivery(BasePage):
 
     def test_delivery_date_on_premium_delivery(self):
         try:
-            self.timeout(2000)
+            self.timeout(3000)
             delivery_date = self.get_text(self.premium_delivery_date).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_PREMIUM")
-            print(f"[CHECKOUT-PREMIUM] DELIVERY DATE: {delivery_date}")
+            self.screenshot.take_page_screenshot("CHECKOUT_DELIVERY")
+            print(f"[CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date}")
         except:
-            print("*****[CHECKOUT-PREMIUM] DELIVERY DATE DETAIL IS MISSING..*****")
+            print("*****[CHECKOUT-DELIVERY] DELIVERY DATE DETAIL IS MISSING..*****")
 
-    def test_delivery_date_on_in_store_collect(self):
+    def test_delivery_date_on_collect_in_store(self):
         try:
-            self.timeout(2000)
+            self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_page_screenshot("CHECKOUT_IN_STORE")
             print(f"[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date}")
