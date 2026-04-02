@@ -17,14 +17,14 @@ class PageScreenshot(BasePage):
 
     def take_page_screenshot(self, keyword):
         timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        other_screenshot_full_path = os.path.join(self.base_path, self.date_folder, self.order_sub_folder)
+        other_screenshot_full_path = os.path.join(self.base_path, self.order_sub_folder, self.date_folder)
         os.makedirs(other_screenshot_full_path, exist_ok=True)
         filename = os.path.join(other_screenshot_full_path, f'{keyword}_{timestamp}.png')
         self.page.screenshot(path=filename)
 
     def take_order_page_screenshot(self, keyword):
         timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        order_screenshot_full_path = os.path.join(self.base_path, self.date_folder, self.order_sub_folder)
+        order_screenshot_full_path = os.path.join(self.base_path, self.order_sub_folder, self.date_folder)
         os.makedirs(order_screenshot_full_path, exist_ok=True)
         filename = os.path.join(order_screenshot_full_path, f'{keyword}_{timestamp}.png')
         self.page.screenshot(path=filename,full_page=True)
