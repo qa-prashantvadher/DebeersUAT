@@ -194,6 +194,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.fill(self.gift_message_input, self.gift_message_text)
             self.timeout(2000)
+            self.screenshot.take_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
             print("*****[CHECKOUT-DELIVERY] NOT ABLE TO ENTER GIFT MESSAGE..*****")
 

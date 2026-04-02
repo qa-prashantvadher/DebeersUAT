@@ -27,7 +27,7 @@ class Checkout_Review(BasePage):
             self.timeout(2000)
             self.screenshot.take_page_screenshot(f"USA_ORDER_REVIEW")
             self.click(self.place_order_cta)
-            self.timeout(10000)
+            self.timeout(15000)
             order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
             print(f"[ORDER CREATED] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date}..")
             self.screenshot.take_order_page_screenshot(f"USA_ORDER#_{order_number}_{delivery_date}")
