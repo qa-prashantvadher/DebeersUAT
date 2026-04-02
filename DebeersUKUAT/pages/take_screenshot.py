@@ -5,8 +5,11 @@ from pages.base_page import BasePage
 
 
 class PageScreenshot(BasePage):
-    Screenshot_Path = "D:\Python Code\Screenshots\DB-UAT\OTHERS"
-    Order_Screenshot_Path = "D:\Python Code\Screenshots\DB-UAT\ORDERS"
+    date_folder = time.strftime('%d%m%Y')
+    base_path = r"D:\Python Code\Screenshots\DB-UAT"
+    order_sub_folder = "\ORDERS"
+    other_sub_folder = "\OTHERS"
+
 
     def __init__(self, page):
         super().__init__(page)
@@ -14,12 +17,14 @@ class PageScreenshot(BasePage):
 
     def take_page_screenshot(self, keyword):
         timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        filename = os.path.join(self.Screenshot_Path, f'{keyword}_{timestamp}.png')
-        os.makedirs(self.Screenshot_Path, exist_ok=True)
+        other_screenshot_full_path = os.path.join(self.base_path, self.date_folder, self.order_sub_folder)
+        os.makedirs(other_screenshot_full_path, exist_ok=True)
+        filename = os.path.join(other_screenshot_full_path, f'{keyword}_{timestamp}.png')
         self.page.screenshot(path=filename)
 
     def take_order_page_screenshot(self, keyword):
         timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        filename = os.path.join(self.Order_Screenshot_Path, f'{keyword}_{timestamp}.png')
-        os.makedirs(self.Screenshot_Path, exist_ok=True)
-        self.page.screenshot(path=filename,full_page=True)   
+        order_screenshot_full_path = os.path.join(self.base_path, self.date_folder, self.order_sub_folder)
+        os.makedirs(order_screenshot_full_path, exist_ok=True)
+        filename = os.path.join(order_screenshot_full_path, f'{keyword}_{timestamp}.png')
+        self.page.screenshot(path=filename,full_page=True)
