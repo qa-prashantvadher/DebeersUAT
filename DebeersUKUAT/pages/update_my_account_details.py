@@ -4,7 +4,7 @@ from pages.take_screenshot import PageScreenshot
 
 class Update_My_Account_Page(BasePage):
 
-    edit_account_details_icon = "//button[@class='btn btn-icon p-0 js-edit-details-btn']"
+    edit_account_details_icon = "//button[contains(@class,'js-edit-details-btn')]"
     my_account_title_dropdown = "//*[@id='customerTitle']"
     my_account_first_name_input = "//input[@id='firstName']"
     my_account_last_name_input = "//input[@id='lastName']"
@@ -22,7 +22,7 @@ class Update_My_Account_Page(BasePage):
 
     def test_open_edit_my_account_page(self):
         try:
-            self.timeout(1000)
+            self.timeout(3000)
             self.click(self.edit_account_details_icon)
             self.timeout(1000)
             self.screenshot.take_page_screenshot("MY_ACCOUNT_DETAILS_BEFORE_EDIT")
