@@ -61,7 +61,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(1000)
             self.click(Checkout_Delivery.premium_delivery_tab)
-            self.timeout(1000)
+            self.timeout(2000)
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
 
@@ -69,7 +69,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(1000)
             self.click(Checkout_Delivery.collect_in_store_tab)
-            self.timeout(1000)
+            self.timeout(2000)
         except:
             print("*****[CHECKOUT-COLLECT] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
 
@@ -77,7 +77,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(1000)
             self.click(self.self_collect_checkbox)
-            self.timeout(1000)
+            self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_page_screenshot("CHECKOUT_SELF_COLLECT")
             print(f"[CHECKOUT-SELF] DELIVERY DATE: {delivery_date}.")
@@ -88,7 +88,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(1000)
             self.click(self.someone_else_collect_checkbox)
-            self.timeout(1000)
+            self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
             print(f"[CHECKOUT-SOMEONE] DELIVERY DATE: {delivery_date}.")
