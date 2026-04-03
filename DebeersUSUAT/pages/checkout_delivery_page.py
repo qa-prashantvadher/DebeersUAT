@@ -127,8 +127,11 @@ class Checkout_Delivery(BasePage):
     def test_add_new_address_as_register(self):
         try:
             self.timeout(1000)
-            self.click(self.premium_add_new_address_option)
-            self.timeout(1000)
+            if self.is_visible(self.premium_add_new_address_option):
+                self.click(self.premium_add_new_address_option)
+                self.timeout(1000)
+            else:
+                pass  # do nothing, continue with next lines
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN ADD NEW ADDRESS SECTION..*****")
 
