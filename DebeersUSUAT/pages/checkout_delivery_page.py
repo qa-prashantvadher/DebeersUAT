@@ -122,7 +122,7 @@ class Checkout_Delivery(BasePage):
             print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
 
         except:
-            print("*****[CHECKOUT-STORE COLLECT] NOT ABLE TO ENTER COLLECTOR DETAILS..*****")
+            print("*****[CHECKOUT-COLLECTOR] NOT ABLE TO ENTER COLLECTOR DETAILS..*****")
 
     def test_add_new_address_as_register(self):
         try:
@@ -141,7 +141,7 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_city_input, self.premium_city_text)
             self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
             self.timeout(2000)
-            print("[CHECKOUT-PREMIUM] DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+            print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
@@ -155,6 +155,8 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(2000)
+            print("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
