@@ -22,8 +22,8 @@ def test_checkout_as_guest_user(page):
 
 
     # Case 1: Premium Delivery + Amex card + Same Billing address
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_guest_user()
     checkout_delivery.test_open_premium_delivery_tab()
@@ -37,8 +37,8 @@ def test_checkout_as_guest_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -52,8 +52,8 @@ def test_checkout_as_guest_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 3: Premium Delivery + Union Pay card + Different Billing address.
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -68,8 +68,8 @@ def test_checkout_as_guest_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 4: Self Collect + Master card + Same Billing Name
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -83,8 +83,8 @@ def test_checkout_as_guest_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 5: Self Collect + Master card + Different Billing Name
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -99,8 +99,8 @@ def test_checkout_as_guest_user(page):
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 6: Someone Else Collect + Discover card
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
+    checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -116,7 +116,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -134,7 +133,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -156,7 +154,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 9: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -180,7 +177,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 10: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -199,7 +195,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 11: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -219,7 +214,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 12: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -241,7 +235,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -261,7 +254,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -283,7 +275,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 15: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -305,7 +296,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -325,7 +315,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -348,7 +337,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 18: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -373,7 +361,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 19: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -394,7 +381,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 20: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -417,7 +403,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 21: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -441,7 +426,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -464,7 +448,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -488,7 +471,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 24: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -512,7 +494,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -530,7 +511,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 26: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name and Address
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -551,7 +531,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 27: Self Collect + Union Pay card > From the Review page, Go back to the Payment Page > Amex card + Same Billing name
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -569,7 +548,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 28: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -589,7 +567,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 29: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -609,7 +586,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -632,7 +608,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -657,7 +632,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 32: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -684,7 +658,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 33: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -707,7 +680,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 34: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -732,7 +704,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 35: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Union Pay card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -757,7 +728,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -782,7 +752,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -807,7 +776,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 38: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -833,7 +801,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -854,7 +821,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 40: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_premium_delivery_tab()
     checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -877,7 +843,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 41: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -898,7 +863,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 42: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_self_collect_checkbox()
@@ -921,7 +885,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 43: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
@@ -943,7 +906,6 @@ def test_checkout_as_guest_user(page):
 
     # Case 44: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()

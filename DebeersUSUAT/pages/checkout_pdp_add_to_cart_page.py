@@ -48,7 +48,6 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             self.click(self.ADD_ENGRAVING_CTA)
             self.engraving.test_add_engraving()
             print(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date}..")
-            self.click(self.minicart_close_icon)
             #self.screenshot.take_Page_screenshot("CHECKOUT_SPP_NO_SIZE_ADD_WITH_ENGRAVING")
         except:
             print(f"*****[CHECKOUT] SKU: {SKU1} IS NOT ADDED TO THE CART..*****")
@@ -64,6 +63,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             self.timeout(2000)
             print(f"[CHECKOUT] SKU: {SKU2} [ADDED WITHOUT ENGRAVING], DELIVERY DATE: {delivery_date}..")
             #self.screenshot.take_Page_screenshot("CHECKOUT_SPP_NO_SIZE_ADD_BAG")
+            self.click(self.minicart_close_icon)
         except:
             print(f"*****[CHECKOUT] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {SKU2} IS NOT ADDED TO THE CART..*****")
 
