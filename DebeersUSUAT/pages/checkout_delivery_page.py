@@ -146,7 +146,7 @@ class Checkout_Delivery(BasePage):
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
-    def test_enter_invalid_delivery_address_on_premium_delivery(self):
+    def test_enter_invalid_delivery_address_in_premium_delivery(self):
         try:
             self.timeout(1000)
             self.fill(self.premium_address_input, self.premium_address_text)
