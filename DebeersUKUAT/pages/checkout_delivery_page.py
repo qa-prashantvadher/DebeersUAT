@@ -14,6 +14,8 @@ class Checkout_Delivery(BasePage):
     premium_city_input = "//input[@id='shippingAddressCity']"
     premium_postal_code_input = "//input[@id='shippingZipCode']"
 
+    premium_add_new_address_option = "//a[@class='anchor btn-add-new js-btn-add-new ']"
+
     premium_address_text = "Flat 1, 8 Kensington Palace Gardens"
     premium_city_text = "London"
     premium_county_text = ""
@@ -126,8 +128,11 @@ class Checkout_Delivery(BasePage):
     def test_add_new_address_as_register(self):
         try:
             self.timeout(1000)
-            #self.click(self.premium_add_new_address_option)
-            self.timeout(1000)
+            if self.is_visible(self.premium_add_new_address_option):
+                self.click(self.premium_add_new_address_option)
+                self.timeout(1000)
+            else:
+                pass  # do nothing, continue with next lines
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN ADD NEW ADDRESS SECTION..*****")
 
