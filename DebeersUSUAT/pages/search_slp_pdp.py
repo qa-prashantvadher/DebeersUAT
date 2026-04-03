@@ -41,14 +41,14 @@ class SearchSKU(BasePage):
 
     def test_search_with_sku(self, sku):
         try:
-            self.timeout(2000)
+            self.timeout(3000)
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.fill(self.search_keyword_input, sku)
             self.timeout(3000)
             #self.screenshot.take_Page_screenshot("SEARCH_SKU")
             self.click(self.first_suggestion)
-            self.timeout(5000)
+            self.timeout(3000)
             print(f"SEARCHED WITH THE {sku} SKU..")
             #self.screenshot.take_Page_screenshot("SEARCH_SKU_PDP")
         except:
@@ -56,12 +56,12 @@ class SearchSKU(BasePage):
 
     def test_search_with_keyword(self, keyword):
         try:
-            self.timeout(2000)
+            self.timeout(3000)
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.fill(self.search_keyword_input, keyword)
             self.press(self.search_keyword_input, "Enter")
-            self.timeout(5000)
+            self.timeout(3000)
             print(f"SEARCHED WITH THE {keyword} KEYWORD..")
             #self.screenshot.take_Page_screenshot("SEARCH_KEYWORD_SLP")
         except:

@@ -15,7 +15,7 @@ class Checkout_Go_Back_From_Payment(BasePage):
 
     def test_go_back_to_delivery_from_payment_page(self):
         try:
-            self.timeout(2000)
+            self.timeout(1000)
             self.click(self.delivery_tab_from_payment)
             self.timeout(3000)
             print("[FROM PAYMENT PAGE] USER IS REDIRECTED BACK TO THE DELIVERY PAGE..")
@@ -25,7 +25,7 @@ class Checkout_Go_Back_From_Payment(BasePage):
 
     def test_go_back_to_shopping_cart_from_payment_page(self):
         try:
-            self.timeout(2000)
+            self.timeout(1000)
             self.click(self.go_back_to_shopping_bag)
             self.timeout(5000)
             print("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE SHOPPING BAG PAGE..")
