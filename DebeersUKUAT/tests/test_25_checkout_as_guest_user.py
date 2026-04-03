@@ -92,7 +92,7 @@ def test_checkout_as_guest_user(page):
     checkout_delivery.test_delivery_date_on_collect_in_store()
     checkout_delivery.test_enter_gift_message()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_payment.test_enter_mastercard_credit_card_details()
+    checkout_payment.test_enter_jcb_credit_card_details()
     checkout_payment.test_enter_change_billing_name_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
