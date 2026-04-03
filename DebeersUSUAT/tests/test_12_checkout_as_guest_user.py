@@ -228,7 +228,6 @@ def test_checkout_as_guest_user(page):
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_union_pay_credit_card_details()
     checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
-    checkout_delivery.test_open_collect_in_store_tab()
     checkout_delivery.test_select_someone_else_collect_checkbox()
     checkout_delivery.test_enter_collector_details_in_store_collect()
     checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -511,7 +510,7 @@ def test_checkout_as_guest_user(page):
     checkout_payment.test_continue_to_review_from_payment_page()
     checkout_review.test_place_an_order_from_order_review_page()
 
-  # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
+    # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
