@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+import random
 
 class Checkout_Delivery(BasePage):
 
@@ -37,12 +38,9 @@ class Checkout_Delivery(BasePage):
     gift_checkbox = "input[name='dwfrm_shipping_shippingAddress_isGift']"
     gift_message_input = "[name='dwfrm_shipping_shippingAddress_giftMessage']"
 
-    first_name_text = "Robert"
-    last_name_text = "Johnson"
+    delivery_collector_first_name_list = ["Oliver","Jack","Harry","Jacob","Charlie","Thomas","George","James","Robert"]
+    delivery_collector_last_name_list = ["Smith","Taylor","Brown","Williams","Wilson","Evans","Robinson","Walker","Thompson","Brook"]
     phone_text = "8090809080"
-
-    collector_first_name_text = "Maria"
-    collector_last_name_text = "Rodriguez"
     collector_phone_text = "8989089890"
 
     gift_message_text = "Testing this gift message for an order containing two products. I hope these two pieces add a nice touch to your collection. Enjoy your jewellery now!"
@@ -101,9 +99,11 @@ class Checkout_Delivery(BasePage):
     def test_enter_user_details_in_premium_delivery(self):
         try:
             self.timeout(2000)
+            first_name_text = random.choice(self.delivery_collector_first_name_list)
+            last_name_text = random.choice(self.delivery_collector_last_name_list)
             self.select_option(self.delivery_title_dropdown, self.delivery_title_value)
-            self.fill(self.first_name_input, self.first_name_text)
-            self.fill(self.last_name_input, self.last_name_text)
+            self.fill(self.first_name_input, first_name_text)
+            self.fill(self.last_name_input, last_name_text)
             self.fill(self.phone_input, self.phone_text)
             self.timeout(2000)
             print("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
@@ -113,9 +113,11 @@ class Checkout_Delivery(BasePage):
     def test_enter_collector_details_in_store_collect(self):
         try:
             self.timeout(2000)
+            collector_first_name_text = random.choice(self.delivery_collector_first_name_list)
+            collector_last_name_text = random.choice(self.delivery_collector_last_name_list)
             self.select_option(self.delivery_title_dropdown, self.delivery_title_value)
-            self.fill(self.first_name_input, self.collector_first_name_text)
-            self.fill(self.last_name_input, self.collector_last_name_text)
+            self.fill(self.first_name_input, collector_first_name_text)
+            self.fill(self.last_name_input, collector_last_name_text)
             self.fill(self.phone_input, self.collector_phone_text)
             print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
 

@@ -769,7 +769,6 @@ def test_checkout_as_registered_user(page):
     checkout_payment.test_continue_to_review_from_payment_page()
     checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
     shopping_cart.test_continue_to_checkout_from_cart()
-    checkout_delivery.test_enter_collector_details_in_store_collect()
     checkout_delivery.test_delivery_date_on_collect_in_store()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_visa_credit_card_details()

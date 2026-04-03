@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+import random
 
 class Checkout_Payment(BasePage):
 
@@ -60,8 +61,9 @@ class Checkout_Payment(BasePage):
     billing_city_input = "//input[@id='billingAddressCity']"
     billing_postal_code_input = "//input[@id='billingZipCode']"
 
-    billing_first_name_text = "Prashant"
-    billing_last_name_text = "Vadher"
+    billing_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George", "James", "Robert"]
+    billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker", "Thompson", "Brook"]
+
     billing_phone_text = "9558112787"
     billing_address_text = "2 Burtley Cottages, Windsor Road"
     billing_city_text = "Beaconsfield"
@@ -180,10 +182,12 @@ class Checkout_Payment(BasePage):
     def test_enter_change_billing_name_details(self):
         try:
             self.timeout(2000)
+            billing_first_name_text = random.choice(self.billing_first_name_list)
+            billing_last_name_text = random.choice(self.billing_last_name_list)
             self.scroll_down(self.billing_first_name_input)
             self.select_option(self.billing_title_dropdown,self.billing_title_value)
-            self.fill(self.billing_first_name_input, self.billing_first_name_text)
-            self.fill(self.billing_last_name_input, self.billing_last_name_text)
+            self.fill(self.billing_first_name_input, billing_first_name_text)
+            self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_page_screenshot("CHECKOUT_BILLING_NAME")
             print("[CHECKOUT-BILLING_NAME] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
