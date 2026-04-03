@@ -28,7 +28,7 @@ class Checkout_Login(BasePage):
             self.fill(self.guest_email_address_input,self.email_address_text)
             self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_GUEST")
             self.click(self.checkout_as_guest_cta)
-            self.timeout(8000)
+            self.timeout(5000)
             print("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
         except:
             print(f"*****[CHECKOUT-GUEST] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
@@ -40,7 +40,7 @@ class Checkout_Login(BasePage):
             self.fill(self.registered_password_input, self.password_text)
             self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_REGISTERED")
             self.click(self.checkout_as_register_cta)
-            self.timeout(8000)
+            self.timeout(5000)
             print("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
         except:
             print(f"*****[CHECKOUT-REGISTERED] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
