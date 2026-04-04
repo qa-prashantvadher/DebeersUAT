@@ -62,7 +62,7 @@ class SearchSKU(BasePage):
             self.fill(self.search_keyword_input, keyword)
             self.press(self.search_keyword_input, "Enter")
             self.timeout(3000)
-            print(f"SEARCHED WITH THE {keyword.upper()} KEYWORD..")
+            print(f"SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
             #self.screenshot.take_Page_screenshot("SEARCH_KEYWORD_SLP")
         except:
             print(f"*****NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")
