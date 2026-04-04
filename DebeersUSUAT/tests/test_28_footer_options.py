@@ -25,7 +25,6 @@ def test_footer_section(page):
     # FOOTER SECTION
     footer_section.test_locate_a_store_link_from_footer()
     store_locator.test_close_store_locator_page()
-    '''
     footer_section.test_book_an_appointment_link_from_footer()
     footer_section.test_delivery_returns_link_from_footer()
     footer_section.test_contact_us_link_from_footer()
@@ -34,4 +33,3 @@ def test_footer_section(page):
     footer_section.test_news_letter_from_footer()
     footer_section.test_select_country_records_from_location_footer()
     footer_section.test_select_language_records_from_language_footer()
-'''
