@@ -121,7 +121,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.click(locator)
                  self.timeout(5000)
                  page_url = self.page.url
-                 print(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url}")
+                 print(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_LANGUAGE_{language_name.upper()}")
         except:
                  print("[MENU] NOT ABLE TO CHANGE LANGUAGE DETAILS..")
@@ -150,7 +150,7 @@ class Open_Menu_Header_Options (BasePage):
                      print("COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
                  self.timeout(2000)
                  page_url = self.page.url
-                 print(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url}")
+                 print(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_COUNTRY_{country_name.upper()}")
                  
         except:

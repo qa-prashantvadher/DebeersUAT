@@ -157,7 +157,7 @@ class Footer_Page(BasePage):
                 except:
                     print("*****[FOOTER] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..*****")
                 page_url = self.page.url
-                print(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url}")
+                print(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
                 self.test_location_dropdown_from_footer()
         except:
@@ -170,7 +170,7 @@ class Footer_Page(BasePage):
                 self.click(locator)
                 self.timeout(5000)
                 page_url = self.page.url
-                print(f"[FOOTER] '{language.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url}")
+                print(f"[FOOTER] '{language.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LANGUAGE_{language.upper()}")
                 self.test_language_dropdown_from_footer()
         except:
