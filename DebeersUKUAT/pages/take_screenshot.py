@@ -10,10 +10,12 @@ env = os.getenv("ENVIRONMENT")
 class PageScreenshot(BasePage):
     date_folder = time.strftime('%d%m%Y')
 
-    if env == "UAT":
+    if env in ["UAT", "QA"]:
         base_path = r"D:\Python Code\Screenshots\DB-UAT\UK"
-    else:
+    elif env == "PROD":
         base_path = r"D:\Python Code\Screenshots\DB-PROD\UK"
+    elif env == "QA":
+        base_path = r"D:\Python Code\Screenshots\DB-QA\UK"
 
     order_sub_folder = "ORDERS"
     other_sub_folder = "OTHERS"

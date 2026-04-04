@@ -34,7 +34,7 @@ class Checkout_Review(BasePage):
 
             self.timeout(1000)
             self.screenshot.take_page_screenshot(f"USA_ORDER_REVIEW")
-            if env == "UAT":
+            if env in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]

@@ -12,8 +12,10 @@ class PageScreenshot(BasePage):
 
     if env == "UAT":
         base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
-    else:
+    elif env == "PROD":
         base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
+    elif env == "QA":
+        base_path = r"D:\Python Code\Screenshots\DB-QA\US"
 
     order_sub_folder = "ORDERS"
     other_sub_folder = "OTHERS"

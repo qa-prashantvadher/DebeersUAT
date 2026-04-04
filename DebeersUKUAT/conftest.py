@@ -42,7 +42,7 @@ def context(browser):
     }
 
     # Apply condition based on environment
-    if env == "UAT":
+    if env in ["UAT", "QA"]:
         context_args["http_credentials"] = creds
 
     context = browser.new_context(**context_args)
