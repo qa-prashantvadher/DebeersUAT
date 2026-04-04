@@ -26,12 +26,12 @@ class Open_Menu_Header_Options (BasePage):
     country_value_locator = {
         "canada": "//*[@id='accordionCountrySelector_mobile']/li[4]/a",
         "china": "//*[@id='accordionCountrySelector_mobile']/li[5]/a",
-        "france": "//*[@id='accordionCountrySelector_mobile']/li[6]/a",
         "hongkong": "//*[@id='accordionCountrySelector_mobile']/li[9]/a",
         "macau": "//*[@id='accordionCountrySelector_mobile']/li[11]/a",
         "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
         "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a",
-        "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
+        "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a",
+        "france": "//*[@id='accordionCountrySelector_mobile']/li[6]/a"
     }
 
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
