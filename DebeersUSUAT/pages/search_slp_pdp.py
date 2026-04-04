@@ -41,7 +41,7 @@ class SearchSKU(BasePage):
 
     def test_search_with_sku(self, sku):
         try:
-            self.timeout(3000)
+            self.timeout(5000)
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.fill(self.search_keyword_input, sku)
