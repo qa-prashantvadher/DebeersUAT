@@ -19,18 +19,18 @@ class SearchSKU(BasePage):
     slp_page_records = '//*[@id="navbarFilters"]/div/div[1]/div[2]/span'
 
     # SLP Page > Filter
-    filter_label = "//button[normalize-space()='Filter']"
+    filter_label = "button.btn-filtered.js-show-filters"
 
-    material_label = "button:has-text('Material')"
-    material_option = "//*[@id='Platinum']"
+    material_label = "//span[@id='métal-label']/ancestor::button"
+    material_option = "//*[@id='Platine']"
     material_apply_button = "div[class='refinement-content is-filter-bar productMetal'] a[name='apply']"
 
-    size_label = "button:has-text('Size')"
+    size_label = "//span[@id='taille-label']"
     size_50 = "//div[@id='50']"
     size_apply_button = "div[class='refinement-content is-filter-bar size'] a[name='apply']"
 
-    cut_label = "button:has-text('Cut')"
-    cut_emerald_option = "//div[contains(text(),'Emerald')]"
+    cut_label = "//span[@id='taille_de_diamant-label']"
+    cut_emerald_option = "//div[contains(text(),'Émeraude')]"
     cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
     clear_all_filter = "//div[@id='filterRefinements']/div[@class='offcanvas-body filters-list']/div[@class='clear-cta-wrapper']/a[@class='refinement-dropdown-clear-cta btn btn-link clearButton']"
@@ -62,7 +62,7 @@ class SearchSKU(BasePage):
             self.fill(self.search_keyword_input, keyword)
             self.press(self.search_keyword_input, "Enter")
             self.timeout(3000)
-            print(f"SEARCHED WITH THE {keyword.upper()} KEYWORD..")
+            print(f"SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
             #self.screenshot.take_Page_screenshot("SEARCH_KEYWORD_SLP")
         except:
             print(f"*****NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")

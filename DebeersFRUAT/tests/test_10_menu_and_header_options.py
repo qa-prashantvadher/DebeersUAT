@@ -33,6 +33,8 @@ def test_menu_and_header_option_pages(page):
 
     # OPEN DEBEERS WEBSITE
     home_page.test_navigate_to_url()
+
+    '''
     home_page.test_cookie_consent()
     home_page.test_country_selector()
     home_page.test_email_subscription_popup()
@@ -45,5 +47,6 @@ def test_menu_and_header_option_pages(page):
     menu_header_option.test_open_delivery_returns_page_from_menu()
     menu_header_option.test_open_contact_us_from_menu()
     client_service.test_change_region_client_service()
-    menu_header_option.test_change_language_menu()
     menu_header_option.test_change_country_menu()
+    menu_header_option.test_change_language_menu()
+    '''

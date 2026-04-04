@@ -17,9 +17,9 @@ class Open_Menu_Header_Options (BasePage):
 
     choose_language_dropdown = "//*[@id='languageHeading']/button"
     language_value_locator = {
-        "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
         "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
-        "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
+        "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
+        "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a"
         }
 
     choose_country_dropdown = "//*[@id='countryHeading']/button"
