@@ -4,8 +4,7 @@ from pages.take_screenshot import PageScreenshot
 class AddRemoveWishlist(BasePage):
 
     wishlist_icon_header = "//*[@id='headerWishlist']/a"
-    plp_wishlist_icon_R102205 = "//*[@id='productsViewList']/div/div/ul/li[1]/div/figure/div/div[2]/div/button/i"
-    slp_wishlist_icon_R102205 = "//*[@id='productsViewList']/div/div/ul/li/div/figure/div/div[2]/div/button/i"
+    plp_slp_wishlist_icon_R102205 = "button[data-pid='R102205'] i.product-tile__wishlist-icon"
     guest_my_account_wishlist_remove_R102205 = "//*[@id='wishlist-landpage']/div[1]/div[2]/div[2]/ul/li/div/button/i"
     pdp_wishlist_icon_R102205 = "//*[@id='image-1']/button[2]/i"
 
@@ -14,14 +13,14 @@ class AddRemoveWishlist(BasePage):
         super().__init__(page)
         self.screenshot = PageScreenshot(page)
 
-    def test_add_wishlist_plp(self):
+    def test_add_wishlist_plp_slp(self):
         try:
-            self.click(self.plp_wishlist_icon_R102205)
+            self.click(self.plp_slp_wishlist_icon_R102205)
             self.timeout(2000)
-            print("[PLP] PRODUCT IS ADDED TO THE WISHLIST..")
+            print("[PLP/SLP] PRODUCT IS ADDED TO THE WISHLIST..")
             #self.screenshot.take_Page_screenshot("PLP_WISHLIST_ADD")
         except:
-            print("*****[PLP] NOT ABLE TO ADD PRODUCT TO THE WISHLIST..*****")
+            print("*****[PLP/SLP] NOT ABLE TO ADD PRODUCT TO THE WISHLIST..*****")
 
     def test_add_wishlist_pdp(self):
         try:
@@ -33,25 +32,15 @@ class AddRemoveWishlist(BasePage):
         except:
             print("*****[PDP] NOT ABLE TO ADD PRODUCT TO THE WISHLIST..*****")
 
-    def test_add_wishlist_slp(self):
+    def test_remove_wishlist_plp_slp(self):
         try:
-            self.click(self.slp_wishlist_icon_R102205)
+            self.click(self.plp_slp_wishlist_icon_R102205)
             self.timeout(2000)
-            print("[SLP] PRODUCT IS ADDED TO THE WISHLIST..")
-            #self.screenshot.take_Page_screenshot("SLP_WISHLIST_ADD")
-
-        except:
-            print("*****[SLP] NOT ABLE TO ADD PRODUCT TO THE WISHLIST..*****")
-
-    def test_remove_wishlist_plp(self):
-        try:
-            self.click(self.plp_wishlist_icon_R102205)
-            self.timeout(2000)
-            print("[PLP] PRODUCT IS REMOVED FROM THE WISHLIST..")
+            print("[PLP/SLP] PRODUCT IS REMOVED FROM THE WISHLIST..")
             #self.screenshot.take_Page_screenshot("PLP_WISHLIST_REMOVE")
 
         except:
-            print("*****[PLP] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")
+            print("*****[PLP/SLP] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")
 
     def test_remove_wishlist_pdp(self):
         try:
@@ -62,16 +51,6 @@ class AddRemoveWishlist(BasePage):
 
         except:
             print("*****[PDP] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")
-
-    def test_remove_wishlist_slp(self):
-        try:
-            self.click(self.slp_wishlist_icon_R102205)
-            self.timeout(2000)
-            print("[SLP] PRODUCT IS REMOVED FROM THE WISHLIST..")
-            #self.screenshot.take_Page_screenshot("SLP_WISHLIST_REMOVE")
-
-        except:
-            print("*****[SLP] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")
 
     def test_remove_wishlist_from_my_account_wishlist_page(self):
         try:

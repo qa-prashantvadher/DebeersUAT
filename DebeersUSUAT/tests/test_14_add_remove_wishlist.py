@@ -13,21 +13,21 @@ def test_add_remove_wishlist_page(page):
 
     #ADD-REMOVE WISHLIST FROM THE PLP, SLP, PDP AND MY ACCOUNT>WISHLIST PAGES.
     engagement_rings_plp.test_open_engagement_rings_plp_page()
-    wishlist.test_add_wishlist_plp()
+    wishlist.test_add_wishlist_plp_slp()
     search.test_search_with_keyword("R102205")
-    wishlist.test_remove_wishlist_slp()
+    wishlist.test_remove_wishlist_plp_slp()
 
     search.test_search_with_sku("R102205")
     wishlist.test_add_wishlist_pdp()
     engagement_rings_plp.test_open_engagement_rings_plp_page()
-    wishlist.test_remove_wishlist_plp()
+    wishlist.test_remove_wishlist_plp_slp()
 
     search.test_search_with_keyword("R102205")
-    wishlist.test_add_wishlist_slp()
+    wishlist.test_add_wishlist_plp_slp()
     search.test_search_with_sku("R102205")
     wishlist.test_remove_wishlist_pdp()
 
     search.test_search_with_keyword("R102205")
-    wishlist.test_add_wishlist_slp()
+    wishlist.test_add_wishlist_plp_slp()
     menu_header_option.test_open_wishlist_page_header()
     wishlist.test_remove_wishlist_from_my_account_wishlist_page()
