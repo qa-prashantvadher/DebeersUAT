@@ -43,7 +43,7 @@ class Checkout_Delivery(BasePage):
     phone_text = "8090809080"
     collector_phone_text = "8989089890"
 
-    gift_message_text = "Testing this gift message for an order containing two products. I hope these two pieces add a nice touch to your collection. Enjoy your jewellery now!"
+    gift_message_text = "Test order with a gift message. I hope this piece adds a beautiful touch to your collection and truly brings you joy and elegance each day you wear it"
 
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
 
