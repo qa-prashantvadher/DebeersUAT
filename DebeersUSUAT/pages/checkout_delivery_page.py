@@ -137,14 +137,18 @@ class Checkout_Delivery(BasePage):
 
     def test_enter_valid_delivery_address_in_premium_delivery(self):
         try:
-            self.timeout(1000)
-            self.fill(self.premium_address_input, self.premium_address_text)
-            # State dropdown
-            self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
-            self.fill(self.premium_city_input, self.premium_city_text)
-            self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
-            self.timeout(1000)
-            print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+            self.timeout(3000)
+            if self.is_visible(self.premium_add_new_address_option):
+                pass  # do nothing, continue with next lines
+            else:
+                self.timeout(1000)
+                self.fill(self.premium_address_input, self.premium_address_text)
+                # State dropdown
+                self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
+                self.fill(self.premium_city_input, self.premium_city_text)
+                self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
+                self.timeout(1000)
+                print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
