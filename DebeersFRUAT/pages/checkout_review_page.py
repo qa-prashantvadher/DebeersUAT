@@ -12,8 +12,8 @@ class Checkout_Review(BasePage):
 
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
-    delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime GB-SHIPPING-01']"
-    delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime GB-SHIPPING-02']"
+    delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime FR-SHIPPING-01']"
+    delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime FR-SHIPPING-02']"
     order_number_confirmation_page = "//span[@class='order-number']"
 
     def __init__(self, page):
@@ -39,7 +39,7 @@ class Checkout_Review(BasePage):
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
                 print(f"[ORDER CREATED] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
-                self.screenshot.take_order_page_screenshot(f"UK_ORDER#_{order_number}_{delivery_date.upper()}")
+                self.screenshot.take_order_page_screenshot(f"FR_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
                 self.navigate(URL)

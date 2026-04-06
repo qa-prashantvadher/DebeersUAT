@@ -4,7 +4,7 @@ from pages.take_screenshot import PageScreenshot
 class AddEngraving(BasePage):
 
     engraving_input = "//*[@id='engravingText']"
-    new_engraving_text = "A Diamond is Forever"
+    new_engraving_text = "Les diamants durent."
     update_engraving_text = "De Beers is Forever."
     monotype_font = "//*[@id='Monotype-Corsiva']"
     arial_font = "//*[@id='Arial']"
