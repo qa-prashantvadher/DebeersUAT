@@ -38,7 +38,7 @@ class Footer_Page(BasePage):
        # "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
         "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
         "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a",
-        "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
+        "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a"
     }
 
     #Language Dropdown

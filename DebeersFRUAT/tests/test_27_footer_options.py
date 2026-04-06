@@ -31,5 +31,5 @@ def test_footer_section(page):
     footer_section.test_faq_link_from_footer()
     faq_section.test_all_faq_categories()
     footer_section.test_news_letter_from_footer()
-    footer_section.test_select_country_records_from_location_footer()
     footer_section.test_select_language_records_from_language_footer()
+    footer_section.test_select_country_records_from_location_footer()
