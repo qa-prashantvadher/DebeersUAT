@@ -28,8 +28,8 @@ def test_checkout_as_registered_user(page):
 
 
     # Case 1: Premium Delivery + Amex card + Same Billing address
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
+    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
     checkout_delivery.test_open_premium_delivery_tab()
@@ -44,8 +44,8 @@ def test_checkout_as_registered_user(page):
         login_logout.test_logout_from_order_confirmation_page()
 
     # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
+    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
     checkout_delivery.test_open_premium_delivery_tab()
@@ -61,8 +61,8 @@ def test_checkout_as_registered_user(page):
         login_logout.test_logout_from_order_confirmation_page()
 
     # Case 3: Self Collect + Master card + Same Billing Name
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
+    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
     checkout_delivery.test_open_collect_in_store_tab()
@@ -77,8 +77,8 @@ def test_checkout_as_registered_user(page):
         login_logout.test_logout_from_order_confirmation_page()
 
     # Case 4: Self Collect + Master card + Different Billing Name
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
+    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
     checkout_delivery.test_open_collect_in_store_tab()
@@ -94,8 +94,8 @@ def test_checkout_as_registered_user(page):
         login_logout.test_logout_from_order_confirmation_page()
 
     # Case 5: Someone Else Collect + Discover card
-    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
+    checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
     checkout_delivery.test_open_collect_in_store_tab()
