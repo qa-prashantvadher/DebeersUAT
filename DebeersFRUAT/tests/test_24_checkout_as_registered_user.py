@@ -130,29 +130,7 @@ def test_checkout_as_registered_user(page):
     if env in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
 
-    # Case 7: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card
-    checkout_pdp.test_checkout_spp_no_size_with_engraving()
-    checkout_pdp.test_secure_checkout_from_minicart()
-    checkout_login.test_checkout_as_registered_user()
-    checkout_delivery.test_delivery_date_on_premium_delivery()
-    checkout_delivery.test_enter_gift_message()
-    checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_payment.test_enter_discover_credit_card_details()
-    checkout_payment.test_use_delivery_as_billing_address_checkbox()
-    checkout_payment.test_continue_to_review_from_payment_page()
-    checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
-    shopping_cart.test_continue_to_checkout_from_cart()
-    checkout_delivery.test_open_collect_in_store_tab()
-    checkout_delivery.test_select_self_collect_checkbox()
-    checkout_delivery.test_delivery_date_on_collect_in_store()
-    checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_payment.test_enter_mastercard_credit_card_details()
-    checkout_payment.test_continue_to_review_from_payment_page()
-    checkout_review.test_place_an_order_from_order_review_page()
-    if env in ["UAT", "QA"]:
-        login_logout.test_logout_from_order_confirmation_page()
-
-    # Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
+    # Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Amex card
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()
@@ -164,7 +142,7 @@ def test_checkout_as_registered_user(page):
     shopping_cart.test_continue_to_checkout_from_cart()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_payment.test_enter_discover_credit_card_details()
+    checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
     checkout_review.test_place_an_order_from_order_review_page()
     if env in ["UAT", "QA"]:
