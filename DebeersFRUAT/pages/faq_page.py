@@ -12,7 +12,6 @@ class FAQ_Page(BasePage):
     diamond_care_aftersales_services_category = "//*[@id='diamond-care-aftersales-tab']"
     our_brand_category = "//*[@id='our-brand-tab']"
     debeers_group_category = "//*[@id='debeers-group-tab']"
-    klarna_category = "//*[@id='klarna-tab']"
 
     def __init__(self, page):
         super().__init__(page)
@@ -44,10 +43,6 @@ class FAQ_Page(BasePage):
              self.click(self.debeers_group_category)
              print("[FAQ] DEBEERS GROUP CATEGORY TAB IS SELECTED..")
              #self.screenshot.take_Page_screenshot("FAQ_DEBEERS_GROUP")
-
-             self.click(self.klarna_category)
-             print("[FAQ] KLARNA CATEGORY TAB IS SELECTED..")
-             #self.screenshot.take_Page_screenshot("FAQ_KLARNA")
 
              self.click(self.online_shopping_category)
              print("[FAQ] ONLINE SHOPPING CATEGORY TAB IS SELECTED..")
