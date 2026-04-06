@@ -42,9 +42,7 @@ class Footer_Page(BasePage):
        # "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
         "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
         "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a",
-        "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
-        "france": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[6]/a"
-    }
+        "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a"    }
 
     #Language Dropdown
     language_dropdown_footer = "//*[@id='languageHeadingFooter']/button"
