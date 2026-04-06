@@ -20,7 +20,7 @@ class PDP_Enquire_Book_Appointment(BasePage):
         SKU3="E102112"
     else:
         SKU3="R102265"
-    find_your_diamond_cta = "//div[@class='primary-btn-wrap']/button[1]"
+    find_your_diamonds_cta = "//div[@class='primary-btn-wrap']/button[1]"
     enquire_upp_multiple_variant = "(//li[contains(@class,'variation-tile')]//button[contains(@class,'btn-enquire-online')])[1]"
 
     bb_contact_us_section = "//*[@id='pdpAttrAccContactUs']/button"

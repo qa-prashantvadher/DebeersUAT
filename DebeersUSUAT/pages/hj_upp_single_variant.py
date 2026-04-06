@@ -10,7 +10,7 @@ class HJ_UPP_Single_Variant(BasePage):
 
         ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/div/button[1]"
         ADD_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
-        ADDED_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
+        ADDED_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[2]"
 
         minicart_close_icon = '//*[@id="minicart"]/button'
 

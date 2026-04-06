@@ -56,7 +56,7 @@ class HJ_UPP_Multiple_Variant(BasePage):
                 self.click(self.FIND_YOUR_DIAMOND_CTA)
                 self.timeout(2000)
                 #self.screenshot.take_Page_screenshot("HJ_UPP_MULTIPLE_LIST")
-                self.click(self.ADD_TO_BAG_WOE_CTA)
+                self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
                 print(f"[HJ] UPP MULTIPLE VARIANT [WITHOUT ENGRAVING] {self.SKU2} ENGRAVING TEXT IS ADDED..")
                 self.screenshot.take_page_screenshot("HJ_UPP_MULTIPLE_ADDED_WITHOUT_ENGRAVING")
