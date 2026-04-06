@@ -5,6 +5,7 @@ from pages.take_screenshot import PageScreenshot
 import re
 import random
 from datetime import datetime, timedelta
+import locale
 
 class Checkout_PDP_SPP_No_Size(BasePage):
 
@@ -38,6 +39,10 @@ class Checkout_PDP_SPP_No_Size(BasePage):
         SKU1 = random.choice(self.SKU1_LIST)
         print(f"SKU1: {SKU1}")
         try:
+
+            #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
+            locale.setlocale(locale.LC_TIME, "French_France")  # For Windows
+
             self.search.test_search_with_sku(SKU1)
             delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
             clean_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', delivery_date).strip()

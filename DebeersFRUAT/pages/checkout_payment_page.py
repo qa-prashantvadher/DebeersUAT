@@ -11,9 +11,9 @@ class Checkout_Payment(BasePage):
     payment_by_paypal = "//input[@id='rb_paypal']"
 
     #Cards
-    card_number_iframe = "iframe[title='Iframe pour le numéro de carte']"
-    expiry_date_iframe = "iframe[title='Iframe pour la date d'expiration']"
-    cvv_iframe = "iframe[title='Iframe pour le code de sécurité']"
+    card_number_iframe = "[data-cse='encryptedCardNumber'] iframe"
+    expiry_date_iframe = "[data-cse='encryptedExpiryDate'] iframe"
+    cvv_iframe = "[data-cse='encryptedSecurityCode'] iframe"
     card_holder_name_input = "input[name='holderName']" #not inside iframe
 
     amex_card_number_text = "370000000000002"
@@ -100,8 +100,17 @@ class Checkout_Payment(BasePage):
         try:
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.amex_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.amex_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.amex_cvv_text)
+
+            # Expiry (FIX)
+            expiry_frame = self.page.frame_locator(self.expiry_date_iframe).first
+            expiry_frame.locator("body").click()
+            expiry_frame.locator("body").press_sequentially(self.amex_expiry_date_text)
+
+            # CVV (FIX)
+            cvv_frame = self.page.frame_locator(self.cvv_iframe).first
+            cvv_frame.locator("body").click()
+            cvv_frame.locator("body").press_sequentially(self.amex_cvv_text)
+
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_AMEX")

@@ -11,9 +11,9 @@ class Checkout_Payment(BasePage):
     payment_by_paypal = "//input[@id='rb_paypal']"
 
     #Cards
-    card_number_iframe = "iframe[title='Iframe for card number']"
-    expiry_date_iframe = "iframe[title='Iframe for expiry date']"
-    cvv_iframe = "iframe[title='Iframe for security code']"
+    card_number_iframe = "[data-cse='encryptedCardNumber'] iframe"
+    expiry_date_iframe = "[data-cse='encryptedExpiryDate'] iframe"
+    cvv_iframe = "[data-cse='encryptedSecurityCode'] iframe"
     card_holder_name_input = "input[name='holderName']" #not inside iframe
 
     amex_card_number_text = "370000000000002"
