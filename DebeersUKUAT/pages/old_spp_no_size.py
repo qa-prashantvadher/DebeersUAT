@@ -36,7 +36,8 @@ class OLD_SPP_No_Size(BasePage):
                 self.click(self.ADD_TO_BAG_CTA)
                 print(f"[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("OLD_SPP_NO_SIZE_ADDED_WITHOUT_ENGRAVING")
-                self.click(self.minicart_close_icon)
+                self.keyboard_press("Escape")
+                #self.click(self.minicart_close_icon)
 
             except:
                 print(f"*****[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
