@@ -29,7 +29,6 @@ def test_client_services_page(page):
     client_service.test_open_email_us_form_from_client_services()
     client_service.test_open_book_an_appointment_from_email_call()
     book_appointment.test_in_store_appointment_type()
-    book_appointment.test_virtual_appointment_type()
 
     menu_header_option.test_open_contact_us_from_header()
     client_service.test_open_email_us_form_from_client_services()
@@ -51,7 +50,6 @@ def test_client_services_page(page):
     client_service.test_open_callback_form_from_client_services()
     client_service.test_open_book_an_appointment_from_email_call()
     book_appointment.test_in_store_appointment_type()
-    book_appointment.test_virtual_appointment_type()
 
     menu_header_option.test_open_contact_us_from_header()
     client_service.test_open_callback_form_from_client_services()

@@ -6,30 +6,28 @@ from pages.take_screenshot import PageScreenshot
 class Open_EngagementRings_PLP_Page(BasePage):
 
     menu_icon = "button:has-text('Menu')"
-    engagement_bridal_sub_menu = "button:has-text('Engagement & Bridal')"
-    engagement_rings = "#G10050:visible"
+    engagement_bridal_sub_menu = "button[id='G10002'] span[class='menu__nav-link-span']"
+    engagement_rings = "a[id='G10050'] span[class='menu__nav-link-span']"
 
     # PLP Page > Sorting
     sort_by_label = "#sortRefinement button"
     price_ascending = "//input[@id='price-low-to-high']"
-    ascending_label_text = "price ascending"
-    descending_label_text = "price descending"
     price_descending = "//input[@id='price-high-to-low']"
     slp_page_records = "//*[@id='navbarFilters']/div/div[1]/div[2]/span"
 
     # PLP  Page > Filter
-    filter_label = "//button[normalize-space()='Filter']"
+    filter_label = "button.btn-filtered.js-show-filters"
 
-    material_label = "button:has-text('Material')"
-    material_option = "//*[@id='Platinum']"
+    material_label = "//span[@id='métal-label']/ancestor::button"
+    material_option = "//*[@id='Platine']"
     material_apply_button = "div[class='refinement-content is-filter-bar productMetal'] a[name='apply']"
 
-    size_label = "button:has-text('Size')"
+    size_label = "//span[@id='taille-label']"
     size_50 = "//div[@id='50']"
     size_apply_button = "div[class='refinement-content is-filter-bar size'] a[name='apply']"
 
-    cut_label = "button:has-text('Cut')"
-    cut_emerald_option = "//div[contains(text(),'Emerald')]"
+    cut_label = "//span[@id='taille_de_diamant-label']"
+    cut_emerald_option = "//div[contains(text(),'Émeraude')]"
     cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
     clear_all_filter = "//div[@id='filterRefinements']/div[@class='offcanvas-body filters-list']/div[@class='clear-cta-wrapper']/a[@class='refinement-dropdown-clear-cta btn btn-link clearButton']"

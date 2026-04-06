@@ -15,6 +15,7 @@ class AddRemoveWishlist(BasePage):
 
     def test_add_wishlist_plp_slp(self):
         try:
+            self.scroll_down(self.plp_slp_wishlist_icon_R102205)
             self.click(self.plp_slp_wishlist_icon_R102205)
             self.timeout(2000)
             print("[PLP/SLP] PRODUCT IS ADDED TO THE WISHLIST..")

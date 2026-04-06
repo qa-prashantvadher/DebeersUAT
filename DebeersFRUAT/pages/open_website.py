@@ -19,7 +19,7 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
-            print(f"NAVIGATED TO: {self.URL}")
+            print(f"NAVIGATED TO: {self.URL.upper()}")
        except:
             print("PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..")
 

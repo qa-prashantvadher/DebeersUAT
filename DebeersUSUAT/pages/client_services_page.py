@@ -11,7 +11,7 @@ class Client_Services_Page(BasePage):
     email_address_text = os.getenv("USERNAME")
 
 
-    client_service_email_cta = "//a[normalize-space()='Email Us']"
+    client_service_email_cta = "a[data-bs-target='#contactUsModal']"
     client_service_request_call_cta = "//*[@id='requestCall']"
     client_service_region_dropdown = "//select[@class='csCountrySelector form-element__select services-country-selector__select']"
     client_service_quick_links = "//[class='services-quick-links service-quick-links']"
