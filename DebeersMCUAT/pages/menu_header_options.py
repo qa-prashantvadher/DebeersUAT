@@ -6,6 +6,7 @@ import os
 load_dotenv(override=True)
 
 
+
 class Open_Menu_Header_Options (BasePage):
     URL = os.getenv('BASE_URL')
 
@@ -20,9 +21,9 @@ class Open_Menu_Header_Options (BasePage):
 
     choose_language_dropdown = "//*[@id='languageHeading']/button"
     language_value_locator = {
-        "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
         "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
-        "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
+        "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
+        "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a"
         }
 
     choose_country_dropdown = "//*[@id='countryHeading']/button"
@@ -37,11 +38,12 @@ class Open_Menu_Header_Options (BasePage):
         "greece": "//*[@id='accordionCountrySelector_mobile']/li[8]/a",
         "hongkong": "//*[@id='accordionCountrySelector_mobile']/li[9]/a",
         "italy": "//*[@id='accordionCountrySelector_mobile']/li[10]/a",
-        "macau": "//*[@id='accordionCountrySelector_mobile']/li[11]/a",
         "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
         "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
         "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
-        "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
+        "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a",
+        "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
+
     }
 
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
@@ -165,6 +167,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.navigate(self.URL)
                  print(f"NAVIGATED TO: {self.URL.upper()}")
                  self.timeout(5000)
-                 
+
+
         except:
             print("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")

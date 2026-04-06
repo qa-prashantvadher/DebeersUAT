@@ -28,21 +28,21 @@ class Footer_Page(BasePage):
 
     #Locator dropdown records
     location_keyword = {
-        "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
-        "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
-        "belgium": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[3]/a",
-        "canada": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[4]/a",
-        "china": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[5]/a",
-        "germany": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[7]/a",
-        "greece": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[8]/a",
-        "hong_kong": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[9]/a",
-        "italy": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[10]/a",
-        "macau": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[11]/a",
-        "netherlands": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[12]/a",
-        "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
-        "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
-        "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
-        "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a"
+       "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
+       "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
+       "belgium": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[3]/a",
+       "canada": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[4]/a",
+       "china": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[5]/a",
+       "germany": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[7]/a",
+       "greece": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[8]/a",
+       "hong_kong": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[9]/a",
+       "italy": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[10]/a",
+       "netherlands": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[12]/a",
+       "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
+       "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
+       "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
+       "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a"
+
     }
 
     #Language Dropdown
