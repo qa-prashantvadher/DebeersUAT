@@ -2,9 +2,13 @@ from pages.base_page import BasePage
 from pages.open_website import OpenHomePage
 from pages.take_screenshot import PageScreenshot
 import os
-
+from dotenv import load_dotenv
+import os
+load_dotenv(override=True)
 
 class Footer_Page(BasePage):
+
+    URL = os.getenv('BASE_URL')
 
     #Client Services Links
     locate_a_store_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[1]/a"
@@ -159,6 +163,9 @@ class Footer_Page(BasePage):
                 page_url = self.page.url
                 print(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
+                self.navigate(self.URL)
+                print(f"NAVIGATED TO: {self.URL.upper()}")
+                self.timeout(5000)
                 self.test_location_dropdown_from_footer()
         except:
             print("*****[FOOTER] NOT ABLE TO SELECT LOCATION RECORDS..*****")
