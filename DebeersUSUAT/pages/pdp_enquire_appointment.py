@@ -9,19 +9,19 @@ load_dotenv(override=True)
 class PDP_Enquire_Book_Appointment(BasePage):
 
     SKU1="E103401"
-    enquire_old_master_level = "button:has-text('ENQUIRE ONLINE')"
-    contact_us_old = "//*[@id='dataLayer-product-detail']/ul/li[1]/a"
+    enquire_old_master_level = "//div[contains(@class,'primary-btn-wrap')]//button[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
+    contact_us_old = "//li[contains(@class,'product-info__footer-item')]//a[contains(@class,'btn-clientServices-secondary btn-clientServices') and not(contains(@class,'d-none'))]"
 
     SKU2="E103387"
-    enquire_hj_master_level= "//*[@id='productInfoDiv']/div[5]/div/div/div[1]/a"
-    book_appointment_hj_master_level = "//*[@id='productInfoDiv']/div[5]/div/div/div[2]/a"
+    enquire_hj_master_level= "//div[contains(@class,'primary-btn-wrap')]//a[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
+    book_appointment_hj_master_level = "//div[contains(@class,'secondary-btn-wrap')]//a[contains(@class,'btn-bookAppointment') and not(contains(@class,'d-none'))]"
 
     if os.getenv('ENVIRONMENT') == "PROD":
         SKU3="E102112"
     else:
-        SKU3="N103386"
-    find_your_diamonds_cta = "//*[@id='productInfoDiv']/div[4]/div/div/div/button"
-    enquire_upp_multiple_variant = "//*[@id='find-your-ring']/div[3]/div[3]/ul/li[1]/figure/figcaption/div/div[4]/div/button"
+        SKU3="R102265"
+    find_your_diamond_cta = "//div[@class='primary-btn-wrap']/button[1]"
+    enquire_upp_multiple_variant = "(//li[contains(@class,'variation-tile')]//button[contains(@class,'btn-enquire-online')])[1]"
 
     bb_contact_us_section = "//*[@id='pdpAttrAccContactUs']/button"
     bb_email_us_button = "button:has-text('Email Us')"

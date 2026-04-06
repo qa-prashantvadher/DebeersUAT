@@ -5,7 +5,7 @@ from pages.take_screenshot import PageScreenshot
 
 class Open_EngagementRings_PLP_Page(BasePage):
 
-    menu_icon = "button:has-text('Menu')"
+    menu_icon = "button:has-text('選單')"
     engagement_bridal_sub_menu = "button[id='G10002'] span[class='menu__nav-link-span']"
     engagement_rings = "a[id='G10050'] span[class='menu__nav-link-span']"
 
@@ -18,16 +18,16 @@ class Open_EngagementRings_PLP_Page(BasePage):
     # PLP  Page > Filter
     filter_label = "button.btn-filtered.js-show-filters"
 
-    material_label = "//span[@id='métal-label']/ancestor::button"
-    material_option = "//*[@id='Platine']"
+    material_label = "//span[@id='材質-label']/ancestor::button"
+    material_option = "//*[@id='鉑金']"
     material_apply_button = "div[class='refinement-content is-filter-bar productMetal'] a[name='apply']"
 
-    size_label = "//span[@id='taille-label']"
+    size_label = "//span[@id='尺寸-label']"
     size_50 = "//div[@id='50']"
     size_apply_button = "div[class='refinement-content is-filter-bar size'] a[name='apply']"
 
-    cut_label = "//span[@id='taille_de_diamant-label']"
-    cut_emerald_option = "//div[contains(text(),'Émeraude')]"
+    cut_label = "//span[@id='鑽石切割-label']"
+    cut_emerald_option = "//div[contains(text(),'祖母綠形')]"
     cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
     clear_all_filter = "//div[@id='filterRefinements']/div[@class='offcanvas-body filters-list']/div[@class='clear-cta-wrapper']/a[@class='refinement-dropdown-clear-cta btn btn-link clearButton']"
@@ -56,15 +56,16 @@ class Open_EngagementRings_PLP_Page(BasePage):
     def test_apply_sorting_on_plp(self):
        try:
             self.click(self.sort_by_label)
-            self.timeout(1000)
+            self.timeout(2000)
             self.click(self.price_ascending)
-            self.timeout(4000)
+            self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
             print(f"PLP RECORDS [AFTER SORTING: PRICE ASCENDING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
+            self.timeout(2000)
             self.check(self.price_descending)
-            self.timeout(4000)
+            self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
             print(f"PLP RECORDS [AFTER SORTING: PRICE DESCENDING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_DESCENDING")

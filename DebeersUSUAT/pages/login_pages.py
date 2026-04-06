@@ -15,7 +15,7 @@ class Login_Page(BasePage):
         cart_icon = "//*[@id='headerShoppingBag']/div"
         wishlist_icon = "//*[@id='headerWishlist']/a"
 
-        wishlist_create_account_button = ".wish-page__login-btn.btn.btn-primary.d-none.d-lg-inline-block"
+        wishlist_create_account_button = "//a[contains(@class,'wish-page__login-btn')]"
 
         modal_user_name_input = "//*[@id='login-form-email-modal']"
         modal_password_input = "//*[@id='login-form-password-modal']"
@@ -30,7 +30,7 @@ class Login_Page(BasePage):
         register_login_button = "//*[@id='phantomRecaptchaLoginForm']"
         register_create_account_button = "//*[@id='containerLogin']/p/a"
 
-        my_account_landing_not_you = "a.account-header-link.btn.btn-link"
+        my_account_landing_not_you = "//a[contains(@class,'account-header-link')]"
         my_account_landing_logout = "//a[@class='logout-link account-navigation-link']"
 
 

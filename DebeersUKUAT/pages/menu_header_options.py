@@ -48,7 +48,7 @@ class Open_Menu_Header_Options (BasePage):
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
     header_wishlist_icon = "//*[@id='headerWishlist']/a"
 
-    close_menu = "//button[@class='btn btn-closemenu js-btn-nav-close p-0 d-flex align-items-center text-nowrap fs-h6__d']"
+    close_menu = "(//div[contains(@class,'menu__nav-header')]//button[contains(@class,'btn-closemenu')])[1]"
 
 
     def __init__(self, page):

@@ -8,7 +8,8 @@ from pages.take_screenshot import PageScreenshot
 class HJ_SPP_No_Size(BasePage):
 
         SKU1 = "E103343"
-        SKU1_CTA = "button:has-text('ADD TO BAG')"
+        SKU1_ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/button[1]"
+        SKU1_ADD_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
 
         minicart_close_icon = "//*[@id='minicart']/button"
 
@@ -22,7 +23,7 @@ class HJ_SPP_No_Size(BasePage):
         def test_hj_spp_no_size_with_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU1)
-                self.click(self.SKU1_CTA)
+                self.click(self.SKU1_ADD_ENGRAVING_CTA)
                 self.timeout(2000)
                 self.engraving.test_add_engraving()
                 print(f"[HJ] SPP WITHOUT SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
@@ -35,7 +36,7 @@ class HJ_SPP_No_Size(BasePage):
         def test_hj_spp_no_size_without_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU1)
-                self.click(self.SKU1_CTA)
+                self.click(self.SKU1_ADD_TO_BAG_CTA)
                 self.timeout(2000)
                 print(f"[HJ] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_SPP_NO_SIZE_ADDED_WITH_ENGRAVING")

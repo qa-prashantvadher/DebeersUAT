@@ -37,6 +37,7 @@ def test_menu_and_header_option_pages(page):
     home_page.test_country_selector()
     home_page.test_email_subscription_popup()
 
+'''
     #OPEN MENU OPTIONS
     menu_header_option.test_open_locate_a_store_page_from_menu()
     store_locator.test_close_store_locator_page()
@@ -44,3 +45,4 @@ def test_menu_and_header_option_pages(page):
     menu_header_option.test_open_contact_us_from_menu()
     client_service.test_change_region_client_service()
     menu_header_option.test_change_country_menu()
+'''

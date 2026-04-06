@@ -6,19 +6,17 @@ from pages.take_screenshot import PageScreenshot
 class Open_EngagementRings_PLP_Page(BasePage):
 
     menu_icon = "button:has-text('Menu')"
-    engagement_bridal_sub_menu = "button:has-text('Engagement & Bridal')"
-    engagement_rings = "#N10050:visible"
+    engagement_bridal_sub_menu = "button[id='N10002'] span[class='menu__nav-link-span']"
+    engagement_rings = "a[id='N10050'] span[class='menu__nav-link-span']"
 
     # PLP Page > Sorting
     sort_by_label = "#sortRefinement button"
     price_ascending = "//input[@id='price-low-to-high']"
-    ascending_label_text = "price ascending"
-    descending_label_text = "price descending"
     price_descending = "//input[@id='price-high-to-low']"
     slp_page_records = "//*[@id='navbarFilters']/div/div[1]/div[2]/span"
 
     # PLP  Page > Filter
-    filter_label = "//button[normalize-space()='Filter']"
+    filter_label = "button.btn-filtered.js-show-filters"
 
     material_label = "button:has-text('Material')"
     material_option = "//*[@id='Platinum']"
@@ -46,7 +44,6 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.timeout(2000)
             self.click(self.engagement_rings)
             self.timeout(5000)
-            self.timeout(2000)
             self.scroll_down(self.slp_page_records)
             print("USER IS REDIRECTED TO THE ENGAGEMENT RINGS PAGE..")
             result_count = self.inner_text(self.slp_page_records)
@@ -58,15 +55,16 @@ class Open_EngagementRings_PLP_Page(BasePage):
     def test_apply_sorting_on_plp(self):
        try:
             self.click(self.sort_by_label)
-            self.timeout(1000)
+            self.timeout(2000)
             self.click(self.price_ascending)
-            self.timeout(4000)
+            self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
             print(f"PLP RECORDS [AFTER SORTING: PRICE ASCENDING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
+            self.timeout(2000)
             self.check(self.price_descending)
-            self.timeout(4000)
+            self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
             print(f"PLP RECORDS [AFTER SORTING: PRICE DESCENDING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_DESCENDING")

@@ -13,24 +13,22 @@ class SearchSKU(BasePage):
     #SLP Page > Sorting
     sort_by_label = "#sortRefinement button"
     price_ascending = "//input[@id='price-low-to-high']"
-    ascending_label_text = "price ascending"
-    descending_label_text = "price descending"
     price_descending = "//input[@id='price-high-to-low']"
     slp_page_records = '//*[@id="navbarFilters"]/div/div[1]/div[2]/span'
 
     # SLP Page > Filter
     filter_label = "button.btn-filtered.js-show-filters"
 
-    material_label = "//span[@id='métal-label']/ancestor::button"
-    material_option = "//*[@id='Platine']"
+    material_label = "//span[@id='材質-label']/ancestor::button"
+    material_option = "//*[@id='鉑金']"
     material_apply_button = "div[class='refinement-content is-filter-bar productMetal'] a[name='apply']"
 
-    size_label = "//span[@id='taille-label']"
+    size_label = "//span[@id='尺寸-label']"
     size_50 = "//div[@id='50']"
     size_apply_button = "div[class='refinement-content is-filter-bar size'] a[name='apply']"
 
-    cut_label = "//span[@id='taille_de_diamant-label']"
-    cut_emerald_option = "//div[contains(text(),'Émeraude')]"
+    cut_label = "//span[@id='鑽石切割-label']"
+    cut_emerald_option = "//div[contains(text(),'祖母綠形')]"
     cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
     clear_all_filter = "//div[@id='filterRefinements']/div[@class='offcanvas-body filters-list']/div[@class='clear-cta-wrapper']/a[@class='refinement-dropdown-clear-cta btn btn-link clearButton']"
@@ -70,8 +68,8 @@ class SearchSKU(BasePage):
 
     def test_apply_sorting_on_slp(self):
        try:
-            self.timeout(2000)
             self.click(self.sort_by_label)
+            self.timeout(2000)
             result_count = self.inner_text(self.slp_page_records)
             print(f"SLP RECORDS [WITHOUT SORTING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_WITHOUT_SORTING")
@@ -81,6 +79,7 @@ class SearchSKU(BasePage):
             print(f"SLP RECORDS [AFTER SORTING: PRICE ASCENDING]: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
+            self.timeout(2000)
             self.check(self.price_descending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)

@@ -11,11 +11,11 @@ class PageScreenshot(BasePage):
     date_folder = time.strftime('%d%m%Y')
 
     if env in "UAT":
-        base_path = r"D:\Python Code\Screenshots\DB-UAT\FR"
+        base_path = r"D:\Python Code\Screenshots\DB-UAT\MACAU"
     elif env == "PROD":
-        base_path = r"D:\Python Code\Screenshots\DB-PROD\FR"
+        base_path = r"D:\Python Code\Screenshots\DB-PROD\MACAU"
     elif env == "QA":
-        base_path = r"D:\Python Code\Screenshots\DB-QA\FR"
+        base_path = r"D:\Python Code\Screenshots\DB-QA\MACAU"
 
     order_sub_folder = "ORDERS"
     other_sub_folder = "OTHERS"

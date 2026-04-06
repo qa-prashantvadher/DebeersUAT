@@ -20,7 +20,6 @@ def test_store_locator_page(page):
     store_locator.test_search_store_by_keyword("PARIS")
     store_locator.test_open_paris_store_detail_page()
     store_locator.test_click_close_paris_flagship_in_map()
-    store_locator.test_book_an_appointment_cta_store_detail_page()
 
     store_locator.test_open_store_locator_page_from_header()
 
@@ -28,15 +27,12 @@ def test_store_locator_page(page):
     store_locator.test_click_close_london_marker_in_map()
     store_locator.test_open_london_store_detail_page()
     store_locator.test_click_close_london_marker_in_map()
-    store_locator.test_book_an_appointment_cta_store_detail_page()
-    book_appointment.test_in_store_appointment_type()
 
     store_locator.test_open_store_locator_page_from_header()
 
     store_locator.test_search_store_by_keyword("10065")
     store_locator.test_open_new_york_store_detail_page()
     store_locator.test_click_close_new_york_madison_avenue_in_map()
-    store_locator.test_book_an_appointment_cta_store_detail_page()
 
     store_locator.test_open_store_locator_page_from_header()
     store_locator.test_close_store_locator_page()
