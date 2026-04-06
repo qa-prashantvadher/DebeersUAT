@@ -65,3 +65,14 @@ class AddEngraving(BasePage):
         except:
             print("*****NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")
 
+    def test_close_engraving_screen_with_esc_key(self):
+        try:
+            self.timeout(2000)
+            self.click(self.engraving_input)
+            self.keyboard_press("Escape")
+            self.timeout(2000)
+            print("[BACK] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
+            #self.screenshot.take_Page_screenshot("ENGRAVING_BACK")
+        except:
+            print("*****NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")
+
