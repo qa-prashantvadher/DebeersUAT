@@ -5,21 +5,21 @@ from pages.take_screenshot import PageScreenshot
 class Checkout_Delivery(BasePage):
 
     #Shiping Methods
-    premium_delivery_tab = "//button[@id='GB-SHIPPING-01']"
-    collect_in_store_tab = "//button[@id='GB-SHIPPING-02']"
+    premium_delivery_tab = "//button[@id='FR-SHIPPING-01']"
+    collect_in_store_tab = "//button[@id='FR-SHIPPING-02']"
 
     #Premium Delivery > Shipping Address Info
     premium_address_input = "//input[@id='shippingAddressOne']"
-    premium_county_input = "//input[@id='shippingState']"
+    premium_state_input = "//input[@id='shippingState']"
     premium_city_input = "//input[@id='shippingAddressCity']"
     premium_postal_code_input = "//input[@id='shippingZipCode']"
 
     premium_add_new_address_option = "//a[@class='anchor btn-add-new js-btn-add-new ']"
 
-    premium_address_text = "Flat 1, 8 Kensington Palace Gardens"
-    premium_city_text = "London"
-    premium_county_text = ""
-    premium_postal_code_text = "W8 4QP"
+    premium_address_text = "1 Rue du Général Camou"
+    premium_city_text = "Paris"
+    premium_state_text = "Île-de-France"
+    premium_postal_code_text = "75007"
 
     # Client Service Error Popup
     client_service_error_popup_close = "//button[@class='btn close']"
@@ -38,20 +38,20 @@ class Checkout_Delivery(BasePage):
     gift_checkbox = "input[name='dwfrm_shipping_shippingAddress_isGift']"
     gift_message_input = "[name='dwfrm_shipping_shippingAddress_giftMessage']"
 
-    delivery_collector_first_name_list = ["Oliver","Jack","Harry","Jacob","Charlie","Thomas","George","James","Robert"]
-    delivery_collector_last_name_list = ["Smith","Taylor","Brown","Williams","Wilson","Evans","Robinson","Walker","Thompson","Brook"]
+    delivery_collector_first_name_list = ["Gabriel","Raphaël","Louis","Arthur","Léon","Léo","Oscar","Adam","Noah"]
+    delivery_collector_last_name_list = ["Martin","Bernard","Dubois","Thomas","Robert","Richard","Michel","Roux","Laurent","Garcia"]
     phone_text = "8090809080"
     collector_phone_text = "8989089890"
 
-    gift_message_text = "Test order with a gift message. I hope this piece adds a beautiful touch to your collection and truly brings you joy and elegance each day you wear it"
+    gift_message_text = "J'espère que cette pièce ajoutera une belle touche à votre collection et vous apportera véritablement joie et élégance chaque jour que vous la portez."
 
 
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
 
 
     #Delivery Date
-    premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime GB-SHIPPING-01']"
-    collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime GB-SHIPPING-02']"
+    premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-01']"
+    collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-02']"
 
 
     def __init__(self, page):
@@ -144,7 +144,7 @@ class Checkout_Delivery(BasePage):
             else:
                 self.timeout(1000)
                 self.fill(self.premium_address_input, self.premium_address_text)
-                self.fill(self.premium_county_input, self.premium_county_text)
+                self.fill(self.premium_state_input, self.premium_state_text)
                 self.fill(self.premium_city_input, self.premium_city_text)
                 self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
                 self.timeout(1000)
@@ -158,7 +158,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.fill(self.premium_address_input, self.premium_address_text)
             # State dropdown
-            self.fill(self.premium_county_input, "TESTING")
+            self.fill(self.premium_state_input, "TESTING")
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)

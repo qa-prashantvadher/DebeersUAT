@@ -11,9 +11,9 @@ class Checkout_Payment(BasePage):
     payment_by_paypal = "//input[@id='rb_paypal']"
 
     #Cards
-    card_number_iframe = "iframe[title='Iframe for card number']"
-    expiry_date_iframe = "iframe[title='Iframe for expiry date']"
-    cvv_iframe = "iframe[title='Iframe for security code']"
+    card_number_iframe = "iframe[title='Iframe pour le numéro de carte']"
+    expiry_date_iframe = "iframe[title='Iframe pour la date d'expiration']"
+    cvv_iframe = "iframe[title='Iframe pour le code de sécurité']"
     card_holder_name_input = "input[name='holderName']" #not inside iframe
 
     amex_card_number_text = "370000000000002"
@@ -61,14 +61,16 @@ class Checkout_Payment(BasePage):
     billing_city_input = "//input[@id='billingAddressCity']"
     billing_postal_code_input = "//input[@id='billingZipCode']"
 
-    billing_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George", "James", "Robert"]
-    billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker", "Thompson", "Brook"]
+    billing_first_name_list = ["Gabriel","Raphaël","Louis","Arthur","Léon","Léo","Oscar","Adam","Noah"]
+    billing_last_name_list = ["Martin","Bernard","Dubois","Thomas","Robert","Richard","Michel","Roux","Laurent","Garcia"]
+
 
     billing_phone_text = "9558112787"
-    billing_address_text = "2 Burtley Cottages, Windsor Road"
-    billing_city_text = "Beaconsfield"
-    billing_county_text = "Buckinghamshire"
-    billing_postal_code_text = "HP9 2SE"
+
+    billing_address_text = "14 ter Rue du Général Leclerc"
+    billing_city_text = "Morangis"
+    billing_state_text = "Île-de-France"
+    billing_postal_code_text = "91420"
 
     def __init__(self, page):
         super().__init__(page)
@@ -200,7 +202,7 @@ class Checkout_Payment(BasePage):
             self.timeout(1000)
             self.scroll_down(self.billing_address_input)
             self.fill(self.billing_address_input,self.billing_address_text)
-            self.fill(self.billing_county_input,self.billing_county_text)
+            self.fill(self.billing_county_input,self.billing_state_text)
             self.fill(self.billing_city_input,self.billing_city_text)
             self.fill(self.billing_postal_code_input,self.billing_postal_code_text)
             self.screenshot.take_page_screenshot("CHECKOUT_BILLING_ADDRESS")
