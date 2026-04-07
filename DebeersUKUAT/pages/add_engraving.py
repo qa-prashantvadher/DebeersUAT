@@ -8,8 +8,8 @@ class AddEngraving(BasePage):
     update_engraving_text = "De Beers is Forever."
     monotype_font = "//*[@id='Monotype-Corsiva']"
     arial_font = "//*[@id='Arial']"
-    submit_button = "//div[contains(@class,'pdp-variation-size__buttons')]//button[contains(@class,'js-engraving-addtobag') and not(contains(@class,'d-none'))]"
-    update_button = "//div[contains(@class,'pdp-variation-size__buttons')]//button[contains(@class,'js-engraving-update') and not(contains(@class,'d-none'))]"
+    submit_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[1]"
+    update_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[2]"
     close_icon = "button[class='btn-close']"
     back_button = "//button[normalize-space()='Back']"
 
