@@ -75,9 +75,9 @@ class Checkout_Delivery(BasePage):
 
     def test_select_self_collect_checkbox(self):
         try:
-            self.timeout(1000)
+            self.timeout(7000)
             self.click(self.self_collect_checkbox)
-            self.timeout(2000)
+            self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_page_screenshot("CHECKOUT_SELF_COLLECT")
             print(f"[CHECKOUT-SELF] DELIVERY DATE: {delivery_date.upper()}.")
@@ -86,9 +86,9 @@ class Checkout_Delivery(BasePage):
 
     def test_select_someone_else_collect_checkbox(self):
         try:
-            self.timeout(1000)
+            self.timeout(7000)
             self.click(self.someone_else_collect_checkbox)
-            self.timeout(2000)
+            self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
             print(f"[CHECKOUT-SOMEONE] DELIVERY DATE: {delivery_date.upper()}.")
