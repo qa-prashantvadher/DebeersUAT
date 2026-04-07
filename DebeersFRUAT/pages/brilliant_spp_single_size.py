@@ -8,9 +8,9 @@ class BB_SPP_Single_Size(BasePage):
 
         SKU1 = "N103491"
         SKU2 = "N103116"
-        SELECT_SIZE_CTA = "button:has-text('SELECT A SIZE')"
-        ADD_TO_BAG_CTA = "//div[@id='pdpSizes']//span[contains(text(),'Add to Bag')]"
-        ADD_ENGRAVING_CTA = "button:has-text('ADD ENGRAVING')"
+        SELECT_SIZE_CTA = "//div[contains(@class,'primary-btn-wrap')]//button[contains(@class,'js-pdp-variation-size__button') and not(contains(@class,'d-none'))]"
+        ADD_TO_BAG_CTA = "div[id='pdpSizes'] button[type='submit']"
+        ADD_ENGRAVING_CTA = "//div[contains(@class,'pdp-variation-size__buttons')]//button[contains(@class,'js-select-engraving-btn') and not(contains(@class,'d-none'))]"
 
         minicart_close_icon = "//*[@id='minicart']/button"
 

@@ -5,7 +5,7 @@ class AddRemoveWishlist(BasePage):
 
     wishlist_icon_header = "//*[@id='headerWishlist']/a"
     plp_slp_wishlist_icon_R102205 = "button[data-pid='R102205'] i.product-tile__wishlist-icon"
-    guest_my_account_wishlist_remove_R102205 = "//*[@id='wishlist-landpage']/div[1]/div[2]/div[2]/ul/li/div/button/i"
+    guest_my_account_wishlist_remove_R102205 = "//button[contains(@class,'wish-list__remove-btn')]//i"
     pdp_wishlist_icon_R102205 = "//*[@id='image-1']/button[2]/i"
 
 

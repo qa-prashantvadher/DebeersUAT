@@ -8,9 +8,11 @@ class HJ_UPP_Single_Variant(BasePage):
         SKU1 = "R102133"
         SKU2 = "N102152"
 
-        ADD_TO_BAG_CTA = "button:has-text('ADD TO BAG')"
-        ADD_ENGRAVING_CTA = "button:has-text('ADD ENGRAVING')"
-        ADDED_ENGRAVING_CTA = "button:has-text('ADDED ENGRAVING')"
+        ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/div/button[1]"
+        ADD_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
+        ADDED_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[2]"
+
+        enquire_hj_master_level = "//div[contains(@class,'primary-btn-wrap')]//a[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
 
         minicart_close_icon = '//*[@id="minicart"]/button'
 
