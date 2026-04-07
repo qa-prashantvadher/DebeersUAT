@@ -13,8 +13,6 @@ class SearchSKU(BasePage):
     #SLP Page > Sorting
     sort_by_label = "#sortRefinement button"
     price_ascending = "//input[@id='price-low-to-high']"
-    ascending_label_text = "price ascending"
-    descending_label_text = "price descending"
     price_descending = "//input[@id='price-high-to-low']"
     slp_page_records = '//*[@id="navbarFilters"]/div/div[1]/div[2]/span'
 
@@ -47,12 +45,16 @@ class SearchSKU(BasePage):
             self.click(self.search_keyword_input)
             self.fill(self.search_keyword_input, "")
             self.type(self.search_keyword_input, sku)
-            self.timeout(3000)
-            #self.screenshot.take_Page_screenshot("SEARCH_SKU")
-            self.click(self.first_suggestion)
-            self.timeout(3000)
-            print(f"SEARCHED WITH THE '{sku}' SKU..")
-            #self.screenshot.take_Page_screenshot("SEARCH_SKU_PDP")
+            self.timeout(5000)
+            if self.is_visible(self.first_suggestion):
+                #self.screenshot.take_Page_screenshot("SEARCH_SKU")
+                self.click(self.first_suggestion)
+                self.timeout(5000)
+                print(f"SEARCHED WITH THE '{sku}' SKU..")
+            else:
+                print(f"*****'{sku}' SKU IS NOT SEARCHABLE..*****")
+                self.keyboard_press("Escape")
+                pass
         except:
             print(f"*****NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
 

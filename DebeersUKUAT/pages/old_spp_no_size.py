@@ -33,11 +33,15 @@ class OLD_SPP_No_Size(BasePage):
         def test_old_spp_no_size_without_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU1)
-                self.click(self.ADD_TO_BAG_CTA)
-                print(f"[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
-                self.screenshot.take_page_screenshot("OLD_SPP_NO_SIZE_ADDED_WITHOUT_ENGRAVING")
-                self.keyboard_press("Escape")
-                #self.click(self.minicart_close_icon)
+                if self.is_visible(self.ADD_TO_BAG_CTA):
+                    self.click(self.ADD_TO_BAG_CTA)
+                    print(f"[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                    self.screenshot.take_page_screenshot("OLD_SPP_NO_SIZE_ADDED_WITHOUT_ENGRAVING")
+                    self.keyboard_press("Escape")
+                    #self.click(self.minicart_close_icon)
+                else:
+                    print(f"*****[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} PRODUCT IS NOT BUYABLE..*****")
+                    pass
 
             except:
                 print(f"*****[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")

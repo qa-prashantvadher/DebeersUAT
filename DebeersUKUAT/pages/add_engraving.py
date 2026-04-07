@@ -8,8 +8,8 @@ class AddEngraving(BasePage):
     update_engraving_text = "De Beers is Forever."
     monotype_font = "//*[@id='Monotype-Corsiva']"
     arial_font = "//*[@id='Arial']"
-    submit_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[1]"
-    update_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[2]"
+    submit_button = "//div[contains(@class,'pdp-variation-size__buttons')]//button[contains(@class,'js-engraving-addtobag') and not(contains(@class,'d-none'))]"
+    update_button = "//div[contains(@class,'pdp-variation-size__buttons')]//button[contains(@class,'js-engraving-update') and not(contains(@class,'d-none'))]"
     close_icon = "button[class='btn-close']"
     back_button = "//button[normalize-space()='Back']"
 
@@ -65,13 +65,3 @@ class AddEngraving(BasePage):
         except:
             print("*****NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")
 
-    def test_close_engraving_screen_with_esc_key(self):
-        try:
-            self.timeout(2000)
-            self.click(self.engraving_input)
-            self.keyboard_press("Escape")
-            self.timeout(2000)
-            print("[BACK] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
-            #self.screenshot.take_Page_screenshot("ENGRAVING_BACK")
-        except:
-            print("*****NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")

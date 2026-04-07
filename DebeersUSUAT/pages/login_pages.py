@@ -15,7 +15,7 @@ class Login_Page(BasePage):
         cart_icon = "//*[@id='headerShoppingBag']/div"
         wishlist_icon = "//*[@id='headerWishlist']/a"
 
-        wishlist_create_account_button = "//a[contains(@class,'wish-page__login-btn')]"
+        wishlist_create_account_button = "//button[contains(@class,'wish-page__login-btn')]"
 
         modal_user_name_input = "//*[@id='login-form-email-modal']"
         modal_password_input = "//*[@id='login-form-password-modal']"
