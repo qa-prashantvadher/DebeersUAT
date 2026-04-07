@@ -7,7 +7,6 @@ def test_pdp_enquire_cta(page):
     client_service = Client_Services_Page(page)
 
     # ENQUIRE ONLINE/ENQUIRE/EMAIL US OPTIONS ON THE PDP PAGE
-    # EMAIL US AND CALL REQUEST FORMS ON THE CLIENT SERVICES PAGE
     pdp_enquire_appointment.test_enquire_old_master_level()
     client_service.test_email_us_form()
     client_service.test_open_call_request_form_email_call()
