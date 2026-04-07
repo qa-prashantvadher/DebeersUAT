@@ -28,7 +28,7 @@ class Update_My_Account_Page(BasePage):
             self.screenshot.take_page_screenshot("MY_ACCOUNT_DETAILS_BEFORE_EDIT")
             print("[MY ACCOUNT] EDIT MY ACCOUNT PAGE IS NOW VISIBLE..")
         except:
-            print("[MY ACCOUNT] NOT ABLE TO OPEN EDIT MY ACCOUNT PAGE..")
+            print("*****[MY ACCOUNT] NOT ABLE TO OPEN EDIT MY ACCOUNT PAGE..*****")
 
     def test_update_my_account_details(self):
         try:

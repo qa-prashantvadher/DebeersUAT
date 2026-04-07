@@ -200,7 +200,7 @@ class Checkout_Delivery(BasePage):
     def test_enter_gift_message(self):
         try:
             if self.is_checked(self.gift_checkbox):
-                print("GIFT OPTION IS ALREADY SELECTED...")
+                print("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
             else:
                 self.click(self.gift_checkbox)
             self.timeout(1000)
@@ -215,6 +215,6 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.click(self.continue_payment_cta)
             self.timeout(2000)
-            print("CHECKOUT-DELIVERY: USER IS REDIRECTED TO THE PAYMENT PAGE..")
+            print("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE PAYMENT PAGE..")
         except:
-            print("*****CHECKOUT-DELIVERY: USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")
+            print("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")

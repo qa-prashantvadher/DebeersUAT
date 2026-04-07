@@ -56,7 +56,7 @@ class AddRemoveWishlist(BasePage):
         try:
             self.click(self.guest_my_account_wishlist_remove_R102205)
             self.timeout(4000)
-            print("[MY ACCOUNT: WISHLIST] PRODUCT IS REMOVED FROM THE WISHLIST..")
+            print("[MY ACCOUNT-WISHLIST] PRODUCT IS REMOVED FROM THE WISHLIST..")
             #self.screenshot.take_Page_screenshot("MY_ACCOUNT_WISHLIST_REMOVE")
         except:
-            print("*****[MY ACCOUNT: WISHLIST] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")
+            print("*****[MY ACCOUNT-WISHLIST] NOT ABLE TO REMOVE PRODUCT FROM THE WISHLIST..*****")

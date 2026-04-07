@@ -51,13 +51,13 @@ class SearchSKU(BasePage):
                 #self.screenshot.take_Page_screenshot("SEARCH_SKU")
                 self.click(self.first_suggestion)
                 self.timeout(8000)
-                print(f"SEARCHED WITH THE '{sku}' SKU..")
+                print(f"[SEARCH] SEARCHED WITH THE '{sku}' SKU..")
             else:
-                print(f"*****'{sku}' SKU IS NOT SEARCHABLE..*****")
+                print(f"*****[SEARCH] '{sku}' SKU IS NOT SEARCHABLE..*****")
                 self.click(self.close_search_modal)
                 pass
         except:
-            print(f"*****NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
+            print(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
 
     def test_search_with_keyword(self, keyword):
         try:
@@ -69,10 +69,10 @@ class SearchSKU(BasePage):
             self.type(self.search_keyword_input, keyword)
             self.press(self.search_keyword_input, "Enter")
             self.timeout(3000)
-            print(f"SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
+            print(f"[SEARCH] SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
             #self.screenshot.take_Page_screenshot("SEARCH_KEYWORD_SLP")
         except:
-            print(f"*****NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")
+            print(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")
 
 
     def test_apply_sorting_on_slp(self):
@@ -80,22 +80,22 @@ class SearchSKU(BasePage):
             self.timeout(2000)
             self.click(self.sort_by_label)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [WITHOUT SORTING]: {result_count.upper()}")
+            print(f"[SLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_WITHOUT_SORTING")
             self.click(self.price_ascending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER SORTING: PRICE ASCENDING]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER PRICE ASCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
             self.check(self.price_descending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER SORTING: PRICE DESCENDING]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER PRICE DESCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_SORTING_PRICE_DESCENDING")
 
        except:
-             print("*****NOT ABLE TO PERFORM SORTING ON THE SLP..*****")
+             print("*****[SLP] NOT ABLE TO PERFORM SORTING ON THE SLP..*****")
 
     def test_apply_filter_on_slp(self):
         try:
@@ -109,7 +109,7 @@ class SearchSKU(BasePage):
             self.click(self.material_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER APPLYING MATERIAL FILTER]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL")
 
             self.click(self.size_label)
@@ -119,7 +119,7 @@ class SearchSKU(BasePage):
             self.click(self.size_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER APPLYING MATERIAL + SIZE FILTERS]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL_SIZE")
 
             self.click(self.cut_label)
@@ -129,11 +129,11 @@ class SearchSKU(BasePage):
             self.click(self.cut_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER APPLYING MATERIAL + SIZE + CUT FILTERS]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE + CUT FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL_SIZE_CUT")
 
         except:
-            print("*****NOT ABLE TO APPLY FILTERS ON THE SLP..*****")
+            print("*****[SLP] NOT ABLE TO APPLY FILTERS ON THE SLP..*****")
 
     def test_clear_filter_on_slp(self):
         try:
@@ -141,11 +141,11 @@ class SearchSKU(BasePage):
             self.click(self.clear_all_filter)
             self.timeout(10000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"SLP RECORDS [AFTER CLEAR FILTER]: {result_count.upper()}")
+            print(f"[SLP] RECORDS AFTER CLEAR FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_CLEAR_ALL_FILTER")
 
         except:
-            print("*****UNABLE TO CLEAR APPLIED FILTERS FROM THE SLP..*****")
+            print("*****[SLP] UNABLE TO CLEAR APPLIED FILTERS..*****")
 
     def test_open_contact_us_page_from_search(self):
         try:
@@ -153,7 +153,7 @@ class SearchSKU(BasePage):
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.timeout(2000)
-            print("SEARCH MODAL IS NOW VISIBLE..")
+            print("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("SEARCH_MODAL")
             self.timeout(2000)
             self.click(self.contact_us_link_search)
@@ -171,7 +171,7 @@ class SearchSKU(BasePage):
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.timeout(2000)
-            print("SEARCH MODAL IS NOW VISIBLE..")
+            print("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("SEARCH_MODAL")
             self.timeout(2000)
             self.click(self.faq_link_search)

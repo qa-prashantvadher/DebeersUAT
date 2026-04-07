@@ -32,12 +32,12 @@ class HJ_SPP_Multiple_Size(BasePage):
                 self.click(self.ADD_ENGRAVING_CTA)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_ENGRAVING")
                 self.engraving.test_add_engraving()
-                print(f"[HJ] SPP MULTIPLE SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[HJ-SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_SPP_MULTIPLE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_WITH_ENGRAVING")
             except:
-                 print(f"*****[HJ] SPP MULTIPLE SIZE [WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                 print(f"*****[HJ-SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_hj_spp_multiple_size_without_engraving(self):
             try:
@@ -48,9 +48,9 @@ class HJ_SPP_Multiple_Size(BasePage):
                 self.timeout(2000)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_SELECT_SIZE")
                 self.click(self.ADD_TO_BAG_CTA)
-                print(f"[HJ] SPP MULTIPLE SIZE [WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
+                print(f"[HJ-SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_SPP_MULTIPLE_ADDED_WITHOUT_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_BAG")
             except:
-                print(f"*****[HJ] SPP MULTIPLE SIZE [WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[HJ-SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")

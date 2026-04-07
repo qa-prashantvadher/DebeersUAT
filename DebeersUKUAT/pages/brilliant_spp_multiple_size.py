@@ -32,11 +32,11 @@ class BB_SPP_Multiple_Size(BasePage):
                 #self.screenshot.take_Page_screenshot("BB_SPP_MULTIPLE_ADD_ENGRAVING")
                 self.engraving.test_add_engraving()
                 self.timeout(2000)
-                print(f"[BB] SPP MULTIPLE SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[BB-SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_SPP_MULTIPLE_ADD_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
             except:
-                 print(f"*****[BB] SPP MULTIPLE SIZE [WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                 print(f"*****[BB SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_bb_spp_multiple_size_without_engraving(self):
             try:
@@ -49,10 +49,10 @@ class BB_SPP_Multiple_Size(BasePage):
                 self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
                 self.screenshot.take_page_screenshot("BB_SPP_MULTIPLE_ADD_BAG")
-                print(f"[BB] SPP MULTIPLE SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[BB SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.click(self.minicart_close_icon)
             except:
-                print(f"*****[BB] SPP MULTIPLE SIZE [WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[BB SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
 
 

@@ -49,6 +49,8 @@ class Checkout_Review(BasePage):
                 if cart_products > 0:
                     for cart_products in range(1, cart_products + 1):
                         self.shopping_bag.test_remove_product_from_cart()
+                print("*****[CHECKOUT-PRODUCTION] INSTEAD OF ORDER CREATION, PRODUCTS ARE REMOVED FROM THE CART..*****")
+
 
         except:
             print("*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED..*****")

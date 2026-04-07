@@ -79,19 +79,19 @@ class Checkout_Payment(BasePage):
             self.timeout(1000)
             self.click(self.payment_by_paypal)
             self.timeout(1000)
-            print("CHECKOUT PAYMENT: PAYMENT METHOD IS CHANGED TO PAYPAL..")
+            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO PAYPAL..")
         except:
-            print("*****CHECKOUT PAYMENT: NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
+            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
 
     def test_select_cards_payment_method(self):
         try:
             self.timeout(1000)
             self.click(self.payment_by_cards)
             self.timeout(1000)
-            print("CHECKOUT PAYMENT: PAYMENT METHOD IS CHANGED TO CARDS..")
+            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO CARDS..")
 
         except:
-            print("*****CHECKOUT PAYMENT: NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
+            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
    
 
     def test_enter_amex_credit_card_details(self):
