@@ -6,11 +6,11 @@ from pages.take_screenshot import PageScreenshot
 
 
 class BB_SPP_No_Size(BasePage):
-
         SKU1 = "E103376"
-        SKU1_CTA = "button:has-text('ADD ENGRAVING')"
+        SKU1_ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/button[1]"
+        SKU1_ADD_ENGRAVING_CTA = "//div[@class='secondary-btn-wrap']/button[1]"
         SKU2 = "E102158"
-        SKU2_CTA = "button:has-text('ADD TO BAG')"
+        SKU2_ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/button[1]"
         minicart_close_icon = "//*[@id='minicart']/button"
 
         def __init__(self, page):
@@ -22,7 +22,7 @@ class BB_SPP_No_Size(BasePage):
         def test_bb_spp_no_size_with_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU1)
-                self.click(self.SKU1_CTA)
+                self.click(self.SKU1_ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
                 print(f"[BB] SPP WITHOUT SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_SPP_NO_SIZE_ADDED_WITH_ENGRAVING")
@@ -33,7 +33,7 @@ class BB_SPP_No_Size(BasePage):
         def test_bb_spp_no_size_without_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU2)
-                self.click(self.SKU2_CTA)
+                self.click(self.SKU2_ADD_TO_BAG_CTA)
                 self.timeout(2000)
                 print(f'[BB] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..')
                 self.screenshot.take_page_screenshot("BB_SPP_NO_SIZE_ADDED_WITHOUT_ENGRAVING")

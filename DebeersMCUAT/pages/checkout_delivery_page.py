@@ -5,8 +5,8 @@ from pages.take_screenshot import PageScreenshot
 class Checkout_Delivery(BasePage):
 
     #Shiping Methods
-    premium_delivery_tab = "//button[@id='FR-SHIPPING-01']"
-    collect_in_store_tab = "//button[@id='FR-SHIPPING-02']"
+    premium_delivery_tab = "//button[@id='GB-SHIPPING-01']"
+    collect_in_store_tab = "//button[@id='GB-SHIPPING-02']"
 
     #Premium Delivery > Shipping Address Info
     premium_address_input = "//input[@id='shippingAddressOne']"
@@ -16,10 +16,10 @@ class Checkout_Delivery(BasePage):
 
     premium_add_new_address_option = "//a[@class='anchor btn-add-new js-btn-add-new ']"
 
-    premium_address_text = "1 Rue du Général Camou"
-    premium_city_text = "Paris"
-    premium_state_text = "Île-de-France"
-    premium_postal_code_text = "75007"
+    premium_address_text = "The Residencia, Tower, 7 R. da Perola Oriental"
+    premium_city_text = "Taipa"
+    premium_state_text = "Macau"
+    premium_postal_code_text = "999078"
 
     # Client Service Error Popup
     client_service_error_popup_close = "//button[@class='btn close']"
@@ -38,20 +38,20 @@ class Checkout_Delivery(BasePage):
     gift_checkbox = "input[name='dwfrm_shipping_shippingAddress_isGift']"
     gift_message_input = "[name='dwfrm_shipping_shippingAddress_giftMessage']"
 
-    delivery_collector_first_name_list = ["Gabriel","Raphaël","Louis","Arthur","Léon","Léo","Oscar","Adam","Noah"]
-    delivery_collector_last_name_list = ["Martin","Bernard","Dubois","Thomas","Robert","Richard","Michel","Roux","Laurent","Garcia"]
+    delivery_collector_first_name_list = ["Chi Keong","Chi Kit","Kam Fai","Cheng","Kwok","Ming","Chio","Lai","Noah"]
+    delivery_collector_last_name_list = ["Chan","Wong","Lei","Yu","Ho","Cheong","Lam","Lao","Tang","Choi"]
     phone_text = "8090809080"
     collector_phone_text = "8989089890"
 
-    gift_message_text = "J'espère que cette pièce ajoutera une belle touche à votre collection et vous apportera véritablement joie et élégance chaque jour que vous la portez."
+    gift_message_text = "希望呢件衫可以為你嘅系列增添美麗嘅觸感，真正為你每日着住佢帶嚟歡樂同優雅"
 
 
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
 
 
     #Delivery Date
-    premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-01']"
-    collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-02']"
+    premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime GB-SHIPPING-01']"
+    collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime GB-SHIPPING-02']"
 
 
     def __init__(self, page):

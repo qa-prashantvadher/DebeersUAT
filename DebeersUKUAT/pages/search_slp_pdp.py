@@ -5,6 +5,7 @@ class SearchSKU(BasePage):
     search_icon = "//*[@id='headerSearch']"
     search_keyword_input = "#searchInput"
     first_suggestion = "//*[@id='group-0-option-0']/a"
+    close_search_modal = "//div[@class='modal-dialog modal-dialog--custom modal-fullscreen modal-dialog-scrollable modal-content']//i[@class='close-icon dbicon-close']"
 
     contact_us_link_search = "div[id='searchModal'] div[class='content-asset'] li:nth-child(1) a:nth-child(1)"
     faq_link_search = "div[id='searchModal'] div[class='content-asset'] li:nth-child(2) a:nth-child(1)"
@@ -49,11 +50,11 @@ class SearchSKU(BasePage):
             if self.is_visible(self.first_suggestion):
                 #self.screenshot.take_Page_screenshot("SEARCH_SKU")
                 self.click(self.first_suggestion)
-                self.timeout(5000)
+                self.timeout(8000)
                 print(f"SEARCHED WITH THE '{sku}' SKU..")
             else:
                 print(f"*****'{sku}' SKU IS NOT SEARCHABLE..*****")
-                self.keyboard_press("Escape")
+                self.click(self.close_search_modal)
                 pass
         except:
             print(f"*****NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
