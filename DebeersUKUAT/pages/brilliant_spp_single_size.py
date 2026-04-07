@@ -24,7 +24,7 @@ class BB_SPP_Single_Size(BasePage):
             try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
                 print(f"[BB] SPP SINGLE SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
@@ -37,7 +37,7 @@ class BB_SPP_Single_Size(BasePage):
            try:
                 self.search.test_search_with_sku(self.SKU2)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 self.click(self.ADD_TO_BAG_CTA)
                 print(f"[BB] SPP SINGLE SIZE [WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_SPP_SINGLE_ADDED_WITHOUT_ENGRAVING")

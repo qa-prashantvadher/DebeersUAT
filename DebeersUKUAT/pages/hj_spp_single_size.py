@@ -23,7 +23,7 @@ class HJ_SPP_Single_Size(BasePage):
             try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_SINGLE_SELECT_SIZE")
                 self.click(self.ADD_ENGRAVING_CTA)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_SINGLE_ADD_ENGRAVING")
@@ -39,7 +39,7 @@ class HJ_SPP_Single_Size(BasePage):
            try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_SINGLE_SELECT_SIZE")
                 self.click(self.ADD_TO_BAG_CTA)
                 print(f"[HJ] SPP SINGLE SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")

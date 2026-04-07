@@ -24,7 +24,7 @@ class BB_SPP_Multiple_Size(BasePage):
             try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 self.click(self.SIZE_OPTION)
                 self.timeout(2000)
                 #self.screenshot.take_Page_screenshot("BB_SPP_MULTIPLE_SELECT_SIZE")
@@ -42,7 +42,7 @@ class BB_SPP_Multiple_Size(BasePage):
             try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.SELECT_SIZE_CTA)
-                self.timeout(2000)
+                self.timeout(3000)
                 self.click(self.SIZE_OPTION)
                 self.timeout(2000)
                 #self.screenshot.take_Page_screenshot("BB_SPP_MULTIPLE_SELECT_SIZE")
