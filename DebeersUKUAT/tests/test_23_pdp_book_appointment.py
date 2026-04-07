@@ -1,7 +1,7 @@
 from pages.pdp_enquire_appointment import PDP_Enquire_Book_Appointment
 from pages.book_appointment import Book_Appointment
 
-def test_book_appointment_from_pdp(page):
+def test_book_appointment_cta_from_pdp(page):
 
     pdp_enquire_appointment = PDP_Enquire_Book_Appointment(page)
     book_appointment = Book_Appointment(page)

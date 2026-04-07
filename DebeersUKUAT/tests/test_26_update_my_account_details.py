@@ -2,7 +2,7 @@ from pages.login_pages import Login_Page
 from pages.update_my_account_details import Update_My_Account_Page
 
 
-def test_login_logout_functionality(page):
+def test_update_my_account_details_functionality(page):
 
     login_logout = Login_Page(page)
     update_my_account_details = Update_My_Account_Page(page)

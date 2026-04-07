@@ -3,7 +3,7 @@ from pages.shopping_cart_page import Open_Shopping_Cart_Page
 from pages.upp_multiple_variant_filter import UPP_Multiple_Variant_Filter
 
 
-def test_add_to_bag_for_all_product_types_and_templates(page):
+def test_add_to_bag_for_upp_single_variant_all_templates(page):
 
     hj_upp_single_variant = HJ_UPP_Single_Variant(page)
     shopping_bag = Open_Shopping_Cart_Page(page)
