@@ -4,15 +4,15 @@ from pages.take_screenshot import PageScreenshot
 
 
 class UPP_Multiple_Variant_Filter(BasePage):
-    SKU1 = 'R102127'
+    SKU1 = "R102127"
     SKU1_FIND_YOUR_DIAMOND_CTA = "button[data-gtm-cta-label='Find your diamond']"
 
-    SKU2 = 'R102205'
+    SKU2 = "R102205"
     SKU2_FIND_YOUR_DIAMOND_CTA = "button[data-gtm-cta-label='Find your diamond']"
 
-    ring_size_dropdown = '//*[@id="size-refinement"]'
-    ring_size_53 = '53'
-    ring_size_52 = '52'
+    ring_size_dropdown = "//*[@id='size-refinement]"
+    ring_size_53 = "53"
+    ring_size_52 = "52"
     clarity_si1 = "button[data-attribute-value='SI1']"
     clarity_vs2 = "button[data-attribute-value='VS2']"
     colour_g = "button[data-attribute-value='whiteG']"

@@ -24,22 +24,22 @@ class OLD_SPP_No_Size(BasePage):
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
-                print(f"[OLD] SPP WITHOUT SIZE [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[OLD SPP WITHOUT SIZE AND WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("OLD_SPP_NO_SIZE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
             except:
-                print(f"*****[OLD] SPP WITHOUT SIZE [WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[OLD SPP WITHOUT SIZE AND WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_old_spp_no_size_without_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU1)
                 self.click(self.ADD_TO_BAG_CTA)
-                print(f"[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[OLD SPP WITHOUT SIZE AND WITHOUT ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("OLD_SPP_NO_SIZE_ADDED_WITHOUT_ENGRAVING")
                 self.click(self.minicart_close_icon)
 
             except:
-                print(f"*****[OLD] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[OLD SPP WITHOUT SIZE AND WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
 
 

@@ -14,7 +14,7 @@ class SearchSKU(BasePage):
     sort_by_label = "#sortRefinement button"
     price_ascending = "//input[@id='price-low-to-high']"
     price_descending = "//input[@id='price-high-to-low']"
-    slp_page_records = '//*[@id="navbarFilters"]/div/div[1]/div[2]/span'
+    slp_page_records = "//*[@id='navbarFilters']/div/div[1]/div[2]/span"
 
     # SLP Page > Filter
     filter_label = "button.btn-filtered.js-show-filters"

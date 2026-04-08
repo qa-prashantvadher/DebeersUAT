@@ -71,7 +71,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
         try:
             self.click(self.minicart_secure_checkout)
             self.timeout(5000)
-            print(f"[CHECKOUT] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
+            print(f"[CHECKOUT-MINI CART] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
         except:
-            print("*****[CHECKOUT] NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")
+            print("*****[CHECKOUT-MINI CART] NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")
 

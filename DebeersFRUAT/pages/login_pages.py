@@ -137,7 +137,7 @@ class Login_Page(BasePage):
                 self.click(self.my_account_landing_logout)
                 self.timeout(4000)
                 #self.screenshot.take_Page_screenshot("MY_ACCOUNT_NOT_YOU")
-                print("[ORDER CONFIRMATION - LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
+                print("[ORDER CONFIRMATION-LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
 
             except:
-                print("*****[ORDER CONFIRMATION - LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")       
+                print("*****[ORDER CONFIRMATION-LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")

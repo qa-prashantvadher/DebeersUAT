@@ -38,7 +38,7 @@ class Checkout_Review(BasePage):
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                print(f"[ORDER CREATED] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                print(f"[ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
                 self.screenshot.take_order_page_screenshot(f"FR_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART

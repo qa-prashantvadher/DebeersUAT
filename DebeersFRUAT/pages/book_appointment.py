@@ -41,10 +41,10 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
             self.store_locator.test_click_close_paris_flagship_in_map()
-            print("IN STORE APPOINTMENT: ALL OPTIONS ARE SELECTED..")
+            print("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_IN_STORE")
         except:
-            print("*****IN STORE APPOINTMENT: ALL OPTIONS ARE NOT SELECTED..*****")
+            print("*****[IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_in_store_appointment_type(self):
         try:
@@ -57,10 +57,10 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
             self.store_locator.test_click_close_paris_flagship_in_map()
-            print("[BB] IN STORE APPOINTMENT: ALL OPTIONS ARE SELECTED..")
+            print("[BB-IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_IN_STORE")
         except:
-            print("*****[BB] IN STORE APPOINTMENT: ALL OPTIONS ARE NOT SELECTED..*****")
+            print("*****[BB-IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
 
     def test_virtual_appointment_type(self):
@@ -77,10 +77,10 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
             self.store_locator.test_click_close_paris_flagship_in_map()
-            print("VIRTUAL APPOINTMENT: ALL OPTIONS ARE SELECTED..")
+            print("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_VIRTUAL")
         except:
-            print("*****VIRTUAL APPOINTMENT: ALL OPTIONS ARE NOT SELECTED..*****")
+            print("*****[VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_virtual_appointment_type(self):
         try:
@@ -93,7 +93,7 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
             self.store_locator.test_click_close_paris_flagship_in_map()
-            print("[BB] VIRTUAL APPOINTMENT: ALL OPTIONS ARE SELECTED..")
+            print("[BB-VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_VIRTUAL")
         except:
-            print("*****[BB] VIRTUAL APPOINTMENT: ALL OPTIONS ARE NOT SELECTED..*****")
+            print("*****[BB-VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")

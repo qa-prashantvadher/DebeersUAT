@@ -34,7 +34,7 @@ class HJ_UPP_Single_Variant(BasePage):
                 self.engraving.test_close_engraving_screen()
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
-                print(f"[HJ] UPP SINGLE VARIANT [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_UPP_SINGLE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_UPP_SINGLE_ADD_ENGRAVING")
@@ -42,9 +42,9 @@ class HJ_UPP_Single_Variant(BasePage):
                 self.engraving.test_close_engraving_screen()
                 self.click(self.ADDED_ENGRAVING_CTA)
                 self.engraving.test_update_engraving()
-                print(f"[HJ] UPP SINGLE VARIANT [WITH ENGRAVING] {self.SKU1} ENGRAVING TEXT IS UPDATED..")
+                print(f"[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} ENGRAVING TEXT IS UPDATED..")
             except:
-                print(f"*****[HJ] UPP SINGLE VARIANT [WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_hj_upp_single_variant_without_engraving(self):
             try:
@@ -53,12 +53,12 @@ class HJ_UPP_Single_Variant(BasePage):
                 #self.screenshot.take_Page_screenshot("HJ_UPP_SINGLE")
                 self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
-                print(f"[HJ] UPP SINGLE VARIANT [WITHOUT ENGRAVING] {self.SKU2} ENGRAVING TEXT IS UPDATED..")
+                print(f"[HJ UPP SINGLE VARIANT WITHOUT ENGRAVING] {self.SKU2} ENGRAVING TEXT IS UPDATED..")
                 self.screenshot.take_page_screenshot("HJ_UPP_SINGLE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_UPP_SINGLE_ADD_BAG")
             except:
-                print(f"*****[HJ] UPP SINGLE VARIANT [WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[HJ UPP SINGLE VARIANT WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")
 
 
 

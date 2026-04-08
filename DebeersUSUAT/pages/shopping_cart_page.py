@@ -4,7 +4,7 @@ from pages.take_screenshot import PageScreenshot
 class Open_Shopping_Cart_Page(BasePage):
 
     added_product_count = "span.minicart-quantity.counter-block.not-empty"
-    header_cart_icon = '//*[@id="headerShoppingBag"]/div/a'
+    header_cart_icon = "//*[@id='headerShoppingBag']/div/a"
     remove_product_icon = "(//i[contains(@class,'dbicon-close')])[1]"
     continue_to_checkout_cta = "//a[@role='button']"
 

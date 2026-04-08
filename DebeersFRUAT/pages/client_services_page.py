@@ -61,10 +61,10 @@ class Client_Services_Page(BasePage):
             try:
                 self.select_option(self.client_service_region_dropdown, region_value)
                 self.timeout(3000)
-                print(f"CLIENT SERVICE PAGE IS DISPLAYED WITH THE SELECTED REGION = {region_value}")
+                print(f"[CLIENT SERVICE] PAGE IS DISPLAYED WITH THE SELECTED REGION = {region_value}")
                 #self.screenshot.take_Page_screenshot(f"CLIENT_SERVICE_CHANGE_REGION_{region_value}")
             except:
-                print("*****NOT ABLE TO CHANGE REGION DETAILS..*****")
+                print("*****[CLIENT SERVICE] NOT ABLE TO CHANGE REGION DETAILS..*****")
 
     def test_open_email_us_form_from_client_services(self):
         try:
@@ -135,19 +135,19 @@ class Client_Services_Page(BasePage):
             #self.screenshot.take_Page_screenshot("EMAIL_US_BEFORE_SUBMIT")
             self.click(self.email_submit)
             self.timeout(2000)
-            print("EMAIL US FORM IS SUCCESSFULLY SUBMITTED..")
+            print("[EMAIL US] FORM IS SUCCESSFULLY SUBMITTED..")
             self.screenshot.take_page_screenshot("EMAIL_US_SUBMIT")
         except:
-            print("*****NOT ABLE TO SUBMIT EMAIL US FORM..")
+            print("*****[EMAIL US] NOT ABLE TO SUBMIT EMAIL US FORM..")
 
     def test_close_email_us_form(self):
         try:
             self.timeout(2000)
             self.click(self.email_close)
-            print("EMAIL US FORM IS NOW CLOSED..")
+            print("[EMAIL US] FORM IS NOW CLOSED..")
             #self.screenshot.take_Page_screenshot("EMAIL_US_CLOSE")
         except:
-            print("*****NOT ABLE TO CLOSE EMAIL US FORM..*****")
+            print("*****[EMAIL US] NOT ABLE TO CLOSE EMAIL US FORM..*****")
 
     def test_callback_form(self):
         try:
@@ -161,18 +161,18 @@ class Client_Services_Page(BasePage):
             #self.screenshot.take_Page_screenshot("CALL_REQUEST_BEFORE_SUBMIT")
             self.click(self.callback_submit)
             self.timeout(2000)
-            print("CALL REQUEST FORM IS SUCCESSFULLY SUBMITTED..")
+            print("[CALL REQUEST] FORM IS SUCCESSFULLY SUBMITTED..")
             self.screenshot.take_page_screenshot("CALL_REQUEST_SUBMIT")
         except:
-            print("*****NOT ABLE TO SUBMIT CALL REQUEST FORM..*****")
+            print("*****[CALL REQUEST] NOT ABLE TO SUBMIT CALL REQUEST FORM..*****")
 
 
     def test_close_callback_form(self):
         try:
             self.timeout(2000)
             self.click(self.callback_close)
-            print("CALL REQUEST FORM IS NOW CLOSED..")
+            print("[CALL REQUEST] FORM IS NOW CLOSED..")
             #self.screenshot.take_Page_screenshot("CALL_REQUEST_CLOSE")
 
         except:
-            print("NOT ABLE TO CLOSE CALL REQUEST FORM..")
+            print("[CALL REQUEST] NOT ABLE TO CLOSE CALL REQUEST FORM..")

@@ -200,7 +200,7 @@ class Checkout_Delivery(BasePage):
     def test_enter_gift_message(self):
         try:
             if self.is_checked(self.gift_checkbox):
-                print("GIFT OPTION IS ALREADY SELECTED...")
+                print("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
             else:
                 self.click(self.gift_checkbox)
             self.timeout(1000)
