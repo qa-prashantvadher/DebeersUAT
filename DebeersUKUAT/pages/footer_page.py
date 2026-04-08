@@ -163,7 +163,7 @@ class Footer_Page(BasePage):
                 print(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
                 self.navigate(self.URL)
-                print(f"NAVIGATED TO: {self.URL.upper()}")
+                print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
                 self.timeout(5000)
                 self.test_location_dropdown_from_footer()
         except:

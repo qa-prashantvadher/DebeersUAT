@@ -79,19 +79,19 @@ class Checkout_Payment(BasePage):
             self.timeout(1000)
             self.click(self.payment_by_paypal)
             self.timeout(1000)
-            print("CHECKOUT PAYMENT: PAYMENT METHOD IS CHANGED TO PAYPAL..")
+            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO PAYPAL..")
         except:
-            print("*****CHECKOUT PAYMENT: NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
+            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
 
     def test_select_cards_payment_method(self):
         try:
             self.timeout(1000)
             self.click(self.payment_by_cards)
             self.timeout(1000)
-            print("CHECKOUT PAYMENT: PAYMENT METHOD IS CHANGED TO CARDS..")
+            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO CARDS..")
 
         except:
-            print("*****CHECKOUT PAYMENT: NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
+            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
    
 
     def test_enter_amex_credit_card_details(self):
@@ -190,7 +190,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_page_screenshot("CHECKOUT_BILLING_NAME")
-            print("[CHECKOUT-BILLING_NAME] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 

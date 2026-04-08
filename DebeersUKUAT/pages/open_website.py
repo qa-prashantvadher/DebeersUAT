@@ -19,9 +19,9 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
-            print(f"[OPEN URL] NAVIGATED TO: {self.URL.upper()}")
+            print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
        except:
-            print("[OPEN URL] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..")
+            print("[HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..")
 
     def test_cookie_consent(self):
          # Accept Consent Cookies if the popup appears

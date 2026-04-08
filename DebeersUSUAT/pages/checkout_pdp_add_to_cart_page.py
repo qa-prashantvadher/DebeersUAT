@@ -36,7 +36,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
     def test_checkout_spp_no_size_with_engraving(self):
         SKU1 = random.choice(self.SKU1_LIST)
-        print(f"SKU1: {SKU1}")
+        print(f"[CHECKOUT] SKU1: {SKU1}")
         try:
             self.search.test_search_with_sku(SKU1)
             delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
@@ -55,7 +55,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
     def test_checkout_spp_no_size_without_engraving(self):
         SKU2 = random.choice(self.SKU2_LIST)
-        print(f"SKU2: {SKU2}")
+        print(f"[CHECKOUT] SKU2: {SKU2}")
         try:
             self.search.test_search_with_sku(SKU2)
             delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()

@@ -157,13 +157,13 @@ class Open_Menu_Header_Options (BasePage):
                     self.timeout(2000)
                     self.website.test_country_selector()
                  except:
-                     print("COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
+                     print("[COOKIE] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
                  self.timeout(2000)
                  page_url = self.page.url
                  print(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_COUNTRY_{country_name.upper()}")
                  self.navigate(self.URL)
-                 print(f"NAVIGATED TO: {self.URL.upper()}")
+                 print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
                  self.timeout(5000)
                  
         except:

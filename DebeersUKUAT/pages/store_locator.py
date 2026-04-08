@@ -135,7 +135,7 @@ class Search_Locator_Page(BasePage):
             print("[STORE DETAIL] USER IS REDIRECTED TO THE NEW YORK STORE DETAIL PAGE..")
 
         except:
-            print("*****[STORE DETAIL] NOT ABLE TO OPEN NEW YORK STORE DETAIL PAGE FROM THE SEARCH RESULTS..*****")
+            print("*****[STORE DETAIL] NOT ABLE TO OPEN NEW YORK STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_open_london_store_detail_page(self):
         try:
@@ -146,7 +146,7 @@ class Search_Locator_Page(BasePage):
             self.screenshot.take_page_screenshot("LONDON_STORE_DETAIL")
             print("[STORE DETAIL] USER IS REDIRECTED TO THE LONDON STORE DETAIL PAGE..")
         except:
-            print("*****[STORE DETAIL] NOT ABLE TO OPEN LONDON STORE DETAIL PAGE FROM THE SEARCH RESULTS..*****")
+            print("*****[STORE DETAIL] NOT ABLE TO OPEN LONDON STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_open_paris_store_detail_page(self):
          try:
@@ -157,7 +157,7 @@ class Search_Locator_Page(BasePage):
             self.screenshot.take_page_screenshot("PARIS_STORE_DETAIL")
             print("[STORE DETAIL] USER IS REDIRECTED TO THE PARIS STORE DETAIL PAGE..")
          except:
-             print("*****[STORE DETAIL] NOT ABLE TO OPEN PARIS STORE DETAIL PAGE FROM THE SEARCH RESULTS..*****")
+             print("*****[STORE DETAIL] NOT ABLE TO OPEN PARIS STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_book_an_appointment_cta_store_detail_page(self):
         try:

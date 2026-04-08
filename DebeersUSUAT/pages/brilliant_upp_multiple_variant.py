@@ -37,17 +37,17 @@ class BB_UPP_Multiple_Variant(BasePage):
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
                 self.screenshot.take_page_screenshot("BB_UPP_MULTIPLE_ADDED_WITH_ENGRAVING")
-                print(f"[BB] UPP MULTIPLE VARIANT [WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                print(f"[BB UPP MULTIPLE VARIANT WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.click(self.minicart_close_icon)
                 self.click(self.ADDED_ENGRAVING_CTA)
                 #self.screenshot.take_Page_screenshot("BB_UPP_MULTIPLE_UPDATE_ENGRAVING")
                 self.engraving.test_close_engraving_screen()
                 self.click(self.ADDED_ENGRAVING_CTA)
                 self.engraving.test_update_engraving()
-                print(f"[BB] UPP MULTIPLE VARIANT [WITH ENGRAVING] {self.SKU1} ENGRAVING TEXT IS UPDATED..")
+                print(f"[BB UPP MULTIPLE VARIANT WITH ENGRAVING] {self.SKU1} ENGRAVING TEXT IS UPDATED..")
 
             except:
-                print(f"*****[BB] UPP MULTIPLE VARIANT [WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[BB UPP MULTIPLE VARIANT WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_bb_upp_multiple_variant_without_engraving(self):
             try:
@@ -57,11 +57,11 @@ class BB_UPP_Multiple_Variant(BasePage):
                 self.timeout(2000)
                 self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
-                print(f"[BB] UPP MULTIPLE VARIANT [WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
+                print(f"[BB UPP MULTIPLE VARIANT WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_UPP_MULTIPLE_ADDED_WITHOUT_ENGRAVING")
                 self.click(self.minicart_close_icon)
             except:
-                print(f"*****[BB] UPP MULTIPLE VARIANT [WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                print(f"*****[BB UPP MULTIPLE VARIANT WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
 
 
