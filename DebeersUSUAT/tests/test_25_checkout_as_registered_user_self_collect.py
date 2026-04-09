@@ -14,7 +14,7 @@ load_dotenv(override=True)
 env = os.getenv("ENVIRONMENT")
 
 
-def test_checkout_as_registered_user(page):
+def test_checkout_as_registered_user_self_collect(page):
 
     checkout_pdp = Checkout_PDP_SPP_No_Size(page)
     checkout_login = Checkout_Login(page)

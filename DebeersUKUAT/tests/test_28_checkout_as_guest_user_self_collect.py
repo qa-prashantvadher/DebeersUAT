@@ -9,7 +9,7 @@ from pages.shopping_cart_page import Open_Shopping_Cart_Page
 
 
 
-def test_checkout_as_guest_user(page):
+def test_checkout_as_guest_user_self_collect(page):
 
     checkout_pdp = Checkout_PDP_SPP_No_Size(page)
     checkout_login = Checkout_Login(page)
