@@ -106,7 +106,7 @@ class Checkout_Delivery(BasePage):
             self.click(self.self_collect_checkbox)
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_SELF_COLLECT")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
             print(f"[CHECKOUT-SELF] DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
@@ -117,7 +117,7 @@ class Checkout_Delivery(BasePage):
             self.click(self.someone_else_collect_checkbox)
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
             print(f"[CHECKOUT-SOMEONE] DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
@@ -205,7 +205,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(2000)
             delivery_date = self.get_text(self.premium_delivery_date).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_DELIVERY")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_DELIVERY")
             print(f"[CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date.upper()}")
         except:
             print("*****[CHECKOUT-DELIVERY] DELIVERY DATE DETAIL IS MISSING..*****")
@@ -214,7 +214,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_IN_STORE")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_IN_STORE")
             print(f"[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
         except:
             print("*****[CHECKOUT-IN STORE] DELIVERY DATE DETAIL IS MISSING..*****")
@@ -223,7 +223,7 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(1000)
             error_code = self.get_text(self.error_code_text).strip()
-            self.screenshot.take_page_screenshot("CHECKOUT_DELIVERY")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_DELIVERY")
             print(f"[CHECKOUT-DELIVERY] ERROR CODE: {error_code}")
             self.click(self.client_service_error_popup_close)
             self.timeout(1000)
@@ -240,7 +240,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.fill(self.gift_message_input, self.gift_message_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_GIFT_MESSAGE")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
             print("*****[CHECKOUT-DELIVERY] NOT ABLE TO ENTER GIFT MESSAGE..*****")
 

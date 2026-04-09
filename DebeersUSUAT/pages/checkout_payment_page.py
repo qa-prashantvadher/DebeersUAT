@@ -130,7 +130,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.amex_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_AMEX")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_AMEX")
             print("[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -144,7 +144,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.mc_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
             print("[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -159,7 +159,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.visa_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_VISA")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_VISA")
             print("[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -173,7 +173,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.union_pay_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
             print("[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -187,7 +187,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.discover_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
             print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -201,7 +201,7 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.jcb_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_JCB")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_JCB")
             print("[CHECKOUT-CARDS] JCB CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
 
         except:
@@ -217,7 +217,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_first_name_input, billing_first_name_text)
             self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
-            self.screenshot.take_page_screenshot("CHECKOUT_BILLING_NAME")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
             print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
@@ -234,7 +234,7 @@ class Checkout_Payment(BasePage):
             self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["billing_state_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
-            self.screenshot.take_page_screenshot("CHECKOUT_BILLING_ADDRESS")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
             print("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
@@ -245,7 +245,7 @@ class Checkout_Payment(BasePage):
             self.scroll_down(self.use_delivery_as_billing_input)
             self.click(self.use_delivery_as_billing_input)
             self.timeout(1000)
-            self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS")
             print("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
         except:
             print("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")

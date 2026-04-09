@@ -19,7 +19,7 @@ class Checkout_Go_Back_From_Review(BasePage):
             self.click(self.delivery_tab_from_review)
             self.timeout(2000)
             print("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE DELIVERY PAGE..")
-            self.screenshot.take_page_screenshot("GO_BACK_FROM_REVIEW_TO_DELIVERY")
+            self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_DELIVERY")
         except:
             print("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE DELIVERY PAGE..*****")
 
@@ -30,7 +30,7 @@ class Checkout_Go_Back_From_Review(BasePage):
             self.click(self.payment_tab_from_review)
             self.timeout(2000)
             print("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE PAYMENT PAGE..")
-            self.screenshot.take_page_screenshot("GO_BACK_FROM_REVIEW_TO_PAYMENT")
+            self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_PAYMENT")
         except:
             print("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE PAYMENT PAGE..*****")
 
@@ -40,5 +40,6 @@ class Checkout_Go_Back_From_Review(BasePage):
             self.click(self.go_back_to_shopping_bag)
             self.timeout(5000)
             print("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE SHOPPING BAG PAGE..")
+            self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_CART")
         except:
             print("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE SHOPPING BAG PAGE..*****")

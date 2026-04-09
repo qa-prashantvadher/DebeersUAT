@@ -26,7 +26,7 @@ class Checkout_Login(BasePage):
         try:
             self.timeout(2000)
             self.fill(self.guest_email_address_input,self.email_address_text)
-            self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_GUEST")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_LOGIN_GUEST")
             self.click(self.checkout_as_guest_cta)
             self.timeout(5000)
             print("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
