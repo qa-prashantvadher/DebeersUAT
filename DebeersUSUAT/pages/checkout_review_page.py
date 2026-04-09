@@ -21,7 +21,7 @@ class Checkout_Review(BasePage):
         self.screenshot = PageScreenshot(page)
         self.shopping_bag = Open_Shopping_Cart_Page(page)
 
-    def test_refresh_review_page(self):
+    def test_page_refresh(self):
         try:
             self.timeout(2000)
             self.page.reload()
