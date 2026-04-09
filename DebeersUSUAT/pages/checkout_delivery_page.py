@@ -216,9 +216,9 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.click(self.continue_payment_cta)
             self.timeout(2000)
-            print("CHECKOUT-DELIVERY: USER IS REDIRECTED TO THE PAYMENT PAGE..")
+            print("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE PAYMENT PAGE..")
         except:
-            print("*****CHECKOUT-DELIVERY: USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")
+            print("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")
             
             
 

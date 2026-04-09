@@ -201,8 +201,6 @@ class Checkout_Payment(BasePage):
             self.scroll_down(self.billing_address_input)
             self.fill(self.billing_address_input,self.billing_address_text)
             #State dropdown
-            print(self.page.locator("#state").count())
-            print(self.page.locator("#state option").count())
             self.select_state_dropdown_value(self.billing_state_dropdown, self.billing_state_text)
             self.fill(self.billing_city_input,self.billing_city_text)
             self.fill(self.billing_postal_code_input,self.billing_postal_code_text)
