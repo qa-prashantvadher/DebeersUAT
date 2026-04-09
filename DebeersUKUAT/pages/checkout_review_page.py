@@ -23,7 +23,10 @@ class Checkout_Review(BasePage):
 
     def test_refresh_review_page(self):
         try:
+            self.timeout(2000)
             self.page.reload()
+            self.timeout(3000)
+            print("*****[CHECKOUT-REVIEW] REVIEW PAGE REFRESHED SUCCESSFULLY..*****")
         except:
             print("*****[CHECKOUT-REVIEW] UNABLE TO REFRESH PAGE..*****")
 
