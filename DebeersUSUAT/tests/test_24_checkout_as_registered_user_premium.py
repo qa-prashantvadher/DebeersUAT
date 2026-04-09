@@ -27,7 +27,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
 
-    print("Case 1: Premium Delivery + Amex card + Same Billing address")
+    print("\033[1m Case 1: Premium Delivery + Amex card + Same Billing address\033[0m")
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
@@ -300,7 +300,7 @@ def test_checkout_as_registered_user_premium(page):
     if env in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
 
-    print(" Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card")
+    print("\033[1mCase 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card\033[0m")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
     checkout_login.test_checkout_as_registered_user()

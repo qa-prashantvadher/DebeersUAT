@@ -10,7 +10,7 @@ class UPP_Multiple_Variant_Filter(BasePage):
     SKU2 = "R102205"
     SKU2_FIND_YOUR_DIAMOND_CTA = "button[data-gtm-cta-label='Find your diamond']"
 
-    ring_size_dropdown = "//*[@id='size-refinement]"
+    ring_size_dropdown = "//*[@id='size-refinement']"
     ring_size_53 = "53"
     ring_size_52 = "52"
     clarity_si1 = "button[data-attribute-value='SI1']"
