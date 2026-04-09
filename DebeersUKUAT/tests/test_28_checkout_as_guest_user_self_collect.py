@@ -34,6 +34,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_mastercard_credit_card_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 5: Self Collect + Master card + Different Billing Name
@@ -50,6 +51,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_change_billing_name_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_review.test_place_an_order_from_order_review_page()
 
     # Case 10: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card
@@ -62,6 +64,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_delivery.test_enter_gift_message()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_union_pay_credit_card_details()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
     checkout_delivery.test_delivery_date_on_collect_in_store()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -122,6 +125,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_delivery_from_review_page()
     checkout_delivery.test_delivery_date_on_collect_in_store()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -187,6 +191,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_union_pay_credit_card_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_payment_from_review_page()
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
@@ -204,6 +209,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_union_pay_credit_card_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_payment_from_review_page()
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_enter_change_billing_name_details()
@@ -223,6 +229,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_enter_change_billing_address_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
     shopping_cart.test_continue_to_checkout_from_cart()
     checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -291,6 +298,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_delivery.test_enter_gift_message()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_union_pay_credit_card_details()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
     shopping_cart.test_continue_to_checkout_from_cart()
     checkout_delivery.test_enter_collector_details_in_store_collect()
