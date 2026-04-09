@@ -217,7 +217,7 @@ class Checkout_Payment(BasePage):
             self.screenshot.take_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS")
             print("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
         except:
-            print("[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
+            print("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")
   
     def test_continue_to_review_from_payment_page(self):
         try:
