@@ -16,10 +16,37 @@ class Checkout_Delivery(BasePage):
 
     premium_add_new_address_option = "//a[@class='anchor btn-add-new js-btn-add-new ']"
 
-    premium_address_text = "1128 Park Ave Apt 123"
-    premium_city_text = "New York"
-    premium_state_text = "NY"
-    premium_postal_code_text = "10128-1203"
+    delivery_addresses = [
+        {
+            "premium_address_text": "1128 Park Ave Apt 123",
+            "premium_city_text": "New York",
+            "premium_state_text": "NY",
+            "premium_postal_code_text": "10128-1203"
+        },
+        {
+            "premium_address_text": "9221 Hooper Ave Apt 1",
+            "premium_city_text": "Los Angeles",
+            "premium_state_text": "CA",
+            "premium_postal_code_text": "90002-2034"
+        },
+        {
+            "premium_address_text": "20 S Pearl St Apt 1",
+            "premium_city_text": "Denver",
+            "premium_state_text": "CO",
+            "premium_postal_code_text": "80209-2033"
+        },        {
+            "premium_address_text": "417 22nd St SE Apt A",
+            "premium_city_text": "Auburn",
+            "premium_state_text": "WA",
+            "premium_postal_code_text": "98002-6832"
+        },
+        {
+            "premium_address_text": "13833 Akers Cir",
+            "premium_city_text": "Eagle River",
+            "premium_state_text": "AK",
+            "premium_postal_code_text": "99577-6737"
+        }
+    ]
 
     # Client Service Error Popup
     client_service_error_popup_close = "//button[@class='btn close']"
@@ -137,16 +164,19 @@ class Checkout_Delivery(BasePage):
 
     def test_enter_valid_delivery_address_in_premium_delivery(self):
         try:
+            # Pick random address
+            selected_delivery_address = random.choice(self.delivery_addresses)
+
             self.timeout(3000)
             if self.is_visible(self.premium_add_new_address_option):
                 pass  # do nothing, continue with next lines
             else:
                 self.timeout(1000)
-                self.fill(self.premium_address_input, self.premium_address_text)
+                self.fill(self.premium_address_input, selected_delivery_address["premium_address_text"])
                 # State dropdown
-                self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
-                self.fill(self.premium_city_input, self.premium_city_text)
-                self.fill(self.premium_postal_code_input, self.premium_postal_code_text)
+                self.select_state_dropdown_value(self.premium_state_dropdown, selected_delivery_address["premium_state_text"])
+                self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
+                self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
                 print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
@@ -155,10 +185,13 @@ class Checkout_Delivery(BasePage):
 
     def test_enter_invalid_delivery_address_in_premium_delivery(self):
         try:
+            # Pick random address
+            selected_delivery_address = random.choice(self.delivery_addresses)
+
             self.timeout(1000)
-            self.fill(self.premium_address_input, self.premium_address_text)
+            self.fill(self.premium_address_input, selected_delivery_address["premium_address_text"])
             # State dropdown
-            self.select_state_dropdown_value(self.premium_state_dropdown, self.premium_state_text)
+            self.select_state_dropdown_value(self.premium_state_dropdown, selected_delivery_address["premium_state_text"])
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)

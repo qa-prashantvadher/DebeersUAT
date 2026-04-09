@@ -65,10 +65,38 @@ class Checkout_Payment(BasePage):
     billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker", "Thompson", "Brook"]
 
     billing_phone_text = "9558112787"
-    billing_address_text = "14410 California Ave"
-    billing_city_text = "Baldwin Park"
-    billing_state_text = "CA"
-    billing_postal_code_text = "91706-1740"
+
+    billing_addresses = [
+        {
+            "billing_address_text": "1128 Park Ave Apt 123",
+            "billing_city_text": "New York",
+            "billing_state_text": "NY",
+            "billing_postal_code_text": "10128-1203"
+        },
+        {
+            "billing_address_text": "9221 Hooper Ave Apt 1",
+            "billing_city_text": "Los Angeles",
+            "billing_state_text": "CA",
+            "billing_postal_code_text": "90002-2034"
+        },
+        {
+            "billing_address_text": "20 S Pearl St Apt 1",
+            "billing_city_text": "Denver",
+            "billing_state_text": "CO",
+            "billing_postal_code_text": "80209-2033"
+        },        {
+            "billing_address_text": "417 22nd St SE Apt A",
+            "billing_city_text": "Auburn",
+            "billing_state_text": "WA",
+            "billing_postal_code_text": "98002-6832"
+        },
+        {
+            "billing_address_text": "13833 Akers Cir",
+            "billing_city_text": "Eagle River",
+            "billing_state_text": "AK",
+            "billing_postal_code_text": "99577-6737"
+        }
+    ]
 
     def __init__(self, page):
         super().__init__(page)
@@ -197,13 +225,15 @@ class Checkout_Payment(BasePage):
 
     def test_enter_change_billing_address_details(self):
         try:
+            # Pick random address
+            selected_billing_address = random.choice(self.billing_addresses)
             self.timeout(1000)
             self.scroll_down(self.billing_address_input)
-            self.fill(self.billing_address_input,self.billing_address_text)
+            self.fill(self.billing_address_input,selected_billing_address["billing_address_text"])
             #State dropdown
-            self.select_state_dropdown_value(self.billing_state_dropdown, self.billing_state_text)
-            self.fill(self.billing_city_input,self.billing_city_text)
-            self.fill(self.billing_postal_code_input,self.billing_postal_code_text)
+            self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["billing_state_text"])
+            self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
+            self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_page_screenshot("CHECKOUT_BILLING_ADDRESS")
             print("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
