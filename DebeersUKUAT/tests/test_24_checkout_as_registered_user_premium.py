@@ -38,6 +38,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_review.test_place_an_order_from_order_review_page()
     if env in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
@@ -55,6 +56,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_payment.test_enter_visa_credit_card_details()
     checkout_payment.test_use_delivery_as_billing_address_checkbox()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_review.test_place_an_order_from_order_review_page()
     if env in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
@@ -73,6 +75,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_discover_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_review.test_place_an_order_from_order_review_page()
     if env in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
@@ -131,6 +134,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_payment.test_enter_discover_credit_card_details()
     checkout_payment.test_use_delivery_as_billing_address_checkbox()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_delivery_from_review_page()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -197,6 +201,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_payment.test_enter_mastercard_credit_card_details()
     checkout_payment.test_use_delivery_as_billing_address_checkbox()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_payment_from_review_page()
     checkout_payment.test_enter_discover_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
@@ -235,6 +240,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_payment.test_enter_discover_credit_card_details()
     checkout_payment.test_use_delivery_as_billing_address_checkbox()
     checkout_payment.test_continue_to_review_from_payment_page()
+    checkout_review.test_refresh_review_page()
     checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
     shopping_cart.test_continue_to_checkout_from_cart()
     checkout_delivery.test_delivery_date_on_premium_delivery()

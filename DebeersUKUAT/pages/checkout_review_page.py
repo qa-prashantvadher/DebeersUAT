@@ -21,6 +21,11 @@ class Checkout_Review(BasePage):
         self.screenshot = PageScreenshot(page)
         self.shopping_bag = Open_Shopping_Cart_Page(page)
 
+    def test_refresh_review_page(self):
+        try:
+            self.page.reload()
+        except:
+            print("*****[CHECKOUT-REVIEW] UNABLE TO REFRESH PAGE..*****")
 
     def test_place_an_order_from_order_review_page(self):
         try:
@@ -53,4 +58,4 @@ class Checkout_Review(BasePage):
 
 
         except:
-            print("*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED..*****")
+            print("*****[CHECKOUT-REVIEW] ORDER IS NOT CREATED..*****")
