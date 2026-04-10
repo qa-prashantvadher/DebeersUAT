@@ -1,5 +1,12 @@
 from pages.pdp_enquire_appointment import PDP_Enquire_Book_Appointment
 from pages.book_appointment import Book_Appointment
+from dotenv import load_dotenv
+import os
+load_dotenv(override=True)
+
+COUNTRY = os.getenv("LOCALE")
+ENV = os.getenv("ENVIRONMENT")
+
 
 def test_book_appointment_cta_from_pdp(page):
 
@@ -9,10 +16,18 @@ def test_book_appointment_cta_from_pdp(page):
     # BOOK APPOINTMENT CTA AND BOOK IN STORE/VIRTUAL APPOINTMENT OPTIONS ON THE PDP PAGE
     pdp_enquire_appointment.test_book_appointment_hj_master_level()
 
-    book_appointment.test_in_store_appointment_type()
-    pdp_enquire_appointment.test_book_appointment_hj_master_level()
-    book_appointment.test_virtual_appointment_type()
-    pdp_enquire_appointment.test_in_store_appointment_bb_contact_us()
-    book_appointment.test_bb_in_store_appointment_type()
-    pdp_enquire_appointment.test_virtual_appointment_bb_contact_us()
-    book_appointment.test_bb_virtual_appointment_type()
+    if ENV == "PROD" and COUNTRY == "UK":
+        book_appointment.test_in_store_appointment_type()
+        pdp_enquire_appointment.test_book_appointment_hj_master_level()
+        book_appointment.test_in_store_appointment_type()
+        pdp_enquire_appointment.test_in_store_appointment_bb_contact_us()
+        book_appointment.test_bb_in_store_appointment_type()
+
+    else:
+        book_appointment.test_in_store_appointment_type()
+        pdp_enquire_appointment.test_book_appointment_hj_master_level()
+        book_appointment.test_virtual_appointment_type()
+        pdp_enquire_appointment.test_in_store_appointment_bb_contact_us()
+        book_appointment.test_bb_in_store_appointment_type()
+        pdp_enquire_appointment.test_virtual_appointment_bb_contact_us()
+        book_appointment.test_bb_virtual_appointment_type()

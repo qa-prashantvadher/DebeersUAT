@@ -5,7 +5,7 @@ from pages.take_screenshot import PageScreenshot
 
 class HJ_UPP_Single_Variant(BasePage):
 
-        SKU1 = "R102133"
+        SKU1 = "N103488"
         SKU2 = "N102152"
 
         ADD_TO_BAG_CTA = "//div[@class='primary-btn-wrap']/div/button[1]"

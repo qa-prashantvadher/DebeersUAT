@@ -34,6 +34,7 @@ def test_menu_and_header_option_pages(page):
         menu_header_option.test_open_book_appointment_page_from_menu()
         book_appointment.test_in_store_appointment_type()
         book_appointment.test_virtual_appointment_type()
+
     menu_header_option.test_open_delivery_returns_page_from_menu()
     menu_header_option.test_open_contact_us_from_menu()
     client_service.test_change_region_client_service()
