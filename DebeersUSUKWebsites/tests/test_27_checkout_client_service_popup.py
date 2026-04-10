@@ -6,6 +6,9 @@ from pages.checkout_review_page import Checkout_Review
 from pages.login_pages import Login_Page
 import os
 from dotenv import load_dotenv
+
+from pages.take_screenshot import COUNTRY
+
 load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
@@ -29,7 +32,8 @@ def test_checkout_client_service_popup(page):
     checkout_delivery.test_add_new_address_as_register()
     checkout_delivery.test_enter_invalid_delivery_address_in_premium_delivery()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_delivery.test_close_client_service_tax_error_popup()
+    if COUNTRY == "US":
+       checkout_delivery.test_close_client_service_tax_error_popup()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
     checkout_delivery.test_enter_gift_message()
@@ -50,7 +54,8 @@ def test_checkout_client_service_popup(page):
     checkout_delivery.test_enter_user_details_in_premium_delivery()
     checkout_delivery.test_enter_invalid_delivery_address_in_premium_delivery()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
-    checkout_delivery.test_close_client_service_tax_error_popup()
+    if COUNTRY == "US":
+        checkout_delivery.test_close_client_service_tax_error_popup()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
     checkout_delivery.test_enter_gift_message()
