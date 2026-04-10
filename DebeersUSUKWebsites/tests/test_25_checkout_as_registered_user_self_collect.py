@@ -42,6 +42,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 4: Self Collect + Master card + Different Billing Name")
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -60,6 +62,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 9: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -80,6 +84,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 10: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Amex card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -100,6 +106,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 11: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Amex card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -121,6 +129,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 18: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -142,6 +152,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 19: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -164,6 +176,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 20: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -187,6 +201,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 26: Self Collect + Union Pay card > From the Review page, Go back to the Payment Page > Amex card + Same Billing name")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -206,6 +222,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 27: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -226,6 +244,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 32: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -248,6 +268,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 33: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -271,6 +293,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 34: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -295,6 +319,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 40: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -316,6 +342,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 41: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Amex card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -339,3 +367,5 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()

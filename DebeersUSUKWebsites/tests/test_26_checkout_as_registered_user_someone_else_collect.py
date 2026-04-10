@@ -43,6 +43,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -64,6 +66,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -86,6 +90,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Union Pay card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -107,6 +113,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -130,7 +138,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
-
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -154,6 +163,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -176,6 +187,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -196,6 +209,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -219,6 +234,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -242,6 +259,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -266,6 +285,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -290,6 +311,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     print(" Case 43: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -312,3 +335,5 @@ def test_checkout_as_registered_user_someone_else_collect(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()

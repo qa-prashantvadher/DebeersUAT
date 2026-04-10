@@ -3,6 +3,7 @@ from pages.checkout_login import Checkout_Login
 from pages.checkout_delivery_page import Checkout_Delivery
 from pages.checkout_payment_page import Checkout_Payment
 from pages.checkout_review_page import Checkout_Review
+from pages.go_back_from_payment_page import Checkout_Go_Back_From_Payment
 from pages.login_pages import Login_Page
 import os
 from dotenv import load_dotenv
@@ -16,6 +17,7 @@ ENV = os.getenv("ENVIRONMENT")
 def test_checkout_client_service_popup(page):
 
     checkout_pdp = Checkout_PDP_SPP_No_Size(page)
+    checkout_back_from_payment = Checkout_Go_Back_From_Payment(page)
     checkout_login = Checkout_Login(page)
     checkout_delivery = Checkout_Delivery(page)
     checkout_payment = Checkout_Payment(page)
@@ -33,7 +35,9 @@ def test_checkout_client_service_popup(page):
     checkout_delivery.test_enter_invalid_delivery_address_in_premium_delivery()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     if COUNTRY == "US":
-       checkout_delivery.test_close_client_service_tax_error_popup()
+        checkout_delivery.test_close_client_service_tax_error_popup()
+    elif COUNTRY == "UK":
+        checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
     checkout_delivery.test_enter_gift_message()
@@ -44,6 +48,8 @@ def test_checkout_client_service_popup(page):
     checkout_review.test_place_an_order_from_order_review_page()
     if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
+    elif ENV == "PROD":
+        login_logout.test_logout_from_my_account_logout()
 
     # Case 2: As a Guest User + Premium Delivery > Invalid Address > Then Valid Address
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -56,6 +62,8 @@ def test_checkout_client_service_popup(page):
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     if COUNTRY == "US":
         checkout_delivery.test_close_client_service_tax_error_popup()
+    elif COUNTRY == "UK":
+        checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
     checkout_delivery.test_delivery_date_on_premium_delivery()
     checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
     checkout_delivery.test_enter_gift_message()
