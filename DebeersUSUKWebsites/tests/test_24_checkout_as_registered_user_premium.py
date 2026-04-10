@@ -27,7 +27,7 @@ def test_checkout_as_registered_user_premium(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
 
-    print("\033[1m Case 1: Premium Delivery + Amex card + Same Billing address\033[0m")
+    print("Case 1: Premium Delivery + Amex card + Same Billing address")
     checkout_pdp.test_checkout_spp_no_size_without_engraving()
     checkout_pdp.test_checkout_spp_no_size_with_engraving()
     checkout_pdp.test_secure_checkout_from_minicart()
