@@ -8,7 +8,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-env = os.getenv("ENVIRONMENT")
+ENV = os.getenv("ENVIRONMENT")
 
 def test_checkout_client_service_popup(page):
 
@@ -38,7 +38,7 @@ def test_checkout_client_service_popup(page):
     checkout_payment.test_enter_amex_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
     checkout_review.test_place_an_order_from_order_review_page()
-    if env in ["UAT", "QA"]:
+    if ENV in ["UAT", "QA"]:
         login_logout.test_logout_from_order_confirmation_page()
 
     # Case 2: As a Guest User + Premium Delivery > Invalid Address > Then Valid Address

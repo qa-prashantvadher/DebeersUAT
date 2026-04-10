@@ -30,7 +30,7 @@ def browser():
 # Create ONE context for all tests
 @pytest.fixture(scope="session")
 def context(browser):
-    env = os.getenv("ENVIRONMENT")
+    ENV = os.getenv("ENVIRONMENT")
 
     context_args = {
         "no_viewport": True,
@@ -42,7 +42,7 @@ def context(browser):
     }
 
     # Apply condition based on environment
-    if env == "UAT":
+    if ENV == "UAT":
         context_args["http_credentials"] = creds
 
     context = browser.new_context(**context_args)
