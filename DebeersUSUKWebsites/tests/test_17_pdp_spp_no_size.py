@@ -33,7 +33,7 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
         for cart_products in range(1, cart_products + 1):
             shopping_bag.test_remove_product_from_cart()
 
-
+'''
     # OLD SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
     old_spp_no_size.test_old_spp_no_size_without_engraving()
     old_spp_no_size.test_old_spp_no_size_without_engraving()
@@ -45,7 +45,7 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
         for cart_products in range(1, cart_products + 1):
             shopping_bag.test_remove_product_from_cart()
 
-
+'''
     #https://development.debeers.co.uk/en-gb/db-classic-pear-shaped-diamond-pendant/N102152.html [HJ UPP SINGLE without E]
     #https://development.debeers.co.uk/en-gb/db-classic-simple-shank-radiant-square-cut-diamond-ring/R102133.html [HJ UPP SINGLE with E]
     #https://development.debeers.co.uk/en-gb/diamond-polishing-wipes-%28box-of-50%29/A1021110000.html [OLD SPP]

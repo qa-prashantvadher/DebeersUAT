@@ -40,7 +40,7 @@ class PageScreenshot(BasePage):
         other_screenshot_full_path = os.path.join(self.base_path, self.other_sub_folder, self.date_folder)
         os.makedirs(other_screenshot_full_path, exist_ok=True)
         filename = os.path.join(other_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print("----> FILENAME:", filename)
+        print("----> FILENAME:", f'{keyword}_{timestamp}.png')
         self.page.screenshot(path=filename)
 
     def take_order_page_screenshot(self, keyword):
@@ -48,5 +48,5 @@ class PageScreenshot(BasePage):
         order_screenshot_full_path = os.path.join(self.base_path, self.order_sub_folder, self.date_folder)
         os.makedirs(order_screenshot_full_path, exist_ok=True)
         filename = os.path.join(order_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print("----> FILENAME:", filename)
+        print("----> FILENAME:", f'{keyword}_{timestamp}.png')
         self.page.screenshot(path=filename,full_page=True)
