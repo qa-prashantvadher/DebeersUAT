@@ -5,16 +5,27 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
+COUNTRY = os.getenv("LOCALE")
+
 
 class PageScreenshot(BasePage):
     date_folder = time.strftime('%d%m%Y')
 
     if ENV == "UAT":
-        base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
+        if COUNTRY == "UK":
+            base_path = r"D:\Python Code\Screenshots\DB-UAT\UK"
+        elif COUNTRY == "US":
+            base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
     elif ENV == "PROD":
-        base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
+        if COUNTRY == "UK":
+            base_path = r"D:\Python Code\Screenshots\DB-PROD\UK"
+        elif COUNTRY == "US":
+            base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
     elif ENV == "QA":
-        base_path = r"D:\Python Code\Screenshots\DB-QA\US"
+        if COUNTRY == "UK":
+            base_path = r"D:\Python Code\Screenshots\DB-QA\UK"
+        elif COUNTRY == "US":
+            base_path = r"D:\Python Code\Screenshots\DB-QA\US"
 
     order_sub_folder = "ORDERS"
     other_sub_folder = "OTHERS"

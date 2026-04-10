@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b5f7bc6-099b-4830-9548-640f7fa8d545" name="Changes" comment="added print for cases">
-      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/pages/take_screenshot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/reports/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_27_checkout_client_service_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersUSUKWebsites/tests/test_27_checkout_client_service_popup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,14 +304,6 @@
       <workItem from="1774348392917" duration="15813000" />
       <workItem from="1774376656382" duration="1949000" />
       <workItem from="1774378633870" duration="7000" />
-    </task>
-    <task id="LOCAL-00013" summary="SKU List Updated">
-      <option name="closed" value="true" />
-      <created>1775124459209</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1775124459209</updated>
     </task>
     <task id="LOCAL-00014" summary="fixed sub folder error">
       <option name="closed" value="true" />
@@ -701,7 +689,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775803349079</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="added print for cases">
+      <option name="closed" value="true" />
+      <created>1775803844714</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1775803844714</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
