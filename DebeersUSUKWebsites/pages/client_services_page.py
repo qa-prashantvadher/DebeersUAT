@@ -1,13 +1,17 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import os
+from dotenv import load_dotenv
+load_dotenv(override=True)
 
 class Client_Services_Page(BasePage):
+    ENV = os.getenv("ENVIRONMENT")
+    COUNTRY = os.getenv('LOCALE')
 
     first_name_text = "Prashant"
     last_name_text = "Vadher"
     phone_number_text = "8989089890"
-    country_code_text = "44"
+    #country_code_text = "44"
     email_address_text = os.getenv("USERNAME")
 
 
@@ -126,11 +130,11 @@ class Client_Services_Page(BasePage):
             self.select_option(self.email_title_dropdown,self.email_title_value)
             self.fill(self.email_first_name,self.first_name_text)
             self.fill(self.email_last_name, self.last_name_text)
-            self.fill(self.email_country_code, self.country_code_text)
+            #self.fill(self.email_country_code, self.country_code_text)
             self.fill(self.email_phone_number, self.phone_number_text)
             self.fill(self.email_email_address, self.email_address_text)
             self.select_option(self.email_reason_dropdown, self.email_appointment_reason)
-            self.fill(self.email_message,"[US WEBSITE] SUBMITTED EMAIL US FORM FOR THE REGRESSION TESTING..")
+            self.fill(self.email_message,f"[{self.COUNTRY} {self.ENV}] SUBMITTED EMAIL US FORM FOR THE DAILY REGRESSION TESTING..")
             self.timeout(1000)
             #self.screenshot.take_Page_screenshot("EMAIL_US_BEFORE_SUBMIT")
             self.click(self.email_submit)
@@ -154,7 +158,7 @@ class Client_Services_Page(BasePage):
             self.select_option(self.call_request_title_dropdown,self.call_request_title_value)
             self.fill(self.callback_first_name, self.first_name_text)
             self.fill(self.callback_last_name, self.last_name_text)
-            self.fill(self.callback_country_code, self.country_code_text)
+            #self.fill(self.callback_country_code, self.country_code_text)
             self.fill(self.callback_phone_number, self.phone_number_text)
             self.select_option(self.callback_reason_dropdown, self.callback_appointment_reason)
             self.timeout(1000)

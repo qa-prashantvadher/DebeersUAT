@@ -4,17 +4,16 @@ from pages.base_page import BasePage
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-env = os.getenv("ENVIRONMENT")
-
+ENV = os.getenv("ENVIRONMENT")
 
 class PageScreenshot(BasePage):
     date_folder = time.strftime('%d%m%Y')
 
-    if env == "UAT":
+    if ENV == "UAT":
         base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
-    elif env == "PROD":
+    elif ENV == "PROD":
         base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
-    elif env == "QA":
+    elif ENV == "QA":
         base_path = r"D:\Python Code\Screenshots\DB-QA\US"
 
     order_sub_folder = "ORDERS"

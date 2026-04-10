@@ -1,10 +1,73 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
 
 class Checkout_Payment(BasePage):
-
+    COUNTRY = os.getenv("LOCALE")
     continue_to_review_cta = "//button[@class='btn btn-primary mx-auto submit-payment']"
+
+    if COUNTRY == "US":
+        #State dropdown
+        billing_state_dropdown = ".billingState"
+        #Billing Address List
+        billing_addresses = [
+            {
+                "billing_address_text": "1128 Park Ave Apt 123",
+                "billing_city_text": "New York",
+                "premium_state_county_text": "NY",
+                "billing_postal_code_text": "10128-1203"
+            },
+            {
+                "billing_address_text": "9221 Hooper Ave Apt 1",
+                "billing_city_text": "Los Angeles",
+                "premium_state_county_text": "CA",
+                "billing_postal_code_text": "90002-2034"
+            },
+            {
+                "billing_address_text": "20 S Pearl St Apt 1",
+                "billing_city_text": "Denver",
+                "premium_state_county_text": "CO",
+                "billing_postal_code_text": "80209-2033"
+            }, {
+                "billing_address_text": "417 22nd St SE Apt A",
+                "billing_city_text": "Auburn",
+                "premium_state_county_text": "WA",
+                "billing_postal_code_text": "98002-6832"
+            },
+            {
+                "billing_address_text": "13833 Akers Cir",
+                "billing_city_text": "Eagle River",
+                "premium_state_county_text": "AK",
+                "billing_postal_code_text": "99577-6737"
+            }
+        ]
+    elif COUNTRY == "UK":
+        #County Text-field
+        billing_county_input = "//input[@id='billingState']"
+        # Billing Address List
+        delivery_addresses = [
+            {
+                "premium_address_text": "Flat 1, 8 Kensington Palace Gardens",
+                "premium_city_text": "London",
+                "premium_state_county_text": "",
+                "premium_postal_code_text": "W8 4QP"
+            },
+            {
+                "premium_address_text": "16 Rowlandsway, Civic Centre",
+                "premium_city_text": "Manchester",
+                "premium_state_county_text": "Greater Manchester",
+                "premium_postal_code_text": "M22 5RG"
+            },
+            {
+                "premium_address_text": "101 Conleach Road",
+                "premium_city_text": "Liverpool",
+                "premium_state_county_text": "CMerseysideO",
+                "premium_postal_code_text": "L24 0TR"
+            }]
 
     #Payment Methods
     payment_by_cards = "//input[@id='rb_scheme']"
@@ -28,10 +91,6 @@ class Checkout_Payment(BasePage):
     discover_expiry_date_text = "03/30"
     discover_cvv_text = "737"
 
-    jcb_card_number_text = "3569990010095841"
-    jcb_expiry_date_text = "03/30"
-    jcb_cvv_text = "737"
-
     mc_card_number_text = "5555555555554444"
     mc_expiry_date_text = "03/30"
     mc_cvv_text = "737"
@@ -43,7 +102,6 @@ class Checkout_Payment(BasePage):
     dankort_card_number_text = "4444333322221111"
     dankort_expiry_date_text = "03/30"
     dankort_cvv_text = "737"
-
 
     card_holder_name_text = "Prashant Vadher"
 
@@ -57,7 +115,6 @@ class Checkout_Payment(BasePage):
     billing_last_name_input = "//input[@id='billingLastName']"
     billing_phone_input = "//input[@id='billingMobilePhoneNumber']"
     billing_address_input = "//input[@id='billingAddressOne']"
-    billing_state_dropdown = ".billingState"
     billing_city_input = "//input[@id='billingAddressCity']"
     billing_postal_code_input = "//input[@id='billingZipCode']"
 
@@ -66,37 +123,6 @@ class Checkout_Payment(BasePage):
 
     billing_phone_text = "9558112787"
 
-    billing_addresses = [
-        {
-            "billing_address_text": "1128 Park Ave Apt 123",
-            "billing_city_text": "New York",
-            "billing_state_text": "NY",
-            "billing_postal_code_text": "10128-1203"
-        },
-        {
-            "billing_address_text": "9221 Hooper Ave Apt 1",
-            "billing_city_text": "Los Angeles",
-            "billing_state_text": "CA",
-            "billing_postal_code_text": "90002-2034"
-        },
-        {
-            "billing_address_text": "20 S Pearl St Apt 1",
-            "billing_city_text": "Denver",
-            "billing_state_text": "CO",
-            "billing_postal_code_text": "80209-2033"
-        },        {
-            "billing_address_text": "417 22nd St SE Apt A",
-            "billing_city_text": "Auburn",
-            "billing_state_text": "WA",
-            "billing_postal_code_text": "98002-6832"
-        },
-        {
-            "billing_address_text": "13833 Akers Cir",
-            "billing_city_text": "Eagle River",
-            "billing_state_text": "AK",
-            "billing_postal_code_text": "99577-6737"
-        }
-    ]
 
     def __init__(self, page):
         super().__init__(page)
@@ -193,20 +219,6 @@ class Checkout_Payment(BasePage):
         except:
             print("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
-    def test_enter_jcb_credit_card_details(self):
-        try:
-            self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.jcb_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.jcb_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.jcb_cvv_text)
-            self.fill(self.card_holder_name_input, self.card_holder_name_text)
-            self.timeout(1000)
-            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_JCB")
-            print("[CHECKOUT-CARDS] JCB CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
-        except:
-            print("*****[CHECKOUT-CARDS] JCB CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
-
     def test_enter_change_billing_name_details(self):
         try:
             self.timeout(1000)
@@ -230,8 +242,13 @@ class Checkout_Payment(BasePage):
             self.timeout(1000)
             self.scroll_down(self.billing_address_input)
             self.fill(self.billing_address_input,selected_billing_address["billing_address_text"])
-            #State dropdown
-            self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["billing_state_text"])
+
+            if self.COUNTRY == "US":
+                #State dropdown
+                self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["premium_state_county_text"])
+            elif self.COUNTRY == "UK":
+                #County Text-field
+                self.fill(self.billing_county_input, selected_billing_address["premium_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")

@@ -1,10 +1,14 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 from pages.store_locator import Search_Locator_Page
+from dotenv import load_dotenv
+import os
+load_dotenv(override=True)
 
 
 
 class Book_Appointment(BasePage):
+    COUNTRY = os.getenv("LOCALE")
 
     #Appointment Types
     in_store_appointment_type= "//label[@for='input-inStore']"
@@ -39,8 +43,12 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.click(self.book_appointment_first_store)
             self.timeout(2000)
-            self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
-            self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            if self.COUNTRY == "US":
+                self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
+                self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            elif self.COUNTRY == "UK":
+                self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
+                self.store_locator.test_click_close_london_marker_in_map()
             print("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_IN_STORE")
         except:
@@ -55,8 +63,13 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.click(self.book_appointment_first_store)
             self.timeout(2000)
-            self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
-            self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            if self.COUNTRY == "US":
+                self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
+                self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            elif self.COUNTRY == "UK":
+                self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
+                self.store_locator.test_click_close_london_marker_in_map()
+
             print("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_IN_STORE")
         except:
@@ -75,8 +88,12 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.click(self.book_appointment_first_store)
             self.timeout(2000)
-            self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
-            self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            if self.COUNTRY == "US":
+                self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
+                self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            elif self.COUNTRY == "UK":
+                self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
+                self.store_locator.test_click_close_london_marker_in_map()
             print("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_VIRTUAL")
         except:
@@ -91,8 +108,12 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.click(self.book_appointment_first_store)
             self.timeout(2000)
-            self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
-            self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            if self.COUNTRY == "US":
+                self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
+                self.store_locator.test_click_close_new_york_madison_avenue_in_map()
+            elif self.COUNTRY == "UK":
+                self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
+                self.store_locator.test_click_close_london_marker_in_map()
             print("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_VIRTUAL")
         except:

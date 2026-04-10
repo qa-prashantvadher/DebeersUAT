@@ -5,15 +5,19 @@ from pages.shopping_cart_page import Open_Shopping_Cart_Page
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-env = os.getenv("ENVIRONMENT")
-URL = os.getenv('BASE_URL')
-
 class Checkout_Review(BasePage):
+    ENV = os.getenv("ENVIRONMENT")
+    URL = os.getenv('BASE_URL')
+    COUNTRY = os.getenv('LOCALE')
 
+    if COUNTRY == "US":
+        delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime US-SHIPPING-01']"
+        delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime US-SHIPPING-02']"
+    elif COUNTRY == "UK":
+        delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime GB-SHIPPING-01']"
+        delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime GB-SHIPPING-02']"
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
-    delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime US-SHIPPING-01']"
-    delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime US-SHIPPING-02']"
     order_number_confirmation_page = "//span[@class='order-number']"
 
     def __init__(self, page):
@@ -41,16 +45,16 @@ class Checkout_Review(BasePage):
                 delivery_date = None
 
             self.timeout(1000)
-            self.screenshot.take_page_screenshot(f"USA_ORDER_REVIEW")
-            if env in ["UAT", "QA"]:
+            self.screenshot.take_page_screenshot(f"[{self.COUNTRY}][{self.ENV}]_ORDER_REVIEW")
+            if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                print(f"[ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
-                self.screenshot.take_order_page_screenshot(f"USA_ORDER#_{order_number}_{delivery_date.upper()}")
+                print(f"[{self.COUNTRY}][{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
-                self.navigate(URL)
+                self.navigate(self.URL)
                 self.timeout(5000)
                 self.shopping_bag.test_open_shopping_cart_page()
                 cart_products = self.shopping_bag.test_get_cart_products_count()

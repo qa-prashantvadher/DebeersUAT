@@ -1,8 +1,12 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+from dotenv import load_dotenv
+import os
 
+load_dotenv(override=True)
 
 class FAQ_Page(BasePage):
+    COUNTRY = os.getenv("LOCALE")
 
     #FAQ Categories
     online_shopping_category = "//*[@id='online-shoping-tab']"
@@ -14,6 +18,10 @@ class FAQ_Page(BasePage):
     debeers_group_category = "//*[@id='debeers-group-tab']"
     affirm_category = "//*[@id='affirm-tab']"
 
+    if COUNTRY == "US":
+        affirm_category = "//*[@id='affirm-tab']"
+    elif COUNTRY == "UK":
+        klarna_category = "//*[@id='klarna-tab']"
     def __init__(self, page):
         super().__init__(page)
         self.screenshot = PageScreenshot(page)
@@ -45,9 +53,15 @@ class FAQ_Page(BasePage):
              print("[FAQ] DEBEERS GROUP CATEGORY TAB IS SELECTED..")
              #self.screenshot.take_Page_screenshot("FAQ_DEBEERS_GROUP")
 
-             self.click(self.affirm_category)
-             print("[FAQ] AFFIRM CATEGORY TAB IS SELECTED..")
-             #self.screenshot.take_Page_screenshot("FAQ_AFFIRM)
+             if self.COUNTRY == "US":
+                 self.click(self.affirm_category)
+                 print("[FAQ] AFFIRM CATEGORY TAB IS SELECTED..")
+                 #self.screenshot.take_Page_screenshot("FAQ_AFFIRM)
+
+             elif self.COUNTRY == "UK":
+                 self.click(self.klarna_category)
+                 print("[FAQ] KLARNA CATEGORY TAB IS SELECTED..")
+                 # self.screenshot.take_Page_screenshot("FAQ_KLARNA")
 
              self.click(self.online_shopping_category)
              print("[FAQ] ONLINE SHOPPING CATEGORY TAB IS SELECTED..")
