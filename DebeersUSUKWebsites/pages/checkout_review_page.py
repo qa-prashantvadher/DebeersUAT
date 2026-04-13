@@ -62,4 +62,5 @@ class Checkout_Review(BasePage):
                     for cart_products in range(1, cart_products + 1):
                         self.shopping_bag.test_remove_product_from_cart()
         except:
-            print("*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED..*****")
+            self.navigate(self.URL)
+            print(f"*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED.. USER IS NAVIGATED TO: {self.URL.upper()}*****")
