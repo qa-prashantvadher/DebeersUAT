@@ -1,12 +1,19 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv(override=True)
+COUNTRY = os.getenv("LOCALE")
 
 class Open_EngagementRings_PLP_Page(BasePage):
 
     menu_icon = "button:has-text('Menu')"
-    engagement_bridal_sub_menu = "button[id='N10002'] span[class='menu__nav-link-span']"
+    if COUNTRY == "US":
+        engagement_bridal_sub_menu = "button[id='N10002'] span[class='menu__nav-link-span']"
+    else:
+        engagement_bridal_sub_menu = "button[id='G10002'] span[class='menu__nav-link-span']"
+
     engagement_rings = "a[id='N10050'] span[class='menu__nav-link-span']"
 
     # PLP Page > Sorting
