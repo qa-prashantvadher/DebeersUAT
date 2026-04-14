@@ -1,4 +1,12 @@
 from pages.search_slp_pdp import SearchSKU
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
+
+ENV = os.getenv("ENVIRONMENT")
+COUNTRY = os.getenv("LOCALE")
+
 
 '''
 TEST SCENARIOS:
@@ -27,12 +35,18 @@ def test_search_modal_slp_page(page):
 
     search.test_search_with_keyword("Testing")
 
-    search.test_search_with_keyword("Rings")
+    if COUNTRY == "UK" or COUNTRY == "US":
+        search.test_search_with_keyword("Rings")
+    elif COUNTRY == "FR":
+        search.test_search_with_keyword("Anneaux")
     search.test_apply_sorting_on_slp()
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()
 
-    search.test_search_with_keyword("High Jewellery")
+    if COUNTRY == "UK" or COUNTRY == "US":
+        search.test_search_with_keyword("High Jewellery")
+    elif COUNTRY == "FR":
+        search.test_search_with_keyword("Haute Joaillerie")
     search.test_apply_sorting_on_slp()
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()

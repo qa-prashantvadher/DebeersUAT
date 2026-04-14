@@ -1,4 +1,3 @@
-import os
 from pages.checkout_pdp_add_to_cart_page import Checkout_PDP_SPP_No_Size
 from pages.checkout_login import Checkout_Login
 from pages.checkout_delivery_page import Checkout_Delivery
@@ -9,6 +8,8 @@ from pages.shopping_cart_page import Open_Shopping_Cart_Page
 from pages.go_back_from_payment_page import Checkout_Go_Back_From_Payment
 from pages.go_back_from_review_page import Checkout_Go_Back_From_Review
 from dotenv import load_dotenv
+import os
+
 load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
