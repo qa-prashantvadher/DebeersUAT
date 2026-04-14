@@ -3,7 +3,6 @@ from pages.open_website import OpenHomePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
-import os
 load_dotenv(override=True)
 
 
@@ -12,23 +11,23 @@ class Footer_Page(BasePage):
     URL = os.getenv('BASE_URL')
     COUNTRY = os.getenv("LOCALE")
 
-    #Client Services Links
+    # Client Services Links
     locate_a_store_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[1]/a"
     book_an_appointment_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[2]/a"
     delivery_returns_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[3]/a"
     contact_us_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[4]/a"
     faq_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[5]/a"
 
-    #Connect/NewsLetter Subscription
+    # Connect/NewsLetter Subscription
     email_address_footer_input = "//*[@id='email_footer']"
     invalid_email_address_alert_footer = "//*[@id='invalidEmailText']"
     email_address_text = os.getenv("USERNAME")
 
-    #Locator dropdown
+    # Locator dropdown
     locator_dropdown_footer = "//*[@id='countryHeadingFooter']/button"
 
     if COUNTRY == "US":
-        #US Country dropdown records
+        # US Country dropdown records
         location_keyword = {
             "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
             "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
@@ -46,8 +45,14 @@ class Footer_Page(BasePage):
             "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
             "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a"
         }
+        # US Language dropdown records
+        language_keyword = {
+            "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",
+            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a",
+            "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a"
+        }
     elif COUNTRY == "UK":
-        #UK Country dropdown records
+        # UK Country dropdown records
         location_keyword = {
             "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
             "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
@@ -65,14 +70,40 @@ class Footer_Page(BasePage):
             "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
             "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a"
         }
+        # UK Language dropdown records
+        language_keyword = {
+            "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",
+            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a",
+            "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a"
+        }
+    elif COUNTRY == "FR":
+        # FR Country dropdown records
+        location_keyword = {
+            "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
+            "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
+            "belgium": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[3]/a",
+            "canada": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[4]/a",
+            "china": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[5]/a",
+            "germany": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[7]/a",
+            "greece": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[8]/a",
+            "hong_kong": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[9]/a",
+            "italy": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[10]/a",
+            "macau": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[11]/a",
+            "netherlands": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[12]/a",
+            "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
+            "taiwan": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[14]/a",
+            "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a",
+            "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a"
+        }
+        # FR Language dropdown records
+        language_keyword = {
+            "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a",
+            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a",
+            "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a"
+        }
 
-    #Language Dropdown
+    # Language Dropdown
     language_dropdown_footer = "//*[@id='languageHeadingFooter']/button"
-    language_keyword = {
-        "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",
-        "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a",
-        "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a"
-    }
 
     def __init__(self, page):
         super().__init__(page)

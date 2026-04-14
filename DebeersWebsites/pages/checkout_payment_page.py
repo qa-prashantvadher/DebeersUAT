@@ -11,9 +11,12 @@ class Checkout_Payment(BasePage):
     continue_to_review_cta = "//button[@class='btn btn-primary mx-auto submit-payment']"
 
     if COUNTRY == "US":
-        #State dropdown
+        # Billing Name
+        billing_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George", "James", "Robert"]
+        billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker","Thompson", "Brook"]
+        # State dropdown
         billing_state_dropdown = ".billingState"
-        #Billing Address List
+        # Billing Address List
         billing_addresses = [
             {
                 "billing_address_text": "1128 Park Ave Apt 123",
@@ -32,7 +35,8 @@ class Checkout_Payment(BasePage):
                 "billing_city_text": "Denver",
                 "premium_state_county_text": "CO",
                 "billing_postal_code_text": "80209-2033"
-            }, {
+            },
+            {
                 "billing_address_text": "417 22nd St SE Apt A",
                 "billing_city_text": "Auburn",
                 "premium_state_county_text": "WA",
@@ -46,7 +50,10 @@ class Checkout_Payment(BasePage):
             }
         ]
     elif COUNTRY == "UK":
-        #County Text-field
+        # Billing Name
+        billing_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George", "James", "Robert"]
+        billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker","Thompson", "Brook"]
+        # County Text-field
         billing_county_input = "//input[@id='billingState']"
         # Billing Address List
         delivery_addresses = [
@@ -67,6 +74,26 @@ class Checkout_Payment(BasePage):
                 "premium_city_text": "Liverpool",
                 "premium_state_county_text": "CMerseysideO",
                 "premium_postal_code_text": "L24 0TR"
+            }]
+    elif COUNTRY == "FR":
+        # Billing Name
+        billing_first_name_list = ["Gabriel","Raphaël","Louis","Arthur","Léon","Léo","Oscar","Adam","Noah"]
+        billing_last_name_list = ["Martin","Bernard","Dubois","Thomas","Robert","Richard","Michel","Roux","Laurent","Garcia"]
+        # State Text-field
+        billing_state_input = "//input[@id='billingState']"
+        # Billing Address List
+        delivery_addresses = [
+            {
+                "premium_address_text": "1 Rue du Général Camou",
+                "premium_city_text": "Paris",
+                "premium_state_county_text": "Île-de-France",
+                "premium_postal_code_text": "75007"
+            },
+            {
+                "premium_address_text": "31 Avenue George",
+                "premium_city_text": "Paris",
+                "premium_state_county_text": "Île-de-France",
+                "premium_postal_code_text": "75008"
             }]
 
     #Payment Methods
@@ -117,9 +144,6 @@ class Checkout_Payment(BasePage):
     billing_address_input = "//input[@id='billingAddressOne']"
     billing_city_input = "//input[@id='billingAddressCity']"
     billing_postal_code_input = "//input[@id='billingZipCode']"
-
-    billing_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George", "James", "Robert"]
-    billing_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson", "Walker", "Thompson", "Brook"]
 
     billing_phone_text = "9558112787"
 
@@ -244,11 +268,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_address_input,selected_billing_address["billing_address_text"])
 
             if self.COUNTRY == "US":
-                #State dropdown
+                # State dropdown
                 self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["premium_state_county_text"])
             elif self.COUNTRY == "UK":
-                #County Text-field
+                # County Text-field
                 self.fill(self.billing_county_input, selected_billing_address["premium_state_county_text"])
+            elif self.COUNTRY == "FR":
+                # State Text-field
+                self.fill(self.billing_state_input, selected_billing_address["premium_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")

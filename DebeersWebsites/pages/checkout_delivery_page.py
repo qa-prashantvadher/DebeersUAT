@@ -10,6 +10,11 @@ class Checkout_Delivery(BasePage):
     COUNTRY = os.getenv("LOCALE")
 
     if COUNTRY == "US":
+        # Delivery and Collector Name
+        delivery_collector_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George","James", "Robert"]
+        delivery_collector_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson","Walker", "Thompson", "Brook"]
+        # Gift Message text
+        gift_message_text = "Test order with a gift message. I hope this piece adds a beautiful touch to your collection and truly brings you joy and elegance each day you wear it"
         # Shipping Methods
         premium_delivery_tab = "//button[@id='US-SHIPPING-01']"
         collect_in_store_tab = "//button[@id='US-SHIPPING-02']"
@@ -37,7 +42,8 @@ class Checkout_Delivery(BasePage):
                 "premium_city_text": "Denver",
                 "premium_state_county_text": "CO",
                 "premium_postal_code_text": "80209-2033"
-            }, {
+            },
+            {
                 "premium_address_text": "417 22nd St SE Apt A",
                 "premium_city_text": "Auburn",
                 "premium_state_county_text": "WA",
@@ -51,6 +57,11 @@ class Checkout_Delivery(BasePage):
             }]
 
     elif COUNTRY == "UK":
+        # Delivery and Collector Name
+        delivery_collector_first_name_list = ["Oliver", "Jack", "Harry", "Jacob", "Charlie", "Thomas", "George","James", "Robert"]
+        delivery_collector_last_name_list = ["Smith", "Taylor", "Brown", "Williams", "Wilson", "Evans", "Robinson","Walker", "Thompson", "Brook"]
+        # Gift Message text
+        gift_message_text = "Test order with a gift message. I hope this piece adds a beautiful touch to your collection and truly brings you joy and elegance each day you wear it"
         # Shipping Methods
         premium_delivery_tab = "//button[@id='GB-SHIPPING-01']"
         collect_in_store_tab = "//button[@id='GB-SHIPPING-02']"
@@ -79,6 +90,35 @@ class Checkout_Delivery(BasePage):
                 "premium_state_county_text": "CMerseysideO",
                 "premium_postal_code_text": "L24 0TR"
             }]
+    elif COUNTRY == "FR":
+        # Delivery and Collector Name
+        delivery_collector_first_name_list = ["Gabriel", "Raphaël", "Louis", "Arthur", "Léon", "Léo", "Oscar", "Adam","Noah"]
+        delivery_collector_last_name_list = ["Martin", "Bernard", "Dubois", "Thomas", "Robert", "Richard", "Michel","Roux", "Laurent", "Garcia"]
+        # Gift Message Text
+        gift_message_text = "J'espère que cette pièce ajoutera une belle touche à votre collection et vous apportera véritablement joie et élégance chaque jour que vous la portez."
+        # Shipping Methods
+        premium_delivery_tab = "//button[@id='FR-SHIPPING-01']"
+        collect_in_store_tab = "//button[@id='FR-SHIPPING-02']"
+        # State Input Field
+        premium_state_input = "//input[@id='shippingState']"
+        # Delivery Date
+        premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-01']"
+        collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime FR-SHIPPING-02']"
+        # Delivery Address list
+        delivery_addresses = [
+            {
+                "premium_address_text": "1 Rue du Général Camou",
+                "premium_city_text": "Paris",
+                "premium_state_county_text": "Île-de-France",
+                "premium_postal_code_text": "75007"
+            },
+            {
+                "premium_address_text": "31 Avenue George",
+                "premium_city_text": "Paris",
+                "premium_state_county_text": "Île-de-France",
+                "premium_postal_code_text": "75008"
+            }]
+
 
     #Premium Delivery > Shipping Address Info
     premium_address_input = "//input[@id='shippingAddressOne']"
@@ -103,15 +143,10 @@ class Checkout_Delivery(BasePage):
     gift_checkbox = "input[name='dwfrm_shipping_shippingAddress_isGift']"
     gift_message_input = "[name='dwfrm_shipping_shippingAddress_giftMessage']"
 
-    delivery_collector_first_name_list = ["Oliver","Jack","Harry","Jacob","Charlie","Thomas","George","James","Robert"]
-    delivery_collector_last_name_list = ["Smith","Taylor","Brown","Williams","Wilson","Evans","Robinson","Walker","Thompson","Brook"]
     phone_text = "8090809080"
     collector_phone_text = "8989089890"
 
-    gift_message_text = "Test order with a gift message. I hope this piece adds a beautiful touch to your collection and truly brings you joy and elegance each day you wear it"
-
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
-
 
 
     def __init__(self, page):
@@ -212,11 +247,14 @@ class Checkout_Delivery(BasePage):
                 self.timeout(1000)
                 self.fill(self.premium_address_input, selected_delivery_address["premium_address_text"])
                 if self.COUNTRY == "US":
-                   # State dropdown
+                    # State dropdown
                     self.select_state_dropdown_value(self.premium_state_dropdown, selected_delivery_address["premium_state_county_text"])
                 elif self.COUNTRY == "UK":
                     # County Text-field
                     self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
+                elif self.COUNTRY == "FR":
+                    # State text field
+                    self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
                 self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
@@ -238,6 +276,9 @@ class Checkout_Delivery(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
+            elif self.COUNTRY == "FR":
+                # State text field
+                self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)

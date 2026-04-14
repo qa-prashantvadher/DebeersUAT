@@ -49,6 +49,9 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "UK":
                 self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
                 self.store_locator.test_click_close_london_marker_in_map()
+            elif self.COUNTRY == "FR":
+                self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
+                self.store_locator.test_click_close_paris_flagship_in_map()
             print("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_IN_STORE")
         except:
@@ -69,7 +72,9 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "UK":
                 self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
                 self.store_locator.test_click_close_london_marker_in_map()
-
+            elif self.COUNTRY == "FR":
+                self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
+                self.store_locator.test_click_close_paris_flagship_in_map()
             print("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_IN_STORE")
         except:
@@ -94,6 +99,9 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "UK":
                 self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
                 self.store_locator.test_click_close_london_marker_in_map()
+            elif self.COUNTRY == "FR":
+                self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
+                self.store_locator.test_click_close_paris_flagship_in_map()
             print("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             #self.screenshot.take_Page_screenshot("APPOINTMENT_VIRTUAL")
         except:
@@ -114,6 +122,9 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "UK":
                 self.scroll_down(self.store_locator.london_old_bond_street_map_marker)
                 self.store_locator.test_click_close_london_marker_in_map()
+            elif self.COUNTRY == "FR":
+                self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
+                self.store_locator.test_click_close_paris_flagship_in_map()
             print("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
             self.screenshot.take_page_screenshot("APPOINTMENT_DEFAULT_VIRTUAL")
         except:

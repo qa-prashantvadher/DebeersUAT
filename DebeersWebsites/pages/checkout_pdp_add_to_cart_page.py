@@ -5,8 +5,15 @@ from pages.take_screenshot import PageScreenshot
 import re
 import random
 from datetime import datetime, timedelta
+import locale
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
 
 class Checkout_PDP_SPP_No_Size(BasePage):
+
+    COUNTRY = os.getenv("LOCALE")
 
     # SPP WITHOUT SIZE  - WITH ENGRAVING
     SKU1_LIST = ["E103376", "E103115","E103454", "E103116"]
@@ -38,6 +45,11 @@ class Checkout_PDP_SPP_No_Size(BasePage):
         SKU1 = random.choice(self.SKU1_LIST)
         print(f"[CHECKOUT] SKU1: {SKU1}")
         try:
+
+            if self.COUNTRY == "FR":
+                #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
+                locale.setlocale(locale.LC_TIME, "French_France")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
+
             self.search.test_search_with_sku(SKU1)
             delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
             clean_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', delivery_date).strip()
