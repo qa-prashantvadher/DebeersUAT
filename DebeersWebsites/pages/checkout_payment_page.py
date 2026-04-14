@@ -56,7 +56,7 @@ class Checkout_Payment(BasePage):
         # County Text-field
         billing_county_input = "//input[@id='billingState']"
         # Billing Address List
-        delivery_addresses = [
+        billing_addresses = [
             {
                 "premium_address_text": "Flat 1, 8 Kensington Palace Gardens",
                 "premium_city_text": "London",
@@ -82,7 +82,7 @@ class Checkout_Payment(BasePage):
         # State Text-field
         billing_state_input = "//input[@id='billingState']"
         # Billing Address List
-        delivery_addresses = [
+        billing_addresses = [
             {
                 "premium_address_text": "1 Rue du Général Camou",
                 "premium_city_text": "Paris",
@@ -90,10 +90,16 @@ class Checkout_Payment(BasePage):
                 "premium_postal_code_text": "75007"
             },
             {
-                "premium_address_text": "31 Avenue George",
+                "premium_address_text": "34 Rue Antoine Primat",
+                "premium_city_text": "Villeurbanne",
+                "premium_state_county_text": "Auvergne-Rhône-Alpes",
+                "premium_postal_code_text": "69100"
+            },
+            {
+                "premium_address_text": "8 Rue De Londres",
                 "premium_city_text": "Paris",
                 "premium_state_county_text": "Île-de-France",
-                "premium_postal_code_text": "75008"
+                "premium_postal_code_text": "75009"
             }]
 
     #Payment Methods

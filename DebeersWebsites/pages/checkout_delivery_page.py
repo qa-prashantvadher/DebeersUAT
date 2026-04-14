@@ -113,10 +113,16 @@ class Checkout_Delivery(BasePage):
                 "premium_postal_code_text": "75007"
             },
             {
-                "premium_address_text": "31 Avenue George",
+                "premium_address_text": "34 Rue Antoine Primat",
+                "premium_city_text": "Villeurbanne",
+                "premium_state_county_text": "Auvergne-Rhône-Alpes",
+                "premium_postal_code_text": "69100"
+            },
+            {
+                "premium_address_text": "8 Rue De Londres",
                 "premium_city_text": "Paris",
                 "premium_state_county_text": "Île-de-France",
-                "premium_postal_code_text": "75008"
+                "premium_postal_code_text": "75009"
             }]
 
 

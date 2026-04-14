@@ -8,6 +8,7 @@ import os
 
 load_dotenv(override=True)
 ENV = os.getenv("ENVIRONMENT")
+COUNTRY = os.getenv("LOCALE")
 
 def test_menu_and_header_option_pages(page):
 
@@ -26,7 +27,7 @@ def test_menu_and_header_option_pages(page):
     #OPEN MENU OPTIONS
     menu_header_option.test_open_locate_a_store_page_from_menu()
     store_locator.test_close_store_locator_page()
-    if ENV == "PROD":
+    if ENV == "PROD" or COUNTRY == "FR":
         menu_header_option.test_open_book_appointment_page_from_menu()
         book_appointment.test_in_store_appointment_type()
     else:
