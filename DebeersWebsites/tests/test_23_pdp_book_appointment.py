@@ -5,6 +5,7 @@ import os
 load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
+COUNTRY = os.getenv("LOCALE")
 
 
 def test_book_appointment_cta_from_pdp(page):
@@ -15,13 +16,12 @@ def test_book_appointment_cta_from_pdp(page):
     # BOOK APPOINTMENT CTA AND BOOK IN STORE/VIRTUAL APPOINTMENT OPTIONS ON THE PDP PAGE
     pdp_enquire_appointment.test_book_appointment_hj_master_level()
 
-    if ENV == "PROD":
+    if ENV == "PROD" or COUNTRY == "FR":
         book_appointment.test_in_store_appointment_type()
         pdp_enquire_appointment.test_book_appointment_hj_master_level()
         book_appointment.test_in_store_appointment_type()
         pdp_enquire_appointment.test_in_store_appointment_bb_contact_us()
         book_appointment.test_bb_in_store_appointment_type()
-
     else:
         book_appointment.test_in_store_appointment_type()
         pdp_enquire_appointment.test_book_appointment_hj_master_level()

@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../DebeersFRUAT/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/../DebeersFRUAT/pages/store_locator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DebeersWebsites.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebeersWebsites.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Debeers Website project is now for US, UK and FR Websites">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/open_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_plp_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search_slp_pdp.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_slp_pdp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/take_screenshot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/upp_multiple_variant_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/upp_multiple_variant_filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_16_client_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_16_client_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +34,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
@@ -72,6 +57,19 @@
       <option name="presentableId" value="Default" />
       <updated>1776156497612</updated>
     </task>
+    <task id="LOCAL-00001" summary="Debeers Website project is now for US, UK and FR Websites">
+      <option name="closed" value="true" />
+      <created>1776158640331</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776158640331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Debeers Website project is now for US, UK and FR Websites" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debeers Website project is now for US, UK and FR Websites" />
   </component>
 </project>
