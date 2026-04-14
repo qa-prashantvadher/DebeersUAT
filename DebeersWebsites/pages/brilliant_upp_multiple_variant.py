@@ -62,7 +62,3 @@ class BB_UPP_Multiple_Variant(BasePage):
                 self.click(self.minicart_close_icon)
             except:
                 print(f"*****[BB UPP MULTIPLE VARIANT WITHOUT ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
-
-
-
-

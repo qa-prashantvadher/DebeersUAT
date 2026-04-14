@@ -136,6 +136,10 @@ class Checkout_Payment(BasePage):
     dankort_expiry_date_text = "03/30"
     dankort_cvv_text = "737"
 
+    cartes_visa_card_number_text = "4035501428146300"
+    cartes_visa_expiry_date_text = "03/30"
+    cartes_visa_cvv_text = "737"
+
     card_holder_name_text = "Prashant Vadher"
 
     #Same address checkbox
@@ -241,6 +245,20 @@ class Checkout_Payment(BasePage):
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.discover_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.discover_expiry_date_text)
             self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.discover_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
+            self.timeout(1000)
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
+            print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+
+        except:
+            print("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+
+    def test_enter_cartes_visa_credit_card_details(self):
+        try:
+            self.timeout(3000)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.cartes_visa_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.cartes_visa_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.cartes_visa_cvv_text)
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")

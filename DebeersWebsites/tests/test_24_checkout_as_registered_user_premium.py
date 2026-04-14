@@ -459,7 +459,7 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_use_delivery_as_billing_address_checkbox()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_back_from_review.test_go_back_to_payment_from_review_page()
-            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_enter_cartes_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
             if ENV in ["UAT", "QA"]:

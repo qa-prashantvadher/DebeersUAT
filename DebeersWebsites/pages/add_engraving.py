@@ -21,7 +21,7 @@ class AddEngraving(BasePage):
     submit_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[1]"
     update_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[2]"
     close_icon = "button[class='btn-close']"
-    back_button = "//button[normalize-space()='Back']"
+    back_button = "button.btn.btn-outlined.w-100"
 
     def __init__(self, page):
         super().__init__(page)
