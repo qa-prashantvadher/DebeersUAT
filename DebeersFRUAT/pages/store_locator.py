@@ -16,7 +16,6 @@ class Search_Locator_Page(BasePage):
     asia_in_show_all="h3:has-text('Asie')"
 
 
-
     # STORE LINK IN RESULT
     paris_flagship_store = "//a[.//h3[normalize-space()='Paris Flagship Store']]"
     london_old_bond_street = "//a[.//h3[normalize-space()='Londres Old Bond Street']]"

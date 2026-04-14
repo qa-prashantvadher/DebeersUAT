@@ -1,5 +1,12 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+from pages.take_screenshot import PageScreenshot
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
+
+COUNTRY = os.getenv("LOCALE")
 
 
 class Search_Locator_Page(BasePage):
@@ -9,24 +16,41 @@ class Search_Locator_Page(BasePage):
     show_list_section = "//*[@id='js-show-list']"
     close_icon = "button[class='storeLocator-close']"
 
-    show_all_stores_section = "//*[@id='js-view-all']"
-    europe_in_show_all="h3:has-text('EUROPE')"
-    middle_east_in_show_all="h3:has-text('MIDDLE EAST')"
-    americas_in_show_all="h3:has-text('AMERICAS')"
-    asia_in_show_all="h3:has-text('ASIA')"
+    if COUNTRY == "UK" or COUNTRY == "US":
+        show_all_stores_section = "//*[@id='js-view-all']"
+        europe_in_show_all="h3:has-text('EUROPE')"
+        middle_east_in_show_all="h3:has-text('MIDDLE EAST')"
+        americas_in_show_all="h3:has-text('AMERICAS')"
+        asia_in_show_all="h3:has-text('ASIA')"
 
+        # STORE LINK IN RESULT
+        paris_flagship_store = "//a[.//h3[normalize-space()='Paris Flagship Store']]"
+        london_old_bond_street = "//a[.//h3[normalize-space()='London Old Bond Street']]"
+        new_york_madison_avenue = "//a[.//h3[normalize-space()='New York Madison Avenue']]"
 
+        # MAP
+        london_old_bond_street_map_marker = "gmp-advanced-marker[title='London Old Bond Street'] div[class='js-store-marker'] svg"
+        paris_flagship_store_map_marker="gmp-advanced-marker[title='Paris Flagship Store'] div[class='js-store-marker'] svg"
+        new_york_madison_avenue_map_marker="gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
+        hover_map_marker_close = "button[class='gm-ui-hover-effect']"
 
-    # STORE LINK IN RESULT
-    paris_flagship_store = "//a[.//h3[normalize-space()='Paris Flagship Store']]"
-    london_old_bond_street = "//a[.//h3[normalize-space()='London Old Bond Street']]"
-    new_york_madison_avenue = "//a[.//h3[normalize-space()='New York Madison Avenue']]"
+    elif COUNTRY == "FR":
+        show_all_stores_section = "//*[@id='js-view-all']"
+        europe_in_show_all = "h3:has-text('Europe')"
+        middle_east_in_show_all = "h3:has-text('Moyen-Orient')"
+        americas_in_show_all = "h3:has-text('Amérique')"
+        asia_in_show_all = "h3:has-text('Asie')"
 
-    # MAP
-    london_old_bond_street_map_marker = "gmp-advanced-marker[title='London Old Bond Street'] div[class='js-store-marker'] svg"
-    paris_flagship_store_map_marker="gmp-advanced-marker[title='Paris Flagship Store'] div[class='js-store-marker'] svg"
-    new_york_madison_avenue_map_marker="gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
-    hover_map_marker_close = "button[class='gm-ui-hover-effect']"
+        # STORE LINK IN RESULT
+        paris_flagship_store = "//a[.//h3[normalize-space()='Paris Flagship Store']]"
+        london_old_bond_street = "//a[.//h3[normalize-space()='Londres Old Bond Street']]"
+        new_york_madison_avenue = "//a[.//h3[normalize-space()='New York Madison Avenue']]"
+
+        # MAP
+        london_old_bond_street_map_marker = "gmp-advanced-marker[title='Londres Old Bond Street'] div[class='js-store-marker'] svg"
+        paris_flagship_store_map_marker = "gmp-advanced-marker[title='Paris Flagship Store'] div[class='js-store-marker'] svg"
+        new_york_madison_avenue_map_marker = "gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
+        hover_map_marker_close = "button[class='gm-ui-hover-effect']"
 
     #STORE DETAIL PAGE
     opening_hour = "//div[@class='storeDetails__title']"

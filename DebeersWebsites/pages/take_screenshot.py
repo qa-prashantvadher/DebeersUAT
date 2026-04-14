@@ -16,17 +16,22 @@ class PageScreenshot(BasePage):
             base_path = r"D:\Python Code\Screenshots\DB-UAT\UK"
         elif COUNTRY == "US":
             base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
+        elif COUNTRY == "FR":
+            base_path = r"D:\Python Code\Screenshots\DB-UAT\FR"
     elif ENV == "PROD":
         if COUNTRY == "UK":
             base_path = r"D:\Python Code\Screenshots\DB-PROD\UK"
         elif COUNTRY == "US":
             base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
+        elif COUNTRY == "FR":
+            base_path = r"D:\Python Code\Screenshots\DB-PROD\FR"
     elif ENV == "QA":
         if COUNTRY == "UK":
             base_path = r"D:\Python Code\Screenshots\DB-QA\UK"
         elif COUNTRY == "US":
             base_path = r"D:\Python Code\Screenshots\DB-QA\US"
-
+        elif COUNTRY == "FR":
+            base_path = r"D:\Python Code\Screenshots\DB-QA\FR"
     order_sub_folder = "ORDERS"
     other_sub_folder = "OTHERS"
 
@@ -40,7 +45,7 @@ class PageScreenshot(BasePage):
         other_screenshot_full_path = os.path.join(self.base_path, self.other_sub_folder, self.date_folder)
         os.makedirs(other_screenshot_full_path, exist_ok=True)
         filename = os.path.join(other_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print("[ ==> FILENAME:", f'{keyword}_{timestamp}.png]')
+        print(f"[ ==>[{ENV}-{COUNTRY}] FILENAME:", f'{keyword}_{timestamp}.png]')
         self.page.screenshot(path=filename)
 
     def take_order_page_screenshot(self, keyword):
@@ -48,5 +53,5 @@ class PageScreenshot(BasePage):
         order_screenshot_full_path = os.path.join(self.base_path, self.order_sub_folder, self.date_folder)
         os.makedirs(order_screenshot_full_path, exist_ok=True)
         filename = os.path.join(order_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print("[ ==> FILENAME:", f'{keyword}_{timestamp}.png]')
+        print(f"[ ==>[{ENV}-{COUNTRY}] FILENAME:", f'{keyword}_{timestamp}.png]')
         self.page.screenshot(path=filename,full_page=True)

@@ -20,11 +20,6 @@ class Open_Menu_Header_Options (BasePage):
     country_language_selector = "//*[@id='languageSelectorLink']"
 
     choose_language_dropdown = "//*[@id='languageHeading']/button"
-    language_value_locator = {
-        "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
-        "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
-        "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
-        }
 
     choose_country_dropdown = "//*[@id='countryHeading']/button"
     if COUNTRY == "US":
@@ -46,7 +41,13 @@ class Open_Menu_Header_Options (BasePage):
             "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
             "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
         }
-    if COUNTRY == "UK":
+        # Language Records
+        language_value_locator = {
+            "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
+            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
+            "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
+        }
+    elif COUNTRY == "UK":
         # UK Country Records
         country_value_locator = {
             "australia": "//*[@id='accordionCountrySelector_mobile']/li[1]/a",
@@ -65,7 +66,37 @@ class Open_Menu_Header_Options (BasePage):
             "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
             "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
         }
-
+        # Language Records
+        language_value_locator = {
+            "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
+            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
+            "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
+        }
+    elif COUNTRY == "FR":
+        # FR Country Records
+        country_value_locator = {
+            "australia": "//*[@id='accordionCountrySelector_mobile']/li[1]/a",
+            "austria": "//*[@id='accordionCountrySelector_mobile']/li[2]/a",
+            "belgium": "//*[@id='accordionCountrySelector_mobile']/li[3]/a",
+            "canada": "//*[@id='accordionCountrySelector_mobile']/li[4]/a",
+            "china": "//*[@id='accordionCountrySelector_mobile']/li[5]/a",
+            "france": "//*[@id='accordionCountrySelector_mobile']/li[6]/a",
+            "germany": "//*[@id='accordionCountrySelector_mobile']/li[7]/a",
+            "greece": "//*[@id='accordionCountrySelector_mobile']/li[8]/a",
+            "hongkong": "//*[@id='accordionCountrySelector_mobile']/li[9]/a",
+            "italy": "//*[@id='accordionCountrySelector_mobile']/li[10]/a",
+            "macau": "//*[@id='accordionCountrySelector_mobile']/li[11]/a",
+            "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
+            "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
+            "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
+            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
+        }
+        # Language Records
+        language_value_locator = {
+            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
+            "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
+            "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a"
+        }
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
     header_wishlist_icon = "//*[@id='headerWishlist']/a"
 
