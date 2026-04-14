@@ -48,13 +48,13 @@ class Checkout_Review(BasePage):
                 delivery_date = None
 
             self.timeout(1000)
-            self.screenshot.take_page_screenshot(f"[{self.COUNTRY}][{self.ENV}]_ORDER_REVIEW")
+            self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER_REVIEW")
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                print(f"[{self.COUNTRY}][{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
-                self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}]_ORDER#_{order_number}_{delivery_date.upper()}")
+                print(f"[{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
                 self.navigate(self.URL)

@@ -18,6 +18,7 @@ def browser():
     playwright = sync_playwright().start()
     browser = playwright.chromium.launch(
         #headless=True,
+        channel="msedge", #To execute script in the MS Edge Browser
         headless=False,
         args=["--start-maximized"]
 

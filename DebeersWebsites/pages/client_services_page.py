@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
+
+from tests.test_16_client_services import COUNTRY
+
 load_dotenv(override=True)
 
 class Client_Services_Page(BasePage):
@@ -134,7 +137,10 @@ class Client_Services_Page(BasePage):
             self.fill(self.email_phone_number, self.phone_number_text)
             self.fill(self.email_email_address, self.email_address_text)
             self.select_option(self.email_reason_dropdown, self.email_appointment_reason)
-            self.fill(self.email_message,f"[{self.COUNTRY} {self.ENV}] SUBMITTED EMAIL US FORM FOR THE DAILY REGRESSION TESTING..")
+            if COUNTRY == "FR":
+                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] JE SUIS INTÉRESSÉ PAR LA CRÉATION D'UNE BAGUE DE FIANÇAILLES PERSONNALISÉE ET JE SOUHAITE OBTENIR UN DEVIS. JE RECHERCHE UNE FORME XXXXX, PIERRE CENTRALE, ENVIRON X,XX CARATS...")
+            else:
+                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] I AM INTERESTED IN CREATING A CUSTOM ENGAGEMENT RING AND WOULD LIKE TO GET A QUOTE. I AM LOOKING FOR AN XXXXX SHAPE, CENTER STONE, APPROXIMATELY X.XX CARATS...")
             self.timeout(1000)
             #self.screenshot.take_Page_screenshot("EMAIL_US_BEFORE_SUBMIT")
             self.click(self.email_submit)

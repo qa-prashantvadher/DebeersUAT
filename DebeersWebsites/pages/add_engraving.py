@@ -4,10 +4,11 @@ import os
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-URL = os.getenv('BASE_URL')
-COUNTRY = os.getenv("LOCALE")
 
 class AddEngraving(BasePage):
+
+    URL = os.getenv('BASE_URL')
+    COUNTRY = os.getenv("LOCALE")
 
     engraving_input = "//*[@id='engravingText']"
     if COUNTRY == "FR":

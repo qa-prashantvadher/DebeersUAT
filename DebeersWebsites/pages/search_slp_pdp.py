@@ -5,9 +5,12 @@ import os
 
 load_dotenv(override=True)
 
-COUNTRY = os.getenv("LOCALE")
 
 class SearchSKU(BasePage):
+
+    COUNTRY = os.getenv("LOCALE")
+    URL = os.getenv('BASE_URL')
+
     search_icon = "//*[@id='headerSearch']"
     search_keyword_input = "#searchInput"
     first_suggestion = "//*[@id='group-0-option-0']/a"
@@ -77,6 +80,7 @@ class SearchSKU(BasePage):
             #self.screenshot.take_Page_screenshot("SEARCH_SKU_PDP")
         except:
             print(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
+            self.navigate(self.URL)
 
     def test_search_with_keyword(self, keyword):
         try:

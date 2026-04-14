@@ -3,8 +3,6 @@ from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
 
-load_dotenv(override=True)
-
 class Checkout_Login(BasePage):
 
     email_address_text = os.getenv("USERNAME")
