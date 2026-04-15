@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv(override=True)
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
 
 def test_client_services_page(page):
+    ENV = os.getenv("ENVIRONMENT")
+    COUNTRY = os.getenv("LOCALE")
 
     client_service = Client_Services_Page(page)
     menu_header_option = Open_Menu_Header_Options(page)

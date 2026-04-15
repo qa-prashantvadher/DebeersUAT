@@ -2,9 +2,6 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
-
-from tests.test_16_client_services import COUNTRY
-
 load_dotenv(override=True)
 
 class Client_Services_Page(BasePage):

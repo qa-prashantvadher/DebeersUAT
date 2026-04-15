@@ -1,8 +1,7 @@
 import pytest
-from playwright.sync_api import sync_playwright
-
-from dotenv import load_dotenv
 import os
+from playwright.sync_api import sync_playwright
+from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
@@ -57,4 +56,3 @@ def context(browser):
 def page(context):
     page = context.new_page()
     yield page
-
