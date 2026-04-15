@@ -37,7 +37,7 @@ class PageScreenshot(BasePage):
         folder_path = os.path.join(self.base_path, sub_folder, self.date_folder)
         os.makedirs(folder_path, exist_ok=True)
         filename = os.path.join(folder_path, f'{keyword}_{timestamp}.png')
-        print(f"[==>[{self.ENV}-{self.COUNTRY}] FILE: {filename}]")
+        print(f"[==>[{self.ENV}-{self.COUNTRY}] FILE: f'{keyword}_{timestamp}.png'")
         self.page.screenshot(path=filename, full_page=full_page)
 
     # Public methods

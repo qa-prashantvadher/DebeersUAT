@@ -13,6 +13,7 @@ load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
+REFRESH = os.getenv("PAGE_REFRESH")
 
 
 def test_checkout_as_registered_user_self_collect(page):
@@ -40,7 +41,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
             if ENV in ["UAT", "QA"]:
                 login_logout.test_logout_from_order_confirmation_page()
@@ -60,7 +62,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
             if ENV in ["UAT", "QA"]:
                 login_logout.test_logout_from_order_confirmation_page()
@@ -77,7 +80,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_union_pay_credit_card_details()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
             checkout_delivery.test_delivery_date_on_collect_in_store()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -145,7 +149,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_amex_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_delivery_from_review_page()
             checkout_delivery.test_delivery_date_on_collect_in_store()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -217,7 +222,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_union_pay_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_payment_from_review_page()
             checkout_payment.test_enter_amex_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
@@ -238,7 +244,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_union_pay_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_payment_from_review_page()
             checkout_payment.test_enter_amex_credit_card_details()
             checkout_payment.test_enter_change_billing_name_details()
@@ -260,7 +267,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_amex_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
             shopping_cart.test_continue_to_checkout_from_cart()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -334,7 +342,8 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_union_pay_credit_card_details()
-            checkout_review.test_page_refresh()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
             shopping_cart.test_continue_to_checkout_from_cart()
             checkout_delivery.test_delivery_date_on_collect_in_store()
