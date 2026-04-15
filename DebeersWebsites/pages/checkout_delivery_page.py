@@ -331,7 +331,7 @@ class Checkout_Delivery(BasePage):
             else:
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
-                self.type(self.gift_message_input, self.gift_message_text)
+                self.fill(self.gift_message_input, self.gift_message_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
