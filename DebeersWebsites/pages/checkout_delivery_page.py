@@ -208,9 +208,9 @@ class Checkout_Delivery(BasePage):
             first_name_text = random.choice(self.delivery_collector_first_name_list)
             last_name_text = random.choice(self.delivery_collector_last_name_list)
             self.select_option(self.delivery_title_dropdown, self.delivery_title_value)
-            self.type(self.first_name_input, first_name_text)
-            self.type(self.last_name_input, last_name_text)
-            self.type(self.phone_input, self.phone_text)
+            self.fill(self.first_name_input, first_name_text)
+            self.fill(self.last_name_input, last_name_text)
+            self.fill(self.phone_input, self.phone_text)
             self.timeout(1000)
             print("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
         except:
@@ -222,9 +222,9 @@ class Checkout_Delivery(BasePage):
             collector_first_name_text = random.choice(self.delivery_collector_first_name_list)
             collector_last_name_text = random.choice(self.delivery_collector_last_name_list)
             self.select_option(self.delivery_title_dropdown, self.delivery_title_value)
-            self.type(self.first_name_input, collector_first_name_text)
-            self.type(self.last_name_input, collector_last_name_text)
-            self.type(self.phone_input, self.collector_phone_text)
+            self.fill(self.first_name_input, collector_first_name_text)
+            self.fill(self.last_name_input, collector_last_name_text)
+            self.fill(self.phone_input, self.collector_phone_text)
             print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
 
         except:
@@ -261,8 +261,8 @@ class Checkout_Delivery(BasePage):
                 elif self.COUNTRY == "FR":
                     # State text field
                     self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
-                self.type(self.premium_city_input, selected_delivery_address["premium_city_text"])
-                self.type(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
+                self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
+                self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
                 print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
@@ -285,8 +285,8 @@ class Checkout_Delivery(BasePage):
             elif self.COUNTRY == "FR":
                 # State text field
                 self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
-            self.type(self.premium_city_input, "TESTING")
-            self.type(self.premium_postal_code_input, "TESTING")
+            self.fill(self.premium_city_input, "TESTING")
+            self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)
             print("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 

@@ -185,10 +185,10 @@ class Checkout_Payment(BasePage):
     def test_enter_amex_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.amex_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.amex_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.amex_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.amex_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.amex_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.amex_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_AMEX")
             print("[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -199,10 +199,10 @@ class Checkout_Payment(BasePage):
     def test_enter_mastercard_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.mc_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.mc_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.mc_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.mc_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.mc_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.mc_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
             print("[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -214,10 +214,10 @@ class Checkout_Payment(BasePage):
     def test_enter_visa_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.visa_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.visa_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.visa_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.visa_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.visa_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.visa_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_VISA")
             print("[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -228,10 +228,10 @@ class Checkout_Payment(BasePage):
     def test_enter_union_pay_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.union_pay_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.union_pay_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.union_pay_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.union_pay_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.union_pay_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.union_pay_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
             print("[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -242,10 +242,10 @@ class Checkout_Payment(BasePage):
     def test_enter_discover_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.discover_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.discover_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.discover_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.discover_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.discover_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.discover_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
             print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -256,10 +256,10 @@ class Checkout_Payment(BasePage):
     def test_enter_cartes_visa_credit_card_details(self):
         try:
             self.timeout(3000)
-            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").type(self.cartes_visa_card_number_text)
-            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").type(self.cartes_visa_expiry_date_text)
-            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").type(self.cartes_visa_cvv_text)
-            self.type(self.card_holder_name_input, self.card_holder_name_text)
+            self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.cartes_visa_card_number_text)
+            self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.cartes_visa_expiry_date_text)
+            self.page.frame_locator(self.cvv_iframe).get_by_role("textbox").fill(self.cartes_visa_cvv_text)
+            self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
             print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
@@ -274,9 +274,9 @@ class Checkout_Payment(BasePage):
             billing_last_name_text = random.choice(self.billing_last_name_list)
             self.scroll_down(self.billing_first_name_input)
             self.select_option(self.billing_title_dropdown,self.billing_title_value)
-            self.type(self.billing_first_name_input, billing_first_name_text)
-            self.type(self.billing_last_name_input, billing_last_name_text)
-            self.type(self.billing_phone_input, self.billing_phone_text)
+            self.fill(self.billing_first_name_input, billing_first_name_text)
+            self.fill(self.billing_last_name_input, billing_last_name_text)
+            self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
             print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
