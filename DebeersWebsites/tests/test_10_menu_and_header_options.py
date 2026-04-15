@@ -18,6 +18,7 @@ def test_menu_and_header_option_pages(page):
     book_appointment = Book_Appointment(page)
     home_page = OpenHomePage(page)
 
+
     # OPEN DEBEERS WEBSITE
     home_page.test_navigate_to_url()
     if ENV != "QA":

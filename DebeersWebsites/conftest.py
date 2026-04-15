@@ -34,6 +34,8 @@ def context(browser):
 
     context_args = {
         "no_viewport": True,
+        "record_video_dir": "videos/",  # Folder where videos will be saved
+        "record_video_size": {"width": 1280, "height": 720},
         "permissions": ["geolocation"],
         "geolocation": {
             "latitude": 51.508099,
@@ -56,3 +58,4 @@ def context(browser):
 def page(context):
     page = context.new_page()
     yield page
+    page.close()

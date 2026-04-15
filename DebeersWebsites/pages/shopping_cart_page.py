@@ -46,11 +46,10 @@ class Open_Shopping_Cart_Page(BasePage):
     def test_continue_to_checkout_from_cart(self):
         try:
             self.timeout(3000)
-            self.screenshot.take_order_page_screenshot("CHECKOUT_CART_PAGE")
             self.click(self.continue_to_checkout_cta)
             self.timeout(5000)
-            print("[CHECKOUT] USER IS REDIRECTED TO THE DELIVERY PAGE..")
+            print("[CHECKOUT-CART] USER IS REDIRECTED TO THE DELIVERY PAGE..")
 
         except:
-            print("*****[CHECKOUT] USER IS NOT REDIRECTED TO THE DELIVERY PAGE..*****")
+            print("*****[CHECKOUT-CART] USER IS NOT REDIRECTED TO THE DELIVERY PAGE..*****")
    
