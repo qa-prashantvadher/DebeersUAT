@@ -8,11 +8,10 @@ from pages.login_pages import Login_Page
 import os
 from dotenv import load_dotenv
 
-from pages.take_screenshot import COUNTRY
-
 load_dotenv(override=True)
 
 ENV = os.getenv("ENVIRONMENT")
+COUNTRY = os.getenv("LOCALE")
 
 def test_checkout_client_service_popup(page):
 
@@ -68,4 +67,4 @@ def test_checkout_client_service_popup(page):
             checkout_review.test_place_an_order_from_order_review_page()
 
     elif COUNTRY == "UK" or COUNTRY == "FR":
-            print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE AVALARA TAX ERROR..")
+            print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE AVALARA TAX ERROR POPUP..")
