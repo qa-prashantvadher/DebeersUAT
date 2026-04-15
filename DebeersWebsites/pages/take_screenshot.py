@@ -2,56 +2,47 @@ import time
 import os
 from pages.base_page import BasePage
 from dotenv import load_dotenv
-load_dotenv(override=True)
 
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
-
+load_dotenv()
 
 class PageScreenshot(BasePage):
-    date_folder = time.strftime('%d%m%Y')
-
-    if ENV == "UAT":
-        if COUNTRY == "UK":
-            base_path = r"D:\Python Code\Screenshots\DB-UAT\UK"
-        elif COUNTRY == "US":
-            base_path = r"D:\Python Code\Screenshots\DB-UAT\US"
-        elif COUNTRY == "FR":
-            base_path = r"D:\Python Code\Screenshots\DB-UAT\FR"
-    elif ENV == "PROD":
-        if COUNTRY == "UK":
-            base_path = r"D:\Python Code\Screenshots\DB-PROD\UK"
-        elif COUNTRY == "US":
-            base_path = r"D:\Python Code\Screenshots\DB-PROD\US"
-        elif COUNTRY == "FR":
-            base_path = r"D:\Python Code\Screenshots\DB-PROD\FR"
-    elif ENV == "QA":
-        if COUNTRY == "UK":
-            base_path = r"D:\Python Code\Screenshots\DB-QA\UK"
-        elif COUNTRY == "US":
-            base_path = r"D:\Python Code\Screenshots\DB-QA\US"
-        elif COUNTRY == "FR":
-            base_path = r"D:\Python Code\Screenshots\DB-QA\FR"
-    order_sub_folder = "ORDERS"
-    other_sub_folder = "OTHERS"
-
 
     def __init__(self, page):
         super().__init__(page)
         self.page = page
+        self.ENV = os.getenv("ENVIRONMENT")
+        self.COUNTRY = os.getenv("LOCALE")
+        self.date_folder = time.strftime('%d%m%Y')
 
+        base_root = r"D:\Debeers Videos and Screenshots\Screenshots"
+        env_map = {
+            "UAT": "DB-UAT",
+            "PROD": "DB-PROD",
+            "QA": "DB-QA"
+        }
+
+        if self.ENV not in env_map:
+            raise ValueError(f"Invalid Environment: {self.ENV}")
+
+        if self.COUNTRY not in ["UK", "US", "FR"]:
+            raise ValueError(f"Invalid Country: {self.COUNTRY}")
+
+        self.base_path = os.path.join(base_root, env_map[self.ENV], self.COUNTRY)
+        self.order_sub_folder = "ORDERS"
+        self.other_sub_folder = "OTHERS"
+
+    # Common method (DRY)
+    def _take_screenshot(self, sub_folder, keyword, full_page=False):
+        timestamp = time.strftime('%d-%m-%Y_%H-%M-%S')
+        folder_path = os.path.join(self.base_path, sub_folder, self.date_folder)
+        os.makedirs(folder_path, exist_ok=True)
+        filename = os.path.join(folder_path, f'{keyword}_{timestamp}.png')
+        print(f"[==>[{self.ENV}-{self.COUNTRY}] FILE: {filename}]")
+        self.page.screenshot(path=filename, full_page=full_page)
+
+    # Public methods
     def take_page_screenshot(self, keyword):
-        timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        other_screenshot_full_path = os.path.join(self.base_path, self.other_sub_folder, self.date_folder)
-        os.makedirs(other_screenshot_full_path, exist_ok=True)
-        filename = os.path.join(other_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print(f"[ ==>[{ENV}-{COUNTRY}] FILENAME:", f'{keyword}_{timestamp}.png]')
-        self.page.screenshot(path=filename)
+        self._take_screenshot(self.other_sub_folder, keyword)
 
     def take_order_page_screenshot(self, keyword):
-        timestamp = time.strftime('%d-%m-%Y_%H-%M')
-        order_screenshot_full_path = os.path.join(self.base_path, self.order_sub_folder, self.date_folder)
-        os.makedirs(order_screenshot_full_path, exist_ok=True)
-        filename = os.path.join(order_screenshot_full_path, f'{keyword}_{timestamp}.png')
-        print(f"[ ==>[{ENV}-{COUNTRY}] FILENAME:", f'{keyword}_{timestamp}.png]')
-        self.page.screenshot(path=filename,full_page=True)
+        self._take_screenshot(self.order_sub_folder, keyword, full_page=True)

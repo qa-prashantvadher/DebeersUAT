@@ -1,3 +1,4 @@
+import time
 import pytest
 import os
 from playwright.sync_api import sync_playwright
@@ -31,10 +32,33 @@ def browser():
 @pytest.fixture(scope="session")
 def context(browser):
     ENV = os.getenv("ENVIRONMENT")
+    COUNTRY = os.getenv("LOCALE")
+
+
+    date_folder = time.strftime('%d%m%Y')
+
+    base_path = r"D:\Debeers Videos and Screenshots\Videos"
+
+    env_map = {
+        "UAT": "DB-UAT",
+        "PROD": "DB-PROD",
+        "QA": "DB-QA"
+    }
+
+    if ENV not in env_map:
+        raise ValueError(f"Invalid Environment: {ENV}")
+
+    if COUNTRY not in ["UK", "US", "FR"]:
+        raise ValueError(f"Invalid Country: {COUNTRY}")
+
+    video_path = os.path.join(base_path, env_map[ENV], COUNTRY)
+    video_full_path = os.path.join(video_path, date_folder)
+
+    os.makedirs(video_full_path, exist_ok=True)
 
     context_args = {
         "no_viewport": True,
-        "record_video_dir": "videos/",  # Folder where videos will be saved
+        "record_video_dir": video_full_path,  # Folder where videos will be saved
         "record_video_size": {"width": 1280, "height": 720},
         "permissions": ["geolocation"],
         "geolocation": {
