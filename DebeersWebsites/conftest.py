@@ -45,7 +45,7 @@ def context(browser):
 
     if ENV not in env_map:
         raise ValueError(f"Invalid Environment: {ENV}")
-    if COUNTRY not in ["UK", "US", "FR"]:
+    if COUNTRY not in ["UK", "US", "FR","HK"]:
         raise ValueError(f"Invalid Country: {COUNTRY}")
 
     video_path = os.path.join(base_path, env_map[ENV], COUNTRY)

@@ -10,6 +10,8 @@ import os
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
+TESTING_TYPE = os.getenv("TESTING_TYPE")
+
 
 
 def test_checkout_as_guest_user_self_collect(page):
@@ -23,7 +25,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
     shopping_cart = Open_Shopping_Cart_Page(page)
 
-    if COUNTRY == "UK" or COUNTRY == "US":
+    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
 
             # Case 4: Self Collect + Master card + Same Billing Name
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -343,5 +345,172 @@ def test_checkout_as_guest_user_self_collect(page):
             checkout_payment.test_use_delivery_as_billing_address_checkbox()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
+
+    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+
+            # Case 4: Self Collect + Master card + Same Billing Name
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_login.test_checkout_as_guest_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 5: Self Collect + Master card + Different Billing Name
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 10: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 19: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 27: Self Collect + Union Pay card > From the Review page, Go back to the Payment Page > Amex card + Same Billing name
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 28: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 33: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 41: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
     elif COUNTRY == "FR":
             print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")

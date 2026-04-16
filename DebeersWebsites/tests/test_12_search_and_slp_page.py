@@ -50,7 +50,7 @@ def test_search_modal_slp_page(page):
     elif COUNTRY == "FR":
         search.test_search_with_keyword("Haute Joaillerie")
     elif COUNTRY == "HK":
-        search.test_search_with_keyword("高級珠寶")
+        search.test_search_with_keyword("首飾")
     search.test_apply_sorting_on_slp()
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()

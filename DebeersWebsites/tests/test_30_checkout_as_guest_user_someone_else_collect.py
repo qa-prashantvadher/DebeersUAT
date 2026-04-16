@@ -10,6 +10,8 @@ import os
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
+TESTING_TYPE = os.getenv("TESTING_TYPE")
+
 
 
 def test_checkout_as_guest_user_someone_else_collect(page):
@@ -23,7 +25,8 @@ def test_checkout_as_guest_user_someone_else_collect(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
     shopping_cart = Open_Shopping_Cart_Page(page)
 
-    if COUNTRY == "UK" or COUNTRY == "US":
+    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
+
             # Case 6: Someone Else Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -312,5 +315,141 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
+
+    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+
+            # Case 6: Someone Else Collect + Discover card
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_login.test_checkout_as_guest_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 29: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 43: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
     elif COUNTRY == "FR":
             print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")

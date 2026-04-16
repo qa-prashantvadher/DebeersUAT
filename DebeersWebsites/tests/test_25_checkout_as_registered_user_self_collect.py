@@ -15,6 +15,7 @@ ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
 ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN")
+TESTING_TYPE = os.getenv("TESTING_TYPE")
 
 
 def test_checkout_as_registered_user_self_collect(page):
@@ -29,7 +30,8 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_back_from_payment = Checkout_Go_Back_From_Payment(page)
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
-    if COUNTRY == "UK" or COUNTRY == "US":
+    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
+
             print(" Case 3: Self Collect + Master card + Same Billing Name")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -411,6 +413,184 @@ def test_checkout_as_registered_user_self_collect(page):
                         login_logout.test_logout_from_order_confirmation_page()
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
+
+    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+
+            print(" Case 3: Self Collect + Master card + Same Billing Name")
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 4: Self Collect + Master card + Different Billing Name")
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 9: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card")
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 18: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card")
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 27: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name")
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 32: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card")
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+            print(" Case 40: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card")
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
+
+
     elif COUNTRY == "FR":
         print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")
 

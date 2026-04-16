@@ -14,7 +14,7 @@ class PageScreenshot(BasePage):
         self.COUNTRY = os.getenv("LOCALE")
         self.date_folder = time.strftime('%d%m%Y')
 
-        base_root = r"D:\Debeers Videos and Screenshots\Screenshots"
+        screenshot_path = r"D:\Debeers Videos and Screenshots\Screenshots"
         env_map = {
             "UAT": "DB-UAT",
             "PROD": "DB-PROD",
@@ -27,7 +27,7 @@ class PageScreenshot(BasePage):
         if self.COUNTRY not in ["UK", "US", "FR", "HK"]:
             raise ValueError(f"Invalid Country: {self.COUNTRY}")
 
-        self.base_path = os.path.join(base_root, env_map[self.ENV], self.COUNTRY)
+        self.base_path = os.path.join(screenshot_path, env_map[self.ENV], self.COUNTRY)
         self.order_sub_folder = "ORDERS"
         self.other_sub_folder = "OTHERS"
 

@@ -13,6 +13,7 @@ load_dotenv(override=True)
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
+TESTING_TYPE = os.getenv("TESTING_TYPE")
 
 
 def test_checkout_as_guest_user_premium(page):
@@ -26,7 +27,7 @@ def test_checkout_as_guest_user_premium(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
     shopping_cart = Open_Shopping_Cart_Page(page)
 
-    if COUNTRY == "UK" or COUNTRY == "US":
+    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
 
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -349,6 +350,169 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_enter_change_billing_address_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
+
+    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+
+            # Case 1: Premium Delivery + Amex card + Same Billing address
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_login.test_checkout_as_guest_user()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 3: Premium Delivery + Union Pay card + Different Billing address.
+            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 26: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name and Address
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_payment_from_review_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_enter_change_billing_name_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_use_delivery_as_billing_address_checkbox()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            # Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
+            shopping_cart.test_continue_to_checkout_from_cart()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_discover_credit_card_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_review.test_place_an_order_from_order_review_page()
+
     elif COUNTRY == "FR":
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()

@@ -25,6 +25,10 @@ class Checkout_Review(BasePage):
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
     order_number_confirmation_page = "//span[@class='order-number']"
+    shipping_method = ".shipping-method-title"
+    delivery_address_summary = "//div[@class='summary-details shipping']"
+    billing_address_summary = "//div[@class='summary-details billing']"
+
 
     def __init__(self, page):
         super().__init__(page)
@@ -49,9 +53,21 @@ class Checkout_Review(BasePage):
                 delivery_date = self.get_text(self.delivery_date_collect_review_page).strip()
             else:
                 delivery_date = None
-
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER_REVIEW")
+            shipping_method_text = self.get_text(self.shipping_method).strip()
+            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
+
+
+            delivery_address_summary_text = self.get_text(self.delivery_address_summary)
+            clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())
+            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY SUMMARY: {clean_delivery_address_summary_text.upper()}")
+
+
+            billing_address_summary_text = self.get_text(self.billing_address_summary)
+            clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
+            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING SUMMARY: {clean_billing_address_summary_text.upper()}..")
+
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
