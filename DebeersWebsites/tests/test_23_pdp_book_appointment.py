@@ -16,7 +16,7 @@ def test_book_appointment_cta_from_pdp(page):
     # BOOK APPOINTMENT CTA AND BOOK IN STORE/VIRTUAL APPOINTMENT OPTIONS ON THE PDP PAGE
     pdp_enquire_appointment.test_book_appointment_hj_master_level()
 
-    if ENV == "PROD" or COUNTRY == "FR":
+    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
         book_appointment.test_in_store_appointment_type()
         pdp_enquire_appointment.test_book_appointment_hj_master_level()
         book_appointment.test_in_store_appointment_type()

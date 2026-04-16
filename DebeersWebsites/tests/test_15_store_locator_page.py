@@ -5,7 +5,7 @@ import os
 
 load_dotenv(override=True)
 ENV = os.getenv("ENVIRONMENT")
-
+COUNTRY = os.getenv("LOCALE")
 
 def test_store_locator_page(page):
 
@@ -28,12 +28,13 @@ def test_store_locator_page(page):
     store_locator.test_book_an_appointment_cta_store_detail_page()
 
     store_locator.test_open_store_locator_page_from_header()
+    store_locator.test_search_store_by_keyword("Hong Kong")
 
     store_locator.test_search_store_by_keyword("LONDON")
     store_locator.test_click_close_london_marker_in_map()
     store_locator.test_open_london_store_detail_page()
     store_locator.test_click_close_london_marker_in_map()
-    if ENV == "PROD":
+    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
         store_locator.test_book_an_appointment_cta_store_detail_page()
         book_appointment.test_in_store_appointment_type()
     else:

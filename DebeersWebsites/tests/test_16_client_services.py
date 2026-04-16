@@ -29,7 +29,7 @@ def test_client_services_page(page):
 
     client_service.test_open_email_us_form_from_client_services()
 
-    if ENV == "PROD" or COUNTRY == "FR":
+    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
         client_service.test_open_book_an_appointment_from_email_call()
         book_appointment.test_in_store_appointment_type()
     else:
@@ -56,7 +56,7 @@ def test_client_services_page(page):
 
     client_service.test_open_callback_form_from_client_services()
 
-    if ENV == "PROD" or COUNTRY == "FR":
+    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
         client_service.test_open_book_an_appointment_from_email_call()
         book_appointment.test_in_store_appointment_type()
     else:

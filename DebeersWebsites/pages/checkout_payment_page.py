@@ -102,6 +102,27 @@ class Checkout_Payment(BasePage):
                 "premium_postal_code_text": "75009"
             }]
 
+    elif COUNTRY == "HK":
+        # Billing Name
+        billing_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
+        billing_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
+        # State Text-field
+        billing_state_input = "//input[@id='billingState']"
+        # Billing Address List
+        billing_addresses = [
+            {
+                "premium_address_text": "1 Muk Ning Street",
+                "premium_city_text": "Hong Kong",
+                "premium_state_county_text": "Kowloon",
+                "premium_postal_code_text": ""
+            },
+            {
+                "premium_address_text": "38 New Clear Water Bay Road",
+                "premium_city_text": "Hong Kong",
+                "premium_state_county_text": "",
+                "premium_postal_code_text": ""
+            }]
+
     #Payment Methods
     payment_by_cards = "//input[@id='rb_scheme']"
     payment_by_paypal = "//input[@id='rb_paypal']"
@@ -297,7 +318,7 @@ class Checkout_Payment(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.billing_county_input, selected_billing_address["premium_state_county_text"])
-            elif self.COUNTRY == "FR":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK":
                 # State Text-field
                 self.fill(self.billing_state_input, selected_billing_address["premium_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])

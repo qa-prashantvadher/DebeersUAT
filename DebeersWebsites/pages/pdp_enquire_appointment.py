@@ -7,6 +7,7 @@ import os
 load_dotenv(override=True)
 
 class PDP_Enquire_Book_Appointment(BasePage):
+    COUNTRY = os.getenv("LOCALE")
 
     SKU1="E103401"
     enquire_old_master_level = "//div[contains(@class,'primary-btn-wrap')]//button[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
@@ -19,14 +20,24 @@ class PDP_Enquire_Book_Appointment(BasePage):
     if os.getenv('ENVIRONMENT') == "PROD":
         SKU3="E102112"
     else:
-        SKU3="R102265"
+            SKU3="R102265"
     find_your_diamonds_cta = "//div[@class='primary-btn-wrap']/button[1]"
     enquire_upp_multiple_variant = "(//li[contains(@class,'variation-tile')]//button[contains(@class,'btn-enquire-online')])[1]"
 
     bb_contact_us_section = "//*[@id='pdpAttrAccContactUs']/button"
-    bb_email_us_button = "button:has-text('Email Us')"
-    bb_book_in_store_appointment_button = "a[title='Book in store appointment']"
-    bb_book_a_virtual_appointment_button = "a[title='Book a virtual appointment']"
+
+    if COUNTRY == "US" or COUNTRY == "UK":
+        bb_email_us_button = "button:has-text('Email Us')"
+        bb_book_in_store_appointment_button = "a[title='Book in store appointment']"
+        bb_book_a_virtual_appointment_button = "a[title='Book a virtual appointment']"
+    elif COUNTRY == "FR":
+        bb_email_us_button = "button:has-text('Nous Contacter')"
+        bb_book_in_store_appointment_button = "a[title='Prendre rendez-vous en magasin']"
+        bb_book_a_virtual_appointment_button = "a[title='Prendre un rendez-vous virtuel']"
+    elif COUNTRY == "HK":
+        bb_email_us_button = "button:has-text('電郵聯絡')"
+        bb_book_in_store_appointment_button = "a[title='店內鑑賞']"
+        bb_book_a_virtual_appointment_button = "a[title='線上鑑賞']"
 
     def __init__(self, page):
         super().__init__(page)

@@ -47,7 +47,7 @@ class Login_Page(BasePage):
                 self.timeout(1000)
                 #self.screenshot.take_Page_screenshot("HEADER_LOGIN")
                 self.click(self.modal_login_button)
-                self.timeout(5000)
+                self.timeout(7000)
                 #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
                 print("[HEADER LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
 

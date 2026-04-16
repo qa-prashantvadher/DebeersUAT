@@ -24,7 +24,7 @@ class PageScreenshot(BasePage):
         if self.ENV not in env_map:
             raise ValueError(f"Invalid Environment: {self.ENV}")
 
-        if self.COUNTRY not in ["UK", "US", "FR"]:
+        if self.COUNTRY not in ["UK", "US", "FR", "HK"]:
             raise ValueError(f"Invalid Country: {self.COUNTRY}")
 
         self.base_path = os.path.join(base_root, env_map[self.ENV], self.COUNTRY)
@@ -33,13 +33,14 @@ class PageScreenshot(BasePage):
 
     # Common method (DRY)
     def _take_screenshot(self, sub_folder, keyword, full_page=False):
+        '''
         timestamp = time.strftime('%d-%m-%Y_%H-%M-%S')
         folder_path = os.path.join(self.base_path, sub_folder, self.date_folder)
         os.makedirs(folder_path, exist_ok=True)
         filename = os.path.join(folder_path, f'{keyword}_{timestamp}.png')
-        print(f"[==>[{self.ENV}-{self.COUNTRY}] FILE: f'{keyword}_{timestamp}.png'")
+        print(f"==> [{self.ENV}-{self.COUNTRY}] FILE: {keyword}_{timestamp}.png")
         self.page.screenshot(path=filename, full_page=full_page)
-
+        '''
     # Public methods
     def take_page_screenshot(self, keyword):
         self._take_screenshot(self.other_sub_folder, keyword)

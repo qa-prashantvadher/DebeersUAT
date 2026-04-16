@@ -58,6 +58,23 @@ class SearchSKU(BasePage):
         cut_emerald_option = "//div[contains(text(),'Emerald')]"
         cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
+    elif COUNTRY == "HK":
+        # PLP  Page > Filter
+        filter_label = "button.btn-filtered.js-show-filters"
+
+        material_label = "button:has-text('材質')"
+        material_option = "//*[@id='鉑金']"
+        material_apply_button = "div[class='refinement-content is-filter-bar productMetal'] a[name='apply']"
+
+        size_label = "button:has-text('尺寸')"
+        size_50 = "//div[@id='50']"
+        size_apply_button = "div[class='refinement-content is-filter-bar size'] a[name='apply']"
+
+        cut_label = "button:has-text('切')"
+        cut_emerald_option = "//div[contains(text(),'祖母綠形')]"
+        cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
+
+
     clear_all_filter = "//div[@id='filterRefinements']/div[@class='offcanvas-body filters-list']/div[@class='clear-cta-wrapper']/a[@class='refinement-dropdown-clear-cta btn btn-link clearButton']"
 
     def __init__(self, page):

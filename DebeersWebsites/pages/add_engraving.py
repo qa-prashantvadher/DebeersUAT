@@ -14,6 +14,9 @@ class AddEngraving(BasePage):
     if COUNTRY == "FR":
         new_engraving_text = "Les diamants durent."
         update_engraving_text = "De Beers is Forever."
+    elif COUNTRY == "HK":
+        new_engraving_text = "鑽石恆久遠。"
+        update_engraving_text = "戴比爾斯是永恆的。"
     else:
         new_engraving_text = "A Diamond is Forever"
         update_engraving_text = "De Beers is Forever."
@@ -39,7 +42,7 @@ class AddEngraving(BasePage):
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("ENGRAVING_AFTER_SUBMIT")
         except:
-            print(f"*****[{COUNTRY}-PDP] NOT ABLE TO ADD PRODUCT WITH ENGRAVING..*****")
+            print(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO ADD PRODUCT WITH ENGRAVING..*****")
 
     def test_update_engraving(self):
         try:
@@ -52,7 +55,7 @@ class AddEngraving(BasePage):
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("ENGRAVING_AFTER_UPDATE")
         except:
-            print(f"*****[{COUNTRY}-PDP] NOT ABLE TO UPDATE ENGRAVING TEXT..*****")
+            print(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO UPDATE ENGRAVING TEXT..*****")
 
     def test_close_engraving_screen(self):
         try:
@@ -60,7 +63,7 @@ class AddEngraving(BasePage):
             self.click(self.engraving_input)
             self.click(self.close_icon)
             self.timeout(2000)
-            print(f"[{COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
+            print(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
             #self.screenshot.take_Page_screenshot("ENGRAVING_CLOSE")
         except:
             print("*****[PDP] NOT ABLE TO CLOSE ENGRAVING MODAL..*****")
@@ -71,7 +74,7 @@ class AddEngraving(BasePage):
             self.click(self.engraving_input)
             self.click(self.back_button)
             self.timeout(2000)
-            print(f"[{COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
+            print(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
             #self.screenshot.take_Page_screenshot("ENGRAVING_BACK")
         except:
             print("*****[PDP] NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")

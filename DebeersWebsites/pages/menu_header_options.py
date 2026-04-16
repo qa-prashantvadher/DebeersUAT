@@ -39,7 +39,7 @@ class Open_Menu_Header_Options (BasePage):
             "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
             "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
             "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
-            "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
+            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
         }
         # Language Records
         language_value_locator = {
@@ -64,7 +64,7 @@ class Open_Menu_Header_Options (BasePage):
             "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
             "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
             "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
-            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
+            "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
         }
         # Language Records
         language_value_locator = {
@@ -80,7 +80,6 @@ class Open_Menu_Header_Options (BasePage):
             "belgium": "//*[@id='accordionCountrySelector_mobile']/li[3]/a",
             "canada": "//*[@id='accordionCountrySelector_mobile']/li[4]/a",
             "china": "//*[@id='accordionCountrySelector_mobile']/li[5]/a",
-            "france": "//*[@id='accordionCountrySelector_mobile']/li[6]/a",
             "germany": "//*[@id='accordionCountrySelector_mobile']/li[7]/a",
             "greece": "//*[@id='accordionCountrySelector_mobile']/li[8]/a",
             "hongkong": "//*[@id='accordionCountrySelector_mobile']/li[9]/a",
@@ -89,13 +88,40 @@ class Open_Menu_Header_Options (BasePage):
             "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
             "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
             "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
-            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a"
+            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a",
+            "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
         }
         # Language Records
         language_value_locator = {
             "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a",
             "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
             "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a"
+        }
+
+    elif COUNTRY == "HK":
+        # HK Country Records
+        country_value_locator = {
+            "australia": "//*[@id='accordionCountrySelector_mobile']/li[1]/a",
+            "austria": "//*[@id='accordionCountrySelector_mobile']/li[2]/a",
+            "belgium": "//*[@id='accordionCountrySelector_mobile']/li[3]/a",
+            "canada": "//*[@id='accordionCountrySelector_mobile']/li[4]/a",
+            "china": "//*[@id='accordionCountrySelector_mobile']/li[5]/a",
+            "france": "//*[@id='accordionCountrySelector_mobile']/li[6]/a",
+            "germany": "//*[@id='accordionCountrySelector_mobile']/li[7]/a",
+            "greece": "//*[@id='accordionCountrySelector_mobile']/li[8]/a",
+            "italy": "//*[@id='accordionCountrySelector_mobile']/li[10]/a",
+            "macau": "//*[@id='accordionCountrySelector_mobile']/li[11]/a",
+            "netherlands": "//*[@id='accordionCountrySelector_mobile']/li[12]/a",
+            "sweden": "//*[@id='accordionCountrySelector_mobile']/li[13]/a",
+            "taiwan": "//*[@id='accordionCountrySelector_mobile']/li[14]/a",
+            "uk": "//*[@id='accordionCountrySelector_mobile']/li[15]/a",
+            "us": "//*[@id='accordionCountrySelector_mobile']/li[16]/a"
+        }
+        # Language Records
+        language_value_locator = {
+            "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
+            "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
+            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a"
         }
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
     header_wishlist_icon = "//*[@id='headerWishlist']/a"

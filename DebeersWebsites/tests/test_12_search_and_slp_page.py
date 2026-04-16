@@ -39,6 +39,8 @@ def test_search_modal_slp_page(page):
         search.test_search_with_keyword("Rings")
     elif COUNTRY == "FR":
         search.test_search_with_keyword("Anneaux")
+    elif COUNTRY == "HK":
+        search.test_search_with_keyword("戒指")
     search.test_apply_sorting_on_slp()
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()
@@ -47,6 +49,8 @@ def test_search_modal_slp_page(page):
         search.test_search_with_keyword("High Jewellery")
     elif COUNTRY == "FR":
         search.test_search_with_keyword("Haute Joaillerie")
+    elif COUNTRY == "HK":
+        search.test_search_with_keyword("高級珠寶")
     search.test_apply_sorting_on_slp()
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()

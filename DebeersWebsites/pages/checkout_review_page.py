@@ -19,6 +19,9 @@ class Checkout_Review(BasePage):
     elif COUNTRY == "FR":
         delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime FR-SHIPPING-01']"
         delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime FR-SHIPPING-02']"
+    elif COUNTRY == "HK":
+        delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime HK-SHIPPING-01']"
+        delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime HK-SHIPPING-02']"
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
     order_number_confirmation_page = "//span[@class='order-number']"

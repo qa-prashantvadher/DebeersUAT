@@ -39,8 +39,6 @@ class Checkout_PDP_SPP_No_Size(BasePage):
         self.engraving = AddEngraving(page)
         self.screenshot = PageScreenshot(page)
 
-
-
     def test_checkout_spp_no_size_with_engraving(self):
         SKU1 = random.choice(self.SKU1_LIST)
         print(f"[CHECKOUT] SKU1: {SKU1}")
@@ -49,6 +47,9 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
                 locale.setlocale(locale.LC_TIME, "French_France")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
+            elif self.COUNTRY == "HK":
+                #locale.setlocale(locale.LC_TIME, "zh_HK.UTF-8")  # For Linux/Mac
+                locale.setlocale(locale.LC_TIME, "Chinese_Hong Kong SAR")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
 
             self.search.test_search_with_sku(SKU1)
             delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()

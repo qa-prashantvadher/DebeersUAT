@@ -36,9 +36,7 @@ def context(browser):
 
 
     date_folder = time.strftime('%d%m%Y')
-
     base_path = r"D:\Debeers Videos and Screenshots\Videos"
-
     env_map = {
         "UAT": "DB-UAT",
         "PROD": "DB-PROD",
@@ -47,19 +45,17 @@ def context(browser):
 
     if ENV not in env_map:
         raise ValueError(f"Invalid Environment: {ENV}")
-
     if COUNTRY not in ["UK", "US", "FR"]:
         raise ValueError(f"Invalid Country: {COUNTRY}")
 
     video_path = os.path.join(base_path, env_map[ENV], COUNTRY)
     video_full_path = os.path.join(video_path, date_folder)
-
     os.makedirs(video_full_path, exist_ok=True)
 
     context_args = {
         "no_viewport": True,
         "record_video_dir": video_full_path,  # Folder where videos will be saved
-        "record_video_size": {"width": 1280, "height": 720},
+        "record_video_size": {"width": 1920, "height": 1080},
         "permissions": ["geolocation"],
         "geolocation": {
             "latitude": 51.508099,

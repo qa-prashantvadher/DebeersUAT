@@ -15,6 +15,7 @@ load_dotenv(override=True)
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
+ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN")
 
 def test_checkout_as_registered_user_premium(page):
 
@@ -44,14 +45,18 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                            login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
@@ -63,15 +68,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -85,15 +92,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -108,15 +117,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -132,15 +143,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -156,15 +169,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -180,15 +195,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -206,15 +223,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -228,15 +247,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 25: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -252,15 +273,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -277,15 +300,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -302,15 +327,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -328,15 +355,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_mastercard_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
-            print("\033[1mCase 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card\033[0m")
+            print("Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card.")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -351,15 +380,17 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                            login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                            login_logout.test_logout_from_my_account_logout()
 
             print(" Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -375,10 +406,11 @@ def test_checkout_as_registered_user_premium(page):
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
     elif COUNTRY == "FR":
             # Case 1: Premium Delivery + Amex card + Same Billing address
@@ -395,16 +427,18 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -415,15 +449,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 3: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -436,15 +472,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 4: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -459,15 +497,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 5: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -480,15 +520,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 6: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -503,15 +545,17 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             # Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Amex card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -525,7 +569,8 @@ def test_checkout_as_registered_user_premium(page):
             if REFRESH == "YES":
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()

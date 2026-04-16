@@ -14,6 +14,7 @@ load_dotenv(override=True)
 ENV = os.getenv("ENVIRONMENT")
 COUNTRY = os.getenv("LOCALE")
 REFRESH = os.getenv("PAGE_REFRESH")
+ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN")
 
 
 def test_checkout_as_registered_user_someone_else_collect(page):
@@ -33,7 +34,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -45,15 +47,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             if REFRESH == "YES":
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                            login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                            login_logout.test_logout_from_my_account_logout()
 
             print(" Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -69,15 +73,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             if REFRESH == "YES":
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                            login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                            login_logout.test_logout_from_my_account_logout()
 
             print(" Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -93,15 +99,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_use_delivery_as_billing_address_checkbox()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -116,15 +124,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_union_pay_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -142,15 +152,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -167,15 +179,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -191,15 +205,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -214,15 +230,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -240,15 +258,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -265,15 +285,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -291,15 +313,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_visa_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -318,15 +342,17 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
+            if ONETIME_LOGIN == "NO":
+                    if ENV in ["UAT", "QA"]:
+                        login_logout.test_logout_from_order_confirmation_page()
+                    elif ENV == "PROD":
+                        login_logout.test_logout_from_my_account_logout()
 
             print(" Case 43: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
+            if ONETIME_LOGIN == "NO":
+                    checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_someone_else_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
