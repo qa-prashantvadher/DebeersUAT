@@ -531,11 +531,10 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
-            if ONETIME_LOGIN == "NO":
-                    if ENV in ["UAT", "QA"]:
-                        login_logout.test_logout_from_order_confirmation_page()
-                    elif ENV == "PROD":
-                        login_logout.test_logout_from_my_account_logout()
+            if ENV in ["UAT", "QA"]:
+                login_logout.test_logout_from_order_confirmation_page()
+            elif ENV == "PROD":
+                login_logout.test_logout_from_my_account_logout()
 
     elif COUNTRY == "FR":
         print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")

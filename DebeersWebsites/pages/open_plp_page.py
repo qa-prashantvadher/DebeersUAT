@@ -9,10 +9,12 @@ load_dotenv(override=True)
 class Open_EngagementRings_PLP_Page(BasePage):
     COUNTRY = os.getenv("LOCALE")
 
-    menu_icon = "button:has-text('Menu')"
+    menu_icon = "//button[contains(@class,'js-btn-hamburger')]"
+
     if COUNTRY == "US":
         engagement_bridal_sub_menu = "button[id='N10002'] span[class='menu__nav-link-span']"
         engagement_rings = "a[id='N10050'] span[class='menu__nav-link-span']"
+
 
     elif COUNTRY == "UK" or COUNTRY == "FR" or COUNTRY == "HK":
         engagement_bridal_sub_menu = "button[id='G10002'] span[class='menu__nav-link-span']"

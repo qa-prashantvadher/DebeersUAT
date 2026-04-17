@@ -50,6 +50,24 @@ class Search_Locator_Page(BasePage):
         new_york_madison_avenue_map_marker = "gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
         hover_map_marker_close = "button[class='gm-ui-hover-effect']"
 
+    elif COUNTRY == "HK":
+        show_all_stores_section = "//*[@id='js-view-all']"
+        europe_in_show_all = "h3:has-text('歐洲')"
+        middle_east_in_show_all = "h3:has-text('中東')"
+        americas_in_show_all = "h3:has-text('美洲')"
+        asia_in_show_all = "h3:has-text('亞洲')"
+
+        # STORE LINK IN RESULT
+        paris_flagship_store = "//a[.//h3[normalize-space()='Paris Flagship Store']]"
+        london_old_bond_street = "//a[.//h3[normalize-space()='London Old Bond Street']]"
+        new_york_madison_avenue = "//a[.//h3[normalize-space()='New York Madison Avenue']]"
+
+        # MAP
+        london_old_bond_street_map_marker = "gmp-advanced-marker[title='London Old Bond Street'] div[class='js-store-marker'] svg"
+        paris_flagship_store_map_marker = "gmp-advanced-marker[title='Paris Flagship Store'] div[class='js-store-marker'] svg"
+        new_york_madison_avenue_map_marker = "gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
+        hover_map_marker_close = "button[class='gm-ui-hover-effect']"
+
     #STORE DETAIL PAGE
     opening_hour = "//div[@class='storeDetails__title']"
     book_appointment_cta = "//div[@id='bookAppointment']/a[@class='btn btn-primary store-details-app-button']"

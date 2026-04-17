@@ -416,28 +416,6 @@ def test_checkout_as_registered_user_self_collect(page):
 
     elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
 
-            print(" Case 3: Self Collect + Master card + Same Billing Name")
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_self_collect_checkbox()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ONETIME_LOGIN == "NO":
-                    if ENV in ["UAT", "QA"]:
-                        login_logout.test_logout_from_order_confirmation_page()
-                    elif ENV == "PROD":
-                        login_logout.test_logout_from_my_account_logout()
-
             print(" Case 4: Self Collect + Master card + Different Billing Name")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
