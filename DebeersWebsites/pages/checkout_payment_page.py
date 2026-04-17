@@ -112,14 +112,20 @@ class Checkout_Payment(BasePage):
         billing_addresses = [
             {
                 "billing_address_text": "1 Muk Ning Street",
-                "billing_city_text": "Hong Kong",
-                "billing_state_county_text": "Kowloon",
+                "billing_city_text": "Kowloon",
+                "billing_state_county_text": "Hong Kong",
                 "billing_postal_code_text": ""
             },
             {
-                "billing_address_text": "38 New Clear Water Bay Road",
-                "billing_city_text": "Hong Kong",
-                "billing_state_county_text": "",
+                "billing_address_text": "Flat B, 18/F, Tower 3, Metro City, Tseung Kwan O",
+                "billing_city_text": "New Territories",
+                "billing_state_county_text": "Hong Kong",
+                "billing_postal_code_text": ""
+            },
+            {
+                "billing_address_text": "City plaza, 18 Tai Koo Shing Rd, Quarry Bay",
+                "billing_city_text": "Hong Kong Island",
+                "billing_state_county_text": "Hong Kong",
                 "billing_postal_code_text": ""
             }]
 

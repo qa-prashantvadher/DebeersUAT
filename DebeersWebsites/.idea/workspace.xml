@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Added Smoke Test cases">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
@@ -215,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776413931490</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added Smoke Test cases">
+      <option name="closed" value="true" />
+      <created>1776415324656</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776415324657</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

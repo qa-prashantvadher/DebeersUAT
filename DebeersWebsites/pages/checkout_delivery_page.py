@@ -143,14 +143,20 @@ class Checkout_Delivery(BasePage):
         delivery_addresses = [
             {
                 "premium_address_text": "1 Muk Ning Street",
-                "premium_city_text": "Hong Kong",
-                "premium_state_county_text": "Kowloon",
+                "premium_city_text": "Kowloon",
+                "premium_state_county_text": "Hong Kong",
                 "premium_postal_code_text": ""
             },
             {
-                "premium_address_text": "38 New Clear Water Bay Road",
-                "premium_city_text": "Hong Kong",
-                "premium_state_county_text": "",
+                "premium_address_text": "Flat B, 18/F, Tower 3, Metro City, Tseung Kwan O",
+                "premium_city_text": "New Territories",
+                "premium_state_county_text": "Hong Kong",
+                "premium_postal_code_text": ""
+            },
+            {
+                "premium_address_text": "City plaza, 18 Tai Koo Shing Rd, Quarry Bay",
+                "premium_city_text": "Hong Kong Island",
+                "premium_state_county_text": "Hong Kong",
                 "premium_postal_code_text": ""
             }]
 
