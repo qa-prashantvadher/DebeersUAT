@@ -189,6 +189,8 @@ class Checkout_Delivery(BasePage):
 
     continue_payment_cta = "//button[@class='btn btn-primary mx-auto submit-shipping']"
 
+    active_shipping_method = "//ul[@id='myTab']//button[contains(@class,'shipping-method-list__method') and contains(@class,'active')]"
+
 
     def __init__(self, page):
         super().__init__(page)
@@ -196,23 +198,27 @@ class Checkout_Delivery(BasePage):
 
     def test_open_premium_delivery_tab(self):
         try:
-            self.timeout(1000)
+            self.timeout(3000)
+            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
+            print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
             self.click(Checkout_Delivery.premium_delivery_tab)
             self.timeout(2000)
-            print("[CHECKOUT-PREMIUM] PREMIUM DELIVERY TAB IS NOW SELECTED..")
+            print("[CHECKOUT-DELIVERY] PREMIUM DELIVERY TAB IS NOW SELECTED..")
 
         except:
-            print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
+            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
 
     def test_open_collect_in_store_tab(self):
         try:
-            self.timeout(1000)
+            self.timeout(3000)
+            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
+            print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
             self.click(Checkout_Delivery.collect_in_store_tab)
-            self.timeout(2000)
-            print("[CHECKOUT-COLLECT] IN STORE COLLECT TAB IS NOW SELECTED..")
+            self.timeout(3000)
+            print("[CHECKOUT-DELIVERY] IN STORE COLLECT TAB IS NOW SELECTED..")
 
         except:
-            print("*****[CHECKOUT-COLLECT] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
+            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
 
     def test_select_self_collect_checkbox(self):
         try:
