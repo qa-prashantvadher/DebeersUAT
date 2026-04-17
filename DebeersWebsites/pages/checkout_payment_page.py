@@ -305,7 +305,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
-            print(f"[CHECKOUT-BILLING] NAME: {self.billing_title_value} {billing_first_name_text} {billing_last_name_text}")
+            print(f"[CHECKOUT-BILLING] NAME: {self.billing_title_value.upper()} {billing_first_name_text.upper()} {billing_last_name_text.upper()}")
             print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
@@ -331,7 +331,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
-            print(f"[CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"]},{selected_billing_address["billing_city_text"]}, {selected_billing_address["billing_state_county_text"]}, {selected_billing_address["billing_postal_code_text"]}")
+            print(f"[CHECKOUT-BILLING] ## BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
             print("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
