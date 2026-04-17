@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Added Smoke Test cases">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776418502640</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added Smoke Test cases">
+      <option name="closed" value="true" />
+      <created>1776437893499</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1776437893499</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

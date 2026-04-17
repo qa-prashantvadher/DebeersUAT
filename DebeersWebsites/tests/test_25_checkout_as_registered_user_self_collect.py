@@ -36,8 +36,7 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -58,8 +57,7 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -80,8 +78,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 9: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -105,8 +102,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 10: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -129,8 +125,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 11: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -154,8 +149,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 18: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -180,8 +174,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 19: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -206,8 +199,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 20: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -233,8 +225,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 26: Self Collect + Union Pay card > From the Review page, Go back to the Payment Page > Amex card + Same Billing name")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -257,8 +248,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 27: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -282,8 +272,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 32: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -309,8 +298,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 33: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -336,8 +324,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 34: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -364,8 +351,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 40: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -390,8 +376,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 41: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -420,8 +405,7 @@ def test_checkout_as_registered_user_self_collect(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -442,8 +426,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 9: Self Collect + Union Pay card > From the Payment page, Go back to the Delivery Page > Self Collect + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -467,8 +450,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 18: Self Collect + Amex card > From the Review page, Go back to the Delivery Page > Self Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -493,8 +475,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 27: Self Collect + Amex card > From the Review page, Go back to the Payment Page > Union Pay card + Different Billing name")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -518,8 +499,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 32: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Self Collect + Union Pay card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -545,8 +525,7 @@ def test_checkout_as_registered_user_self_collect(page):
             print(" Case 40: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_collect_in_store_tab()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_delivery_date_on_collect_in_store()

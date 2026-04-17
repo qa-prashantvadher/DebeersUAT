@@ -58,8 +58,7 @@ def test_checkout_as_registered_user_premium(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
@@ -80,8 +79,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -104,8 +102,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -129,8 +126,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -155,8 +151,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -181,8 +176,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -207,8 +201,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -235,8 +228,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -259,8 +251,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 25: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -285,8 +276,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -312,8 +302,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -339,8 +328,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -367,8 +355,7 @@ def test_checkout_as_registered_user_premium(page):
             print("Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card.")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -392,8 +379,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -442,8 +428,7 @@ def test_checkout_as_registered_user_premium(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
@@ -464,8 +449,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -488,8 +472,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -514,8 +497,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -538,8 +520,7 @@ def test_checkout_as_registered_user_premium(page):
             print(" Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -565,8 +546,7 @@ def test_checkout_as_registered_user_premium(page):
             print("Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card.")
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -612,8 +592,7 @@ def test_checkout_as_registered_user_premium(page):
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
             checkout_delivery.test_enter_gift_message()
@@ -633,8 +612,7 @@ def test_checkout_as_registered_user_premium(page):
             # Case 3: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -656,8 +634,7 @@ def test_checkout_as_registered_user_premium(page):
             # Case 4: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -681,8 +658,7 @@ def test_checkout_as_registered_user_premium(page):
             # Case 5: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -704,8 +680,7 @@ def test_checkout_as_registered_user_premium(page):
             # Case 6: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
@@ -729,8 +704,7 @@ def test_checkout_as_registered_user_premium(page):
             # Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Amex card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            if ONETIME_LOGIN == "NO":
-                    checkout_login.test_checkout_as_registered_user()
+            checkout_login.test_checkout_as_registered_user()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()

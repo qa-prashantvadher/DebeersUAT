@@ -72,7 +72,7 @@ class Checkout_Payment(BasePage):
             {
                 "billing_address_text": "101 Conleach Road",
                 "billing_city_text": "Liverpool",
-                "billing_state_county_text": "CMerseysideO",
+                "billing_state_county_text": "Merseyside",
                 "billing_postal_code_text": "L24 0TR"
             }]
     elif COUNTRY == "FR":

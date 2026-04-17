@@ -87,7 +87,7 @@ class Checkout_Delivery(BasePage):
             {
                 "premium_address_text": "101 Conleach Road",
                 "premium_city_text": "Liverpool",
-                "premium_state_county_text": "CMerseysideO",
+                "premium_state_county_text": "Merseyside",
                 "premium_postal_code_text": "L24 0TR"
             }]
     elif COUNTRY == "FR":
@@ -221,7 +221,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
-            print(f"[CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
+            print(f"#####[CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
 
@@ -232,7 +232,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
-            print(f"[CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
+            print(f"#####[CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
 
@@ -337,7 +337,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(2000)
             delivery_date = self.get_text(self.premium_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_PREMIUM_DELIVERY_DATE")
-            print(f"[CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date.upper()}")
+            print(f"#####[CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date.upper()}")
         except:
             print("*****[CHECKOUT-DELIVERY] DELIVERY DATE DETAIL IS MISSING..*****")
 
@@ -346,7 +346,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_IN_STORE_DELIVERY_DATE")
-            print(f"[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
+            print(f"#####[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
         except:
             print("*****[CHECKOUT-IN STORE] DELIVERY DATE DETAIL IS MISSING..*****")
 
