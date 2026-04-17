@@ -56,23 +56,23 @@ class Checkout_Review(BasePage):
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER_REVIEW")
             shipping_method_text = self.get_text(self.shipping_method).strip()
-            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
 
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())
-            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY SUMMARY: {clean_delivery_address_summary_text.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY SUMMARY: {clean_delivery_address_summary_text.upper()}")
 
 
             billing_address_summary_text = self.get_text(self.billing_address_summary)
             clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
-            print(f"[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING SUMMARY: {clean_billing_address_summary_text.upper()}..")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING SUMMARY: {clean_billing_address_summary_text.upper()}..")
 
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                print(f"[{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
                 self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART

@@ -247,8 +247,8 @@ class Checkout_Delivery(BasePage):
             self.fill(self.last_name_input, last_name_text)
             self.fill(self.phone_input, self.phone_text)
             self.timeout(1000)
-            print(f"[CHECKOUT-DELIVERY] NAME: {self.delivery_title_value.upper()} {first_name_text.upper()} {last_name_text.upper()}")
             print("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
+            print(f"#####[CHECKOUT-DELIVERY] NAME: {self.delivery_title_value.upper()} {first_name_text.upper()} {last_name_text.upper()}")
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER USER DETAILS..*****")
 
@@ -261,8 +261,8 @@ class Checkout_Delivery(BasePage):
             self.fill(self.first_name_input, collector_first_name_text)
             self.fill(self.last_name_input, collector_last_name_text)
             self.fill(self.phone_input, self.collector_phone_text)
-            print(f"[IN STORE COLLECT] NAME: {self.delivery_title_value.upper()} {collector_first_name_text.upper()} {collector_last_name_text.upper()}")
             print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
+            print(f"#####[IN STORE COLLECT] NAME: {self.delivery_title_value.upper()} {collector_first_name_text.upper()} {collector_last_name_text.upper()}")
 
         except:
             print("*****[CHECKOUT-COLLECTOR] NOT ABLE TO ENTER COLLECTOR DETAILS..*****")
@@ -301,8 +301,8 @@ class Checkout_Delivery(BasePage):
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
                 self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
-                print(f"[CHECKOUT-PREMIUM] ## DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"].upper()},{selected_delivery_address["premium_city_text"].upper()}, {selected_delivery_address["premium_state_county_text"].upper()}, {selected_delivery_address["premium_postal_code_text"].upper()}")
                 print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+                print(f"#####[CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"].upper()},{selected_delivery_address["premium_city_text"].upper()}, {selected_delivery_address["premium_state_county_text"].upper()}, {selected_delivery_address["premium_postal_code_text"].upper()}")
 
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
@@ -326,9 +326,8 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)
-            print(f"[CHECKOUT-PREMIUM] ## INVALID DELIVERY ADDRESS: {selected_delivery_address['premium_address_text'].upper()}, TESTING, {selected_delivery_address['premium_state_county_text'].upper()}, TESTING")
             print("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
-
+            print(f"#####[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS: {selected_delivery_address['premium_address_text'].upper()}, TESTING, {selected_delivery_address['premium_state_county_text'].upper()}, TESTING")
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
