@@ -21,31 +21,31 @@ class Checkout_Payment(BasePage):
             {
                 "billing_address_text": "1128 Park Ave Apt 123",
                 "billing_city_text": "New York",
-                "premium_state_county_text": "NY",
+                "billing_state_county_text": "NY",
                 "billing_postal_code_text": "10128-1203"
             },
             {
                 "billing_address_text": "9221 Hooper Ave Apt 1",
                 "billing_city_text": "Los Angeles",
-                "premium_state_county_text": "CA",
+                "billing_state_county_text": "CA",
                 "billing_postal_code_text": "90002-2034"
             },
             {
                 "billing_address_text": "20 S Pearl St Apt 1",
                 "billing_city_text": "Denver",
-                "premium_state_county_text": "CO",
+                "billing_state_county_text": "CO",
                 "billing_postal_code_text": "80209-2033"
             },
             {
                 "billing_address_text": "417 22nd St SE Apt A",
                 "billing_city_text": "Auburn",
-                "premium_state_county_text": "WA",
+                "billing_state_county_text": "WA",
                 "billing_postal_code_text": "98002-6832"
             },
             {
                 "billing_address_text": "13833 Akers Cir",
                 "billing_city_text": "Eagle River",
-                "premium_state_county_text": "AK",
+                "billing_state_county_text": "AK",
                 "billing_postal_code_text": "99577-6737"
             }
         ]
@@ -58,22 +58,22 @@ class Checkout_Payment(BasePage):
         # Billing Address List
         billing_addresses = [
             {
-                "premium_address_text": "Flat 1, 8 Kensington Palace Gardens",
-                "premium_city_text": "London",
-                "premium_state_county_text": "",
-                "premium_postal_code_text": "W8 4QP"
+                "billing_address_text": "Flat 1, 8 Kensington Palace Gardens",
+                "billing_city_text": "London",
+                "billing_state_county_text": "",
+                "billing_postal_code_text": "W8 4QP"
             },
             {
-                "premium_address_text": "16 Rowlandsway, Civic Centre",
-                "premium_city_text": "Manchester",
-                "premium_state_county_text": "Greater Manchester",
-                "premium_postal_code_text": "M22 5RG"
+                "billing_address_text": "16 Rowlandsway, Civic Centre",
+                "billing_city_text": "Manchester",
+                "billing_state_county_text": "Greater Manchester",
+                "billing_postal_code_text": "M22 5RG"
             },
             {
-                "premium_address_text": "101 Conleach Road",
-                "premium_city_text": "Liverpool",
-                "premium_state_county_text": "CMerseysideO",
-                "premium_postal_code_text": "L24 0TR"
+                "billing_address_text": "101 Conleach Road",
+                "billing_city_text": "Liverpool",
+                "billing_state_county_text": "CMerseysideO",
+                "billing_postal_code_text": "L24 0TR"
             }]
     elif COUNTRY == "FR":
         # Billing Name
@@ -84,22 +84,22 @@ class Checkout_Payment(BasePage):
         # Billing Address List
         billing_addresses = [
             {
-                "premium_address_text": "1 Rue du Général Camou",
-                "premium_city_text": "Paris",
-                "premium_state_county_text": "Île-de-France",
-                "premium_postal_code_text": "75007"
+                "billing_address_text": "1 Rue du Général Camou",
+                "billing_city_text": "Paris",
+                "billing_state_county_text": "Île-de-France",
+                "billing_postal_code_text": "75007"
             },
             {
-                "premium_address_text": "34 Rue Antoine Primat",
-                "premium_city_text": "Villeurbanne",
-                "premium_state_county_text": "Auvergne-Rhône-Alpes",
-                "premium_postal_code_text": "69100"
+                "billing_address_text": "34 Rue Antoine Primat",
+                "billing_city_text": "Villeurbanne",
+                "billing_state_county_text": "Auvergne-Rhône-Alpes",
+                "billing_postal_code_text": "69100"
             },
             {
-                "premium_address_text": "8 Rue De Londres",
-                "premium_city_text": "Paris",
-                "premium_state_county_text": "Île-de-France",
-                "premium_postal_code_text": "75009"
+                "billing_address_text": "8 Rue De Londres",
+                "billing_city_text": "Paris",
+                "billing_state_county_text": "Île-de-France",
+                "billing_postal_code_text": "75009"
             }]
 
     elif COUNTRY == "HK":
@@ -111,16 +111,16 @@ class Checkout_Payment(BasePage):
         # Billing Address List
         billing_addresses = [
             {
-                "premium_address_text": "1 Muk Ning Street",
-                "premium_city_text": "Hong Kong",
-                "premium_state_county_text": "Kowloon",
-                "premium_postal_code_text": ""
+                "billing_address_text": "1 Muk Ning Street",
+                "billing_city_text": "Hong Kong",
+                "billing_state_county_text": "Kowloon",
+                "billing_postal_code_text": ""
             },
             {
-                "premium_address_text": "38 New Clear Water Bay Road",
-                "premium_city_text": "Hong Kong",
-                "premium_state_county_text": "",
-                "premium_postal_code_text": ""
+                "billing_address_text": "38 New Clear Water Bay Road",
+                "billing_city_text": "Hong Kong",
+                "billing_state_county_text": "",
+                "billing_postal_code_text": ""
             }]
 
     #Payment Methods
@@ -299,6 +299,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
+            print(f"[CHECKOUT-BILLING] NAME: {self.billing_title_value} {billing_first_name_text} {billing_last_name_text}")
             print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
@@ -314,16 +315,17 @@ class Checkout_Payment(BasePage):
 
             if self.COUNTRY == "US":
                 # State dropdown
-                self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["premium_state_county_text"])
+                self.select_state_dropdown_value(self.billing_state_dropdown, selected_billing_address["billing_state_county_text"])
             elif self.COUNTRY == "UK":
                 # County Text-field
-                self.fill(self.billing_county_input, selected_billing_address["premium_state_county_text"])
+                self.fill(self.billing_county_input, selected_billing_address["billing_state_county_text"])
             elif self.COUNTRY == "FR" or self.COUNTRY == "HK":
                 # State Text-field
-                self.fill(self.billing_state_input, selected_billing_address["premium_state_county_text"])
+                self.fill(self.billing_state_input, selected_billing_address["billing_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
+            print(f"[CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"]},{selected_billing_address["billing_city_text"]}, {selected_billing_address["billing_state_county_text"]}, {selected_billing_address["billing_postal_code_text"]}")
             print("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
             print("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
@@ -334,7 +336,7 @@ class Checkout_Payment(BasePage):
             self.scroll_down(self.use_delivery_as_billing_input)
             self.click(self.use_delivery_as_billing_input)
             self.timeout(1000)
-            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS")
+            self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS_CHECKBOX")
             print("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
         except:
             print("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")

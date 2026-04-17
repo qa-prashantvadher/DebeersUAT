@@ -193,7 +193,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.click(Checkout_Delivery.premium_delivery_tab)
             self.timeout(2000)
-            print("[CHECKOUT-PREMIUM] PREMIUM DELIVERY TAB IS NOW VISIBLE..")
+            print("[CHECKOUT-PREMIUM] PREMIUM DELIVERY TAB IS NOW SELECTED..")
 
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
@@ -203,7 +203,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.click(Checkout_Delivery.collect_in_store_tab)
             self.timeout(2000)
-            print("[CHECKOUT-COLLECT] IN STORE COLLECT TAB IS NOW VISIBLE..")
+            print("[CHECKOUT-COLLECT] IN STORE COLLECT TAB IS NOW SELECTED..")
 
         except:
             print("*****[CHECKOUT-COLLECT] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
@@ -215,7 +215,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
-            print(f"[CHECKOUT-SELF] SELF COLLECT DELIVERY DATE: {delivery_date.upper()}.")
+            print(f"[CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
 
@@ -226,7 +226,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
-            print(f"[CHECKOUT-SOMEONE] SOMEONE ELSE COLLECT DELIVERY DATE: {delivery_date.upper()}.")
+            print(f"[CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
 
@@ -241,6 +241,7 @@ class Checkout_Delivery(BasePage):
             self.fill(self.last_name_input, last_name_text)
             self.fill(self.phone_input, self.phone_text)
             self.timeout(1000)
+            print(f"[CHECKOUT-DELIVERY] NAME: {self.delivery_title_value} {first_name_text} {last_name_text}")
             print("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
         except:
             print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER USER DETAILS..*****")
@@ -254,6 +255,7 @@ class Checkout_Delivery(BasePage):
             self.fill(self.first_name_input, collector_first_name_text)
             self.fill(self.last_name_input, collector_last_name_text)
             self.fill(self.phone_input, self.collector_phone_text)
+            print(f"[IN STORE COLLECT] NAME: {self.delivery_title_value} {collector_first_name_text} {collector_last_name_text}")
             print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
 
         except:
@@ -293,6 +295,7 @@ class Checkout_Delivery(BasePage):
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
                 self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
+                print(f"[CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"]},{selected_delivery_address["premium_city_text"]}, {selected_delivery_address["premium_state_county_text"]}, {selected_delivery_address["premium_postal_code_text"]}")
                 print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
         except:
@@ -317,6 +320,7 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)
+            print(f"[CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address['premium_address_text']}, TESTING, {selected_delivery_address['premium_state_county_text']}, TESTING")
             print("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
 
         except:
@@ -346,7 +350,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             error_code = self.get_text(self.error_code_text).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_DELIVERY_ERROR_POPUP")
-            print(f"[CHECKOUT-DELIVERY] ERROR CODE: {error_code}")
+            print(f"[CHECKOUT-DELIVERY] AVALARA ERROR CODE: {error_code}")
             self.click(self.client_service_error_popup_close)
             self.timeout(1000)
         except:
