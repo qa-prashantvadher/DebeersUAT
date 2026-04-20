@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Added Smoke FR Test cases">
+    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="updated engraving text">
+      <change afterPath="$PROJECT_DIR$/pages/send_email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776676168418</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="updated engraving text">
+      <option name="closed" value="true" />
+      <created>1776676610194</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1776676610194</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -307,7 +317,8 @@
     <MESSAGE value="Added Smoke Test cases" />
     <MESSAGE value="Added Smoke HK Test cases" />
     <MESSAGE value="Added Smoke FR Test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Smoke FR Test cases" />
+    <MESSAGE value="updated engraving text" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated engraving text" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
