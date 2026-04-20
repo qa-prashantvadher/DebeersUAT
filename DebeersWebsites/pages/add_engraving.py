@@ -12,14 +12,14 @@ class AddEngraving(BasePage):
 
     engraving_input = "//*[@id='engravingText']"
     if COUNTRY == "FR":
-        new_engraving_text = "Les diamants durent."
-        update_engraving_text = "De Beers is Forever."
+        new_engraving_text = "Les diamants durent"
+        update_engraving_text = "De Beers is Forever"
     elif COUNTRY == "HK":
         new_engraving_text = "鑽石恆久遠"
         update_engraving_text = "戴比爾斯是永恆的"
     else:
         new_engraving_text = "A Diamond is Forever"
-        update_engraving_text = "De Beers is Forever."
+        update_engraving_text = "De Beers is Forever"
     monotype_font = "//*[@id='Monotype-Corsiva']"
     arial_font = "//*[@id='Arial']"
     submit_button = "//*[@id='pdpEngraving']/div[3]/div/div[2]/div[2]/button[1]"

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Added Smoke HK Test cases">
+    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Added Smoke FR Test cases">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776676020580</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added Smoke FR Test cases">
+      <option name="closed" value="true" />
+      <created>1776676168418</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1776676168418</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -297,7 +306,8 @@
     <MESSAGE value="Macau site details" />
     <MESSAGE value="Added Smoke Test cases" />
     <MESSAGE value="Added Smoke HK Test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Smoke HK Test cases" />
+    <MESSAGE value="Added Smoke FR Test cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Smoke FR Test cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
