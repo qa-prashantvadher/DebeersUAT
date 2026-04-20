@@ -24,7 +24,6 @@ def test_checkout_client_service_popup(page):
     login_logout = Login_Page(page)
 
     if COUNTRY == "US":
-
             # Case 1: As a Registered User + Premium Delivery > Invalid Address > Then Valid Address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()

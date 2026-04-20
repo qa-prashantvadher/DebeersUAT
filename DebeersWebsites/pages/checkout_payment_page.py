@@ -163,7 +163,7 @@ class Checkout_Payment(BasePage):
     dankort_expiry_date_text = "03/30"
     dankort_cvv_text = "737"
 
-    cartes_visa_card_number_text = "4035501428146300"
+    cartes_visa_card_number_text = "4035501000000008"
     cartes_visa_expiry_date_text = "03/30"
     cartes_visa_cvv_text = "737"
 
