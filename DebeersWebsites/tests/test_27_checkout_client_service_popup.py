@@ -66,5 +66,5 @@ def test_checkout_client_service_popup(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
-    elif COUNTRY == "UK" or COUNTRY == "FR":
+    else:
             print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE AVALARA TAX ERROR POPUP..")
