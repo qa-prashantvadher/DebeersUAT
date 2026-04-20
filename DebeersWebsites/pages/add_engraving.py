@@ -15,8 +15,8 @@ class AddEngraving(BasePage):
         new_engraving_text = "Les diamants durent."
         update_engraving_text = "De Beers is Forever."
     elif COUNTRY == "HK":
-        new_engraving_text = "鑽石恆久遠。"
-        update_engraving_text = "戴比爾斯是永恆的。"
+        new_engraving_text = "鑽石恆久遠"
+        update_engraving_text = "戴比爾斯是永恆的"
     else:
         new_engraving_text = "A Diamond is Forever"
         update_engraving_text = "De Beers is Forever."

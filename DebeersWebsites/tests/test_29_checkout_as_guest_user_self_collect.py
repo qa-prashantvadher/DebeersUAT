@@ -25,7 +25,7 @@ def test_checkout_as_guest_user_self_collect(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
     shopping_cart = Open_Shopping_Cart_Page(page)
 
-    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
+    if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
 
             # Case 4: Self Collect + Master card + Same Billing Name
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -360,7 +360,7 @@ def test_checkout_as_guest_user_self_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
-    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+    elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
 
             # Case 4: Self Collect + Master card + Same Billing Name
             checkout_pdp.test_checkout_spp_no_size_without_engraving()

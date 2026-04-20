@@ -52,12 +52,27 @@ class Checkout_PDP_SPP_No_Size(BasePage):
                 locale.setlocale(locale.LC_TIME, "Chinese_Hong Kong SAR")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
 
             self.search.test_search_with_sku(SKU1)
-            delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
-            clean_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', delivery_date).strip()
-            date_obj = datetime.strptime(clean_date, "%A %d %B %Y")
 
-            new_date = date_obj + timedelta(days=10)
-            expected_date = new_date.strftime("%A %d %B %Y")
+            delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
+
+            if self.COUNTRY == "HK":
+                # Extract date like 2026.04.27
+                match = re.search(r"\d{4}\.\d{2}\.\d{2}", delivery_date)
+                if match:
+                    clean_date = match.group()
+                    date_obj = datetime.strptime(clean_date, "%Y.%m.%d")
+                    # Add 10 engraving days
+                    new_date = date_obj + timedelta(days=10)
+                    expected_date = new_date.strftime("%Y.%m.%d")
+                else:
+                    raise ValueError(f"Date not found in: {delivery_date}")
+            else:
+                clean_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', delivery_date).strip()
+                date_obj = datetime.strptime(clean_date, "%A %d %B %Y")
+                # Add 10 engraving days
+                new_date = date_obj + timedelta(days=10)
+                expected_date = new_date.strftime("%A %d %B %Y")
+
             self.click(self.ADD_ENGRAVING_CTA)
             self.engraving.test_add_engraving()
             print(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date.upper()}..")

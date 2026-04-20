@@ -30,7 +30,7 @@ def test_checkout_as_registered_user_self_collect(page):
     checkout_back_from_payment = Checkout_Go_Back_From_Payment(page)
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
-    if (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "REGRESSION":
+    if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
 
             print(" Case 3: Self Collect + Master card + Same Billing Name")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
@@ -399,7 +399,7 @@ def test_checkout_as_registered_user_self_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-    elif (COUNTRY == "UK" or COUNTRY == "US") and TESTING_TYPE == "SMOKE":
+    elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
 
             print(" Case 4: Self Collect + Master card + Different Billing Name")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
