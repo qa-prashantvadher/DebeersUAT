@@ -41,10 +41,10 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
     def test_checkout_spp_no_size_with_engraving(self, retry=0):
         if retry >= 3:
-            print("*****Max retry limit reached. No valid SKU found..*****")
+            print("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU1 = random.choice(self.SKU1_LIST)
-        print(f"[CHECKOUT] SKU1: {SKU1} | Attempt: {retry + 1}")
+        print(f"[CHECKOUT] SKU1: {SKU1} [ATTEMPT: {retry + 1}]")
         try:
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
@@ -66,7 +66,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
                         new_date = date_obj + timedelta(days=10)
                         expected_date = new_date.strftime("%Y.%m.%d")
                     else:
-                        raise ValueError(f"Date not found in: {delivery_date}")
+                        raise ValueError(f"DATE NOT FOUND IN: {delivery_date}")
                 else:
                     clean_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', delivery_date).strip()
                     date_obj = datetime.strptime(clean_date, "%A %d %B %Y")
@@ -87,10 +87,10 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
     def test_checkout_spp_no_size_without_engraving(self, retry=0):
         if retry >= 3:
-            print("*****Max retry limit reached. No valid SKU found..*****")
+            print("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU2 = random.choice(self.SKU2_LIST)
-        print(f"[CHECKOUT] SKU2: {SKU2} | Attempt: {retry + 1}")
+        print(f"[CHECKOUT] SKU2: {SKU2} [ATTEMPT: {retry + 1}]")
         try:
             self.search.test_search_with_sku(SKU2)
             if self.is_visible(self.ADD_TO_BAG_CTA):

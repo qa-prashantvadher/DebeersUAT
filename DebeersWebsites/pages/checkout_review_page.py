@@ -28,6 +28,11 @@ class Checkout_Review(BasePage):
     shipping_method = ".shipping-method-title"
     delivery_address_summary = "//div[@class='summary-details shipping']"
     billing_address_summary = "//div[@class='summary-details billing']"
+    payment_image = "xpath=//div[@class='payment-details']//img"
+
+    subtotal = "(//div[@class='cart-summary__price'])[1]"
+    tax_value = "#taxValue"
+    total_including_tax = "#totalIncludingValue"
 
 
     def __init__(self, page):
@@ -47,6 +52,14 @@ class Checkout_Review(BasePage):
     def test_place_an_order_from_order_review_page(self):
         try:
             self.timeout(5000)
+            subtotal = self.get_text(self.subtotal)
+            calculated_tax = self.get_text(self.tax_value)
+            total_including_tax = self.get_text(self.total_including_tax)
+
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] SUBTOTAL: {subtotal.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] TAX: {calculated_tax.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] TOTAL INCLUDING TAX: {total_including_tax.upper()}")
+
             if self.is_visible(self.delivery_date_premium_review_page):
                 delivery_date = self.get_text(self.delivery_date_premium_review_page).strip()
             elif self.is_visible(self.delivery_date_collect_review_page):
@@ -58,6 +71,8 @@ class Checkout_Review(BasePage):
             shipping_method_text = self.get_text(self.shipping_method).strip()
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
 
+            payment_method_alt_text = self.page.locator(self.payment_image).get_attribute("alt")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] PAYMENT METHOD: {payment_method_alt_text.upper()}")
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())

@@ -18,7 +18,7 @@ REFRESH = os.getenv("PAGE_REFRESH")
 ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN")
 
 
-def test_checkout_as_registered_user_premium(page):
+def test_checkout_failed_cases(page):
 
     checkout_pdp = Checkout_PDP_SPP_No_Size(page)
     checkout_login = Checkout_Login(page)
@@ -32,27 +32,24 @@ def test_checkout_as_registered_user_premium(page):
 
     if COUNTRY == "UK" or COUNTRY == "US":
 
-        print(" Case 40: Self Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Self Collect + Amex card")
+        # Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card
         checkout_pdp.test_checkout_spp_no_size_with_engraving()
         checkout_pdp.test_secure_checkout_from_minicart()
-        checkout_login.test_checkout_as_registered_user()
+        checkout_login.test_checkout_as_guest_user()
         checkout_delivery.test_open_collect_in_store_tab()
-        checkout_delivery.test_select_self_collect_checkbox()
+        checkout_delivery.test_select_someone_else_collect_checkbox()
+        checkout_delivery.test_enter_collector_details_in_store_collect()
         checkout_delivery.test_delivery_date_on_collect_in_store()
         checkout_delivery.test_enter_gift_message()
         checkout_delivery.test_continue_to_payment_from_delivery_page()
-        checkout_payment.test_enter_union_pay_credit_card_details()
-        if REFRESH == "YES":
-            checkout_review.test_page_refresh()
-        checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
-        shopping_cart.test_continue_to_checkout_from_cart()
-        checkout_delivery.test_delivery_date_on_collect_in_store()
+        checkout_payment.test_enter_visa_credit_card_details()
+        checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
+        checkout_delivery.test_open_premium_delivery_tab()
+        checkout_delivery.test_enter_user_details_in_premium_delivery()
+        checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+        checkout_delivery.test_delivery_date_on_premium_delivery()
         checkout_delivery.test_continue_to_payment_from_delivery_page()
-        checkout_payment.test_enter_amex_credit_card_details()
+        checkout_payment.test_enter_union_pay_credit_card_details()
+        checkout_payment.test_use_delivery_as_billing_address_checkbox()
         checkout_payment.test_continue_to_review_from_payment_page()
         checkout_review.test_place_an_order_from_order_review_page()
-        if ONETIME_LOGIN == "NO":
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
