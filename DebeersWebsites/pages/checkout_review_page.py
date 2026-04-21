@@ -52,13 +52,6 @@ class Checkout_Review(BasePage):
     def test_place_an_order_from_order_review_page(self):
         try:
             self.timeout(5000)
-            subtotal = self.get_text(self.subtotal)
-            calculated_tax = self.get_text(self.tax_value)
-            total_including_tax = self.get_text(self.total_including_tax)
-
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] SUBTOTAL: {subtotal.upper()}")
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] TAX: {calculated_tax.upper()}")
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER PAYMENT] TOTAL INCLUDING TAX: {total_including_tax.upper()}")
 
             if self.is_visible(self.delivery_date_premium_review_page):
                 delivery_date = self.get_text(self.delivery_date_premium_review_page).strip()
@@ -74,14 +67,22 @@ class Checkout_Review(BasePage):
             payment_method_alt_text = self.page.locator(self.payment_image).get_attribute("alt")
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] PAYMENT METHOD: {payment_method_alt_text.upper()}")
 
+            subtotal = self.get_text(self.subtotal).strip()
+            calculated_tax = self.get_text(self.tax_value).strip()
+            total_including_tax = self.get_text(self.total_including_tax).strip()
+
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TOTAL INCLUDING TAX: {total_including_tax.upper()}")
+
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY SUMMARY: {clean_delivery_address_summary_text.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY ADDRESS: {clean_delivery_address_summary_text.upper()}")
 
 
             billing_address_summary_text = self.get_text(self.billing_address_summary)
             clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING SUMMARY: {clean_billing_address_summary_text.upper()}..")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: {clean_billing_address_summary_text.upper()}..")
 
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
