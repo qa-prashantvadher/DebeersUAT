@@ -4,10 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="added tax summary in the report">
+    <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Order review page tax and summary changes">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/client_services_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/client_services_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/faq_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/faq_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/footer_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/footer_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/open_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_plp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/open_website.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_website.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search_slp_pdp.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_slp_pdp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/take_screenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_16_client_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_16_client_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_33_failed_case_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_33_failed_case_verification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -320,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776787407009</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Order review page tax and summary changes">
+      <option name="closed" value="true" />
+      <created>1776788338141</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1776788338141</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -335,7 +371,8 @@
     <MESSAGE value="updated engraving text" />
     <MESSAGE value="added 3 retry attempts to search buyable skus for the checkout cases" />
     <MESSAGE value="added tax summary in the report" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tax summary in the report" />
+    <MESSAGE value="Order review page tax and summary changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Order review page tax and summary changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,6 +381,11 @@
           <url>file://$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py</url>
           <line>354</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/footer_page.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -7,7 +7,7 @@ import os
 load_dotenv(override=True)
 
 class Checkout_Delivery(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     if COUNTRY == "US":
         # Delivery and Collector Name

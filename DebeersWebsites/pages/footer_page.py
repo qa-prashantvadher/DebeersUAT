@@ -8,8 +8,8 @@ load_dotenv(override=True)
 
 class Footer_Page(BasePage):
 
-    URL = os.getenv('BASE_URL')
-    COUNTRY = os.getenv("LOCALE")
+    URL = os.getenv("BASE_URL").upper()
+    COUNTRY = os.getenv("LOCALE").upper()
 
     # Client Services Links
     locate_a_store_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[1]/a"

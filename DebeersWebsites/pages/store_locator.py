@@ -7,7 +7,7 @@ import os
 load_dotenv(override=True)
 
 class Search_Locator_Page(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     stores_icon_header = "//*[@id='storeLocatorButton']"
     search_store_input = "//*[@id='storeLocator-store-address']"

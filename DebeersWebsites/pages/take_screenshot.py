@@ -10,8 +10,8 @@ class PageScreenshot(BasePage):
     def __init__(self, page):
         super().__init__(page)
         self.page = page
-        self.ENV = os.getenv("ENVIRONMENT")
-        self.COUNTRY = os.getenv("LOCALE")
+        self.ENV = os.getenv("ENVIRONMENT").upper()
+        self.COUNTRY = os.getenv("LOCALE").upper()
         self.date_folder = time.strftime('%d%m%Y')
 
         screenshot_path = r"D:\Debeers Videos and Screenshots\Screenshots"

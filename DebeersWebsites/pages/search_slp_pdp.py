@@ -8,8 +8,8 @@ load_dotenv(override=True)
 
 class SearchSKU(BasePage):
 
-    COUNTRY = os.getenv("LOCALE")
-    URL = os.getenv('BASE_URL')
+    COUNTRY = os.getenv("LOCALE").upper()
+    URL = os.getenv("BASE_URL").upper()
 
     search_icon = "//*[@id='headerSearch']"
     search_keyword_input = "#searchInput"

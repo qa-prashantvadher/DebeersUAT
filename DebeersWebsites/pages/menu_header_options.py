@@ -7,8 +7,8 @@ load_dotenv(override=True)
 
 
 class Open_Menu_Header_Options (BasePage):
-    URL = os.getenv('BASE_URL')
-    COUNTRY = os.getenv('LOCALE')
+    URL = os.getenv("BASE_URL")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     menu_icon = "button.btn.btn-hamburger.js-btn-hamburger.p-0.d-flex.align-items-center.text-nowrap.header__hamburger-trigger.me-12.me-lg-16:visible"
 

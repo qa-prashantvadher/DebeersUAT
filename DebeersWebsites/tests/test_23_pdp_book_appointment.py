@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 import os
 load_dotenv(override=True)
 
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
+ENV = os.getenv("ENVIRONMENT").upper()
+COUNTRY = os.getenv("LOCALE").upper()
 
 
 def test_book_appointment_cta_from_pdp(page):

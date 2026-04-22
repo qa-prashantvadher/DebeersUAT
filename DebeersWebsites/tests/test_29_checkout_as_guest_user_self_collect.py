@@ -7,10 +7,10 @@ from pages.go_back_from_payment_page import Checkout_Go_Back_From_Payment
 from pages.go_back_from_review_page import Checkout_Go_Back_From_Review
 from pages.shopping_cart_page import Open_Shopping_Cart_Page
 import os
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
-REFRESH = os.getenv("PAGE_REFRESH")
-TESTING_TYPE = os.getenv("TESTING_TYPE")
+ENV = os.getenv("ENVIRONMENT").upper()
+COUNTRY = os.getenv("LOCALE").upper()
+REFRESH = os.getenv("PAGE_REFRESH").upper()
+TESTING_TYPE = os.getenv("TESTING_TYPE").upper()
 
 
 

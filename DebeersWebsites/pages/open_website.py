@@ -7,7 +7,10 @@ load_dotenv(override=True)
 #If .env file name is environment.env then must use load_dotenv("environment.env")
 
 class OpenHomePage(BasePage):
-    URL = os.getenv('BASE_URL')
+    URL = os.getenv("BASE_URL")
+    ENV = os.getenv("ENVIRONMENT")
+    COUNTRY = os.getenv("LOCALE")
+
     approve_cookie_button = "//*[@id='onetrust-accept-btn-handler']"
     country_selector_continue_button = "//*[@id='js-custom-country-continue-btn']"
     email_subscription_popup_close_icon = "button[class='js-modal-close-btn btn close'] i[class='close-icon dbicon-close']"
@@ -19,9 +22,9 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
-            print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
+            print(f"[{self.COUNTRY}-{self.ENV}] [HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
        except:
-            print("[HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..")
+            print(f"*****[{self.COUNTRY}-{self.ENV}] [HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..*****")
 
     def test_cookie_consent(self):
          # Accept Consent Cookies if the popup appears

@@ -7,7 +7,8 @@ import os
 load_dotenv(override=True)
 
 class PDP_Enquire_Book_Appointment(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
+    ENV = os.getenv("ENVIRONMENT").upper()
 
     SKU1="E103401"
     enquire_old_master_level = "//div[contains(@class,'primary-btn-wrap')]//button[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
@@ -17,10 +18,10 @@ class PDP_Enquire_Book_Appointment(BasePage):
     enquire_hj_master_level= "//div[contains(@class,'primary-btn-wrap')]//a[contains(@class,'btn-enquire-online') and not(contains(@class,'d-none'))]"
     book_appointment_hj_master_level = "//div[contains(@class,'secondary-btn-wrap')]//a[contains(@class,'btn-bookAppointment') and not(contains(@class,'d-none'))]"
 
-    if os.getenv('ENVIRONMENT') == "PROD":
+    if ENV == "PROD":
         SKU3="E102112"
     else:
-            SKU3="R102265"
+        SKU3="R102265"
     find_your_diamonds_cta = "//div[@class='primary-btn-wrap']/button[1]"
     enquire_upp_multiple_variant = "(//li[contains(@class,'variation-tile')]//button[contains(@class,'btn-enquire-online')])[1]"
 

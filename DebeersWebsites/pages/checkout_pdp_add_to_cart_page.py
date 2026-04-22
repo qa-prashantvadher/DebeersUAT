@@ -13,7 +13,7 @@ load_dotenv(override=True)
 
 class Checkout_PDP_SPP_No_Size(BasePage):
 
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     # SPP WITHOUT SIZE  - WITH ENGRAVING
     SKU1_LIST = ["E103376", "E103115","E103454", "E103116"]

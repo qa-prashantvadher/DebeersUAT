@@ -10,10 +10,10 @@ from dotenv import load_dotenv
 import os
 load_dotenv(override=True)
 
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
-REFRESH = os.getenv("PAGE_REFRESH")
-TESTING_TYPE = os.getenv("TESTING_TYPE")
+ENV = os.getenv("ENVIRONMENT").upper()
+COUNTRY = os.getenv("LOCALE").upper()
+REFRESH = os.getenv("PAGE_REFRESH").upper()
+TESTING_TYPE = os.getenv("TESTING_TYPE").upper()
 
 
 def test_checkout_as_guest_user_premium(page):

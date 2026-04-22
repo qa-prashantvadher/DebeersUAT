@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 class Checkout_Review(BasePage):
-    ENV = os.getenv("ENVIRONMENT")
-    URL = os.getenv('BASE_URL')
-    COUNTRY = os.getenv('LOCALE')
+    ENV = os.getenv("ENVIRONMENT").upper()
+    URL = os.getenv("BASE_URL").upper()
+    COUNTRY = os.getenv("LOCALE").upper()
 
     if COUNTRY == "US":
         delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime US-SHIPPING-01']"

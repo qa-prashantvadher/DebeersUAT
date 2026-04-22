@@ -7,7 +7,7 @@ import os
 load_dotenv(override=True)
 
 class Checkout_Payment(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
     continue_to_review_cta = "//button[@class='btn btn-primary mx-auto submit-payment']"
 
     if COUNTRY == "US":

@@ -6,7 +6,7 @@ import os
 load_dotenv(override=True)
 
 class FAQ_Page(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     #FAQ Categories
     online_shopping_category = "//*[@id='online-shoping-tab']"

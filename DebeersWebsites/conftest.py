@@ -6,37 +6,41 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-
 creds = {
     "username": "storefront",
     "password": "storefront"
 }
 
-# Start browser once per session
+# START PLAYWRIGHT ONCE
 @pytest.fixture(scope="session")
-def browser():
+def playwright_instance():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(
-        #headless=True,
-        channel="msedge", #To execute script in the MS Edge Browser
-        headless=False,
-        args=["--start-maximized"]
-
-    )
-    yield browser
-    browser.close()
+    yield playwright
     playwright.stop()
 
 
-# Create ONE context for all tests
+# BROWSER USES SAME PLAYWRIGHT INSTANCE
 @pytest.fixture(scope="session")
-def context(browser):
-    ENV = os.getenv("ENVIRONMENT")
-    COUNTRY = os.getenv("LOCALE")
+def browser(playwright_instance):
+    browser = playwright_instance.chromium.launch(
+        channel="msedge",
+        headless=False,
+        args=["--start-maximized"]
+    )
+    yield browser
+    browser.close()
 
+
+# MOBILE OR DESKTOP SWITCH
+@pytest.fixture(scope="session")
+def context(browser, playwright_instance):
+    ENV = os.getenv("ENVIRONMENT").upper()
+    COUNTRY = os.getenv("LOCALE").upper()
+    DEVICE = os.getenv("DEVICE").upper()
 
     date_folder = time.strftime('%d%m%Y')
     base_path = r"D:\Debeers Videos and Screenshots\Videos"
+
     env_map = {
         "UAT": "DB-UAT",
         "PROD": "DB-PROD",
@@ -45,17 +49,16 @@ def context(browser):
 
     if ENV not in env_map:
         raise ValueError(f"Invalid Environment: {ENV}")
-    if COUNTRY not in ["UK", "US", "FR","HK"]:
+    if COUNTRY not in ["UK", "US", "FR", "HK"]:
         raise ValueError(f"Invalid Country: {COUNTRY}")
 
-    video_path = os.path.join(base_path, env_map[ENV], COUNTRY)
-    video_full_path = os.path.join(video_path, date_folder)
+    video_full_path = os.path.join(
+        base_path, env_map[ENV], COUNTRY, date_folder
+    )
     os.makedirs(video_full_path, exist_ok=True)
 
     context_args = {
-        "no_viewport": True,
-        "record_video_dir": video_full_path,  # Folder where videos will be saved
-        "record_video_size": {"width": 1920, "height": 1080},
+        "record_video_dir": video_full_path,
         "permissions": ["geolocation"],
         "geolocation": {
             "latitude": 51.508099,
@@ -63,7 +66,24 @@ def context(browser):
         }
     }
 
-    # Apply condition based on environment
+    # DEVICE LOGIC (FIXED)
+    if DEVICE == "MOBILE":
+        device = playwright_instance.devices["iPhone 15 Pro Max"]
+
+        context_args.update({
+            **device,
+            "record_video_size": {"width": 430, "height": 932}
+        })
+        print("RUNNING IN MOBILE MODE..")
+
+    elif DEVICE == "DESKTOP":
+        context_args.update({
+            "no_viewport": True,
+            "record_video_size": {"width": 1920, "height": 1080}
+        })
+        print("RUNNING IN DESKTOP MODE..")
+
+    # AUTH FOR UAT WEBSITE
     if ENV == "UAT":
         context_args["http_credentials"] = creds
 
@@ -73,7 +93,7 @@ def context(browser):
     context.close()
 
 
-# Reuse SAME page across all tests
+# ✅ Page fixture
 @pytest.fixture(scope="session")
 def page(context):
     page = context.new_page()

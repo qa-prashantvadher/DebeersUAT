@@ -11,11 +11,11 @@ from pages.go_back_from_review_page import Checkout_Go_Back_From_Review
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-ENV = os.getenv("ENVIRONMENT")
-COUNTRY = os.getenv("LOCALE")
-REFRESH = os.getenv("PAGE_REFRESH")
-ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN")
-TESTING_TYPE = os.getenv("TESTING_TYPE")
+ENV = os.getenv("ENVIRONMENT").upper()
+COUNTRY = os.getenv("LOCALE").upper()
+REFRESH = os.getenv("PAGE_REFRESH").upper()
+ONETIME_LOGIN = os.getenv("CHECKOUT_ONETIME_LOGIN").upper()
+TESTING_TYPE = os.getenv("TESTING_TYPE").upper()
 
 
 

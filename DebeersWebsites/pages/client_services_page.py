@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 class Client_Services_Page(BasePage):
-    ENV = os.getenv("ENVIRONMENT")
-    COUNTRY = os.getenv('LOCALE')
+    ENV = os.getenv("ENVIRONMENT").upper()
+    COUNTRY = os.getenv("LOCALE").upper()
 
     first_name_text = "Prashant"
     last_name_text = "Vadher"

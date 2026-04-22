@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 
 class Open_EngagementRings_PLP_Page(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     menu_icon = "//button[contains(@class,'js-btn-hamburger')]"
 

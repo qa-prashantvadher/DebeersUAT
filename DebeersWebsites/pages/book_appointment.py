@@ -8,7 +8,7 @@ load_dotenv(override=True)
 
 
 class Book_Appointment(BasePage):
-    COUNTRY = os.getenv("LOCALE")
+    COUNTRY = os.getenv("LOCALE").upper()
 
     #Appointment Types
     in_store_appointment_type= "//label[@for='input-inStore']"
