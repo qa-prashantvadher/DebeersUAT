@@ -26,21 +26,19 @@ def test_menu_and_header_option_pages(page):
         home_page.test_country_selector()
         home_page.test_email_subscription_popup()
 
-'''
     #OPEN MENU OPTIONS
-    menu_header_option.test_open_locate_a_store_page_from_menu()
-    store_locator.test_close_store_locator_page()
-    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
-        menu_header_option.test_open_book_appointment_page_from_menu()
-        book_appointment.test_in_store_appointment_type()
-    else:
-        menu_header_option.test_open_book_appointment_page_from_menu()
-        book_appointment.test_in_store_appointment_type()
-        book_appointment.test_virtual_appointment_type()
+    #menu_header_option.test_open_locate_a_store_page_from_menu()
+    #store_locator.test_close_store_locator_page()
+    #if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
+    #    menu_header_option.test_open_book_appointment_page_from_menu()
+    #    book_appointment.test_in_store_appointment_type()
+    #else:
+    #    menu_header_option.test_open_book_appointment_page_from_menu()
+    #    book_appointment.test_in_store_appointment_type()
+    #    book_appointment.test_virtual_appointment_type()
 
-    menu_header_option.test_open_delivery_returns_page_from_menu()
-    menu_header_option.test_open_contact_us_from_menu()
-    client_service.test_change_region_client_service()
-    menu_header_option.test_change_language_menu()
-    menu_header_option.test_change_country_menu()
-'''
+    #menu_header_option.test_open_delivery_returns_page_from_menu()
+    #menu_header_option.test_open_contact_us_from_menu()
+    #client_service.test_change_region_client_service()
+    #menu_header_option.test_change_language_menu()
+    #menu_header_option.test_change_country_menu()

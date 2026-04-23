@@ -73,7 +73,7 @@ class Checkout_Review(BasePage):
 
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TOTAL INCLUDING TAX: {total_including_tax.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] GRAND TOTAL (INCLUDING TAX): {total_including_tax.upper()}")
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())

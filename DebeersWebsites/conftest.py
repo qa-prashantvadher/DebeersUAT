@@ -76,6 +76,15 @@ def context(browser, playwright_instance):
         })
         print("RUNNING IN MOBILE MODE..")
 
+    elif DEVICE == "TABLET":
+        device = playwright_instance.devices["iPad Pro 11"]
+
+        context_args.update({
+            **device,
+            "record_video_size": {"width": 1024, "height": 1366}
+        })
+        print("RUNNING IN TABLET MODE..")
+
     elif DEVICE == "DESKTOP":
         context_args.update({
             "no_viewport": True,
@@ -93,7 +102,7 @@ def context(browser, playwright_instance):
     context.close()
 
 
-# ✅ Page fixture
+# Page fixture
 @pytest.fixture(scope="session")
 def page(context):
     page = context.new_page()

@@ -10,7 +10,7 @@ class Open_Menu_Header_Options (BasePage):
     URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
 
-    menu_icon = "button.btn.btn-hamburger.js-btn-hamburger.p-0.d-flex.align-items-center.text-nowrap.header__hamburger-trigger.me-12.me-lg-16:visible"
+    menu_icon = "//button[contains(@class,'js-btn-hamburger')]"
 
     locate_a_store_option = "//ul[@class='quick-links__list menu__quick-links quick-links']//li[1]//button"
     book_appointment_option = "//ul[@class='quick-links__list menu__quick-links quick-links']//li[2]//a"
