@@ -42,14 +42,18 @@ class Login_Page(BasePage):
             try:
                 self.click(self.my_account_to_login_icon)
                 self.timeout(2000)
-                self.fill(self.modal_user_name_input,self.user_name_text)
-                self.fill(self.modal_password_input,self.password_text)
-                self.timeout(1000)
-                #self.screenshot.take_Page_screenshot("HEADER_LOGIN")
-                self.click(self.modal_login_button)
-                self.timeout(7000)
-                #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
-                print("[HEADER LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+                if self.is_visible(self.modal_user_name_input):
+                    self.fill(self.modal_user_name_input,self.user_name_text)
+                    self.fill(self.modal_password_input,self.password_text)
+                    self.timeout(1000)
+                    #self.screenshot.take_Page_screenshot("HEADER_LOGIN")
+                    self.click(self.modal_login_button)
+                    self.timeout(10000)
+                    #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
+                    print("[HEADER LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+                else:
+                    pass
+                    print("[HEADER LOGIN] USER IS ALREADY LOGGED IN..")
 
             except:
                 print("*****[HEADER LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")

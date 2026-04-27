@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 class AddEngraving(BasePage):
 
-    URL = os.getenv("BASE_URL").upper()
+    URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
 
     engraving_input = "//*[@id='engravingText']"

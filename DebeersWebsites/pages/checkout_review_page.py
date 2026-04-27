@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 class Checkout_Review(BasePage):
     ENV = os.getenv("ENVIRONMENT").upper()
-    URL = os.getenv("BASE_URL").upper()
+    URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
 
     if COUNTRY == "US":
@@ -61,8 +61,6 @@ class Checkout_Review(BasePage):
                 delivery_date = None
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER_REVIEW")
-            shipping_method_text = self.get_text(self.shipping_method).strip()
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
 
             payment_method_alt_text = self.page.locator(self.payment_image).get_attribute("alt")
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] PAYMENT METHOD: {payment_method_alt_text.upper()}")
@@ -74,6 +72,9 @@ class Checkout_Review(BasePage):
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
             print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] GRAND TOTAL (INCLUDING TAX): {total_including_tax.upper()}")
+
+            shipping_method_text = self.get_text(self.shipping_method).strip()
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())

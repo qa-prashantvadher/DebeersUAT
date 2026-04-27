@@ -8,7 +8,7 @@ load_dotenv(override=True)
 
 class Footer_Page(BasePage):
 
-    URL = os.getenv("BASE_URL").upper()
+    URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
 
     # Client Services Links

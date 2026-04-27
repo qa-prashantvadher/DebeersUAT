@@ -182,7 +182,7 @@ class Checkout_Delivery(BasePage):
     last_name_input = "//input[@id='shippingLastName']"
     phone_input = "//input[@id='accountMobilePhoneNumber']"
     gift_checkbox = "input[name='dwfrm_shipping_shippingAddress_isGift']"
-    gift_message_input = "[name='dwfrm_shipping_shippingAddress_giftMessage']"
+    gift_message_input = "#giftMessage"
 
     phone_text = "8090809080"
     collector_phone_text = "8989089890"
@@ -372,6 +372,11 @@ class Checkout_Delivery(BasePage):
         try:
             if self.is_checked(self.gift_checkbox):
                 print("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
+                if self.is_visible(self.gift_message_input):
+                    print("[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE...")
+                else:
+                    print("*****[CHECKOUT-DELIVERY] GIFT TEXT AREA IS NOT VISIBLE...*****")
+                    pass
             else:
                 self.click(self.gift_checkbox)
                 self.timeout(1000)

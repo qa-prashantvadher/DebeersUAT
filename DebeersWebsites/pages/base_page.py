@@ -32,8 +32,12 @@ class BasePage:
     def get_text(self, locator):
         return self.page.locator(locator).text_content()
 
-    def is_visible(self, locator):
-        return self.page.locator(locator).is_visible()
+    def is_visible(self, locator, timeout=5000):
+        try:
+            self.page.locator(locator).wait_for(state="visible", timeout=timeout)
+            return True
+        except:
+            return False
 
     def is_checked(self, locator):
         return self.page.locator(locator).is_checked()
