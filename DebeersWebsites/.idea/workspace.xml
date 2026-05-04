@@ -5,22 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="Order review page tax and summary changes">
-      <change afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_1_open_debeers_website.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/client_services_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/client_services_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/footer_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/footer_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_pages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/open_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_plp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/search_slp_pdp.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_slp_pdp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_31_update_my_account_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_32_update_my_account_details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_32_footer_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_33_footer_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_33_failed_case_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_34_failed_case_verification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/shopping_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/shopping_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/take_screenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_16_client_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_16_client_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,20 +64,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "D:/PlayWright Python/DebeersWebsites/tests",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PlayWright Python/DebeersWebsites/tests&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PlayWright Python\DebeersWebsites\tests" />
@@ -359,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776946322602</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Order review page tax and summary changes">
+      <option name="closed" value="true" />
+      <created>1777290869429</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1777290869429</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -22,6 +22,9 @@ class Checkout_Review(BasePage):
     elif COUNTRY == "HK":
         delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime HK-SHIPPING-01']"
         delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime HK-SHIPPING-02']"
+    elif COUNTRY == "TW":
+        delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime TW-SHIPPING-01']"
+        delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime TW-SHIPPING-02']"
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
     order_number_confirmation_page = "//span[@class='order-number']"
@@ -78,12 +81,12 @@ class Checkout_Review(BasePage):
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY ADDRESS: {clean_delivery_address_summary_text.upper()}")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY ADDRESS: \n{clean_delivery_address_summary_text.upper()}")
 
 
             billing_address_summary_text = self.get_text(self.billing_address_summary)
             clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
-            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: {clean_billing_address_summary_text.upper()}..")
+            print(f"#####[{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: \n{clean_billing_address_summary_text.upper()}..")
 
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)

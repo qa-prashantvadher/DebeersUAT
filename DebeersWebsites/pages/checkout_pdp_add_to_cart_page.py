@@ -49,14 +49,14 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
                 locale.setlocale(locale.LC_TIME, "French_France")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
-            elif self.COUNTRY == "HK":
+            elif self.COUNTRY == "HK" or self.COUNTRY == "TW":
                 #locale.setlocale(locale.LC_TIME, "zh_HK.UTF-8")  # For Linux/Mac
                 locale.setlocale(locale.LC_TIME, "Chinese_Hong Kong SAR")  # For Windows, because of new_date = date_obj + timedelta(days=10) line
 
             self.search.test_search_with_sku(SKU1)
             if self.is_visible(self.ADD_ENGRAVING_CTA):
                 delivery_date = self.get_text(self.DELIVERY_DATE_WITHOUT_ENGRAVING).strip()
-                if self.COUNTRY == "HK":
+                if self.COUNTRY == "HK" or self.COUNTRY == "TW":
                     # Extract date like 2026.04.27
                     match = re.search(r"\d{4}\.\d{2}\.\d{2}", delivery_date)
                     if match:
@@ -113,7 +113,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
     def test_secure_checkout_from_minicart(self):
         try:
             self.click(self.minicart_secure_checkout)
-            self.timeout(5000)
+            self.timeout(7000)
             print(f"[CHECKOUT-MINI CART] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
         except:
             print("*****[CHECKOUT-MINI CART] NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")

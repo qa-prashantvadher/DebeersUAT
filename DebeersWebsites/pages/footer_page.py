@@ -128,6 +128,33 @@ class Footer_Page(BasePage):
             "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a"
         }
 
+    elif COUNTRY == "TW":
+        # TW Country dropdown records
+        location_keyword = {
+            "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
+            "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
+            "belgium": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[3]/a",
+            "canada": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[4]/a",
+            "china": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[5]/a",
+            "france": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[6]/a",
+            "germany": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[7]/a",
+            "greece": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[8]/a",
+            "hong_kong": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[9]/a",
+            "italy": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[10]/a",
+            "macau": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[11]/a",
+            "netherlands": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[12]/a",
+            "sweden": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[13]/a",
+            "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
+            "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a"
+        }
+        # TW Language dropdown records
+        language_keyword = {
+            "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a",
+            "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",
+            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a"
+        }
+
+
     # Language Dropdown
     language_dropdown_footer = "//*[@id='languageHeadingFooter']/button"
 

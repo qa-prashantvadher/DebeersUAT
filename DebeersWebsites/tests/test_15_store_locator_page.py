@@ -34,13 +34,28 @@ def test_store_locator_page(page):
     store_locator.test_click_close_london_marker_in_map()
     store_locator.test_open_london_store_detail_page()
     store_locator.test_click_close_london_marker_in_map()
-    if ENV == "PROD" or COUNTRY == "FR" or COUNTRY == "HK":
-        store_locator.test_book_an_appointment_cta_store_detail_page()
-        book_appointment.test_in_store_appointment_type()
-    else:
-        store_locator.test_book_an_appointment_cta_store_detail_page()
-        book_appointment.test_in_store_appointment_type()
+
+    store_locator.test_book_an_appointment_cta_store_detail_page()
+    book_appointment.test_in_store_appointment_type()
+    book_appointment.test_step1_select_date_time()
+    book_appointment.test_click_on_continue_cta()
+    book_appointment.test_step2_enter_contact_details()
+    book_appointment.test_click_on_continue_cta()
+    book_appointment.test_step3_enter_additional_information()
+    book_appointment.test_step3_select_checkboxes()
+    if ENV == "QA" or ENV == "UAT":
+        book_appointment.test_click_on_submit_cta()
+
+    if (ENV == "QA") and (COUNTRY == "UK" or COUNTRY == "US"):
         book_appointment.test_virtual_appointment_type()
+        book_appointment.test_step1_select_date_time()
+        book_appointment.test_click_on_continue_cta()
+        book_appointment.test_step2_enter_contact_details()
+        book_appointment.test_click_on_continue_cta()
+        book_appointment.test_step3_enter_additional_information()
+        book_appointment.test_step3_select_checkboxes()
+        if ENV == "QA" or ENV == "UAT":
+            book_appointment.test_click_on_submit_cta()
 
     store_locator.test_open_store_locator_page_from_header()
 

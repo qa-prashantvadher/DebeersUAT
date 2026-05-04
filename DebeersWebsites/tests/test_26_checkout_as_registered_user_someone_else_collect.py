@@ -517,5 +517,5 @@ def test_checkout_as_registered_user_someone_else_collect(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
-    elif COUNTRY == "FR":
-        print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")
+    elif COUNTRY == "FR" or COUNTRY == "TW":
+            print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")

@@ -129,6 +129,33 @@ class Checkout_Payment(BasePage):
                 "billing_postal_code_text": ""
             }]
 
+    elif COUNTRY == "TW":
+        # Billing Name
+        billing_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
+        billing_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
+        # State Text-field
+        billing_state_input = "//input[@id='billingState']"
+        # Billing Address List
+        billing_addresses = [
+            {
+                "billing_address_text": "No. 18, Alley 2, Lane 410, Minzu E Road",
+                "billing_city_text": "Taipei",
+                "billing_state_county_text": "Taipei City",
+                "billing_postal_code_text": "10491"
+            },
+            {
+                "billing_address_text": "No. 65, Dongxin Street",
+                "billing_city_text": "Taichung",
+                "billing_state_county_text": "Taichung City",
+                "billing_postal_code_text": "401016"
+            },
+            {
+                "billing_address_text": "No. 104, Wenming Road",
+                "billing_city_text": "Beigang",
+                "billing_state_county_text": "Yunlin County",
+                "billing_postal_code_text": "65141"
+            }]
+
     #Payment Methods
     payment_by_cards = "//input[@id='rb_scheme']"
     payment_by_paypal = "//input[@id='rb_paypal']"
@@ -326,7 +353,7 @@ class Checkout_Payment(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.billing_county_input, selected_billing_address["billing_state_county_text"])
-            elif self.COUNTRY == "FR" or self.COUNTRY == "HK":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW":
                 # State Text-field
                 self.fill(self.billing_state_input, selected_billing_address["billing_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])

@@ -160,12 +160,48 @@ class Checkout_Delivery(BasePage):
                 "premium_postal_code_text": ""
             }]
 
+    elif COUNTRY == "TW":
+        # Delivery and Collector Name
+        delivery_collector_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
+        delivery_collector_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
+        # Gift Message Text
+        gift_message_text = "測試訂單並附有禮品資訊。我希望這件作品能為您的收藏增添一抹美麗，並真正為您每天佩戴它帶來歡樂和優雅。"
+        # Shipping Methods
+        premium_delivery_tab = "//button[@id='TW-SHIPPING-01']"
+        collect_in_store_tab = "//button[@id='TW-SHIPPING-02']"
+        # State Input Field
+        premium_state_input = "//input[@id='shippingState']"
+        # Delivery Date
+        premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime TW-SHIPPING-01']"
+        collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime TW-SHIPPING-02']"
+        # Delivery Address list
+        delivery_addresses = [
+            {
+                "premium_address_text": "No. 18, Alley 2, Lane 410, Minzu E Road",
+                "premium_city_text": "Taipei",
+                "premium_state_county_text": "Taipei City",
+                "premium_postal_code_text": "10491"
+            },
+            {
+                "premium_address_text": "No. 65, Dongxin Street",
+                "premium_city_text": "Taichung",
+                "premium_state_county_text": "Taichung City",
+                "premium_postal_code_text": "401016"
+            },
+            {
+                "premium_address_text": "No. 104, Wenming Road",
+                "premium_city_text": "Beigang",
+                "premium_state_county_text": "Yunlin County",
+                "premium_postal_code_text": "65141"
+            }]
+
 
     #Premium Delivery > Shipping Address Info
     premium_address_input = "//input[@id='shippingAddressOne']"
     premium_city_input = "//input[@id='shippingAddressCity']"
     premium_postal_code_input = "//input[@id='shippingZipCode']"
     premium_add_new_address_option = "//a[@class='anchor btn-add-new js-btn-add-new ']"
+    premium_your_address_heading = ".checkout-wrapper__title.delivery-show.d-block"
 
     # Client Service Error Popup
     client_service_error_popup_close = "//button[@class='btn close']"
@@ -201,6 +237,10 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
             print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
+            if  self.is_visible(self.premium_your_address_heading):
+                print("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
+            else:
+                print("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             self.click(Checkout_Delivery.premium_delivery_tab)
             self.timeout(2000)
             print("[CHECKOUT-DELIVERY] PREMIUM DELIVERY TAB IS NOW SELECTED..")
@@ -213,6 +253,10 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
             print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
+            if  self.is_visible(self.premium_your_address_heading):
+                print("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
+            else:
+                print("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             self.click(Checkout_Delivery.collect_in_store_tab)
             self.timeout(3000)
             print("[CHECKOUT-DELIVERY] IN STORE COLLECT TAB IS NOW SELECTED..")
@@ -227,6 +271,10 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
+            if  self.is_visible(self.premium_your_address_heading):
+                print("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS VISIBLE..")
+            else:
+                print("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             print(f"#####[CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
@@ -238,6 +286,10 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
+            if self.is_visible(self.premium_your_address_heading):
+                print("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS VISIBLE..")
+            else:
+                print("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             print(f"#####[CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
             print("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
@@ -301,7 +353,7 @@ class Checkout_Delivery(BasePage):
                 elif self.COUNTRY == "UK":
                     # County Text-field
                     self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-                elif self.COUNTRY == "FR" or self.COUNTRY == "HK":
+                elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW":
                     # State text field
                     self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
@@ -326,7 +378,7 @@ class Checkout_Delivery(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-            elif self.COUNTRY == "FR" or self.COUNTRY == "HK":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW":
                 # State text field
                 self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
             self.fill(self.premium_city_input, "TESTING")

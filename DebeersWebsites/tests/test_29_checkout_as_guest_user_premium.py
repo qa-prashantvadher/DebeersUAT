@@ -511,7 +511,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
-    elif COUNTRY == "FR":
+    elif COUNTRY == "FR" or COUNTRY == "TW":
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()

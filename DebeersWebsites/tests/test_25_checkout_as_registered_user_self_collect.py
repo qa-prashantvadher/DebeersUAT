@@ -548,6 +548,6 @@ def test_checkout_as_registered_user_self_collect(page):
                         login_logout.test_logout_from_my_account_logout()
 
 
-    elif COUNTRY == "FR":
+    elif COUNTRY == "FR" or COUNTRY == "TW":
         print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")
 

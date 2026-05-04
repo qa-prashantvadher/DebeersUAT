@@ -35,7 +35,7 @@ class PDP_Enquire_Book_Appointment(BasePage):
         bb_email_us_button = "button:has-text('Nous Contacter')"
         bb_book_in_store_appointment_button = "a[title='Prendre rendez-vous en magasin']"
         bb_book_a_virtual_appointment_button = "a[title='Prendre un rendez-vous virtuel']"
-    elif COUNTRY == "HK":
+    elif COUNTRY == "HK" or COUNTRY == "TW":
         bb_email_us_button = "button:has-text('電郵聯絡')"
         bb_book_in_store_appointment_button = "a[title='店內鑑賞']"
         bb_book_a_virtual_appointment_button = "a[title='線上鑑賞']"

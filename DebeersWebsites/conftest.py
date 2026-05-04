@@ -49,7 +49,7 @@ def context(browser, playwright_instance):
 
     if ENV not in env_map:
         raise ValueError(f"Invalid Environment: {ENV}")
-    if COUNTRY not in ["UK", "US", "FR", "HK"]:
+    if COUNTRY not in ["UK", "US", "FR", "HK", "TW"]:
         raise ValueError(f"Invalid Country: {COUNTRY}")
 
     video_full_path = os.path.join(

@@ -27,7 +27,7 @@ class Open_Shopping_Cart_Page(BasePage):
         try:
             count = self.get_text(self.added_product_count)
             count=int(count)
-            print(f"[CART] TOTAL {count} PRODUCTS ARE AVAILABLE IN THE CART..")
+            print(f"[CART] TOTAL PRODUCTS IN THE CART: {count}")
             return count
         except:
             count=0

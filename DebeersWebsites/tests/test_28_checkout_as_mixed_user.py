@@ -188,7 +188,7 @@ def test_checkout_as_mixed_user(page):
                     login_logout.test_logout_from_my_account_logout()
 
 
-    elif COUNTRY == "FR":
+    elif COUNTRY == "FR" or COUNTRY == "TW":
 
             # Case 1: Premium Delivery + Amex card + Same Billing address
             login_logout.test_login_from_header()
