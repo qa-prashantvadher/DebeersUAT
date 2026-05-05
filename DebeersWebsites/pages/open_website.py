@@ -29,7 +29,7 @@ class OpenHomePage(BasePage):
     def test_cookie_consent(self):
          # Accept Consent Cookies if the popup appears
          try:
-            self.timeout(8000)
+            self.timeout(7000)
             if self.is_visible(self.approve_cookie_button):
                   self.click(self.approve_cookie_button)
                   print("[COOKIE] COOKIE CONSENT IS ACCEPTED..")

@@ -1,24 +1,87 @@
 import smtplib
 import sys
-import os
 from email.message import EmailMessage
+import os
+from dotenv import load_dotenv
 from datetime import datetime
+
+load_dotenv()
+
+COUNTRY = os.getenv("LOCALE").upper()
+ENV = os.getenv("ENVIRONMENT").upper()
+TESTING = os.getenv("TESTING_TYPE").upper()
+URL = os.getenv("BASE_URL")
 
 # 1. Validation: Ensure a path was actually passed
 if len(sys.argv) < 2:
-    print("Error: No report path provided.")
+    print("***** ERROR: NO REPORT PATH PROVIDED..*****")
     sys.exit(1)
 
-report_path = sys.argv[1]
+report_path = sys.argv[1]  # first argument in the .bat file. report path in this case.
+test_files = sys.argv[2:]  # remaining arguments. test files in this case.
+file_list = "\n".join(f"- {file}" for file in test_files) if test_files else "No test files provided"
 report_filename = os.path.basename(report_path)
 timestamp = datetime.now().strftime("%d-%m-%Y %H:%M")
 
 # 2. Setup Email
 msg = EmailMessage()
-msg["Subject"] = f"Debeers Test Execution Report - {timestamp}"
+msg["Subject"] = f"[{ENV}-{COUNTRY}] Test Execution Report"
 msg["From"] = "debeerslive@gmail.com"
 msg["To"] = "prashant_vadher@epam.com"
-msg.set_content("Please find the attached execution report.")
+#Plain text content
+text_body  = f"""Hello,
+
+ENVIRONMENT: {ENV}
+COUNTRY: {COUNTRY}
+TESTING TYPE: {TESTING}
+EXECUTION TIME: {timestamp}
+REPORT FILENAME: {report_filename}
+EXECUTED TEST FILES:
+{file_list}
+
+
+Please find the attached test execution report.
+
+Regards,
+Prashant Vadher
+"""
+msg.set_content(text_body )
+
+#Html text content
+
+html_body = f"""
+<html>
+<body style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6;">
+
+<p style="margin-bottom: 16px;"><b>Hello,</b></p>
+
+<p style="margin-bottom: 16px;">
+<b>ENVIRONMENT:</b> {ENV}<br>
+<b>COUNTRY:</b> {COUNTRY}<br>
+<b>EXECUTION TIME:</b> {timestamp}<br>
+<b>REPORT FILENAME:</b> {report_filename}
+</p>
+
+<p style="margin-bottom: 8px;"><b>EXECUTED TEST FILES:</b></p>
+
+<ul style="margin-top: 0; margin-bottom: 16px; padding-left: 20px;">
+{''.join(f"<li style='margin-bottom: 6px;'>{file}</li>" for file in test_files) if test_files else "<li>No test files provided</li>"}
+</ul>
+
+<p style="margin-bottom: 16px;">
+Please find the attached test execution report.
+</p>
+
+<p>
+Regards,<br><br>
+Prashant Vadher
+</p>
+
+</body>
+</html>
+"""
+
+msg.add_alternative(html_body, subtype="html")
 
 # 3. Read and Attach File
 try:
@@ -32,7 +95,7 @@ try:
             filename=report_filename
         )
 except FileNotFoundError:
-    print(f"*****: THE FILE AT {report_path} WAS NOT FOUND.*****")
+    print(f"***** THE FILE AT {report_path} WAS NOT FOUND..*****")
     sys.exit(1)
 
 # 4. Send Email

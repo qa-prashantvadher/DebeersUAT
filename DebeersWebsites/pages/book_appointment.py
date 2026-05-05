@@ -1,3 +1,4 @@
+from datetime import datetime
 import random
 
 from pages.base_page import BasePage
@@ -11,21 +12,21 @@ load_dotenv(override=True)
 
 class Book_Appointment(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
+    ENV = os.getenv("ENVIRONMENT").upper()
     EMAIL = os.getenv("USERNAME")
 
     #Appointment Types
     in_store_appointment_type= "//label[@for='input-inStore']"
     virtual_appointment_type= "//label[@for='input-virtual']"
 
-    #Services
-    in_store_after_sales_and_care= "//label[@for='input-afterSaleAndCare']"
-    virtual_home_of_diamonds = "label[for='input-virtualHomeOfDiamonds']"
+    #Services List
+    service_list = "//div[@id='collapseTwo']//label[not(contains(@class,'d-none'))]"
 
-    #Service Details:
-    in_store_diamond_setting_care = "//label[@for='input-diamondCare']"
-    virtual_jewellery = "label[for='input-jewellery_vhod']"
+    #Service Details List:
+    service_detail_list = "//div[@id='collapseThree']//label[not(contains(@class,'d-none'))]"
 
     #Stores
+    search_store_input = "#clientservices-store-address"
     book_appointment_first_store = "(//div[contains(@class,'closest-addresses')]//label)[1]"
 
     #Calendar
@@ -62,6 +63,8 @@ class Book_Appointment(BasePage):
     #Edit Option
     edit_step1 = "//*[@id='editStep1']"
     edit_step2 = "//*[@id='editStep2']"
+    active_step_number = "//li[contains(@class,'progress__item--active')]//div[@class='progress-indicator']"
+
 
     #Success Message Text
     success_message_text = "//*[@id='successBookingMsg']/div[1]"
@@ -102,17 +105,22 @@ class Book_Appointment(BasePage):
 
     def test_in_store_appointment_type(self):
         try:
+            step_number = self.page.locator(self.active_step_number).inner_text().strip()
+            print(f"##### CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             self.scroll_down(self.in_store_appointment_type)
             self.click(self.in_store_appointment_type)
             self.timeout(2000)
-            self.click(self.in_store_after_sales_and_care)
+            service = self.page.locator(self.service_list)
+            service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
-            self.click(self.in_store_diamond_setting_care)
-            self.timeout(2000)
-            self.click(self.book_appointment_first_store)
+            service_detail = self.page.locator(self.service_detail_list)
+            service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
             self.timeout(2000)
             if self.COUNTRY == "US":
+                self.fill(self.search_store_input, "")
+                self.fill(self.search_store_input, "New York")
+                self.press(self.search_store_input, "Enter")
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -121,20 +129,27 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "FR":
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
+            self.timeout(2000)
             print("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             print("*****[IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_in_store_appointment_type(self):
         try:
+            step_number = self.page.locator(self.active_step_number).inner_text().strip()
+            print(f"##### CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
-            self.click(self.in_store_after_sales_and_care)
+            service = self.page.locator(self.service_list)
+            service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
-            self.click(self.in_store_diamond_setting_care)
-            self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
+            service_detail = self.page.locator(self.service_detail_list)
+            service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
             if self.COUNTRY == "US":
+                self.fill(self.search_store_input, "")
+                self.fill(self.search_store_input, "New York")
+                self.press(self.search_store_input, "Enter")
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -143,6 +158,9 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "FR":
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
+            self.timeout(2000)
             print("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             print("*****[BB IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
@@ -150,17 +168,21 @@ class Book_Appointment(BasePage):
 
     def test_virtual_appointment_type(self):
         try:
+            step_number = self.page.locator(self.active_step_number).inner_text().strip()
+            print(f"##### CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             self.scroll_down(self.virtual_appointment_type)
             self.click(self.virtual_appointment_type)
             self.timeout(2000)
-            self.click(self.virtual_home_of_diamonds)
+            service = self.page.locator(self.service_list)
+            service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
-            self.click(self.virtual_jewellery)
-            self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
+            service_detail = self.page.locator(self.service_detail_list)
+            service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
             if self.COUNTRY == "US":
+                self.fill(self.search_store_input, "")
+                self.fill(self.search_store_input, "New York")
+                self.press(self.search_store_input, "Enter")
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -169,20 +191,27 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "FR":
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
+            self.timeout(2000)
             print("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             print("*****[VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_virtual_appointment_type(self):
         try:
+            step_number = self.page.locator(self.active_step_number).inner_text().strip()
+            print(f"##### CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
-            self.click(self.virtual_home_of_diamonds)
+            service = self.page.locator(self.service_list)
+            service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
-            self.click(self.virtual_jewellery)
-            self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
+            service_detail = self.page.locator(self.service_detail_list)
+            service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
             if self.COUNTRY == "US":
+                self.fill(self.search_store_input, "")
+                self.fill(self.search_store_input, "New York")
+                self.press(self.search_store_input, "Enter")
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -191,15 +220,18 @@ class Book_Appointment(BasePage):
             elif self.COUNTRY == "FR":
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
+            self.timeout(2000)
             print("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             print("*****[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_step1_select_date_time(self):
         try:
-            self.timeout(2000)
-            self.click(self.go_to_next_month)
-            self.timeout(3000)
+            if datetime.now().day > 20: # Go to next month if today's date is more than 20
+                self.click(self.go_to_next_month)
+                self.timeout(3000)
             dates = self.page.locator(self.available_date)
             total = dates.count()
             for i in range(total):
@@ -209,13 +241,13 @@ class Book_Appointment(BasePage):
                 date.click()
                 self.timeout(2000)
                 selected_date_text = self.get_text(self.selected_date).strip()
-                print(f"SELECTED DATE IS: {selected_date_text.upper()}")
+                print(f"[{self.ENV}-{self.COUNTRY}] SELECTED DATE IS: {selected_date_text.upper()}")
 
                 self.timeout(2000)
 
                 # Check if "no slots" message is visible
                 if self.page.locator("#noSlots:not(.d-none)").is_visible():
-                    print(f"NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                    print(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
                     continue  # try next date
 
                 # Get available timeslots
@@ -225,16 +257,16 @@ class Book_Appointment(BasePage):
                     timeslots.first.click()
                     self.timeout(2000)
                     selected_timeslot_text = self.get_text(self.selected_timeslot).strip()
-                    print(f"SELECTED TIME SLOT: {selected_timeslot_text}")
+                    print(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME SLOT: {selected_timeslot_text}")
                     return True
 
                 # Safety fallback (rare case)
-                print(f"NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                print(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
 
                 self.timeout(2000)
 
                 # If loop completes
-            raise Exception("*****NO AVAILABLE DATES WITH TIME SLOTS FOUND...*****")
+            raise Exception(f"*****[{self.ENV}-{self.COUNTRY}] NO AVAILABLE DATES WITH TIME SLOTS FOUND...*****")
         except Exception as e:
             print(e)
 
@@ -287,7 +319,18 @@ class Book_Appointment(BasePage):
             self.timeout(1000)
             self.click(self.appointment_continue_cta)
             self.timeout(3000)
-            print("USER IS NAVIGATED TO THE NEXT STEP..")
+            print(f"[{self.ENV}-{self.COUNTRY}] USER IS NAVIGATED TO THE NEXT STEP..")
+            appointment_summary_text = self.get_text(self.appointment_summary)
+
+            clean_appointment_summary_text = "\n".join(
+                line.replace("\n", " ").strip()
+                for line in appointment_summary_text.splitlines()
+                if line.strip()
+            )
+            step_number = self.page.locator(self.active_step_number).inner_text().strip()
+            print(f"##### [{self.ENV}-{self.COUNTRY}] CURRENT ACTIVE STEP: {step_number}")
+            print(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
+
         except Exception as e:
             print(e)
 
@@ -298,7 +341,7 @@ class Book_Appointment(BasePage):
             self.timeout(5000)
             if self.is_visible(self.success_message_text):
                 success_message = self.get_text(self.success_message_text).strip()
-                print(f"[APPOINTMENT-SUCCESS] {success_message.upper()}")
+                print(f"##### [APPOINTMENT-SUCCESS] {success_message.upper()}")
                 appointment_summary_text = self.get_text(self.appointment_summary)
 
                 clean_appointment_summary_text = "\n".join(
@@ -318,10 +361,10 @@ class Book_Appointment(BasePage):
                 product_question_summary_text = self.get_text(self.product_question_summary).strip()
                 question_summary_text = self.get_text(self.question_summary).strip()
 
-                print(f"#####[{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
-                print(f"#####[{self.COUNTRY}] USER SUMMARY:\n{clean_user_summary_text.upper()}")
-                print(f"#####[{self.COUNTRY}] PRODUCT QUESTION: {product_question_summary_text.upper()}")
-                print(f"#####[{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
+                print(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
+                print(f"##### [{self.ENV}-{self.COUNTRY}] USER SUMMARY:\n{clean_user_summary_text.upper()}")
+                print(f"##### [{self.ENV}-{self.COUNTRY}] PRODUCT QUESTION: {product_question_summary_text.upper()}")
+                print(f"##### [{self.ENV}-{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
         except Exception as e:
             print(e)
     def test_go_back_to_step_1_with_edit_icon(self):
