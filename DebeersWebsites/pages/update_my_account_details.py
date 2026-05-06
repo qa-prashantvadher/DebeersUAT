@@ -1,6 +1,8 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+import logging
 
+logger = logging.getLogger(__name__)
 
 class Update_My_Account_Page(BasePage):
 
@@ -25,23 +27,23 @@ class Update_My_Account_Page(BasePage):
         try:
             self.timeout(3000)
             self.click(self.edit_account_details_icon)
-            self.timeout(1000)
+            self.timeout(2000)
             self.screenshot.take_page_screenshot("MY_ACCOUNT_DETAILS_BEFORE_EDIT")
-            print("[MY ACCOUNT] EDIT MY ACCOUNT PAGE IS NOW VISIBLE..")
+            logger.info("[MY ACCOUNT] EDIT MY ACCOUNT PAGE IS NOW VISIBLE..")
         except:
-            print("[MY ACCOUNT] NOT ABLE TO OPEN EDIT MY ACCOUNT PAGE..")
+            logger.error("[MY ACCOUNT] NOT ABLE TO OPEN EDIT MY ACCOUNT PAGE..")
 
     def test_update_my_account_details(self):
         try:
-            self.timeout(1000)
+            self.timeout(3000)
             self.select_option(self.my_account_title_dropdown, self.my_account_title_value)
             self.fill(self.my_account_first_name_input, self.my_account_first_name_text)
             self.fill(self.my_account_last_name_input, self.my_account_last_name_text)
             self.fill(self.my_account_phone_input, self.my_account_phone_text)
-            self.timeout(1000)
+            self.timeout(2000)
             self.click(self.my_account_save_button)
             self.timeout(3000)
             self.screenshot.take_page_screenshot("MY_ACCOUNT_DETAILS_AFTER_EDIT")
-            print("[MY ACCOUNT] MY ACCOUNT DETAILS ARE UPDATED SUCCESSFULLY..")
+            logger.info("[MY ACCOUNT] MY ACCOUNT DETAILS ARE UPDATED SUCCESSFULLY..")
         except:
-            print("*****[MY ACCOUNT] NOT ABLE TO UPDATE MY ACCOUNT DETAILS..*****")
+            logger.error("*****[MY ACCOUNT] NOT ABLE TO UPDATE MY ACCOUNT DETAILS..*****")

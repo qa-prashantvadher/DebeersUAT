@@ -3,8 +3,10 @@ from pages.open_website import OpenHomePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
-load_dotenv(override=True)
+import logging
 
+load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Footer_Page(BasePage):
 
@@ -169,50 +171,50 @@ class Footer_Page(BasePage):
              self.scroll_down(self.locate_a_store_footer)
              self.click(self.locate_a_store_footer)
              self.timeout(4000)
-             print("[FOOTER] STORE LOCATOR PAGE IS NOW VISIBLE..")
+             logger.info("[FOOTER] STORE LOCATOR PAGE IS NOW VISIBLE..")
              #self.screenshot.take_Page_screenshot("FOOTER_LOCATE_STORE")
          except:
-             print("*****[FOOTER] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
+             logger.error("*****[FOOTER] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
 
     def test_book_an_appointment_link_from_footer(self):
         try:
             self.scroll_down(self.book_an_appointment_footer)
             self.click(self.book_an_appointment_footer)
             self.timeout(4000)
-            print("[FOOTER] BOOK AN APPOINTMENT PAGE IS NOW VISIBLE..")
+            logger.info("[FOOTER] BOOK AN APPOINTMENT PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("FOOTER_BOOK_APPOINTMENT")
         except:
-            print("*****[FOOTER] NOT ABLE TO OPEN BOOK AN APPOINTMENT PAGE..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO OPEN BOOK AN APPOINTMENT PAGE..*****")
 
     def test_delivery_returns_link_from_footer(self):
         try:
             self.scroll_down(self.delivery_returns_footer)
             self.click(self.delivery_returns_footer)
             self.timeout(3000)
-            print("[FOOTER] DELIVERY & RETURNS PAGE IS NOW VISIBLE..")
+            logger.info("[FOOTER] DELIVERY & RETURNS PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("FOOTER_DELIVERY_RETURNS")
         except:
-            print("*****[FOOTER] NOT ABLE TO OPEN DELIVERY & RETURNS PAGE..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO OPEN DELIVERY & RETURNS PAGE..*****")
 
     def test_contact_us_link_from_footer(self):
         try:
             self.scroll_down(self.contact_us_footer)
             self.click(self.contact_us_footer)
             self.timeout(3000)
-            print("[FOOTER] CLIENT SERVICE PAGE IS NOW VISIBLE..")
+            logger.info("[FOOTER] CLIENT SERVICE PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("FOOTER_CLIENT_SERVICES")
         except:
-            print("*****[FOOTER] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
 
     def test_faq_link_from_footer(self):
         try:
             self.scroll_down(self.faq_footer)
             self.click(self.faq_footer)
             self.timeout(3000)
-            print("[FOOTER] FAQ PAGE IS NOW VISIBLE..")
+            logger.info("[FOOTER] FAQ PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("FOOTER_FAQ")
         except:
-            print("*****[FOOTER] NOT ABLE TO OPEN FAQ PAGE..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO OPEN FAQ PAGE..*****")
 
     def test_news_letter_from_footer(self):
         try:
@@ -230,9 +232,10 @@ class Footer_Page(BasePage):
             self.fill(self.email_address_footer_input, self.email_address_text)
             self.press(self.email_address_footer_input, "Enter")
             self.timeout(3000)
+            logger.info("[FOOTER] NEWSLETTER SUBMIT SUCCESS..")
             self.screenshot.take_page_screenshot("FOOTER_NEWSLETTER_VALID")
         except:
-            print("*****[FOOTER] NOT ABLE TO CHECK NEWSLETTER SECTION..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO CHECK NEWSLETTER SECTION..*****")
 
     def test_location_dropdown_from_footer(self):
         try:
@@ -240,9 +243,9 @@ class Footer_Page(BasePage):
             self.click(self.locator_dropdown_footer)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("FOOTER_LOCATION_EXPAND")
-            print("[FOOTER] LOCATION DROPDOWN IS NOW EXPANDED..")
+            logger.info("[FOOTER] LOCATION DROPDOWN IS NOW EXPANDED..")
         except:
-            print("*****[FOOTER] NOT ABLE TO EXPAND LOCATION DROPDOWN..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO EXPAND LOCATION DROPDOWN..*****")
 
     def test_language_dropdown_from_footer(self):
         try:
@@ -250,9 +253,9 @@ class Footer_Page(BasePage):
             self.click(self.language_dropdown_footer)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("FOOTER_LANGUAGE_EXPAND")
-            print("[FOOTER] LANGUAGE DROPDOWN IS NOW EXPANDED..")
+            logger.info("[FOOTER] LANGUAGE DROPDOWN IS NOW EXPANDED..")
         except:
-            print("*****[FOOTER] NOT ABLE TO EXPAND LANGUAGE DROPDOWN..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO EXPAND LANGUAGE DROPDOWN..*****")
 
     def test_select_country_records_from_location_footer(self):
         try:
@@ -264,16 +267,16 @@ class Footer_Page(BasePage):
                     self.website.test_cookie_consent()
                     self.website.test_country_selector()
                 except:
-                    print("*****[FOOTER] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..*****")
+                    logger.warning("*****[FOOTER] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..*****")
                 page_url = self.page.url
-                print(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
+                logger.info(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
                 self.navigate(self.URL)
-                print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
+                logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
                 self.timeout(5000)
                 self.test_location_dropdown_from_footer()
         except:
-            print("*****[FOOTER] NOT ABLE TO SELECT LOCATION RECORDS..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO SELECT LOCATION RECORDS..*****")
 
     def test_select_language_records_from_language_footer(self):
         try:
@@ -282,8 +285,8 @@ class Footer_Page(BasePage):
                 self.click(locator)
                 self.timeout(5000)
                 page_url = self.page.url
-                print(f"[FOOTER] '{language.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
+                logger.info(f"[FOOTER] '{language.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LANGUAGE_{language.upper()}")
                 self.test_language_dropdown_from_footer()
         except:
-            print("*****[FOOTER] NOT ABLE TO SELECT LANGUAGE RECORDS..*****")
+            logger.error("*****[FOOTER] NOT ABLE TO SELECT LANGUAGE RECORDS..*****")

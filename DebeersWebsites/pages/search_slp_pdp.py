@@ -2,8 +2,10 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 
 class SearchSKU(BasePage):
@@ -93,10 +95,10 @@ class SearchSKU(BasePage):
             #self.screenshot.take_Page_screenshot("SEARCH_SKU")
             self.click(self.first_suggestion)
             self.timeout(3000)
-            print(f"[SEARCH] SEARCHED WITH THE '{sku}' SKU..")
+            logger.info(f"[SEARCH] SEARCHED WITH THE '{sku}' SKU..")
             #self.screenshot.take_Page_screenshot("SEARCH_SKU_PDP")
         except:
-            print(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
+            logger.error(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
             self.navigate(self.URL)
 
     def test_search_with_keyword(self, keyword):
@@ -109,10 +111,10 @@ class SearchSKU(BasePage):
             self.type(self.search_keyword_input, keyword)
             self.press(self.search_keyword_input, "Enter")
             self.timeout(3000)
-            print(f"[SEARCH] SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
+            logger.info(f"[SEARCH] SEARCHED WITH THE '{keyword.upper()}' KEYWORD..")
             #self.screenshot.take_Page_screenshot("SEARCH_KEYWORD_SLP")
         except:
-            print(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")
+            logger.error(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{keyword.upper()}' KEYWORD..*****")
 
 
     def test_apply_sorting_on_slp(self):
@@ -120,23 +122,22 @@ class SearchSKU(BasePage):
             self.click(self.sort_by_label)
             self.timeout(2000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_WITHOUT_SORTING")
             self.click(self.price_ascending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER PRICE ASCENDING SORTING: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER PRICE ASCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
             self.timeout(2000)
             self.check(self.price_descending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER PRICE DESCENDING SORTING: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER PRICE DESCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("SLP_SORTING_PRICE_DESCENDING")
-
        except:
-             print("*****[SLP] NOT ABLE TO PERFORM SORTING..*****")
+             logger.error("*****[SLP] NOT ABLE TO PERFORM SORTING..*****")
 
     def test_apply_filter_on_slp(self):
         try:
@@ -150,7 +151,7 @@ class SearchSKU(BasePage):
             self.click(self.material_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL FILTER: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER APPLYING MATERIAL FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL")
 
             self.click(self.size_label)
@@ -160,7 +161,7 @@ class SearchSKU(BasePage):
             self.click(self.size_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE FILTERS: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL_SIZE")
 
             self.click(self.cut_label)
@@ -170,11 +171,10 @@ class SearchSKU(BasePage):
             self.click(self.cut_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE + CUT FILTERS: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER APPLYING MATERIAL + SIZE + CUT FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_FILTER_MATERIAL_SIZE_CUT")
-
         except:
-            print("*****[SLP] NOT ABLE TO APPLY FILTERS..*****")
+            logger.error("*****[SLP] NOT ABLE TO APPLY FILTERS..*****")
 
     def test_clear_filter_on_slp(self):
         try:
@@ -182,11 +182,10 @@ class SearchSKU(BasePage):
             self.click(self.clear_all_filter)
             self.timeout(10000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[SLP] RECORDS AFTER CLEAR FILTER: {result_count.upper()}")
+            logger.info(f"[SLP] RECORDS AFTER CLEAR FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("SLP_CLEAR_ALL_FILTER")
-
         except:
-            print("*****[SLP] UNABLE TO CLEAR APPLIED FILTERS..*****")
+            logger.error("*****[SLP] UNABLE TO CLEAR APPLIED FILTERS..*****")
 
     def test_open_contact_us_page_from_search(self):
         try:
@@ -194,16 +193,15 @@ class SearchSKU(BasePage):
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.timeout(2000)
-            print("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
+            logger.info("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("SEARCH_MODAL")
             self.timeout(2000)
             self.click(self.contact_us_link_search)
             self.timeout(2000)
-            print("[SEARCH] USER IS REDIRECTED TO THE CONTACT US PAGE..")
+            logger.info("[SEARCH] USER IS REDIRECTED TO THE CONTACT US PAGE..")
             #self.screenshot.take_Page_screenshot("SEARCH_CONTACT_US")
-
         except:
-            print("*****[SEARCH] NOT ABLE TO OPEN CONTACT US PAGE..*****")
+            logger.error("*****[SEARCH] NOT ABLE TO OPEN CONTACT US PAGE..*****")
 
     #Not working so not used as of now
     def test_open_faq_page_from_search(self):
@@ -212,13 +210,12 @@ class SearchSKU(BasePage):
             self.click(self.search_icon)
             self.is_visible(self.search_keyword_input)
             self.timeout(2000)
-            print("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
+            logger.info("[SEARCH] SEARCH MODAL IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("SEARCH_MODAL")
             self.timeout(2000)
             self.click(self.faq_link_search)
             self.timeout(2000)
-            print("[SEARCH] USER IS REDIRECTED TO THE FAQ PAGE..")
+            logger.info("[SEARCH] USER IS REDIRECTED TO THE FAQ PAGE..")
             #self.screenshot.take_Page_screenshot("SEARCH_FAQ")
-
         except:
-            print("*****[SEARCH] NOT ABLE TO OPEN FAQ PAGE..*****")
+            logger.error("*****[SEARCH] NOT ABLE TO OPEN FAQ PAGE..*****")

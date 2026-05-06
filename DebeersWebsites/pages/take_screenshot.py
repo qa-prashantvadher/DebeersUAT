@@ -3,7 +3,10 @@ import os
 from pages.base_page import BasePage
 from dotenv import load_dotenv
 
-load_dotenv()
+import logging
+
+load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class PageScreenshot(BasePage):
 
@@ -38,7 +41,7 @@ class PageScreenshot(BasePage):
         folder_path = os.path.join(self.base_path, sub_folder, self.date_folder)
         os.makedirs(folder_path, exist_ok=True)
         filename = os.path.join(folder_path, f'{keyword}_{timestamp}.png')
-        print(f"==> [{self.ENV}-{self.COUNTRY}] FILE: {keyword}_{timestamp}.png")
+        logger.info(f"==> [{self.ENV}-{self.COUNTRY}] FILE: {keyword}_{timestamp}.png")
         self.page.screenshot(path=filename, full_page=full_page)
         '''
     # Public methods

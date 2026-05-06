@@ -2,8 +2,10 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
-load_dotenv(override=True)
+import logging
 
+load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class AddEngraving(BasePage):
 
@@ -42,7 +44,7 @@ class AddEngraving(BasePage):
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("ENGRAVING_AFTER_SUBMIT")
         except:
-            print(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO ADD PRODUCT WITH ENGRAVING..*****")
+            logger.error(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO ADD PRODUCT WITH ENGRAVING..*****")
 
     def test_update_engraving(self):
         try:
@@ -55,7 +57,7 @@ class AddEngraving(BasePage):
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("ENGRAVING_AFTER_UPDATE")
         except:
-            print(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO UPDATE ENGRAVING TEXT..*****")
+            logger.error(f"*****[{self.COUNTRY}-PDP] NOT ABLE TO UPDATE ENGRAVING TEXT..*****")
 
     def test_close_engraving_screen(self):
         try:
@@ -63,10 +65,10 @@ class AddEngraving(BasePage):
             self.click(self.engraving_input)
             self.click(self.close_icon)
             self.timeout(2000)
-            print(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
+            logger.info(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
             #self.screenshot.take_Page_screenshot("ENGRAVING_CLOSE")
         except:
-            print("*****[PDP] NOT ABLE TO CLOSE ENGRAVING MODAL..*****")
+            logger.error("*****[PDP] NOT ABLE TO CLOSE ENGRAVING MODAL..*****")
 
     def test_back_button_engraving_screen(self):
         try:
@@ -74,8 +76,8 @@ class AddEngraving(BasePage):
             self.click(self.engraving_input)
             self.click(self.back_button)
             self.timeout(2000)
-            print(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
+            logger.info(f"[{self.COUNTRY}-PDP] ENGRAVING MODAL IS CLOSED SUCCESSFULLY..")
             #self.screenshot.take_Page_screenshot("ENGRAVING_BACK")
         except:
-            print("*****[PDP] NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")
+            logger.error("*****[PDP] NOT ABLE TO CLICK BACK BUTTON ON THE ENGRAVING SCREEN..*****")
 

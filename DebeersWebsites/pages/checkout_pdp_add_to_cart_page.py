@@ -8,8 +8,10 @@ from datetime import datetime, timedelta
 import locale
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Checkout_PDP_SPP_No_Size(BasePage):
 
@@ -41,10 +43,10 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
     def test_checkout_spp_no_size_with_engraving(self, retry=0):
         if retry >= 3:
-            print("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
+            logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU1 = random.choice(self.SKU1_LIST)
-        print(f"[CHECKOUT] SKU1: {SKU1} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU1: {SKU1} [ATTEMPT: {retry + 1}]")
         try:
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
@@ -76,21 +78,21 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
-                print(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date.upper()}..")
+                logger.info(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date.upper()}..")
             else:
-                print("*****ADD TO BAG CTA IS MISSING. TRYING AGAIN WITH THE OTHER SKU..*****")
+                logger.warning("*****ADD TO BAG CTA IS MISSING. TRYING AGAIN WITH THE OTHER SKU..*****")
                 self.test_checkout_spp_no_size_with_engraving(retry + 1)
         except:
-            print(f"*****[CHECKOUT] SKU: {SKU1} IS NOT ADDED TO THE CART..*****")
+            logger.error(f"*****[CHECKOUT] SKU: {SKU1} IS NOT ADDED TO THE CART..*****")
             self.test_checkout_spp_no_size_with_engraving(retry + 1)
 
 
     def test_checkout_spp_no_size_without_engraving(self, retry=0):
         if retry >= 3:
-            print("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
+            logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU2 = random.choice(self.SKU2_LIST)
-        print(f"[CHECKOUT] SKU2: {SKU2} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU2: {SKU2} [ATTEMPT: {retry + 1}]")
         try:
             self.search.test_search_with_sku(SKU2)
             if self.is_visible(self.ADD_TO_BAG_CTA):
@@ -98,15 +100,15 @@ class Checkout_PDP_SPP_No_Size(BasePage):
                 self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
 
-                print(f"[CHECKOUT] SKU: {SKU2} [ADDED WITHOUT ENGRAVING], DELIVERY DATE: {delivery_date.upper()}..")
+                logger.info(f"[CHECKOUT] SKU: {SKU2} [ADDED WITHOUT ENGRAVING], DELIVERY DATE: {delivery_date.upper()}..")
                 #self.screenshot.take_Page_screenshot("CHECKOUT_SPP_NO_SIZE_ADD_BAG")
                 self.click(self.minicart_close_icon)
             else:
-                print("*****ADD TO BAG CTA IS MISSING. TRYING AGAIN WITH THE OTHER SKU..*****")
+                logger.warning("*****ADD TO BAG CTA IS MISSING. TRYING AGAIN WITH THE OTHER SKU..*****")
                 self.test_checkout_spp_no_size_without_engraving(retry + 1)
 
         except:
-            print(f"*****[CHECKOUT] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {SKU2} IS NOT ADDED TO THE CART..*****")
+            logger.error(f"*****[CHECKOUT] SPP WITHOUT SIZE [WITHOUT ENGRAVING] {SKU2} IS NOT ADDED TO THE CART..*****")
             self.test_checkout_spp_no_size_without_engraving(retry + 1)
 
 
@@ -114,7 +116,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
         try:
             self.click(self.minicart_secure_checkout)
             self.timeout(7000)
-            print(f"[CHECKOUT-MINI CART] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
+            logger.info(f"[CHECKOUT-MINI CART] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
         except:
-            print("*****[CHECKOUT-MINI CART] NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")
+            logger.error("*****[CHECKOUT-MINI CART] NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")
 

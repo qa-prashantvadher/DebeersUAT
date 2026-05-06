@@ -2,7 +2,10 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 import os
 from dotenv import load_dotenv
+import logging
+
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Client_Services_Page(BasePage):
     ENV = os.getenv("ENVIRONMENT").upper()
@@ -65,65 +68,64 @@ class Client_Services_Page(BasePage):
             try:
                 self.select_option(self.client_service_region_dropdown, region_value)
                 self.timeout(3000)
-                print(f"[CLIENT SERVICE] PAGE IS DISPLAYED WITH THE SELECTED REGION = {region_value}")
+                logger.info(f"[CLIENT SERVICE] PAGE IS DISPLAYED WITH THE SELECTED REGION = {region_value}")
                 #self.screenshot.take_Page_screenshot(f"CLIENT_SERVICE_CHANGE_REGION_{region_value}")
             except:
-                print("*****[CLIENT SERVICE] NOT ABLE TO CHANGE REGION DETAILS..*****")
+                logger.error("*****[CLIENT SERVICE] NOT ABLE TO CHANGE REGION DETAILS..*****")
 
     def test_open_email_us_form_from_client_services(self):
         try:
             self.click(self.client_service_email_cta)
             self.timeout(2000)
-            print("[CLIENT SERVICES] EMAIL US POPUP IS NOW VISIBLE..")
+            logger.info("[CLIENT SERVICES] EMAIL US POPUP IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("EMAIL_US")
         except:
-            print("*****[CLIENT SERVICES] NOT ABLE TO CLICK EMAIL US CTA..*****")
+            logger.error("*****[CLIENT SERVICES] NOT ABLE TO CLICK EMAIL US CTA..*****")
 
     def test_open_callback_form_from_client_services(self):
         try:
             self.click(self.client_service_request_call_cta)
             self.timeout(2000)
-            print("[CLIENT SERVICES] CALL REQUEST POPUP IS NOW VISIBLE..")
+            logger.info("[CLIENT SERVICES] CALL REQUEST POPUP IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("CALL_REQUEST")
         except:
-            print("*****[CLIENT SERVICES] NOT ABLE TO CLICK REQUEST A CALL CTA..*****")
+            logger.error("*****[CLIENT SERVICES] NOT ABLE TO CLICK REQUEST A CALL CTA..*****")
 
     def test_open_call_request_form_email_call(self):
         try:
             self.click(self.email_call__call_request_button)
             self.timeout(2000)
-            print("[EMAIL/CALL REQUEST] CALL REQUEST POPUP IS NOW VISIBLE..")
+            logger.info("[EMAIL/CALL REQUEST] CALL REQUEST POPUP IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("EMAIL_CALl_FORM_CALL_REQUEST")
         except:
-            print("*****[EMAIL/CALL REQUEST] NOT ABLE TO CLICK REQUEST A CALL CTA..*****")
+            logger.error("*****[EMAIL/CALL REQUEST] NOT ABLE TO CLICK REQUEST A CALL CTA..*****")
 
     def test_open_email_us_form_from_email_call(self):
         try:
             self.click(self.email_call_email_us_button)
             self.timeout(2000)
-            print("[EMAIL/CALL REQUEST] EMAIL US POPUP IS NOW VISIBLE..")
+            logger.info("[EMAIL/CALL REQUEST] EMAIL US POPUP IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("EMAIL_CALl_FORM__EMAIL_US")
         except:
-            print("*****[EMAIL/CALL REQUEST] NOT ABLE TO CLICK CONTACT US CTA..*****")
+            logger.error("*****[EMAIL/CALL REQUEST] NOT ABLE TO CLICK CONTACT US CTA..*****")
 
     def test_open_book_an_appointment_from_email_call(self):
         try:
             self.click(self.email__call_book_appointment_button)
             self.timeout(2000)
-            print("[EMAIL/CALL REQUEST] USER IS REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..")
+            logger.info("[EMAIL/CALL REQUEST] USER IS REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..")
             #self.screenshot.take_Page_screenshot("EMAIL_CALl_FORM_BOOK_APPOINTMENT")
         except:
-            print("*****[EMAIL/CALL REQUEST] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")
+            logger.error("*****[EMAIL/CALL REQUEST] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")
 
     def test_open_faq_from_email_call(self):
         try:
             self.click(self.email_call_faq_button)
             self.timeout(2000)
-            print("[EMAIL/CALL REQUEST] USER IS REDIRECTED TO THE FAQ PAGE..")
+            logger.info("[EMAIL/CALL REQUEST] USER IS REDIRECTED TO THE FAQ PAGE..")
             #self.screenshot.take_Page_screenshot("EMAIL_CALl_FORM_FAQ")
         except:
-            print("*****[EMAIL/CALL REQUEST] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")
-
+            logger.error("*****[EMAIL/CALL REQUEST] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")
 
     def test_email_us_form(self):
         try:
@@ -144,19 +146,19 @@ class Client_Services_Page(BasePage):
             #self.screenshot.take_Page_screenshot("EMAIL_US_BEFORE_SUBMIT")
             self.click(self.email_submit)
             self.timeout(2000)
-            print("[EMAIL US] FORM IS SUCCESSFULLY SUBMITTED..")
+            logger.info("[EMAIL US] FORM IS SUCCESSFULLY SUBMITTED..")
             self.screenshot.take_page_screenshot("EMAIL_US_SUBMIT")
         except:
-            print("*****[EMAIL US] NOT ABLE TO SUBMIT EMAIL US FORM..")
+            logger.error("*****[EMAIL US] NOT ABLE TO SUBMIT EMAIL US FORM..")
 
     def test_close_email_us_form(self):
         try:
             self.timeout(2000)
             self.click(self.email_close)
-            print("[EMAIL US] FORM IS NOW CLOSED..")
+            logger.info("[EMAIL US] FORM IS NOW CLOSED..")
             #self.screenshot.take_Page_screenshot("EMAIL_US_CLOSE")
         except:
-            print("*****[EMAIL US] NOT ABLE TO CLOSE EMAIL US FORM..*****")
+            logger.error("*****[EMAIL US] NOT ABLE TO CLOSE EMAIL US FORM..*****")
 
     def test_callback_form(self):
         try:
@@ -170,18 +172,17 @@ class Client_Services_Page(BasePage):
             #self.screenshot.take_Page_screenshot("CALL_REQUEST_BEFORE_SUBMIT")
             self.click(self.callback_submit)
             self.timeout(2000)
-            print("[CALL REQUEST] FORM IS SUCCESSFULLY SUBMITTED..")
+            logger.info("[CALL REQUEST] FORM IS SUCCESSFULLY SUBMITTED..")
             self.screenshot.take_page_screenshot("CALL_REQUEST_SUBMIT")
         except:
-            print("*****[CALL REQUEST] NOT ABLE TO SUBMIT CALL REQUEST FORM..*****")
+            logger.error("*****[CALL REQUEST] NOT ABLE TO SUBMIT CALL REQUEST FORM..*****")
 
 
     def test_close_callback_form(self):
         try:
             self.timeout(2000)
             self.click(self.callback_close)
-            print("[CALL REQUEST] FORM IS NOW CLOSED..")
+            logger.info("[CALL REQUEST] FORM IS NOW CLOSED..")
             #self.screenshot.take_Page_screenshot("CALL_REQUEST_CLOSE")
-
         except:
-            print("[CALL REQUEST] NOT ABLE TO CLOSE CALL REQUEST FORM..")
+            logger.error("[CALL REQUEST] NOT ABLE TO CLOSE CALL REQUEST FORM..")

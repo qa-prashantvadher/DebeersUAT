@@ -29,12 +29,16 @@ def test_search_modal_slp_page(page):
     search = SearchSKU(page)
 
     # SEARCH PRODUCTS BY SKU AND KEYWORDS. APPLY-CLEAR FILTERS AND APPLY SORTING ON THE SLP PAGE.
+    print("----> TEST CASE 1 OF 5")
     search.test_open_contact_us_page_from_search()
 
+    print("----> TEST CASE 2 OF 5")
     search.test_search_with_sku("B103218")
 
+    print("----> TEST CASE 3 OF 5")
     search.test_search_with_keyword("Testing")
 
+    print("----> TEST CASE 4 OF 5")
     if COUNTRY == "UK" or COUNTRY == "US":
         search.test_search_with_keyword("Rings")
     elif COUNTRY == "FR":
@@ -45,6 +49,7 @@ def test_search_modal_slp_page(page):
     search.test_apply_filter_on_slp()
     search.test_clear_filter_on_slp()
 
+    print("----> TEST CASE 5 OF 5")
     if COUNTRY == "UK" or COUNTRY == "US":
         search.test_search_with_keyword("High Jewellery")
     elif COUNTRY == "FR":

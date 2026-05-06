@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from pages.search_slp_pdp import SearchSKU
 from pages.add_engraving import AddEngraving
 from pages.take_screenshot import PageScreenshot
+import logging
+
+logger = logging.getLogger(__name__)
 
 class HJ_SPP_Multiple_Size(BasePage):
 
@@ -33,12 +36,12 @@ class HJ_SPP_Multiple_Size(BasePage):
                 self.click(self.ADD_ENGRAVING_CTA)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_ENGRAVING")
                 self.engraving.test_add_engraving()
-                print(f"[HJ SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                logger.info(f"[HJ SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_SPP_MULTIPLE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_WITH_ENGRAVING")
             except:
-                 print(f"*****[HJ SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                logger.error(f"*****[HJ SPP MULTIPLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_hj_spp_multiple_size_without_engraving(self):
             try:
@@ -49,9 +52,9 @@ class HJ_SPP_Multiple_Size(BasePage):
                 self.timeout(2000)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_SELECT_SIZE")
                 self.click(self.ADD_TO_BAG_CTA)
-                print(f"[HJ SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
+                logger.info(f"[HJ SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("HJ_SPP_MULTIPLE_ADDED_WITHOUT_ENGRAVING")
                 self.click(self.minicart_close_icon)
                 #self.screenshot.take_Page_screenshot("HJ_SPP_MULTIPLE_ADD_BAG")
             except:
-                print(f"*****[HJ SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")
+                logger.error(f"*****[HJ SPP MULTIPLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")

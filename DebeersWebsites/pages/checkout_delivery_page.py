@@ -3,8 +3,10 @@ from pages.take_screenshot import PageScreenshot
 import random
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Checkout_Delivery(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
@@ -236,33 +238,31 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
+            logger.info(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
             if  self.is_visible(self.premium_your_address_heading):
-                print("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
-                print("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                logger.warning("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             self.click(Checkout_Delivery.premium_delivery_tab)
             self.timeout(2000)
-            print("[CHECKOUT-DELIVERY] PREMIUM DELIVERY TAB IS NOW SELECTED..")
-
+            logger.info("[CHECKOUT-DELIVERY] PREMIUM DELIVERY TAB IS NOW SELECTED..")
         except:
-            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
 
     def test_open_collect_in_store_tab(self):
         try:
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            print(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
+            logger.info(f"[CHECKOUT-DELIVERY] CURRENT SELECTED SHIPPING METHOD IS: {active_shipping_method_text.upper()}")
             if  self.is_visible(self.premium_your_address_heading):
-                print("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-PREMIUM] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
-                print("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                logger.warning("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             self.click(Checkout_Delivery.collect_in_store_tab)
             self.timeout(3000)
-            print("[CHECKOUT-DELIVERY] IN STORE COLLECT TAB IS NOW SELECTED..")
-
+            logger.info("[CHECKOUT-DELIVERY] IN STORE COLLECT TAB IS NOW SELECTED..")
         except:
-            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
+            logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
 
     def test_select_self_collect_checkbox(self):
         try:
@@ -272,12 +272,12 @@ class Checkout_Delivery(BasePage):
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
             if  self.is_visible(self.premium_your_address_heading):
-                print("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
-                print("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-            print(f"##### [CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
+                logger.warning("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+            logger.info(f"##### [CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
-            print("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
+            logger.error("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
 
     def test_select_someone_else_collect_checkbox(self):
         try:
@@ -287,12 +287,12 @@ class Checkout_Delivery(BasePage):
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
             if self.is_visible(self.premium_your_address_heading):
-                print("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
-                print("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-            print(f"##### [CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
+                logger.warning("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+            logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
-            print("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
+            logger.error("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
 
 
     def test_enter_user_details_in_premium_delivery(self):
@@ -305,10 +305,10 @@ class Checkout_Delivery(BasePage):
             self.fill(self.last_name_input, last_name_text)
             self.fill(self.phone_input, self.phone_text)
             self.timeout(1000)
-            print("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
-            print(f"##### [CHECKOUT-DELIVERY] NAME: {self.delivery_title_value.upper()} {first_name_text.upper()} {last_name_text.upper()}")
+            logger.info("[CHECKOUT-PREMIUM] USER DETAILS ARE ENTERED SUCCESSFULLY..")
+            logger.info(f"##### [CHECKOUT-DELIVERY] NAME: {self.delivery_title_value.upper()} {first_name_text.upper()} {last_name_text.upper()}")
         except:
-            print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER USER DETAILS..*****")
+            logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER USER DETAILS..*****")
 
     def test_enter_collector_details_in_store_collect(self):
         try:
@@ -319,11 +319,10 @@ class Checkout_Delivery(BasePage):
             self.fill(self.first_name_input, collector_first_name_text)
             self.fill(self.last_name_input, collector_last_name_text)
             self.fill(self.phone_input, self.collector_phone_text)
-            print("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
-            print(f"##### [IN STORE COLLECT] NAME: {self.delivery_title_value.upper()} {collector_first_name_text.upper()} {collector_last_name_text.upper()}")
-
+            logger.info("[CHECKOUT-COLLECTOR] COLLECTOR DETAILS ARE ENTERED..")
+            logger.info(f"##### [IN STORE COLLECT] NAME: {self.delivery_title_value.upper()} {collector_first_name_text.upper()} {collector_last_name_text.upper()}")
         except:
-            print("*****[CHECKOUT-COLLECTOR] NOT ABLE TO ENTER COLLECTOR DETAILS..*****")
+            logger.error("*****[CHECKOUT-COLLECTOR] NOT ABLE TO ENTER COLLECTOR DETAILS..*****")
 
     def test_add_new_address_as_register(self):
         try:
@@ -334,7 +333,7 @@ class Checkout_Delivery(BasePage):
             else:
                 pass  # do nothing, continue with next lines
         except:
-            print("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN ADD NEW ADDRESS SECTION..*****")
+            logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO OPEN ADD NEW ADDRESS SECTION..*****")
 
     def test_enter_valid_delivery_address_in_premium_delivery(self):
         try:
@@ -359,11 +358,10 @@ class Checkout_Delivery(BasePage):
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
                 self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
-                print("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
-                print(f"##### [CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"].upper()},{selected_delivery_address["premium_city_text"].upper()}, {selected_delivery_address["premium_state_county_text"].upper()}, {selected_delivery_address["premium_postal_code_text"].upper()}")
-
+                logger.info("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+                logger.info(f"##### [CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"].upper()},{selected_delivery_address["premium_city_text"].upper()}, {selected_delivery_address["premium_state_county_text"].upper()}, {selected_delivery_address["premium_postal_code_text"].upper()}")
         except:
-            print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
+            logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
     def test_enter_invalid_delivery_address_in_premium_delivery(self):
         try:
@@ -384,10 +382,10 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_city_input, "TESTING")
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)
-            print("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
-            print(f"##### [CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS: {selected_delivery_address['premium_address_text'].upper()}, TESTING, {selected_delivery_address['premium_state_county_text'].upper()}, TESTING")
+            logger.info("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
+            logger.info(f"##### [CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS: {selected_delivery_address['premium_address_text'].upper()}, TESTING, {selected_delivery_address['premium_state_county_text'].upper()}, TESTING")
         except:
-            print("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
+            logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
 
     def test_delivery_date_on_premium_delivery(self):
@@ -395,39 +393,39 @@ class Checkout_Delivery(BasePage):
             self.timeout(2000)
             delivery_date = self.get_text(self.premium_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_PREMIUM_DELIVERY_DATE")
-            print(f"##### [CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date.upper()}")
+            logger.info(f"##### [CHECKOUT-DELIVERY] DELIVERY DATE: {delivery_date.upper()}")
         except:
-            print("*****[CHECKOUT-DELIVERY] DELIVERY DATE DETAIL IS MISSING..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] DELIVERY DATE DETAIL IS MISSING..*****")
 
     def test_delivery_date_on_collect_in_store(self):
         try:
             self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_IN_STORE_DELIVERY_DATE")
-            print(f"#####[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
+            logger.info(f"#####[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
         except:
-            print("*****[CHECKOUT-IN STORE] DELIVERY DATE DETAIL IS MISSING..*****")
+            logger.error("*****[CHECKOUT-IN STORE] DELIVERY DATE DETAIL IS MISSING..*****")
 
     def test_close_client_service_tax_error_popup(self):
         try:
             self.timeout(1000)
             error_code = self.get_text(self.error_code_text).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_DELIVERY_ERROR_POPUP")
-            print(f"[CHECKOUT-DELIVERY] AVALARA ERROR CODE: {error_code}")
+            logger.info(f"[CHECKOUT-DELIVERY] AVALARA ERROR CODE: {error_code}")
             self.click(self.client_service_error_popup_close)
             self.timeout(1000)
         except:
-            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO CLOSE CLIENT SERVICE ERROR POPUP..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO CLOSE CLIENT SERVICE ERROR POPUP..*****")
 
 
     def test_enter_gift_message(self):
         try:
             if self.is_checked(self.gift_checkbox):
-                print("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
+                logger.info("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
                 if self.is_visible(self.gift_message_input):
-                    print("[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE...")
+                    logger.info("[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE...")
                 else:
-                    print("*****[CHECKOUT-DELIVERY] GIFT TEXT AREA IS NOT VISIBLE...*****")
+                    logger.error("*****[CHECKOUT-DELIVERY] GIFT TEXT AREA IS NOT VISIBLE...*****")
                     pass
             else:
                 self.click(self.gift_checkbox)
@@ -436,13 +434,13 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
-            print("*****[CHECKOUT-DELIVERY] NOT ABLE TO ENTER GIFT MESSAGE..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO ENTER GIFT MESSAGE..*****")
 
     def test_continue_to_payment_from_delivery_page(self):
         try:
             self.timeout(1000)
             self.click(self.continue_payment_cta)
             self.timeout(5000)
-            print("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")

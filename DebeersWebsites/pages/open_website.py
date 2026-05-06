@@ -1,10 +1,11 @@
 from pages.base_page import BasePage
 from dotenv import load_dotenv
 import os
+import logging
 
-load_dotenv(override=True)
+load_dotenv(override=True) #If .env file name is environment.env then must use load_dotenv("environment.env")
+logger = logging.getLogger(__name__)
 
-#If .env file name is environment.env then must use load_dotenv("environment.env")
 
 class OpenHomePage(BasePage):
     URL = os.getenv("BASE_URL")
@@ -22,9 +23,9 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
-            print(f"[{self.COUNTRY}-{self.ENV}] [HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
+            logger.info(f"[{self.COUNTRY}-{self.ENV}] [HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
        except:
-            print(f"*****[{self.COUNTRY}-{self.ENV}] [HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..*****")
+            logger.error(f"*****[{self.COUNTRY}-{self.ENV}] [HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..*****")
 
     def test_cookie_consent(self):
          # Accept Consent Cookies if the popup appears
@@ -32,11 +33,11 @@ class OpenHomePage(BasePage):
             self.timeout(7000)
             if self.is_visible(self.approve_cookie_button):
                   self.click(self.approve_cookie_button)
-                  print("[COOKIE] COOKIE CONSENT IS ACCEPTED..")
+                  logger.info("[COOKIE] COOKIE CONSENT IS ACCEPTED..")
             else:
-                  print("[COOKIE] COOKIE CONSENT IS ALREADY ACCEPTED..")
+                  logger.warning("[COOKIE] COOKIE CONSENT IS ALREADY ACCEPTED..")
          except:
-            print("*****[COOKIE] COOKIE CONSENT POPUP ERROR..*****")
+            logger.error("*****[COOKIE] COOKIE CONSENT POPUP ERROR..*****")
 
     def test_country_selector(self):
         # Accept Country selector if the popup appears
@@ -44,16 +45,16 @@ class OpenHomePage(BasePage):
             self.timeout(3000)
             if self.is_visible(self.country_selector_continue_button):
                   self.page.click(self.country_selector_continue_button)
-                  print("[COUNTRY SELECTOR] CLICKED CONTINUE CTA ON THE COUNTRY SELECTOR POPUP..")
+                  logger.info("[COUNTRY SELECTOR] CLICKED CONTINUE CTA ON THE COUNTRY SELECTOR POPUP..")
             else:
-                  print("[COUNTRY SELECTOR] ALREADY CLICKED CONTINUE CTA ON THE COUNTRY SELECTOR POPUP..")
+                  logger.warning("[COUNTRY SELECTOR] ALREADY CLICKED CONTINUE CTA ON THE COUNTRY SELECTOR POPUP..")
         except:
-            print("*****[COUNTRY SELECTOR] COUNTRY SELECTOR POPUP ERROR..*****")
+            logger.error("*****[COUNTRY SELECTOR] COUNTRY SELECTOR POPUP ERROR..*****")
 
     def test_email_subscription_popup(self):
         # Close the Newsletter popup if it appears
         try:
             self.page.click(self.email_subscription_popup_close_icon)
-            print("[EMAIL SUBSCRIPTION] CLOSED NEWSLETTER POPUP..")
+            logger.info("[EMAIL SUBSCRIPTION] CLOSED NEWSLETTER POPUP..")
         except:
-            print("*****[EMAIL SUBSCRIPTION] NEWSLETTER POPUP ERROR..*****")
+            logger.error("*****[EMAIL SUBSCRIPTION] NEWSLETTER POPUP ERROR..*****")

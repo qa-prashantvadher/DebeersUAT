@@ -3,8 +3,10 @@ from pages.take_screenshot import PageScreenshot
 from pages.open_website import OpenHomePage
 from dotenv import load_dotenv
 import os
-load_dotenv(override=True)
+import logging
 
+load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Open_Menu_Header_Options (BasePage):
     URL = os.getenv("BASE_URL")
@@ -167,9 +169,9 @@ class Open_Menu_Header_Options (BasePage):
             self.timeout(1000)
             self.click(self.locate_a_store_option)
             self.timeout(4000)
-            print("[MENU] STORE LOCATOR PAGE IS NOW VISIBLE..")
+            logger.info("[MENU] STORE LOCATOR PAGE IS NOW VISIBLE..")
         except:
-            print("*****[MENU] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
+            logger.error("*****[MENU] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
 
     def test_open_book_appointment_page_from_menu(self):
         try:
@@ -177,9 +179,9 @@ class Open_Menu_Header_Options (BasePage):
             self.timeout(1000)
             self.click(self.book_appointment_option)
             self.timeout(4000)
-            print("[MENU] BOOK AN APPOINTMENT PAGE IS NOW VISIBLE..")
+            logger.info("[MENU] BOOK AN APPOINTMENT PAGE IS NOW VISIBLE..")
         except:
-            print("*****[MENU] NOT ABLE TO OPEN BOOK AN APPOINTMENT PAGE..*****")
+            logger.error("*****[MENU] NOT ABLE TO OPEN BOOK AN APPOINTMENT PAGE..*****")
 
     def test_open_delivery_returns_page_from_menu(self):
         try:
@@ -187,10 +189,10 @@ class Open_Menu_Header_Options (BasePage):
             self.timeout(1000)
             self.click(self.delivery_returns_option)
             self.timeout(3000)
-            print("[MENU] DELIVERY & RETURNS PAGE IS NOW VISIBLE..")
+            logger.info("[MENU] DELIVERY & RETURNS PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("MENU_DELIVERY_RETURNS")
         except:
-            print("*****[MENU] NOT ABLE TO OPEN DELIVERY & RETURNS PAGE..*****")
+            logger.error("*****[MENU] NOT ABLE TO OPEN DELIVERY & RETURNS PAGE..*****")
 
     def test_open_contact_us_from_menu(self):
         try:
@@ -198,29 +200,28 @@ class Open_Menu_Header_Options (BasePage):
             self.timeout(1000)
             self.click(self.contact_us_option)
             self.timeout(3000)
-            print("[MENU] CLIENT SERVICE PAGE IS NOW VISIBLE..")
+            logger.info("[MENU] CLIENT SERVICE PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("MENU_CLIENT_SERVICES")
         except:
-            print("*****[MENU] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
+            logger.error("*****[MENU] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
 
     def test_open_contact_us_from_header(self):
         try:
             self.click(self.header_client_service_icon)
             self.timeout(3000)
-            print("[HEADER] CLIENT SERVICE PAGE IS NOW VISIBLE..")
+            logger.info("[HEADER] CLIENT SERVICE PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("HEADER_CLIENT_SERVICES")
         except:
-            print("*****[HEADER] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
+            logger.error("*****[HEADER] NOT ABLE TO OPEN CLIENT SERVICES PAGE..*****")
 
     def test_open_wishlist_page_header(self):
         try:
             self.click(self.header_wishlist_icon)
             self.timeout(3000)
-            print("[HEADER] WISHLIST PAGE IS NOW VISIBLE..")
+            logger.info("[HEADER] WISHLIST PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("HEADER_WISHLIST")
         except:
-            print("*****[HEADER] NOT ABLE TO OPEN WISHLIST PAGE..*****")
-
+            logger.error("*****[HEADER] NOT ABLE TO OPEN WISHLIST PAGE..*****")
 
     def test_change_language_menu(self):
         try:
@@ -232,15 +233,15 @@ class Open_Menu_Header_Options (BasePage):
                  self.timeout(1000)
                  self.click(self.choose_language_dropdown)
                  self.timeout(1000)
-                 print("[MENU] LANGUAGE SECTION IS NOW EXPANDED..")
+                 logger.info("[MENU] LANGUAGE SECTION IS NOW EXPANDED..")
                  #self.screenshot.take_Page_screenshot("MENU_LANGUAGE_EXPANDED")
                  self.click(locator)
                  self.timeout(5000)
                  page_url = self.page.url
-                 print(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
+                 logger.info(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_LANGUAGE_{language_name.upper()}")
         except:
-                 print("[MENU] NOT ABLE TO CHANGE LANGUAGE DETAILS..")
+                 logger.error("[MENU] NOT ABLE TO CHANGE LANGUAGE DETAILS..")
 
     def test_change_country_menu(self):
         try:
@@ -252,7 +253,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.timeout(1000)
                  self.click(self.choose_country_dropdown)
                  self.timeout(2000)
-                 print("[MENU] COUNTRY SECTION IS NOW EXPANDED..")
+                 logger.info("[MENU] COUNTRY SECTION IS NOW EXPANDED..")
                  #self.screenshot.take_Page_screenshot("MENU_COUNTRY_EXPANDED")
                  self.timeout(1000)
                  self.click(locator)
@@ -263,14 +264,14 @@ class Open_Menu_Header_Options (BasePage):
                     self.timeout(2000)
                     self.website.test_country_selector()
                  except:
-                     print("[COOKIE] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
+                     logger.warning("[COOKIE] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
                  self.timeout(2000)
                  page_url = self.page.url
-                 print(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
+                 logger.info(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_COUNTRY_{country_name.upper()}")
                  self.navigate(self.URL)
-                 print(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
+                 logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
                  self.timeout(5000)
                  
         except:
-            print("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")
+            logger.error("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")

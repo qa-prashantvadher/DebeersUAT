@@ -3,8 +3,10 @@ from pages.take_screenshot import PageScreenshot
 from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Search_Locator_Page(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
@@ -80,19 +82,19 @@ class Search_Locator_Page(BasePage):
         try:
             self.click(self.stores_icon_header)
             self.timeout(3000)
-            print("[HEADER] STORE LOCATOR PAGE IS NOW VISIBLE..")
+            logger.info("[HEADER] STORE LOCATOR PAGE IS NOW VISIBLE..")
             #self.screenshot.take_Page_screenshot("STORE_LOCATOR_PAGE")
         except:
-            print("*****[HEADER] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
+            logger.error("*****[HEADER] NOT ABLE TO OPEN STORE LOCATOR PAGE..*****")
 
     def test_close_store_locator_page(self):
         try:
             self.click(self.close_icon)
             self.timeout(3000)
-            print("[STORE LOCATOR] STORE LOCATOR PAGE IS NOW CLOSED..")
+            logger.info("[STORE LOCATOR] STORE LOCATOR PAGE IS NOW CLOSED..")
             #self.screenshot.take_Page_screenshot("STORE_LOCATOR_CLOSE")
         except:
-            print("*****[STORE LOCATOR] NOT ABLE TO CLOSE STORE LOCATOR PAGE..*****")
+            logger.error("*****[STORE LOCATOR] NOT ABLE TO CLOSE STORE LOCATOR PAGE..*****")
 
     def test_show_all_show_list_store(self):
         try:
@@ -111,10 +113,9 @@ class Search_Locator_Page(BasePage):
             self.click(self.show_list_section)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("STORE_LOCATOR_SHOW_LIST")
-            print("[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE SHOW ALL SECTION..")
-
+            logger.info("[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE SHOW ALL SECTION..")
         except:
-            print("*****[STORE LOCATOR] NOT ABLE TO OPEN SHOW ALL SECTION..*****")
+            logger.error("*****[STORE LOCATOR] NOT ABLE TO OPEN SHOW ALL SECTION..*****")
 
     def test_search_store_by_keyword(self,keyword):
         try:
@@ -122,9 +123,9 @@ class Search_Locator_Page(BasePage):
             self.press(self.search_store_input, "Enter")
             self.timeout(3000)
             #self.screenshot.take_Page_screenshot(f"STORE_SEARCH_{keyword}")
-            print(f"[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE KEYWORD:{keyword.upper()}..")
+            logger.info(f"[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE KEYWORD:{keyword.upper()}..")
         except:
-            print("*****[STORE LOCATOR] NOT ABLE TO SEARCH RECORDS..*****")
+            logger.error("*****[STORE LOCATOR] NOT ABLE TO SEARCH RECORDS..*****")
 
     def test_click_close_london_marker_in_map(self):
         try:
@@ -135,9 +136,9 @@ class Search_Locator_Page(BasePage):
             self.click(self.hover_map_marker_close)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("STORE_LONDON_MAP_MARKER_CLOSE")
-            print("[LONDON] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
+            logger.info("[LONDON] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
         except:
-            print("*****[LONDON] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
+            logger.error("*****[LONDON] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
 
     def test_click_close_paris_flagship_in_map(self):
         try:
@@ -148,9 +149,9 @@ class Search_Locator_Page(BasePage):
             self.click(self.hover_map_marker_close)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("STORE_PARIS_MAP_MARKER_CLOSE")
-            print("[PARIS] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
+            logger.info("[PARIS] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
         except:
-            print("*****[PARIS] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
+            logger.error("*****[PARIS] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
 
     def test_click_close_new_york_madison_avenue_in_map(self):
         try:
@@ -161,9 +162,9 @@ class Search_Locator_Page(BasePage):
             self.click(self.hover_map_marker_close)
             self.timeout(2000)
             #self.screenshot.take_Page_screenshot("STORE_NEW_YORK_MAP_MARKER_CLOSE")
-            print("[NEW YORK] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
+            logger.info("[NEW YORK] MAP MARKER IS SUCCESSFULLY OPENED AND CLOSED..")
         except:
-            print("*****[NEW YORK] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
+            logger.error("*****[NEW YORK] NOT ABLE OPEN AND CLOSE MARKER IN THE MAP..*****")
 
     def test_open_new_york_store_detail_page(self):
         try:
@@ -172,10 +173,9 @@ class Search_Locator_Page(BasePage):
             self.scroll_down(self.opening_hour)
             self.timeout(1000)
             self.screenshot.take_page_screenshot("NEW_YORK_STORE_DETAIL")
-            print("[STORE DETAIL] USER IS REDIRECTED TO THE NEW YORK STORE DETAIL PAGE..")
-
+            logger.info("[STORE DETAIL] USER IS REDIRECTED TO THE NEW YORK STORE DETAIL PAGE..")
         except:
-            print("*****[STORE DETAIL] NOT ABLE TO OPEN NEW YORK STORE DETAIL PAGE FROM THE RESULTS..*****")
+            logger.error("*****[STORE DETAIL] NOT ABLE TO OPEN NEW YORK STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_open_london_store_detail_page(self):
         try:
@@ -184,9 +184,9 @@ class Search_Locator_Page(BasePage):
             self.scroll_down(self.opening_hour)
             self.timeout(1000)
             self.screenshot.take_page_screenshot("LONDON_STORE_DETAIL")
-            print("[STORE DETAIL] USER IS REDIRECTED TO THE LONDON STORE DETAIL PAGE..")
+            logger.info("[STORE DETAIL] USER IS REDIRECTED TO THE LONDON STORE DETAIL PAGE..")
         except:
-            print("*****[STORE DETAIL] NOT ABLE TO OPEN LONDON STORE DETAIL PAGE FROM THE RESULTS..*****")
+            logger.error("*****[STORE DETAIL] NOT ABLE TO OPEN LONDON STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_open_paris_store_detail_page(self):
          try:
@@ -195,16 +195,16 @@ class Search_Locator_Page(BasePage):
             self.scroll_down(self.opening_hour)
             self.timeout(1000)
             self.screenshot.take_page_screenshot("PARIS_STORE_DETAIL")
-            print("[STORE DETAIL] USER IS REDIRECTED TO THE PARIS STORE DETAIL PAGE..")
+            logger.info("[STORE DETAIL] USER IS REDIRECTED TO THE PARIS STORE DETAIL PAGE..")
          except:
-             print("*****[STORE DETAIL] NOT ABLE TO OPEN PARIS STORE DETAIL PAGE FROM THE RESULTS..*****")
+            logger.error("*****[STORE DETAIL] NOT ABLE TO OPEN PARIS STORE DETAIL PAGE FROM THE RESULTS..*****")
 
     def test_book_an_appointment_cta_store_detail_page(self):
         try:
             self.timeout(2000)
             self.click(self.book_appointment_cta)
             self.timeout(8000)
-            print("[STORE DETAIL] USER IS REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..")
+            logger.info("[STORE DETAIL] USER IS REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..")
             #self.screenshot.take_Page_screenshot("STORE_DETAIL_APPOINTMENT")
         except:
-            print("*****[STORE DETAIL] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")
+            logger.error("*****[STORE DETAIL] USER IS NOT REDIRECTED TO THE BOOK AN APPOINTMENT PAGE..*****")

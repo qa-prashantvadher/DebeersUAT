@@ -2,8 +2,10 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Login_Page(BasePage):
 
@@ -50,13 +52,13 @@ class Login_Page(BasePage):
                     self.click(self.modal_login_button)
                     self.timeout(10000)
                     #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
-                    print("[HEADER LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+                    logger.info("[HEADER-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
                 else:
                     pass
-                    print("[HEADER LOGIN] USER IS ALREADY LOGGED IN..")
+                    logger.warning("[HEADER-LOGIN] USER IS ALREADY LOGGED IN..")
 
             except:
-                print("*****[HEADER LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
+                logger.error("*****[HEADER-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
         def test_login_from_cart(self):
             try:
@@ -69,10 +71,9 @@ class Login_Page(BasePage):
                 self.click(self.cart_login_button)
                 self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("CART_LOGIN_CART")
-                print("[CART LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
-
+                logger.info("[CART-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:
-                print("*****[CART LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
+                logger.error("*****[CART-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
 
         def test_login_from_register(self):
@@ -88,9 +89,9 @@ class Login_Page(BasePage):
                 self.click(self.register_login_button)
                 self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("REGISTER_LOGIN_MY_ACCOUNT")
-                print("[REGISTER LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+                logger.info("[REGISTER-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:
-                print("*****[REGISTER LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
+                logger.error("*****[REGISTER-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
         def test_login_from_wishlist(self):
             try:
@@ -105,9 +106,9 @@ class Login_Page(BasePage):
                 self.click(self.modal_login_button)
                 self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("WISHLIST_LOGIN_MY_ACCOUNT")
-                print("[WISHLIST LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+                logger.info("[WISHLIST-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:
-                print("*****[WISHLIST LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
+                logger.error("*****[WISHLIST-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
 
         def test_logout_from_my_account_not_you(self):
@@ -117,10 +118,9 @@ class Login_Page(BasePage):
                 self.click(self.my_account_landing_not_you)
                 self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("MY_ACCOUNT_NOT_YOU")
-                print("[MY ACCOUNT-NOT YOU] USER IS SUCCESSFULLY LOGGED OUT..")
-
+                logger.info("[MY ACCOUNT-NOT YOU] USER IS SUCCESSFULLY LOGGED OUT..")
             except:
-                print("*****[MY ACCOUNT-NOT YOU] USER IS NOT ABLE TO LOGGED OUT..*****")
+                logger.error("*****[MY ACCOUNT-NOT YOU] USER IS NOT ABLE TO LOGGED OUT..*****")
 
         def test_logout_from_my_account_logout(self):
             try:
@@ -130,9 +130,9 @@ class Login_Page(BasePage):
                 self.click(self.my_account_landing_logout)
                 self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("MY_ACCOUNT_LOGOUT")
-                print("[MY ACCOUNT-LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
+                logger.info("[MY ACCOUNT-LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
             except:
-                print("*****[MY ACCOUNT-LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")
+                logger.error("*****[MY ACCOUNT-LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")
 
 
         def test_logout_from_order_confirmation_page(self):
@@ -141,7 +141,6 @@ class Login_Page(BasePage):
                 self.click(self.my_account_landing_logout)
                 self.timeout(4000)
                 #self.screenshot.take_Page_screenshot("MY_ACCOUNT_NOT_YOU")
-                print("[ORDER CONFIRMATION-LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
-
+                logger.info("[ORDER CONFIRMATION-LOGOUT] USER IS SUCCESSFULLY LOGGED OUT..")
             except:
-                print("*****[ORDER CONFIRMATION-LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")
+                logger.error("*****[ORDER CONFIRMATION-LOGOUT] USER IS NOT ABLE TO LOGGED OUT..*****")

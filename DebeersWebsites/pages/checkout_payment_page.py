@@ -3,8 +3,10 @@ from pages.take_screenshot import PageScreenshot
 import random
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Checkout_Payment(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
@@ -221,20 +223,18 @@ class Checkout_Payment(BasePage):
             self.timeout(1000)
             self.click(self.payment_by_paypal)
             self.timeout(1000)
-            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO PAYPAL..")
+            logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO PAYPAL..")
         except:
-            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
+            logger.error("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
 
     def test_select_cards_payment_method(self):
         try:
             self.timeout(1000)
             self.click(self.payment_by_cards)
             self.timeout(1000)
-            print("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO CARDS..")
-
+            logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO CARDS..")
         except:
-            print("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
-   
+            logger.error("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
 
     def test_enter_amex_credit_card_details(self):
         try:
@@ -245,10 +245,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_AMEX")
-            print("[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_mastercard_credit_card_details(self):
         try:
@@ -259,11 +258,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
-            print("[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
-
+            logger.error("*****[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_visa_credit_card_details(self):
         try:
@@ -274,10 +271,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_VISA")
-            print("[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_union_pay_credit_card_details(self):
         try:
@@ -288,10 +284,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
-            print("[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_discover_credit_card_details(self):
         try:
@@ -302,10 +297,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_cartes_visa_credit_card_details(self):
         try:
@@ -316,10 +310,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            print("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-
+            logger.info("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            print("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_change_billing_name_details(self):
         try:
@@ -332,12 +325,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_last_name_input, billing_last_name_text)
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
-            print("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-            print(f"#####[CHECKOUT-BILLING] NAME: {self.billing_title_value.upper()} {billing_first_name_text.upper()} {billing_last_name_text.upper()}")
-
+            logger.info("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"#####[CHECKOUT-BILLING] NAME: {self.billing_title_value.upper()} {billing_first_name_text.upper()} {billing_last_name_text.upper()}")
         except:
-            print("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
-
+            logger.error("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_change_billing_address_details(self):
         try:
@@ -359,10 +350,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
-            print("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-            print(f"#####[CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
+            logger.info("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"#####[CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
         except:
-            print("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_use_delivery_as_billing_address_checkbox(self):
         try:
@@ -371,15 +362,15 @@ class Checkout_Payment(BasePage):
             self.click(self.use_delivery_as_billing_input)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS_CHECKBOX")
-            print("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
+            logger.info("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
         except:
-            print("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")
+            logger.error("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")
   
     def test_continue_to_review_from_payment_page(self):
         try:
             self.timeout(1000)
             self.click(self.continue_to_review_cta)
             self.timeout(2000)
-            print("[CHECKOUT-PAYMENT] USER IS REDIRECTED TO THE ORDER REVIEW PAGE..")
+            logger.info("[CHECKOUT-PAYMENT] USER IS REDIRECTED TO THE ORDER REVIEW PAGE..")
         except:
-            print("*****[CHECKOUT-PAYMENT] USER IS NOT REDIRECTED TO THE ORDER REVIEW PAGE..*****")
+            logger.error("*****[CHECKOUT-PAYMENT] USER IS NOT REDIRECTED TO THE ORDER REVIEW PAGE..*****")

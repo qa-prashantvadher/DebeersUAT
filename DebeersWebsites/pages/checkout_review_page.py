@@ -3,7 +3,10 @@ import os
 from pages.take_screenshot import PageScreenshot
 from pages.shopping_cart_page import Open_Shopping_Cart_Page
 from dotenv import load_dotenv
+import logging
+
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 class Checkout_Review(BasePage):
     ENV = os.getenv("ENVIRONMENT").upper()
@@ -48,9 +51,9 @@ class Checkout_Review(BasePage):
             self.timeout(2000)
             self.page.reload()
             self.timeout(3000)
-            print("[CHECKOUT-REVIEW] REVIEW PAGE REFRESHED SUCCESSFULLY..")
+            logger.info("[CHECKOUT-REVIEW] REVIEW PAGE REFRESHED SUCCESSFULLY..")
         except:
-            print("*****[CHECKOUT-REVIEW] UNABLE TO REFRESH PAGE..*****")
+            logger.error("*****[CHECKOUT-REVIEW] UNABLE TO REFRESH PAGE..*****")
 
     def test_place_an_order_from_order_review_page(self):
         try:
@@ -66,33 +69,33 @@ class Checkout_Review(BasePage):
             self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER_REVIEW")
 
             payment_method_alt_text = self.page.locator(self.payment_image).get_attribute("alt")
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] PAYMENT METHOD: {payment_method_alt_text.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] PAYMENT METHOD: {payment_method_alt_text.upper()}")
 
             subtotal = self.get_text(self.subtotal).strip()
             calculated_tax = self.get_text(self.tax_value).strip()
             total_including_tax = self.get_text(self.total_including_tax).strip()
 
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] GRAND TOTAL (INCLUDING TAX): {total_including_tax.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] GRAND TOTAL (INCLUDING TAX): {total_including_tax.upper()}")
 
             shipping_method_text = self.get_text(self.shipping_method).strip()
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SHIPPING METHOD: {shipping_method_text.upper()}")
 
             delivery_address_summary_text = self.get_text(self.delivery_address_summary)
             clean_delivery_address_summary_text = "\n".join(line.strip() for line in delivery_address_summary_text.splitlines() if line.strip())
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY ADDRESS: \n{clean_delivery_address_summary_text.upper()}")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] DELIVERY ADDRESS: \n{clean_delivery_address_summary_text.upper()}")
 
 
             billing_address_summary_text = self.get_text(self.billing_address_summary)
             clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
-            print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: \n{clean_billing_address_summary_text.upper()}..")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: \n{clean_billing_address_summary_text.upper()}..")
 
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                print(f"##### [{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
                 self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
@@ -105,4 +108,4 @@ class Checkout_Review(BasePage):
                         self.shopping_bag.test_remove_product_from_cart()
         except:
             self.navigate(self.URL)
-            print(f"*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED.. USER IS NAVIGATED TO: {self.URL.upper()}*****")
+            logger.error(f"*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED.. USER IS NAVIGATED TO: {self.URL.upper()}*****")

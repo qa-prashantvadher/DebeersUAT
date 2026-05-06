@@ -1,5 +1,8 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+import logging
+
+logger = logging.getLogger(__name__)
 
 class Open_Shopping_Cart_Page(BasePage):
 
@@ -18,16 +21,16 @@ class Open_Shopping_Cart_Page(BasePage):
             self.timeout(3000)
             self.click(self.header_cart_icon)
             self.timeout(2000)
-            print("[CART] USER IS REDIRECTED TO THE CART PAGE..")
+            logger.info("[CART] USER IS REDIRECTED TO THE CART PAGE..")
             self.screenshot.take_page_screenshot("CART_PAGE")
         except:
-            print("*****[CART] USER IS NOT REDIRECTED TO THE CART PAGE..*****")
+            logger.error("*****[CART] USER IS NOT REDIRECTED TO THE CART PAGE..*****")
 
     def test_get_cart_products_count(self):
         try:
             count = self.get_text(self.added_product_count)
             count=int(count)
-            print(f"[CART] TOTAL PRODUCTS IN THE CART: {count}")
+            logger.info(f"[CART] TOTAL PRODUCTS IN THE CART: {count}")
             return count
         except:
             count=0
@@ -38,18 +41,17 @@ class Open_Shopping_Cart_Page(BasePage):
             self.timeout(3000)
             self.click(self.remove_product_icon)
             self.timeout(7000)
-            print("[CART] PRODUCT IS REMOVED FROM THE CART..")
+            logger.info("[CART] PRODUCT IS REMOVED FROM THE CART..")
             #self.screenshot.take_Page_screenshot("CART_REMOVE_PRODUCT")
         except:
-            print("*****[CART] PRODUCT IS NOT REMOVED FROM THE CART PAGE..*****")
+            logger.error("*****[CART] PRODUCT IS NOT REMOVED FROM THE CART PAGE..*****")
 
     def test_continue_to_checkout_from_cart(self):
         try:
             self.timeout(3000)
             self.click(self.continue_to_checkout_cta)
             self.timeout(5000)
-            print("[CHECKOUT-CART] USER IS REDIRECTED TO THE DELIVERY PAGE..")
-
+            logger.info("[CHECKOUT-CART] USER IS REDIRECTED TO THE DELIVERY PAGE..")
         except:
-            print("*****[CHECKOUT-CART] USER IS NOT REDIRECTED TO THE DELIVERY PAGE..*****")
+            logger.error("*****[CHECKOUT-CART] USER IS NOT REDIRECTED TO THE DELIVERY PAGE..*****")
    

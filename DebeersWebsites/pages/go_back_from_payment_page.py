@@ -1,6 +1,8 @@
 from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
+import logging
 
+logger = logging.getLogger(__name__)
 
 
 class Checkout_Go_Back_From_Payment(BasePage):
@@ -18,17 +20,17 @@ class Checkout_Go_Back_From_Payment(BasePage):
             self.timeout(1000)
             self.click(self.delivery_tab_from_payment)
             self.timeout(3000)
-            print("[FROM PAYMENT PAGE] USER IS REDIRECTED BACK TO THE DELIVERY PAGE..")
+            logger.info("[FROM PAYMENT PAGE] USER IS REDIRECTED BACK TO THE DELIVERY PAGE..")
             self.screenshot.take_order_page_screenshot("GO_BACK_FROM_PAYMENT_TO_DELIVERY")
         except:
-            print("*****[FROM PAYMENT PAGE] USER IS NOT REDIRECTED BACK TO THE DELIVERY PAGE..*****")
+            logger.error("*****[FROM PAYMENT PAGE] USER IS NOT REDIRECTED BACK TO THE DELIVERY PAGE..*****")
 
     def test_go_back_to_shopping_cart_from_payment_page(self):
         try:
             self.timeout(1000)
             self.click(self.go_back_to_shopping_bag)
             self.timeout(5000)
-            print("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE SHOPPING BAG PAGE..")
+            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE SHOPPING BAG PAGE..")
             self.screenshot.take_order_page_screenshot("GO_BACK_FROM_PAYMENT_TO_CART")
         except:
-            print("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE SHOPPING BAG PAGE..*****")
+            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE SHOPPING BAG PAGE..*****")

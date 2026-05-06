@@ -6,9 +6,10 @@ from pages.take_screenshot import PageScreenshot
 from pages.store_locator import Search_Locator_Page
 from dotenv import load_dotenv
 import os
+import logging
+
 load_dotenv(override=True)
-
-
+logger = logging.getLogger(__name__)
 
 class Book_Appointment(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
@@ -106,7 +107,7 @@ class Book_Appointment(BasePage):
     def test_in_store_appointment_type(self):
         try:
             step_number = self.page.locator(self.active_step_number).inner_text().strip()
-            print(f"##### CURRENT ACTIVE STEP: {step_number}")
+            logger.info(f"CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             self.scroll_down(self.in_store_appointment_type)
             self.click(self.in_store_appointment_type)
@@ -117,6 +118,7 @@ class Book_Appointment(BasePage):
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
             self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -130,22 +132,22 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
-            print("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
+            logger.info("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
-            print("*****[IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
+            logger.error("*****[IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_in_store_appointment_type(self):
         try:
             step_number = self.page.locator(self.active_step_number).inner_text().strip()
-            print(f"##### CURRENT ACTIVE STEP: {step_number}")
+            logger.info(f"CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             service = self.page.locator(self.service_list)
             service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -159,17 +161,15 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
-            print("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
+            logger.info("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
-            print("*****[BB IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
+            logger.error("*****[BB IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
 
     def test_virtual_appointment_type(self):
         try:
             step_number = self.page.locator(self.active_step_number).inner_text().strip()
-            print(f"##### CURRENT ACTIVE STEP: {step_number}")
+            logger.info(f"CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             self.scroll_down(self.virtual_appointment_type)
             self.click(self.virtual_appointment_type)
@@ -179,6 +179,8 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -192,22 +194,22 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
-            print("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
+            logger.info("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
-            print("*****[VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
+            logger.error("*****[VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_bb_virtual_appointment_type(self):
         try:
             step_number = self.page.locator(self.active_step_number).inner_text().strip()
-            print(f"##### CURRENT ACTIVE STEP: {step_number}")
+            logger.info(f"CURRENT ACTIVE STEP: {step_number}")
             self.timeout(2000)
             service = self.page.locator(self.service_list)
             service.nth(random.randrange(service.count())).click()
             self.timeout(2000)
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
+            self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -221,11 +223,9 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
-            self.timeout(2000)
-            print("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
+            logger.info("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
-            print("*****[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
+            logger.error("*****[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
 
     def test_step1_select_date_time(self):
         try:
@@ -241,13 +241,13 @@ class Book_Appointment(BasePage):
                 date.click()
                 self.timeout(2000)
                 selected_date_text = self.get_text(self.selected_date).strip()
-                print(f"[{self.ENV}-{self.COUNTRY}] SELECTED DATE IS: {selected_date_text.upper()}")
+                logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED DATE IS: {selected_date_text.upper()}")
 
                 self.timeout(2000)
 
                 # Check if "no slots" message is visible
                 if self.page.locator("#noSlots:not(.d-none)").is_visible():
-                    print(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                    logger.warning(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
                     continue  # try next date
 
                 # Get available timeslots
@@ -257,18 +257,18 @@ class Book_Appointment(BasePage):
                     timeslots.first.click()
                     self.timeout(2000)
                     selected_timeslot_text = self.get_text(self.selected_timeslot).strip()
-                    print(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME SLOT: {selected_timeslot_text}")
+                    logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME SLOT: {selected_timeslot_text}")
                     return True
 
                 # Safety fallback (rare case)
-                print(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
 
                 self.timeout(2000)
 
                 # If loop completes
             raise Exception(f"*****[{self.ENV}-{self.COUNTRY}] NO AVAILABLE DATES WITH TIME SLOTS FOUND...*****")
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def test_step2_enter_contact_details(self):
         try:
@@ -280,46 +280,46 @@ class Book_Appointment(BasePage):
             self.fill(self.appointment_last_name_input, appointment_last_name_text)
             self.fill(self.appointment_mobile_input, self.appointment_mobile_text)
             self.fill(self.appointment_email_input, self.appointment_email_text)
-            print("[APPOINTMENT-STEP2] CONTACT DETAILS ARE ENTERED..")
+            logger.info("[APPOINTMENT-STEP2] CONTACT DETAILS ARE ENTERED..")
         except:
-            print("*****[APPOINTMENT-STEP2] NOT ABLE TO ENTER CONTACT DETAILS..*****")
+            logger.error("*****[APPOINTMENT-STEP2] NOT ABLE TO ENTER CONTACT DETAILS..*****")
 
     def test_step3_enter_additional_information(self):
         try:
             self.timeout(1000)
             self.fill(self.appointment_product_questions_input, self.appointment_product_question_text)
             self.fill(self.appointment_questions_input, self.appointment_question_text)
-            print("[APPOINTMENT-STEP3] ADDITIONAL INFORMATION DETAILS ARE ENTERED..")
+            logger.info("[APPOINTMENT-STEP3] ADDITIONAL INFORMATION DETAILS ARE ENTERED..")
         except:
-            print("*****[APPOINTMENT-STEP3] NOT ABLE TO ENTER ADDITIONAL INFORMATION DETAILS..*****")
+            logger.error("*****[APPOINTMENT-STEP3] NOT ABLE TO ENTER ADDITIONAL INFORMATION DETAILS..*****")
 
     def test_step3_select_checkboxes(self):
         try:
             self.timeout(1000)
             if self.is_checked(self.appointment_subscribe_checkbox):
-                print("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED...")
+                logger.warning("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED...")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    print("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
+                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
                 else:
                     self.click(self.appointment_terms_checkbox)
-                    print("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
             else:
                 self.click(self.appointment_subscribe_checkbox)
-                print("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS NOW CHECKED...")
+                logger.info("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS NOW CHECKED...")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    print("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
+                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
                 else:
                     self.click(self.appointment_terms_checkbox)
-                    print("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
         except:
-            print("*****[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION AND TERMS CHECKBOXES ARE NOT CHECKED..*****")
+            logger.error("*****[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION AND TERMS CHECKBOXES ARE NOT CHECKED..*****")
 
     def test_click_on_continue_cta(self):
         try:
             self.timeout(1000)
             self.click(self.appointment_continue_cta)
             self.timeout(3000)
-            print(f"[{self.ENV}-{self.COUNTRY}] USER IS NAVIGATED TO THE NEXT STEP..")
+            logger.info(f"[{self.ENV}-{self.COUNTRY}] USER IS NAVIGATED TO THE NEXT STEP..")
             appointment_summary_text = self.get_text(self.appointment_summary)
 
             clean_appointment_summary_text = "\n".join(
@@ -328,11 +328,11 @@ class Book_Appointment(BasePage):
                 if line.strip()
             )
             step_number = self.page.locator(self.active_step_number).inner_text().strip()
-            print(f"##### [{self.ENV}-{self.COUNTRY}] CURRENT ACTIVE STEP: {step_number}")
-            print(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
+            logger.info(f"[{self.ENV}-{self.COUNTRY}] CURRENT ACTIVE STEP: {step_number}")
+            logger.info(f"[{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
 
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def test_click_on_submit_cta(self):
         try:
@@ -341,7 +341,7 @@ class Book_Appointment(BasePage):
             self.timeout(5000)
             if self.is_visible(self.success_message_text):
                 success_message = self.get_text(self.success_message_text).strip()
-                print(f"##### [APPOINTMENT-SUCCESS] {success_message.upper()}")
+                logger.info(f"##### [APPOINTMENT-SUCCESS] {success_message.upper()}")
                 appointment_summary_text = self.get_text(self.appointment_summary)
 
                 clean_appointment_summary_text = "\n".join(
@@ -361,42 +361,42 @@ class Book_Appointment(BasePage):
                 product_question_summary_text = self.get_text(self.product_question_summary).strip()
                 question_summary_text = self.get_text(self.question_summary).strip()
 
-                print(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
-                print(f"##### [{self.ENV}-{self.COUNTRY}] USER SUMMARY:\n{clean_user_summary_text.upper()}")
-                print(f"##### [{self.ENV}-{self.COUNTRY}] PRODUCT QUESTION: {product_question_summary_text.upper()}")
-                print(f"##### [{self.ENV}-{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
+                logger.info(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
+                logger.info(f"##### [{self.ENV}-{self.COUNTRY}] USER SUMMARY:\n{clean_user_summary_text.upper()}")
+                logger.info(f"##### [{self.ENV}-{self.COUNTRY}] PRODUCT QUESTION: {product_question_summary_text.upper()}")
+                logger.info(f"##### [{self.ENV}-{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
         except Exception as e:
-            print(e)
+            logger.error(e)
     def test_go_back_to_step_1_with_edit_icon(self):
         try:
             self.timeout(1000)
             self.click(self.edit_step1)
             self.timeout(3000)
-            print("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING EDIT ICON..")
+            logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING EDIT ICON..")
         except Exception as e:
-            print(e)
+            logger.error(e)
     def test_go_back_to_step_1_with_back_button(self):
         try:
             self.timeout(3000)
             self.click(self.appointment_back_cta)
             self.timeout(1000)
-            print("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING BACK BUTTON..")
+            logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING BACK BUTTON..")
         except Exception as e:
-            print(e)
+            logger.error(e)
     def test_go_back_to_step_2_with_edit_icon(self):
         try:
             self.timeout(1000)
             self.click(self.edit_step2)
             self.timeout(3000)
-            print("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-2 USING EDIT ICON..")
+            logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-2 USING EDIT ICON..")
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     def test_go_back_to_step_2_with_back_button(self):
         try:
             self.timeout(3000)
             self.click(self.appointment_back_cta)
             self.timeout(1000)
-            print("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-2 USING BACK BUTTON..")
+            logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-2 USING BACK BUTTON..")
         except Exception as e:
-            print(e)
+            logger.error(e)

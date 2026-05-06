@@ -2,9 +2,10 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv(override=True)
-
+logger = logging.getLogger(__name__)
 
 class Open_EngagementRings_PLP_Page(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
@@ -89,12 +90,12 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.engagement_rings)
             self.timeout(5000)
             self.scroll_down(self.slp_page_records)
-            print("[PLP] USER IS REDIRECTED TO THE ENGAGEMENT RINGS PAGE..")
+            logger.info("[PLP] USER IS REDIRECTED TO THE ENGAGEMENT RINGS PAGE..")
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_WITHOUT_SORTING")
         except:
-            print("*****[PLP] USER IS NOT REDIRECTED TO THE ENGAGEMENT RINGS PAGE..*****")
+            logger.error("*****[PLP] USER IS NOT REDIRECTED TO THE ENGAGEMENT RINGS PAGE..*****")
 
     def test_apply_sorting_on_plp(self):
        try:
@@ -103,17 +104,17 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.price_ascending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS AFTER PRICE ASCENDING SORTING: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS AFTER PRICE ASCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_ASCENDING")
             self.click(self.sort_by_label)
             self.timeout(2000)
             self.check(self.price_descending)
             self.timeout(3000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS AFTER PRICE DESCENDING SORTING: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS AFTER PRICE DESCENDING SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_SORTING_PRICE_DESCENDING")
        except:
-             print(f"*****[PLP] UNABLE TO PERFORM SORTING..*****")
+            logger.error(f"*****[PLP] UNABLE TO PERFORM SORTING..*****")
 
     def test_apply_filter_on_plp(self):
         try:
@@ -126,7 +127,7 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.material_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS AFTER APPLYING MATERIAL FILTER: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS AFTER APPLYING MATERIAL FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("PLP_FILTER_MATERIAL")
 
 
@@ -137,7 +138,7 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.size_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS AFTER APPLYING MATERIAL + SIZE FILTERS: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS AFTER APPLYING MATERIAL + SIZE FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("PLP_FILTER_MATERIAL_SIZE")
 
             self.click(self.cut_label)
@@ -147,10 +148,10 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.cut_apply_button)
             self.timeout(5000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] RECORDS AFTER APPLYING MATERIAL + SIZE + CUT FILTERS: {result_count.upper()}")
+            logger.info(f"[PLP] RECORDS AFTER APPLYING MATERIAL + SIZE + CUT FILTERS: {result_count.upper()}")
             self.screenshot.take_page_screenshot("PLP_FILTER_MATERIAL_SIZE_CUT")
         except:
-            print("*****[PLP] NOT ABLE TO APPLY FILTERS..*****")
+            logger.error("*****[PLP] NOT ABLE TO APPLY FILTERS..*****")
 
     def test_clear_filter_on_plp(self):
         try:
@@ -158,7 +159,7 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.clear_all_filter)
             self.timeout(10000)
             result_count = self.inner_text(self.slp_page_records)
-            print(f"[PLP] TOTAL RECORDS AFTER CLEAR FILTER: {result_count.upper()}")
+            logger.info(f"[PLP] TOTAL RECORDS AFTER CLEAR FILTER: {result_count.upper()}")
             self.screenshot.take_page_screenshot("PLP_CLEAR_ALL_FILTER")
         except:
-            print("*****[PLP] NOT ABE TO CLEAR FILTERS..*****")
+            logger.error("*****[PLP] NOT ABE TO CLEAR FILTERS..*****")

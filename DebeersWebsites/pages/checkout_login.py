@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from pages.take_screenshot import PageScreenshot
 from dotenv import load_dotenv
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 class Checkout_Login(BasePage):
 
@@ -28,11 +31,11 @@ class Checkout_Login(BasePage):
                 self.screenshot.take_order_page_screenshot("CHECKOUT_LOGIN_GUEST")
                 self.click(self.checkout_as_guest_cta)
                 self.timeout(5000)
-                print("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
+                logger.info("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
             else:
                 pass
         except:
-            print(f"*****[CHECKOUT-GUEST] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
+            logger.error(f"*****[CHECKOUT-GUEST] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
 
     def test_checkout_as_registered_user(self):
         try:
@@ -43,11 +46,11 @@ class Checkout_Login(BasePage):
                 self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_REGISTERED")
                 self.click(self.checkout_as_register_cta)
                 self.timeout(5000)
-                print("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
+                logger.info("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
             else:
                 pass
         except:
-            print(f"*****[CHECKOUT-REGISTERED] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
+            logger.error(f"*****[CHECKOUT-REGISTERED] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
 
 
 

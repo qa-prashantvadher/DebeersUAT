@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from pages.search_slp_pdp import SearchSKU
 from pages.add_engraving import AddEngraving
 from pages.take_screenshot import PageScreenshot
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class BB_SPP_Single_Size(BasePage):
@@ -27,11 +30,11 @@ class BB_SPP_Single_Size(BasePage):
                 self.timeout(3000)
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
-                print(f"[BB SPP SINGLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
+                logger.info(f"[BB SPP SINGLE SIZE WITH ENGRAVING] {self.SKU1} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_SPP_SINGLE_ADDED_WITH_ENGRAVING")
                 self.click(self.minicart_close_icon)
             except:
-                print(f"*****[BB SPP SINGLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
+                logger.error(f"*****[BB SPP SINGLE SIZE WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_bb_spp_single_size_without_engraving(self):
            try:
@@ -39,8 +42,8 @@ class BB_SPP_Single_Size(BasePage):
                 self.click(self.SELECT_SIZE_CTA)
                 self.timeout(3000)
                 self.click(self.ADD_TO_BAG_CTA)
-                print(f"[BB SPP SINGLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
+                logger.info(f"[BB SPP SINGLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS ADDED TO THE CART..")
                 self.screenshot.take_page_screenshot("BB_SPP_SINGLE_ADDED_WITHOUT_ENGRAVING")
                 self.click(self.minicart_close_icon)
            except:
-                print(f"*****[BB SPP SINGLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")
+                logger.error(f"*****[BB SPP SINGLE SIZE WITHOUT ENGRAVING] {self.SKU2} IS NOT ADDED TO THE CART..*****")

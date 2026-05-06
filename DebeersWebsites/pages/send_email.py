@@ -4,8 +4,10 @@ from email.message import EmailMessage
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+import logging
 
-load_dotenv()
+load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 COUNTRY = os.getenv("LOCALE").upper()
 ENV = os.getenv("ENVIRONMENT").upper()
@@ -14,7 +16,7 @@ URL = os.getenv("BASE_URL")
 
 # 1. Validation: Ensure a path was actually passed
 if len(sys.argv) < 2:
-    print("***** ERROR: NO REPORT PATH PROVIDED..*****")
+    logger.error("***** ERROR: NO REPORT PATH PROVIDED..*****")
     sys.exit(1)
 
 report_path = sys.argv[1]  # first argument in the .bat file. report path in this case.
@@ -71,9 +73,10 @@ html_body = f"""
 <p style="margin-bottom: 16px;">
 Please find the attached test execution report.
 </p>
-
+<br>
+<br>
 <p>
-Regards,<br><br>
+Regards,<br>
 Prashant Vadher
 </p>
 
@@ -95,7 +98,7 @@ try:
             filename=report_filename
         )
 except FileNotFoundError:
-    print(f"***** THE FILE AT {report_path} WAS NOT FOUND..*****")
+    logger.error(f"***** THE FILE AT {report_path} WAS NOT FOUND..*****")
     sys.exit(1)
 
 # 4. Send Email
@@ -105,6 +108,6 @@ try:
         # Use an App Password here, NOT your regular login password
         s.login("debeerslive@gmail.com", "fuxm gcus bdgi kgtg")
         s.send_message(msg)
-    print(f"EMAIL SENT SUCCESSFULLY WITH REPORT: {report_filename}")
+    logger.info(f"EMAIL SENT SUCCESSFULLY WITH REPORT: {report_filename}")
 except Exception as e:
-    print(f"*****FAILED TO SEND EMAIL: {e} *****")
+    logger.error(f"*****FAILED TO SEND EMAIL: {e} *****")
