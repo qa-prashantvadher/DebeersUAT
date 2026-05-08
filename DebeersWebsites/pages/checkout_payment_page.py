@@ -362,15 +362,15 @@ class Checkout_Payment(BasePage):
             self.click(self.use_delivery_as_billing_input)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_SAME_ADDRESS_CHECKBOX")
-            logger.info("[CHECKOUT-SAME ADDRESS] CHECKED USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..")
+            logger.info("[CHECKOUT-SAME ADDRESS] CHECKED \"USE DELIVERY ADDRESS AS BILLING ADDRESS\" CHECKBOX..")
         except:
-            logger.error("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK USE DELIVERY ADDRESS AS BILLING ADDRESS CHECKBOX..*****")
+            logger.error("*****[CHECKOUT-SAME ADDRESS] NOT ABLE TO CHECK \"USE DELIVERY ADDRESS AS BILLING ADDRESS\" CHECKBOX..*****")
   
     def test_continue_to_review_from_payment_page(self):
         try:
             self.timeout(1000)
             self.click(self.continue_to_review_cta)
             self.timeout(2000)
-            logger.info("[CHECKOUT-PAYMENT] USER IS REDIRECTED TO THE ORDER REVIEW PAGE..")
+            logger.info("[CHECKOUT-PAYMENT] USER IS REDIRECTED TO THE \"ORDER REVIEW\" PAGE..")
         except:
-            logger.error("*****[CHECKOUT-PAYMENT] USER IS NOT REDIRECTED TO THE ORDER REVIEW PAGE..*****")
+            logger.error("*****[CHECKOUT-PAYMENT] USER IS NOT REDIRECTED TO THE \"ORDER REVIEW\" PAGE..*****")

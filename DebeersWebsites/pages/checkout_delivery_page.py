@@ -238,43 +238,40 @@ class Checkout_Delivery(BasePage):
         try:
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: {active_shipping_method_text.upper()}")
+            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: \"{active_shipping_method_text.upper()}\"")
             if self.is_active(self.premium_delivery_tab):
-                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: PREMIUM DELIVERY")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"PREMIUM DELIVERY\"")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             else:
-                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: COLLECT IN STORE")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"COLLECT IN STORE\"")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
 
-            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT: {active_shipping_method_text.upper()}")
-
             self.click(Checkout_Delivery.premium_delivery_tab)
             self.timeout(2000)
-            logger.info("[CHECKOUT-DELIVERY] PREMIUM DELIVERY TAB IS NOW SELECTED..")
+            logger.info("[CHECKOUT-DELIVERY] \"PREMIUM DELIVERY\" TAB IS NOW SELECTED..")
         except:
-            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN PREMIUM DELIVERY TAB..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"PREMIUM DELIVERY\" TAB..*****")
 
     def test_open_collect_in_store_tab(self):
         try:
             self.timeout(3000)
             active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: {active_shipping_method_text.upper()}")
+            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: \"{active_shipping_method_text.upper()}\"")
 
             if self.is_active(self.collect_in_store_tab):
-                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: COLLECT IN STORE")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"COLLECT IN STORE\"")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             else:
-                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: PREMIUM DELIVERY")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"PREMIUM DELIVERY\"")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
@@ -282,9 +279,9 @@ class Checkout_Delivery(BasePage):
 
             self.click(Checkout_Delivery.collect_in_store_tab)
             self.timeout(3000)
-            logger.info("[CHECKOUT-DELIVERY] IN STORE COLLECT TAB IS NOW SELECTED..")
+            logger.info("[CHECKOUT-DELIVERY] \"COLLECT IN STORE\" TAB IS NOW SELECTED..")
         except:
-            logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN COLLECT IN STORE TAB..*****")
+            logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"COLLECT IN STORE\" TAB..*****")
 
     def test_select_self_collect_checkbox(self):
         try:
@@ -293,13 +290,13 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
+            logger.info(f"##### [CHECKOUT-SELF] SELECTED \"SELF COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
             if  self.is_visible(self.premium_your_address_heading):
                 logger.info("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
                 logger.info("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-            logger.info(f"##### [CHECKOUT-SELF] SELECTED SELF COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
-            logger.error("*****[CHECKOUT-SELF] NOT ABLE TO SELECT SELF COLLECT CHECKBOX..*****")
+            logger.error("*****[CHECKOUT-SELF] NOT ABLE TO SELECT \"SELF COLLECT\" CHECKBOX..*****")
 
     def test_select_someone_else_collect_checkbox(self):
         try:
@@ -308,14 +305,13 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
+            logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED \"SOMEONE ELSE COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
             if self.is_visible(self.premium_your_address_heading):
                 logger.info("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS VISIBLE..")
             else:
                 logger.info("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-            logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED SOMEONE ELSE COLLECT OPTION. DELIVERY DATE: {delivery_date.upper()}.")
         except:
-            logger.error("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT SOMEONE ELSE COLLECT CHECKBOX..*****")
-
+            logger.error("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT \"SOMEONE ELSE COLLECT\" CHECKBOX..*****")
 
     def test_enter_user_details_in_premium_delivery(self):
         try:
@@ -433,7 +429,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(1000)
             error_code = self.get_text(self.error_code_text).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_DELIVERY_ERROR_POPUP")
-            logger.info(f"[CHECKOUT-DELIVERY] AVALARA ERROR CODE: {error_code}")
+            logger.info(f"[CHECKOUT-DELIVERY] AVALARA ERROR CODE: \"{error_code}\"")
             self.click(self.client_service_error_popup_close)
             self.timeout(1000)
         except:

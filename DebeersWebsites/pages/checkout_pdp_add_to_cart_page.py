@@ -46,7 +46,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU1 = random.choice(self.SKU1_LIST)
-        logger.info(f"[CHECKOUT] SKU1: {SKU1} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU: {SKU1} [ATTEMPT: {retry + 1}]")
         try:
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
@@ -92,7 +92,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU2 = random.choice(self.SKU2_LIST)
-        logger.info(f"[CHECKOUT] SKU2: {SKU2} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU: {SKU2} [ATTEMPT: {retry + 1}]")
         try:
             self.search.test_search_with_sku(SKU2)
             if self.is_visible(self.ADD_TO_BAG_CTA):
