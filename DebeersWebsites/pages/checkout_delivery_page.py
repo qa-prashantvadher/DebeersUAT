@@ -237,14 +237,16 @@ class Checkout_Delivery(BasePage):
     def test_open_premium_delivery_tab(self):
         try:
             self.timeout(3000)
+            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
+            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: {active_shipping_method_text.upper()}")
             if self.is_active(self.premium_delivery_tab):
-                logger.info("[CHECKOUT-DELIVERY] CURRENTLY ACTIVE SHIPPING METHOD IS: PREMIUM DELIVERY")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: PREMIUM DELIVERY")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             else:
-                logger.info("[CHECKOUT-DELIVERY] CURRENTLY ACTIVE SHIPPING METHOD IS: COLLECT IN STORE")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: COLLECT IN STORE")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
@@ -262,21 +264,21 @@ class Checkout_Delivery(BasePage):
     def test_open_collect_in_store_tab(self):
         try:
             self.timeout(3000)
+            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
+            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT [{self.COUNTRY}]: {active_shipping_method_text.upper()}")
+
             if self.is_active(self.collect_in_store_tab):
-                logger.info("[CHECKOUT-DELIVERY] CURRENTLY ACTIVE SHIPPING METHOD IS: COLLECT IN STORE")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: COLLECT IN STORE")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
             else:
-                logger.info("[CHECKOUT-DELIVERY] CURRENTLY ACTIVE SHIPPING METHOD IS: PREMIUM DELIVERY")
+                logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: PREMIUM DELIVERY")
                 if self.is_visible(self.premium_your_address_heading):
                     logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
                 else:
                     logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-
-            active_shipping_method_text = self.get_text(self.active_shipping_method).strip()
-            logger.info(f"[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD TEXT: {active_shipping_method_text.upper()}")
 
             self.click(Checkout_Delivery.collect_in_store_tab)
             self.timeout(3000)
