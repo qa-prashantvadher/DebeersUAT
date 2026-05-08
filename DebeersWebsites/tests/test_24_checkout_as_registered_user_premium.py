@@ -32,8 +32,8 @@ def test_checkout_as_registered_user_premium(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
     if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
-
-            print("Case 1: Premium Delivery + Amex card + Same Billing address")
+            print("----> TEST CASE 1 OF 15")
+            #"Case 1: Premium Delivery + Amex card + Same Billing address"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -54,7 +54,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address")
+            print("----> TEST CASE 2 OF 15")
+            #"Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -76,7 +77,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card")
+            print("----> TEST CASE 3 OF 15")
+            #"Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -99,7 +101,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card")
+            print("----> TEST CASE 4 OF 15")
+            #"Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -123,7 +126,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card")
+            print("----> TEST CASE 5 OF 15")
+            #"Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -148,7 +152,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card")
+            print("----> TEST CASE 6 OF 15")
+            #"Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -173,7 +178,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card")
+            print("----> TEST CASE 7 OF 15")
+            #"Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -198,7 +204,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card")
+            print("----> TEST CASE 8 OF 15")
+            #"Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -225,7 +232,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address")
+            print("----> TEST CASE 9 OF 15")
+            #"Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -248,7 +256,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 25: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name")
+            print("----> TEST CASE 10 OF 15")
+            #"Case 25: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -273,7 +282,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card")
+            print("----> TEST CASE 11 OF 15")
+            #"Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -299,7 +309,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card")
+            print("----> TEST CASE 12 OF 15")
+            #"Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -325,7 +336,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card")
+            print("----> TEST CASE 13 OF 15")
+            #"Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -352,7 +364,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print("Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card.")
+            print("----> TEST CASE 14 OF 15")
+            #"Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card."
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -376,7 +389,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                             login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card")
+            print("----> TEST CASE 15 OF 15")
+            #"Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -402,8 +416,8 @@ def test_checkout_as_registered_user_premium(page):
                         login_logout.test_logout_from_my_account_logout()
 
     elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
-
-            print("Case 1: Premium Delivery + Amex card + Same Billing address")
+            print("----> TEST CASE 1 OF 7")
+            #"Case 1: Premium Delivery + Amex card + Same Billing address"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -424,7 +438,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address")
+            print("----> TEST CASE 2 OF 7")
+            #"Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -446,7 +461,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card")
+            print("----> TEST CASE 3 OF 7")
+            #"Case 6: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -469,7 +485,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card")
+            print("----> TEST CASE 4 OF 7")
+            #"Case 15: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -494,7 +511,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address")
+            print("----> TEST CASE 5 OF 7")
+            #"Case 24: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -517,7 +535,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card")
+            print("----> TEST CASE 6 OF 7")
+            #"Case 29: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -543,7 +562,8 @@ def test_checkout_as_registered_user_premium(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print("Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card.")
+            print("----> TEST CASE 7 OF 7")
+            #"Case 38: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card."
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -568,6 +588,7 @@ def test_checkout_as_registered_user_premium(page):
                             login_logout.test_logout_from_my_account_logout()
 
     elif COUNTRY == "FR" or COUNTRY == "TW":
+            print("----> TEST CASE 1 OF 7")
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -588,6 +609,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 2 OF 7")
             # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -609,6 +631,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 3 OF 7")
             # Case 3: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -631,6 +654,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 4 OF 7")
             # Case 4: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -655,6 +679,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 5 OF 7")
             # Case 5: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -677,6 +702,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 6 OF 7")
             # Case 6: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -701,6 +727,7 @@ def test_checkout_as_registered_user_premium(page):
             elif ENV == "PROD":
                 login_logout.test_logout_from_my_account_logout()
 
+            print("----> TEST CASE 7 OF 7")
             # Case 7: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Amex card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()

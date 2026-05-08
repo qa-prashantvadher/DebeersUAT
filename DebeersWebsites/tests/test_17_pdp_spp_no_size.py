@@ -11,6 +11,7 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
     shopping_bag = Open_Shopping_Cart_Page(page)
 
     # BB SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
+    print("----> TEST CASE 1 OF 2")
     bb_spp_no_size.test_bb_spp_no_size_with_engraving()
     bb_spp_no_size.test_bb_spp_no_size_without_engraving()
 
@@ -23,6 +24,7 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
 
 
     # HJ SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
+    print("----> TEST CASE 2 OF 2")
     hj_spp_no_size.test_hj_spp_no_size_without_engraving()
     hj_spp_no_size.test_hj_spp_no_size_without_engraving()
 

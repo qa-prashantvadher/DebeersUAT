@@ -33,7 +33,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
 
     if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
 
-            print(" Case 5: Someone Else Collect + Discover card")
+            print("----> TEST CASE 1 OF 13")
+            "Case 5: Someone Else Collect + Discover card"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -55,7 +56,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                             login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card")
+            print("----> TEST CASE 2 OF 13")
+            "Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -80,7 +82,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                             login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card")
+            print("----> TEST CASE 3 OF 13")
+            "Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -105,7 +108,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Union Pay card")
+            print("----> TEST CASE 4 OF 13")
+            "Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone else Collect + Union Pay card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -129,7 +133,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 5 OF 13")
+            "Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -156,7 +161,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card")
+            print("----> TEST CASE 6 OF 13")
+            "Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -182,7 +188,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card")
+            print("----> TEST CASE 7 OF 13")
+            "Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -207,7 +214,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card")
+            print("----> TEST CASE 8 OF 13")
+            "Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -231,7 +239,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 9 OF 13")
+            "Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -258,7 +267,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
+            print("----> TEST CASE 10 OF 13")
+            "Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -284,7 +294,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card")
+            print("----> TEST CASE 11 OF 13")
+            "Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -311,7 +322,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 12 OF 13")
+            "Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -339,7 +351,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 43: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card")
+            print("----> TEST CASE 13 OF 13")
+            "Case 43: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -364,8 +377,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                 login_logout.test_logout_from_my_account_logout()
 
     elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
-
-            print(" Case 5: Someone Else Collect + Discover card")
+            print("----> TEST CASE 1 OF 6")
+            "Case 5: Someone Else Collect + Discover card"
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -387,7 +400,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                             login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card")
+            print("----> TEST CASE 2 OF 6")
+            "Case 12: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -412,7 +426,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                             login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 3 OF 6")
+            "Case 21: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -439,7 +454,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card")
+            print("----> TEST CASE 4 OF 6")
+            "Case 28: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -463,7 +479,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 5 OF 6")
+            "Case 35: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()
@@ -490,7 +507,8 @@ def test_checkout_as_registered_user_someone_else_collect(page):
                     elif ENV == "PROD":
                         login_logout.test_logout_from_my_account_logout()
 
-            print(" Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card")
+            print("----> TEST CASE 6 OF 6")
+            "Case 42: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card"
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_registered_user()

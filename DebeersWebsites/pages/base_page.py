@@ -39,6 +39,10 @@ class BasePage:
         except:
             return False
 
+    def is_active(self, locator):
+        class_value = self.page.locator(locator).get_attribute("class")
+        return "active" in class_value if class_value else False
+
     def is_checked(self, locator):
         return self.page.locator(locator).is_checked()
 

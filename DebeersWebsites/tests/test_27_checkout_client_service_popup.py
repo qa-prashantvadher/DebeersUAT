@@ -3,12 +3,14 @@ from pages.checkout_login import Checkout_Login
 from pages.checkout_delivery_page import Checkout_Delivery
 from pages.checkout_payment_page import Checkout_Payment
 from pages.checkout_review_page import Checkout_Review
-from pages.go_back_from_payment_page import Checkout_Go_Back_From_Payment
 from pages.login_pages import Login_Page
 import os
 from dotenv import load_dotenv
+import logging
 
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
+
 
 ENV = os.getenv("ENVIRONMENT").upper()
 COUNTRY = os.getenv("LOCALE").upper()
@@ -16,7 +18,6 @@ COUNTRY = os.getenv("LOCALE").upper()
 def test_checkout_client_service_popup(page):
 
     checkout_pdp = Checkout_PDP_SPP_No_Size(page)
-    checkout_back_from_payment = Checkout_Go_Back_From_Payment(page)
     checkout_login = Checkout_Login(page)
     checkout_delivery = Checkout_Delivery(page)
     checkout_payment = Checkout_Payment(page)
@@ -25,6 +26,7 @@ def test_checkout_client_service_popup(page):
 
     if COUNTRY == "US":
             # Case 1: As a Registered User + Premium Delivery > Invalid Address > Then Valid Address
+            print("----> TEST CASE 1 OF 2")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -48,6 +50,7 @@ def test_checkout_client_service_popup(page):
                 login_logout.test_logout_from_my_account_logout()
 
             # Case 2: As a Guest User + Premium Delivery > Invalid Address > Then Valid Address
+            print("----> TEST CASE 2 OF 2")
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -67,4 +70,4 @@ def test_checkout_client_service_popup(page):
             checkout_review.test_place_an_order_from_order_review_page()
 
     else:
-            print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE AVALARA TAX ERROR POPUP..")
+            logger.info(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE AVALARA TAX ERROR POPUP..")

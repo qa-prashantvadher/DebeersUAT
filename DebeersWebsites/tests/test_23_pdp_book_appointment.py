@@ -14,6 +14,7 @@ def test_book_appointment_cta_from_pdp(page):
     book_appointment = Book_Appointment(page)
 
     # BOOK APPOINTMENT CTA AND BOOK IN STORE/VIRTUAL APPOINTMENT OPTIONS ON THE PDP PAGE
+    print("----> TEST CASE 1 OF 2")
     pdp_enquire_appointment.test_book_appointment_hj_master_level()
 
     book_appointment.test_in_store_appointment_type()
@@ -38,6 +39,7 @@ def test_book_appointment_cta_from_pdp(page):
         if ENV == "QA" or ENV == "UAT":
             book_appointment.test_click_on_submit_cta()
 
+    print("----> TEST CASE 2 OF 2")
     pdp_enquire_appointment.test_in_store_appointment_bb_contact_us()
     book_appointment.test_bb_in_store_appointment_type()
     book_appointment.test_step1_select_date_time()

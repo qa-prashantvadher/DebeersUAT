@@ -10,6 +10,7 @@ def test_add_to_bag_for_upp_single_variant_all_templates(page):
     upp_variant_filter = UPP_Multiple_Variant_Filter(page)
 
     # HJ UPP WITH SINGLE VARIANT PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
+    print("----> TEST CASE 1 OF 1")
     hj_upp_single_variant.test_hj_upp_single_variant_with_engraving()
     hj_upp_single_variant.test_hj_upp_single_variant_without_engraving()
 

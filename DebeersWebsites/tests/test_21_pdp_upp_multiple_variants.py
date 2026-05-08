@@ -13,6 +13,7 @@ def test_add_to_bag_for_upp_multiple_variants_all_templates(page):
 
 
     # BB UPP WITH MULTIPLE VARIANTS PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
+    print("----> TEST CASE 1 OF 4")
     bb_upp_multiple_variant.test_bb_upp_multiple_variant_with_engraving()
     bb_upp_multiple_variant.test_bb_upp_multiple_variant_without_engraving()
 
@@ -24,6 +25,7 @@ def test_add_to_bag_for_upp_multiple_variants_all_templates(page):
             shopping_bag.test_remove_product_from_cart()
 
     # HJ UPP WITH MULTIPLE VARIANTS PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
+    print("----> TEST CASE 2 OF 4")
     hj_upp_multiple_variant.test_hj_upp_multiple_variant_with_engraving()
     hj_upp_multiple_variant.test_hj_upp_multiple_variant_without_engraving()
 
@@ -35,8 +37,10 @@ def test_add_to_bag_for_upp_multiple_variants_all_templates(page):
             shopping_bag.test_remove_product_from_cart()
 
     #UPP MULTIPLE VARIANTS PDP: APPLY FILTER IN THE VARIANT SECTION
+    print("----> TEST CASE 3 OF 4")
     upp_variant_filter.test_bb_upp_variant_filter()
     upp_variant_filter.test_bb_clear_all_filters()
+    print("----> TEST CASE 4 OF 4")
     upp_variant_filter.test_hj_upp_variant_filter()
     upp_variant_filter.test_hj_clear_all_filters()
 

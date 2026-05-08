@@ -5,11 +5,12 @@ from pages.checkout_delivery_page import Checkout_Delivery
 from pages.checkout_payment_page import Checkout_Payment
 from pages.checkout_review_page import Checkout_Review
 from pages.login_pages import Login_Page
-from pages.shopping_cart_page import Open_Shopping_Cart_Page
-from pages.go_back_from_payment_page import Checkout_Go_Back_From_Payment
 from pages.go_back_from_review_page import Checkout_Go_Back_From_Review
 from dotenv import load_dotenv
+import logging
+
 load_dotenv(override=True)
+logger = logging.getLogger(__name__)
 
 ENV = os.getenv("ENVIRONMENT").upper()
 COUNTRY = os.getenv("LOCALE").upper()
@@ -27,274 +28,58 @@ def test_checkout_as_mixed_user(page):
     checkout_payment = Checkout_Payment(page)
     checkout_review = Checkout_Review(page)
     login_logout = Login_Page(page)
-    shopping_cart = Open_Shopping_Cart_Page(page)
-    checkout_back_from_payment = Checkout_Go_Back_From_Payment(page)
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
-    if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
+    if COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK":
 
+            print("----> TEST CASE 1 OF 4")
             # REGISTERED
             login_logout.test_login_from_header()
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
             checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_amex_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                    login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                    login_logout.test_logout_from_my_account_logout()
-
-            # GUEST
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_guest_user()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_self_collect_checkbox()
-            checkout_delivery.test_enter_collector_details_in_store_collect()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_payment.test_enter_change_billing_address_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-
-            # REGISTERED
-            login_logout.test_login_from_header()
-            print(" Case 3: Self Collect + Master card + Same Billing Name")
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_self_collect_checkbox()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                    login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                    login_logout.test_logout_from_my_account_logout()
-
-            # GUEST
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_guest_user()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_enter_user_details_in_premium_delivery()
-            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_visa_credit_card_details()
-            checkout_payment.test_use_delivery_as_billing_address_checkbox()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-
-            #REGISTERED
-            login_logout.test_login_from_header()
-            print(" Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card")
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_discover_credit_card_details()
-            checkout_payment.test_use_delivery_as_billing_address_checkbox()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_someone_else_collect_checkbox()
-            checkout_delivery.test_enter_collector_details_in_store_collect()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_payment.test_enter_change_billing_name_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                    login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                    login_logout.test_logout_from_my_account_logout()
-
-            # GUEST
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_guest_user()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_self_collect_checkbox()
-            checkout_delivery.test_enter_collector_details_in_store_collect()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_amex_credit_card_details()
-            checkout_payment.test_enter_change_billing_address_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_union_pay_credit_card_details()
-            checkout_payment.test_use_delivery_as_billing_address_checkbox()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_place_an_order_from_order_review_page()
-
-            # REGISTERED
-            login_logout.test_login_from_header()
-            print(" Case 33: Self Collect + Amex card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Union Pay card")
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_registered_user()
-            checkout_delivery.test_open_collect_in_store_tab()
-            checkout_delivery.test_select_self_collect_checkbox()
-            checkout_delivery.test_delivery_date_on_collect_in_store()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_amex_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
-            shopping_cart.test_continue_to_checkout_from_cart()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_union_pay_credit_card_details()
-            checkout_payment.test_use_delivery_as_billing_address_checkbox()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                    login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                    login_logout.test_logout_from_my_account_logout()
-
-
-    elif COUNTRY == "FR" or COUNTRY == "TW":
-
-            # Case 1: Premium Delivery + Amex card + Same Billing address
-            login_logout.test_login_from_header()
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_amex_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
-
-            # Case 1: Premium Delivery + Amex card + Same Billing address
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
+            login_logout.test_logout_from_my_account_logout()
+            # GUEST
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_guest_user()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_enter_user_details_in_premium_delivery()
-            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_amex_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                    checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-
-            # Case 3: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
-            login_logout.test_login_from_header()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_discover_credit_card_details()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
-
-            # Case 3: Premium Delivery + Union Pay card + Different Billing address.
-            checkout_pdp.test_checkout_spp_no_size_without_engraving()
-            checkout_pdp.test_checkout_spp_no_size_with_engraving()
-            checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_login.test_checkout_as_guest_user()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_enter_user_details_in_premium_delivery()
-            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_enter_gift_message()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_union_pay_credit_card_details()
-            checkout_payment.test_enter_change_billing_name_details()
             checkout_payment.test_enter_change_billing_address_details()
             checkout_payment.test_continue_to_review_from_payment_page()
             if REFRESH == "YES":
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
-
-            # Case 4: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
+            print("----> TEST CASE 2 OF 4")
+            # REGISTERED
             login_logout.test_login_from_header()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
-            checkout_delivery.test_open_premium_delivery_tab()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_someone_else_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_discover_credit_card_details()
-            checkout_payment.test_use_delivery_as_billing_address_checkbox()
-            checkout_payment.test_continue_to_review_from_payment_page()
-            checkout_back_from_review.test_go_back_to_delivery_from_review_page()
-            checkout_delivery.test_delivery_date_on_premium_delivery()
-            checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
             checkout_payment.test_continue_to_review_from_payment_page()
-            if REFRESH == "YES":
-                checkout_review.test_page_refresh()
-            checkout_review.test_place_an_order_from_order_review_page()
-            if ENV in ["UAT", "QA"]:
-                login_logout.test_logout_from_order_confirmation_page()
-            elif ENV == "PROD":
-                login_logout.test_logout_from_my_account_logout()
-
-
-            # Case 4: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            login_logout.test_logout_from_my_account_logout()
+            # GUEST
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
             checkout_login.test_checkout_as_guest_user()
@@ -304,11 +89,85 @@ def test_checkout_as_mixed_user(page):
             checkout_delivery.test_delivery_date_on_premium_delivery()
             checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
-            checkout_payment.test_enter_mastercard_credit_card_details()
-            checkout_back_from_payment.test_go_back_to_delivery_from_payment_page()
+            checkout_payment.test_enter_amex_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+
+            print("----> TEST CASE 3 OF 4")
+            #Pre Setup
+            login_logout.test_login_from_header()
+            login_logout.test_logout_from_my_account_logout()
+            # GUEST
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_login.test_checkout_as_guest_user()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_visa_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            # REGISTERED
+            login_logout.test_login_from_header()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
             checkout_delivery.test_continue_to_payment_from_delivery_page()
             checkout_payment.test_enter_discover_credit_card_details()
             checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
+            if ENV in ["UAT", "QA"]:
+                login_logout.test_logout_from_order_confirmation_page()
+            elif ENV == "PROD":
+                login_logout.test_logout_from_my_account_logout()
 
+
+            print("----> TEST CASE 4 OF 4")
+            # GUEST
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_login.test_checkout_as_guest_user()
+            checkout_delivery.test_open_premium_delivery_tab()
+            checkout_delivery.test_enter_user_details_in_premium_delivery()
+            checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
+            checkout_delivery.test_delivery_date_on_premium_delivery()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_union_pay_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
+            # REGISTERED
+            login_logout.test_login_from_header()
+            checkout_pdp.test_checkout_spp_no_size_with_engraving()
+            checkout_pdp.test_secure_checkout_from_minicart()
+            checkout_delivery.test_open_collect_in_store_tab()
+            checkout_delivery.test_select_self_collect_checkbox()
+            checkout_delivery.test_enter_collector_details_in_store_collect()
+            checkout_delivery.test_delivery_date_on_collect_in_store()
+            checkout_delivery.test_enter_gift_message()
+            checkout_delivery.test_continue_to_payment_from_delivery_page()
+            checkout_payment.test_enter_mastercard_credit_card_details()
+            checkout_payment.test_enter_change_billing_address_details()
+            checkout_payment.test_continue_to_review_from_payment_page()
+            if REFRESH == "YES":
+                    checkout_review.test_page_refresh()
+            checkout_review.test_place_an_order_from_order_review_page()
+            if ENV in ["UAT", "QA"]:
+                login_logout.test_logout_from_order_confirmation_page()
+            elif ENV == "PROD":
+                login_logout.test_logout_from_my_account_logout()
+
+    else:
+            logger.info(f"[{ENV}-{COUNTRY}] NO MIXED CHECKOUT CASES TO VERIFY..")

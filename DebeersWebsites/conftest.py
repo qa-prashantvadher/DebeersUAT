@@ -74,7 +74,7 @@ def context(browser, playwright_instance):
             **device,
             "record_video_size": {"width": 430, "height": 932}
         })
-        print("RUNNING IN MOBILE MODE..")
+        print("[DEVICE] RUNNING IN MOBILE MODE..")
 
     elif DEVICE == "TABLET":
         device = playwright_instance.devices["iPad Pro 11"]
@@ -83,14 +83,14 @@ def context(browser, playwright_instance):
             **device,
             "record_video_size": {"width": 1024, "height": 1366}
         })
-        print("RUNNING IN TABLET MODE..")
+        print("[DEVICE] RUNNING IN TABLET MODE..")
 
     elif DEVICE == "DESKTOP":
         context_args.update({
             "no_viewport": True,
             "record_video_size": {"width": 1920, "height": 1080}
         })
-        print("RUNNING IN DESKTOP MODE..")
+        print("[DEVICE] RUNNING IN DESKTOP MODE..")
 
     # AUTH FOR UAT WEBSITE
     if ENV == "UAT":

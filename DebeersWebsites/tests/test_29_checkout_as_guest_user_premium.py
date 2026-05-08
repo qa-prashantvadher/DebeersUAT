@@ -29,6 +29,7 @@ def test_checkout_as_guest_user_premium(page):
 
     if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
 
+            print("----> TEST CASE 1 OF 15")
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -46,6 +47,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 2 OF 15")
             # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -64,6 +66,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 3 OF 15")
             # Case 3: Premium Delivery + Union Pay card + Different Billing address.
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -83,6 +86,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 4 OF 15")
             # Case 8: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -105,6 +109,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 5 OF 15")
             # Case 9: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -129,6 +134,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 6 OF 15")
             # Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -151,6 +157,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 7 OF 15")
             # Case 17: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -174,6 +181,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 8 OF 15")
             # Case 18: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Change delivery method to Someone Else Collect + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -199,6 +207,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 9 OF 15")
             # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -219,6 +228,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 10 OF 15")
             # Case 26: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name and Address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -242,6 +252,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 11 OF 15")
             # Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -267,6 +278,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 12 OF 15")
             # Case 31: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -292,6 +304,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 13 OF 15")
             # Case 32: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Change delivery method to Someone Else Collect + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -319,6 +332,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 14 OF 15")
             # Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -342,6 +356,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 15 OF 15")
             # Case 40: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Change delivery method to Self Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -367,6 +382,7 @@ def test_checkout_as_guest_user_premium(page):
 
     elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
 
+            print("----> TEST CASE 1 OF 7")
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -384,6 +400,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 2 OF 7")
             # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -402,6 +419,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 3 OF 7")
             # Case 3: Premium Delivery + Union Pay card + Different Billing address.
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -421,6 +439,7 @@ def test_checkout_as_guest_user_premium(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 4 OF 7")
             # Case 16: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -443,6 +462,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 5 OF 7")
             # Case 25: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -463,6 +483,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 6 OF 7")
             # Case 30: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -488,6 +509,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 7 OF 7")
             # Case 39: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -512,6 +534,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_review.test_place_an_order_from_order_review_page()
 
     elif COUNTRY == "FR" or COUNTRY == "TW":
+            print("----> TEST CASE 1 OF 9")
             # Case 1: Premium Delivery + Amex card + Same Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -529,6 +552,7 @@ def test_checkout_as_guest_user_premium(page):
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 2 OF 9")
             # Case 2: Premium Delivery + Visa card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -547,6 +571,7 @@ def test_checkout_as_guest_user_premium(page):
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 3 OF 9")
             # Case 3: Premium Delivery + Union Pay card + Different Billing address.
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -566,6 +591,7 @@ def test_checkout_as_guest_user_premium(page):
                 checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 4 OF 9")
             # Case 4: Premium Delivery + Master card > From the Payment page, Go back to the Delivery Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -584,6 +610,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 5 OF 9")
             # Case 5: Premium Delivery + Discover card > From the Review page, Go back to the Delivery Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -606,6 +633,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 6 OF 9")
             # Case 6: Premium Delivery + Master card > From the Review page, Go back to the Payment Page > Discover card + Use Delivery address as Billing address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -626,6 +654,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 7 OF 9")
             # Case 7: Premium Delivery + Discover card > From the Review page, Go back to the Payment Page > Master card + Different Name and Address
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -649,6 +678,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 8 OF 9")
             # Case 8: Premium Delivery + Discover card > From the Review page, Go back to the Cart Page > Premium Delivery + Master card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -674,6 +704,7 @@ def test_checkout_as_guest_user_premium(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 9 OF 9")
             # Case 9: Premium Delivery + Master card > From the Payment page, Go back to the Cart Page > Premium Delivery + Discover card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()

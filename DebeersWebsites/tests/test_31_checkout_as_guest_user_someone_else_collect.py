@@ -27,6 +27,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
 
     if (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "REGRESSION":
 
+            print("----> TEST CASE 1 OF 13")
             # Case 6: Someone Else Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -46,6 +47,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 2 OF 13")
             # Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -68,6 +70,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 3 OF 13")
             # Case 14: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Union Pay card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -90,6 +93,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 4 OF 13")
             # Case 15: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Change delivery method to Self Collect + Union Pay card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -111,6 +115,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 5 OF 13")
             # Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -136,6 +141,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 6 OF 13")
             # Case 23: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Premium Delivery + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -160,6 +166,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 7 OF 13")
             # Case 24: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Change delivery method to Self Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -184,6 +191,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 8 OF 13")
             # Case 29: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -205,6 +213,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 9 OF 13")
             # Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -232,6 +241,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 10 OF 13")
             # Case 37: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -257,6 +267,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 11 OF 13")
             # Case 38: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Change delivery method to Self Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -282,6 +293,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 12 OF 13")
             # Case 43: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -306,6 +318,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 13 OF 13")
             # Case 44: Someone Else Collect + Union Pay card > From the Payment page, Go back to the Cart Page > Change delivery method to Premium Delivery + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -330,6 +343,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
 
     elif (COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK") and TESTING_TYPE == "SMOKE":
 
+            print("----> TEST CASE 1 OF 6")
             # Case 6: Someone Else Collect + Discover card
             checkout_pdp.test_checkout_spp_no_size_without_engraving()
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
@@ -349,6 +363,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 2 OF 6")
             # Case 13: Someone Else Collect + Visa card > From the Payment page, Go back to the Delivery Page > Someone Else Collect + Union Pay card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -371,6 +386,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 3 OF 6")
             # Case 22: Someone Else Collect + Union Pay card > From the Review page, Go back to the Delivery Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -396,6 +412,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 4 OF 6")
             # Case 29: Someone Else Collect + Discover card > From the Review page, Go back to the Payment Page > Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -417,6 +434,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 5 OF 6")
             # Case 36: Someone Else Collect + Union Pay card > From the Review page, Go back to the Cart Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
@@ -444,6 +462,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
+            print("----> TEST CASE 6 OF 6")
             # Case 43: Someone Else Collect + Discover card > From the Payment page, Go back to the Cart Page > Someone Else Collect + Visa card
             checkout_pdp.test_checkout_spp_no_size_with_engraving()
             checkout_pdp.test_secure_checkout_from_minicart()
