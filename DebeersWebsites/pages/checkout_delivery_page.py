@@ -473,7 +473,8 @@ class Checkout_Delivery(BasePage):
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
                 self.fill(self.gift_message_input, self.gift_message_text)
-                logger.info(f"[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX AND ENTERED GIFT MESSAGE TEXT: {self.gift_message_text}")
+                logger.info(f"[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX..")
+                logger.info(f"[CHECKOUT-DELIVERY] ENTERED GIFT MESSAGE: {self.gift_message_text}")
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
