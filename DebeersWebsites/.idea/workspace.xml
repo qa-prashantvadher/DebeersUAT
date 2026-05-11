@@ -7,23 +7,11 @@
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/go_back_from_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/go_back_from_payment_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/go_back_from_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/go_back_from_review_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/open_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_plp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/client_services_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/client_services_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/shopping_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/shopping_cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_27_checkout_client_service_popup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_34_failed_case_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_34_failed_case_verification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778243164339</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778497046714</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1778497046714</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

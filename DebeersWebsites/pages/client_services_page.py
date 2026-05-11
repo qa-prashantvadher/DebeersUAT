@@ -137,11 +137,11 @@ class Client_Services_Page(BasePage):
             self.fill(self.email_email_address, self.email_address_text)
             self.select_option(self.email_reason_dropdown, self.email_appointment_reason)
             if self.COUNTRY == "FR":
-                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] JE SUIS INTÉRESSÉ PAR LA CRÉATION D'UNE BAGUE DE FIANÇAILLES PERSONNALISÉE ET JE SOUHAITE OBTENIR UN DEVIS. JE RECHERCHE UNE FORME XXXXX, PIERRE CENTRALE, ENVIRON X,XX CARATS...")
+                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] JE SUIS INTÉRESSÉ PAR LA CRÉATION D'UNE BAGUE DE FIANÇAILLES PERSONNALISÉE ET JE SOUHAITE OBTENIR UN DEVIS. JE RECHERCHE UNE FORME XXXXX, PIERRE CENTRALE, ENVIRON X,XX CARATS.")
             elif self.COUNTRY == "HK" or self.COUNTRY == "TW":
-                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [測試記錄] 我有興趣製作客製化訂婚戒指並希望獲得報價。我正在尋找 XXXXX 形狀的主石，大約 X.XX 克拉......")
+                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [測試記錄] 我有興趣製作客製化訂婚戒指並希望獲得報價。我正在尋找 XXXXX 形狀的主石，大約 X.XX 克拉.")
             else:
-                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] I AM INTERESTED IN CREATING A CUSTOM ENGAGEMENT RING AND WOULD LIKE TO GET A QUOTE. I AM LOOKING FOR AN XXXXX SHAPE, CENTER STONE, APPROXIMATELY X.XX CARATS...")
+                self.fill(self.email_message,f"[{self.COUNTRY}-{self.ENV}] [TESTING RECORD] I AM INTERESTED IN CREATING A CUSTOM ENGAGEMENT RING AND WOULD LIKE TO GET A QUOTE. I AM LOOKING FOR AN XXXXX SHAPE, CENTER STONE, APPROXIMATELY X.XX CARATS.")
             self.timeout(1000)
             #self.screenshot.take_Page_screenshot("EMAIL_US_BEFORE_SUBMIT")
             self.click(self.email_submit)

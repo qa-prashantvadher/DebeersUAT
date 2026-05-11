@@ -247,7 +247,7 @@ class Book_Appointment(BasePage):
 
                 # Check if "no slots" message is visible
                 if self.page.locator("#noSlots:not(.d-none)").is_visible():
-                    logger.warning(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                    logger.warning(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT..")
                     continue  # try next date
 
                 # Get available timeslots
@@ -261,12 +261,12 @@ class Book_Appointment(BasePage):
                     return True
 
                 # Safety fallback (rare case)
-                logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT...")
+                logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT..")
 
                 self.timeout(2000)
 
                 # If loop completes
-            raise Exception(f"*****[{self.ENV}-{self.COUNTRY}] NO AVAILABLE DATES WITH TIME SLOTS FOUND...*****")
+            raise Exception(f"*****[{self.ENV}-{self.COUNTRY}] NO AVAILABLE DATES WITH TIME SLOTS FOUND..*****")
         except Exception as e:
             logger.error(e)
 
@@ -297,20 +297,20 @@ class Book_Appointment(BasePage):
         try:
             self.timeout(1000)
             if self.is_checked(self.appointment_subscribe_checkbox):
-                logger.warning("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED...")
+                logger.warning("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED..")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
+                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
                 else:
                     self.click(self.appointment_terms_checkbox)
-                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED..")
             else:
                 self.click(self.appointment_subscribe_checkbox)
-                logger.info("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS NOW CHECKED...")
+                logger.info("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS NOW CHECKED..")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED...")
+                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
                 else:
                     self.click(self.appointment_terms_checkbox)
-                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED...")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED..")
         except:
             logger.error("*****[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION AND TERMS CHECKBOXES ARE NOT CHECKED..*****")
 

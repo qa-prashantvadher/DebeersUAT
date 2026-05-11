@@ -51,7 +51,7 @@ class Open_Shopping_Cart_Page(BasePage):
             self.timeout(3000)
             self.click(self.continue_to_checkout_cta)
             self.timeout(5000)
-            logger.info("[CHECKOUT-CART] USER IS PROCEED WITH THE CHECKOUT PROCESS....")
+            logger.info("[CHECKOUT-CART] USER IS PROCEED WITH THE CHECKOUT PROCESS..")
         except:
-            logger.error("*****[CHECKOUT-CART] USER IS NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS....*****")
+            logger.error("*****[CHECKOUT-CART] USER IS NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS..*****")
    
