@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778500015351</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778501729475</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1778501729475</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
