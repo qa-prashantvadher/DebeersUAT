@@ -27,30 +27,42 @@ class Checkout_Login(BasePage):
         try:
             self.timeout(3000)
             if self.is_visible(self.guest_email_address_input):
+                # Customer Email
+                guest_email_value = self.page.locator(self.guest_email_address_input).input_value()
+                registered_email_value = self.page.locator(self.registered_email_address_input).input_value()
+                logger.info(f"[CHECKOUT-LOGIN] CHECKOUT LOGIN PAGE APPEARS..")
+                logger.info(f"GUEST EMAIL VALUE: {guest_email_value}")
+                logger.info(f"REGISTERED EMAIL VALUE: {registered_email_value}")
                 self.fill(self.guest_email_address_input,self.email_address_text)
                 self.screenshot.take_order_page_screenshot("CHECKOUT_LOGIN_GUEST")
                 self.click(self.checkout_as_guest_cta)
                 self.timeout(5000)
-                logger.info("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
+                logger.info("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE \"DELIVERY\" PAGE..")
             else:
                 pass
         except:
-            logger.error(f"*****[CHECKOUT-GUEST] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
+            logger.error(f"*****[CHECKOUT-GUEST] USER IS NOT REDIRECTED TO THE \"DELIVERY\" PAGE..*****")
 
     def test_checkout_as_registered_user(self):
         try:
             self.timeout(3000)
             if self.is_visible(self.registered_email_address_input):
+                # Customer Email
+                guest_email_value = self.page.locator(self.guest_email_address_input).input_value()
+                registered_email_value = self.page.locator(self.registered_email_address_input).input_value()
+                logger.info(f"[CHECKOUT-LOGIN] CHECKOUT LOGIN PAGE APPEARS..")
+                logger.info(f"GUEST EMAIL VALUE: {guest_email_value}")
+                logger.info(f"REGISTERED EMAIL VALUE: {registered_email_value}")
                 self.fill(self.registered_email_address_input, self.email_address_text)
                 self.fill(self.registered_password_input, self.password_text)
                 self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_REGISTERED")
                 self.click(self.checkout_as_register_cta)
                 self.timeout(5000)
-                logger.info("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE CHECKOUT DELIVERY PAGE..")
+                logger.info("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE \"DELIVERY\" PAGE..")
             else:
                 pass
         except:
-            logger.error(f"*****[CHECKOUT-REGISTERED] USER IS NOT REDIRECTED TO THE CHECKOUT DELIVERY PAGE..*****")
+            logger.error(f"*****[CHECKOUT-REGISTERED] USER IS NOT REDIRECTED TO THE \"DELIVERY\" PAGE..*****")
 
 
 

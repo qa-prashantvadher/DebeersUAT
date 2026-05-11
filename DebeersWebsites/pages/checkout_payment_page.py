@@ -221,23 +221,33 @@ class Checkout_Payment(BasePage):
     def test_select_paypal_payment_method(self):
         try:
             self.timeout(1000)
-            self.click(self.payment_by_paypal)
-            self.timeout(1000)
-            logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO PAYPAL..")
+            if self.page.locator(self.payment_by_paypal).is_checked():
+                logger.info("[CHECKOUT-PAYMENT] \"PAYPAL\" PAYMENT METHOD IS ALREADY SELECTED..")
+            elif self.page.locator(self.payment_by_cards).is_checked():
+                logger.info("[CHECKOUT-PAYMENT] \"CARDS\" PAYMENT METHOD IS CURRENTLY SELECTED. CHANGING TO \"PAYPAL\"..")
+                self.click(self.payment_by_paypal)
+                self.timeout(1000)
+                logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO \"PAYPAL\"..")
         except:
-            logger.error("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT PAYPAL PAYMENT METHOD..******")
+            logger.error("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT \"PAYPAL\" PAYMENT METHOD..******")
 
     def test_select_cards_payment_method(self):
         try:
             self.timeout(1000)
-            self.click(self.payment_by_cards)
-            self.timeout(1000)
-            logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO CARDS..")
+            if self.page.locator(self.payment_by_cards).is_checked():
+                logger.info("[CHECKOUT-PAYMENT] \"CARDS\" PAYMENT METHOD IS ALREADY SELECTED..")
+            elif self.page.locator(self.payment_by_paypal).is_checked():
+                logger.info("[CHECKOUT-PAYMENT] \"PAYPAL\" PAYMENT METHOD IS CURRENTLY SELECTED. CHANGING TO \"CARDS\"..")
+                self.click(self.payment_by_cards)
+                self.timeout(1000)
+                logger.info("[CHECKOUT-PAYMENT] PAYMENT METHOD IS CHANGED TO \"CARDS\"..")
         except:
-            logger.error("*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT CARDS PAYMENT METHOD..******")
+            logger.error(f"*****[CHECKOUT-PAYMENT] NOT ABLE TO SELECT \"CARDS\" PAYMENT METHOD..*****")
 
     def test_enter_amex_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.amex_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.amex_expiry_date_text)
@@ -245,12 +255,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_AMEX")
-            logger.info("[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"AMEX\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] AMEX CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"AMEX\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_mastercard_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.mc_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.mc_expiry_date_text)
@@ -258,12 +270,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
-            logger.info("[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"MASTERCARD\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] MASTERCARD CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"MASTERCARD\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_visa_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.visa_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.visa_expiry_date_text)
@@ -271,12 +285,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_VISA")
-            logger.info("[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] VISA CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"VISA\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_union_pay_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.union_pay_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.union_pay_expiry_date_text)
@@ -284,12 +300,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
-            logger.info("[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"UNION PAY\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] UNION PAY CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"UNION PAY\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_discover_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.discover_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.discover_expiry_date_text)
@@ -297,12 +315,14 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            logger.info("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"DISCOVER\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"DISCOVER\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_cartes_visa_credit_card_details(self):
         try:
+            self.timeout(3000)
+            self.test_select_cards_payment_method()
             self.timeout(3000)
             self.page.frame_locator(self.card_number_iframe).get_by_role("textbox").fill(self.cartes_visa_card_number_text)
             self.page.frame_locator(self.expiry_date_iframe).get_by_role("textbox").fill(self.cartes_visa_expiry_date_text)
@@ -310,9 +330,9 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            logger.info("[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] \"CARTES VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
         except:
-            logger.error("*****[CHECKOUT-CARDS] DISCOVER CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-CARDS] \"CARTES VISA\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
     def test_enter_change_billing_name_details(self):
         try:
@@ -326,7 +346,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_phone_input, self.billing_phone_text)
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_NAME")
             logger.info("[CHECKOUT-BILLING] BILLING NAME DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-            logger.info(f"#####[CHECKOUT-BILLING] NAME: {self.billing_title_value.upper()} {billing_first_name_text.upper()} {billing_last_name_text.upper()}")
+            logger.info(f"##### [CHECKOUT-BILLING] NAME: {self.billing_title_value.upper()} {billing_first_name_text.upper()} {billing_last_name_text.upper()}")
         except:
             logger.error("*****[CHECKOUT-BILLING] BILLING NAME DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -351,7 +371,7 @@ class Checkout_Payment(BasePage):
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
             logger.info("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-            logger.info(f"#####[CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
+            logger.info(f"##### [CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
         except:
             logger.error("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 

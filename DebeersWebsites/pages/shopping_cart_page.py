@@ -21,10 +21,10 @@ class Open_Shopping_Cart_Page(BasePage):
             self.timeout(3000)
             self.click(self.header_cart_icon)
             self.timeout(2000)
-            logger.info("[CART] USER IS REDIRECTED TO THE CART PAGE..")
+            logger.info("[CART] USER IS REDIRECTED TO THE \"SHOPPING BAG\" PAGE..")
             self.screenshot.take_page_screenshot("CART_PAGE")
         except:
-            logger.error("*****[CART] USER IS NOT REDIRECTED TO THE CART PAGE..*****")
+            logger.error("*****[CART] USER IS NOT REDIRECTED TO THE \"SHOPPING BAG\" PAGE..*****")
 
     def test_get_cart_products_count(self):
         try:
@@ -41,17 +41,17 @@ class Open_Shopping_Cart_Page(BasePage):
             self.timeout(3000)
             self.click(self.remove_product_icon)
             self.timeout(7000)
-            logger.info("[CART] PRODUCT IS REMOVED FROM THE CART..")
+            logger.info("[CART] PRODUCT IS REMOVED FROM THE \"SHOPPING BAG\" PAGE..")
             #self.screenshot.take_Page_screenshot("CART_REMOVE_PRODUCT")
         except:
-            logger.error("*****[CART] PRODUCT IS NOT REMOVED FROM THE CART PAGE..*****")
+            logger.error("*****[CART] PRODUCT IS NOT REMOVED FROM THE \"SHOPPING BAG\" PAGE..*****")
 
     def test_continue_to_checkout_from_cart(self):
         try:
             self.timeout(3000)
             self.click(self.continue_to_checkout_cta)
             self.timeout(5000)
-            logger.info("[CHECKOUT-CART] USER IS REDIRECTED TO THE DELIVERY PAGE..")
+            logger.info("[CHECKOUT-CART] USER IS PROCEED WITH THE CHECKOUT PROCESS....")
         except:
-            logger.error("*****[CHECKOUT-CART] USER IS NOT REDIRECTED TO THE DELIVERY PAGE..*****")
+            logger.error("*****[CHECKOUT-CART] USER IS NOT ABLE TO PROCEED WITH THE CHECKOUT PROCESS....*****")
    

@@ -20,27 +20,27 @@ class Checkout_Go_Back_From_Review(BasePage):
             self.timeout(1000)
             self.click(self.delivery_tab_from_review)
             self.timeout(2000)
-            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE DELIVERY PAGE..")
+            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE \"DELIVERY\" PAGE..")
             self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_DELIVERY")
         except:
-            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE DELIVERY PAGE..*****")
+            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE \"DELIVERY\" PAGE..*****")
 
     def test_go_back_to_payment_from_review_page(self):
         try:
             self.timeout(1000)
             self.click(self.payment_tab_from_review)
             self.timeout(2000)
-            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE PAYMENT PAGE..")
+            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE \"PAYMENT\" PAGE..")
             self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_PAYMENT")
         except:
-            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE PAYMENT PAGE..*****")
+            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE \"PAYMENT\" PAGE..*****")
 
     def test_go_back_to_shopping_cart_from_review_page(self):
         try:
             self.timeout(1000)
             self.click(self.go_back_to_shopping_bag)
             self.timeout(5000)
-            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE SHOPPING BAG PAGE..")
+            logger.info("[FROM REVIEW PAGE] USER IS REDIRECTED BACK TO THE \"SHOPPING BAG\" PAGE..")
             self.screenshot.take_order_page_screenshot("GO_BACK_FROM_REVIEW_TO_CART")
         except:
-            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE SHOPPING BAG PAGE..*****")
+            logger.error("*****[FROM REVIEW PAGE] USER IS NOT REDIRECTED BACK TO THE \"SHOPPING BAG\" PAGE..*****")

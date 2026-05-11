@@ -51,7 +51,7 @@ class Checkout_Review(BasePage):
             self.timeout(2000)
             self.page.reload()
             self.timeout(3000)
-            logger.info("[CHECKOUT-REVIEW] REVIEW PAGE REFRESHED SUCCESSFULLY..")
+            logger.info("[CHECKOUT-REVIEW] REVIEW PAGE IS REFRESHED SUCCESSFULLY..")
         except:
             logger.error("*****[CHECKOUT-REVIEW] UNABLE TO REFRESH PAGE..*****")
 

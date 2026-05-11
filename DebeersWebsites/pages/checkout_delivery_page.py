@@ -242,19 +242,20 @@ class Checkout_Delivery(BasePage):
             if self.is_active(self.premium_delivery_tab):
                 logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"PREMIUM DELIVERY\"")
                 if self.is_visible(self.premium_your_address_heading):
-                    logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
+                    logger.info("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
                 else:
-                    logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                    logger.error("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
+                logger.info("[CHECKOUT-DELIVERY] \"PREMIUM DELIVERY\" TAB IS ALREADY SELECTED..")
             else:
                 logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"COLLECT IN STORE\"")
                 if self.is_visible(self.premium_your_address_heading):
-                    logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
+                    logger.error("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
                 else:
-                    logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                    logger.info("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
+                self.click(Checkout_Delivery.premium_delivery_tab)
+                self.timeout(2000)
+                logger.info("[CHECKOUT-DELIVERY] \"PREMIUM DELIVERY\" TAB IS SELECTED..")
 
-            self.click(Checkout_Delivery.premium_delivery_tab)
-            self.timeout(2000)
-            logger.info("[CHECKOUT-DELIVERY] \"PREMIUM DELIVERY\" TAB IS NOW SELECTED..")
         except:
             logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"PREMIUM DELIVERY\" TAB..*****")
 
@@ -267,19 +268,19 @@ class Checkout_Delivery(BasePage):
             if self.is_active(self.collect_in_store_tab):
                 logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"COLLECT IN STORE\"")
                 if self.is_visible(self.premium_your_address_heading):
-                    logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
+                    logger.error("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
                 else:
-                    logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                    logger.info("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
+                logger.info("[CHECKOUT-DELIVERY] \"COLLECT IN STORE\" TAB IS ALREADY SELECTED..")
             else:
                 logger.info("[CHECKOUT-DELIVERY] ACTIVE SHIPPING METHOD: \"PREMIUM DELIVERY\"")
                 if self.is_visible(self.premium_your_address_heading):
-                    logger.info("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS VISIBLE..")
+                    logger.info("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
                 else:
-                    logger.error("[CHECKOUT-IN STORE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
-
-            self.click(Checkout_Delivery.collect_in_store_tab)
-            self.timeout(3000)
-            logger.info("[CHECKOUT-DELIVERY] \"COLLECT IN STORE\" TAB IS NOW SELECTED..")
+                    logger.error("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
+                self.click(Checkout_Delivery.collect_in_store_tab)
+                self.timeout(3000)
+                logger.info("[CHECKOUT-DELIVERY] \"COLLECT IN STORE\" TAB IS SELECTED..")
         except:
             logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"COLLECT IN STORE\" TAB..*****")
 
@@ -292,9 +293,9 @@ class Checkout_Delivery(BasePage):
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
             logger.info(f"##### [CHECKOUT-SELF] SELECTED \"SELF COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
             if  self.is_visible(self.premium_your_address_heading):
-                logger.info("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-SELF] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
             else:
-                logger.info("[CHECKOUT-SELF] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                logger.info("[CHECKOUT-SELF] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
         except:
             logger.error("*****[CHECKOUT-SELF] NOT ABLE TO SELECT \"SELF COLLECT\" CHECKBOX..*****")
 
@@ -307,9 +308,9 @@ class Checkout_Delivery(BasePage):
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
             logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED \"SOMEONE ELSE COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
             if self.is_visible(self.premium_your_address_heading):
-                logger.info("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS VISIBLE..")
+                logger.info("[CHECKOUT-SOMEONE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
             else:
-                logger.info("[CHECKOUT-SOMEONE] YOUR ADDRESS SECTION IS NOT VISIBLE..")
+                logger.info("[CHECKOUT-SOMEONE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
         except:
             logger.error("*****[CHECKOUT-SOMEONE] NOT ABLE TO SELECT \"SOMEONE ELSE COLLECT\" CHECKBOX..*****")
 
@@ -420,7 +421,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(2000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_IN_STORE_DELIVERY_DATE")
-            logger.info(f"#####[CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
+            logger.info(f"##### [CHECKOUT-IN STORE] DELIVERY DATE: {delivery_date.upper()}")
         except:
             logger.error("*****[CHECKOUT-IN STORE] DELIVERY DATE DETAIL IS MISSING..*****")
 
@@ -441,7 +442,9 @@ class Checkout_Delivery(BasePage):
             if self.is_checked(self.gift_checkbox):
                 logger.info("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED...")
                 if self.is_visible(self.gift_message_input):
-                    logger.info("[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE...")
+                    gift_message_text = self.page.locator(self.gift_message_input).input_value()
+                    logger.info(f"[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE..")
+                    logger.info(f"[CHECKOUT-DELIVERY] PREVIOUSLY ENTERED GIFT MESSAGE: {gift_message_text}")
                 else:
                     logger.error("*****[CHECKOUT-DELIVERY] GIFT TEXT AREA IS NOT VISIBLE...*****")
                     pass
@@ -449,6 +452,7 @@ class Checkout_Delivery(BasePage):
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
                 self.fill(self.gift_message_input, self.gift_message_text)
+                logger.info("[CHECKOUT-DELIVERY] GIFT MESSAGE IS ENTERED SUCCESSFULLY..")
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:
@@ -456,9 +460,11 @@ class Checkout_Delivery(BasePage):
 
     def test_continue_to_payment_from_delivery_page(self):
         try:
-            self.timeout(1000)
+            self.timeout(2000)
+            self.test_enter_gift_message()
+            self.timeout(4000)
             self.click(self.continue_payment_cta)
-            self.timeout(5000)
-            logger.info("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE PAYMENT PAGE..")
+            self.timeout(7000)
+            logger.info("[CHECKOUT-DELIVERY] USER IS REDIRECTED TO THE \"PAYMENT\" PAGE..")
         except:
-            logger.error("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE PAYMENT PAGE..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] USER IS NOT REDIRECTED TO THE \"PAYMENT\" PAGE..*****")

@@ -90,12 +90,12 @@ class Open_EngagementRings_PLP_Page(BasePage):
             self.click(self.engagement_rings)
             self.timeout(5000)
             self.scroll_down(self.slp_page_records)
-            logger.info("[PLP] USER IS REDIRECTED TO THE ENGAGEMENT RINGS PAGE..")
+            logger.info("[PLP] USER IS REDIRECTED TO THE \"ENGAGEMENT RINGS\" PAGE..")
             result_count = self.inner_text(self.slp_page_records)
             logger.info(f"[PLP] RECORDS WITHOUT SORTING: {result_count.upper()}")
             #self.screenshot.take_Page_screenshot("PLP_WITHOUT_SORTING")
         except:
-            logger.error("*****[PLP] USER IS NOT REDIRECTED TO THE ENGAGEMENT RINGS PAGE..*****")
+            logger.error("*****[PLP] USER IS NOT REDIRECTED TO THE \"ENGAGEMENT RINGS\" PAGE..*****")
 
     def test_apply_sorting_on_plp(self):
        try:

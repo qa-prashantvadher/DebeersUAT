@@ -45,6 +45,7 @@ def test_checkout_failed_cases(page):
     checkout_delivery.test_enter_user_details_in_premium_delivery()
     checkout_delivery.test_enter_valid_delivery_address_in_premium_delivery()
     checkout_delivery.test_delivery_date_on_premium_delivery()
+    checkout_delivery.test_enter_gift_message()
     checkout_delivery.test_continue_to_payment_from_delivery_page()
     checkout_payment.test_enter_union_pay_credit_card_details()
     checkout_payment.test_continue_to_review_from_payment_page()
