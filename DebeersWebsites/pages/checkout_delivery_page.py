@@ -440,19 +440,19 @@ class Checkout_Delivery(BasePage):
     def test_enter_gift_message(self):
         try:
             if self.is_checked(self.gift_checkbox):
-                logger.info("[CHECKOUT-DELIVERY] GIFT OPTION IS ALREADY SELECTED..")
+                logger.info("[CHECKOUT-DELIVERY] \"GIFT MESSAGE\" CHECKBOX IS ALREADY CHECKED..")
                 if self.is_visible(self.gift_message_input):
                     gift_message_text = self.page.locator(self.gift_message_input).input_value()
-                    logger.info(f"[CHECKOUT-DELIVERY] GIFT TEXT AREA IS VISIBLE..")
+                    logger.info(f"[CHECKOUT-DELIVERY] \"GIFT MESSAGE\" TEXT AREA IS VISIBLE..")
                     logger.info(f"[CHECKOUT-DELIVERY] PREVIOUSLY ENTERED GIFT MESSAGE: {gift_message_text}")
                 else:
-                    logger.error("*****[CHECKOUT-DELIVERY] GIFT TEXT AREA IS NOT VISIBLE..*****")
+                    logger.error("*****[CHECKOUT-DELIVERY] \"GIFT MESSAGE\" TEXT AREA IS NOT VISIBLE..*****")
                     pass
             else:
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
                 self.fill(self.gift_message_input, self.gift_message_text)
-                logger.info("[CHECKOUT-DELIVERY] GIFT MESSAGE IS ENTERED SUCCESSFULLY..")
+                logger.info("[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX..")
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:

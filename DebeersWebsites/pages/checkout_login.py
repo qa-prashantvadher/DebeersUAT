@@ -32,9 +32,9 @@ class Checkout_Login(BasePage):
                 registered_email_value = self.page.locator(self.registered_email_address_input).input_value()
                 logger.info("[CHECKOUT-LOGIN] CHECKOUT LOGIN PAGE APPEARS..")
                 if guest_email_value.strip():
-                    logger.info(f"[CHECKOUT-LOGIN] GUEST EMAIL VALUE: {guest_email_value}")
+                    logger.info(f"[CHECKOUT-LOGIN] GUEST EMAIL [PRE-FILLED]: {guest_email_value}")
                 if registered_email_value.strip():
-                    logger.info(f"[CHECKOUT-LOGIN] REGISTERED EMAIL VALUE: {registered_email_value}")
+                    logger.info(f"[CHECKOUT-LOGIN] REGISTERED EMAIL [PRE-FILLED]: {registered_email_value}")
                 self.fill(self.guest_email_address_input,self.email_address_text)
                 self.screenshot.take_order_page_screenshot("CHECKOUT_LOGIN_GUEST")
                 self.click(self.checkout_as_guest_cta)
@@ -54,9 +54,9 @@ class Checkout_Login(BasePage):
                 registered_email_value = self.page.locator(self.registered_email_address_input).input_value()
                 logger.info("[CHECKOUT-LOGIN] CHECKOUT LOGIN PAGE APPEARS..")
                 if guest_email_value.strip():
-                    logger.info(f"[CHECKOUT-LOGIN] GUEST EMAIL VALUE: {guest_email_value}")
+                    logger.info(f"[CHECKOUT-LOGIN] GUEST EMAIL [PRE-FILLED]: {guest_email_value}")
                 if registered_email_value.strip():
-                    logger.info(f"[CHECKOUT-LOGIN] REGISTERED EMAIL VALUE: {registered_email_value}")
+                    logger.info(f"[CHECKOUT-LOGIN] REGISTERED EMAIL [PRE-FILLED]: {registered_email_value}")
                 self.fill(self.registered_email_address_input, self.email_address_text)
                 self.fill(self.registered_password_input, self.password_text)
                 self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_REGISTERED")
