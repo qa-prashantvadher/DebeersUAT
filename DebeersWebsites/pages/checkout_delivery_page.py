@@ -291,7 +291,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SELF_COLLECT")
-            logger.info(f"##### [CHECKOUT-SELF] SELECTED \"SELF COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
+            logger.info(f"##### [CHECKOUT-SELF] SELECTED \"SELF COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}")
             if  self.is_visible(self.premium_your_address_heading):
                 logger.info("[CHECKOUT-SELF] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
             else:
@@ -306,7 +306,7 @@ class Checkout_Delivery(BasePage):
             self.timeout(3000)
             delivery_date = self.get_text(self.collect_in_store_delivery_date).strip()
             self.screenshot.take_order_page_screenshot("CHECKOUT_SOMEONE_ELSE_COLLECT")
-            logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED \"SOMEONE ELSE COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}.")
+            logger.info(f"##### [CHECKOUT-SOMEONE] SELECTED \"SOMEONE ELSE COLLECT\" CHECKBOX. DELIVERY DATE: {delivery_date.upper()}")
             if self.is_visible(self.premium_your_address_heading):
                 logger.info("[CHECKOUT-SOMEONE] \"YOUR ADDRESS\" SECTION IS VISIBLE..")
             else:
@@ -378,7 +378,17 @@ class Checkout_Delivery(BasePage):
                 self.fill(self.premium_postal_code_input, selected_delivery_address["premium_postal_code_text"])
                 self.timeout(1000)
                 logger.info("[CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
-                logger.info(f"##### [CHECKOUT-PREMIUM] DELIVERY ADDRESS: {selected_delivery_address["premium_address_text"].upper()},{selected_delivery_address["premium_city_text"].upper()}, {selected_delivery_address["premium_state_county_text"].upper()}, {selected_delivery_address["premium_postal_code_text"].upper()}")
+                address_parts = [
+                    selected_delivery_address["premium_address_text"].upper(),
+                    selected_delivery_address["premium_city_text"].upper(),
+                    selected_delivery_address["premium_state_county_text"].upper(),
+                    selected_delivery_address["premium_postal_code_text"].upper(),
+                    self.COUNTRY
+                ]
+                # Remove empty values
+                address_parts = [part.strip() for part in address_parts if part.strip()]
+                formatted_address = ", ".join(address_parts)
+                logger.info(f"##### [CHECKOUT-PREMIUM] VALID DELIVERY ADDRESS: {formatted_address}")
         except:
             logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
@@ -402,7 +412,18 @@ class Checkout_Delivery(BasePage):
             self.fill(self.premium_postal_code_input, "TESTING")
             self.timeout(1000)
             logger.info("[CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS DETAILS ARE ENTERED SUCCESSFULLY..")
-            logger.info(f"##### [CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS: {selected_delivery_address['premium_address_text'].upper()}, TESTING, {selected_delivery_address['premium_state_county_text'].upper()}, TESTING")
+            address_parts = [
+                selected_delivery_address["premium_address_text"].upper(),
+                "TESTING",
+                selected_delivery_address["premium_state_county_text"].upper(),
+                "TESTING",
+                self.COUNTRY
+            ]
+
+            # Remove empty values
+            address_parts = [part.strip() for part in address_parts if part.strip()]
+            formatted_address = ", ".join(address_parts)
+            logger.info(f"##### [CHECKOUT-PREMIUM] INVALID DELIVERY ADDRESS: {formatted_address}")
         except:
             logger.error("*****[CHECKOUT-PREMIUM] NOT ABLE TO ENTER DELIVERY ADDRESS DETAILS..*****")
 
@@ -452,7 +473,7 @@ class Checkout_Delivery(BasePage):
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
                 self.fill(self.gift_message_input, self.gift_message_text)
-                logger.info("[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX..")
+                logger.info(f"[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX AND ENTERED GIFT MESSAGE TEXT: {gift_message_text}")
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:

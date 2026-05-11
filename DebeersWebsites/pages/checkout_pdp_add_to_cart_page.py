@@ -46,7 +46,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU1 = random.choice(self.SKU1_LIST)
-        logger.info(f"[CHECKOUT] SKU: {SKU1} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU [WITH ENGRAVING]: {SKU1} [ATTEMPT: {retry + 1}]")
         try:
             if self.COUNTRY == "FR":
                 #locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")  # For Linux/Mac
@@ -78,7 +78,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
 
                 self.click(self.ADD_ENGRAVING_CTA)
                 self.engraving.test_add_engraving()
-                logger.info(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date.upper()}..")
+                logger.info(f"[CHECKOUT] SKU: {SKU1} [ADDED WITH ENGRAVING], DELIVERY DATE: {expected_date.upper()}")
             else:
                 logger.warning("*****ADD TO BAG CTA IS MISSING. TRYING AGAIN WITH THE OTHER SKU..*****")
                 self.test_checkout_spp_no_size_with_engraving(retry + 1)
@@ -92,7 +92,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
             logger.error("*****MAX RETRY LIMIT REACHED. NO VALID SKU FOUND..*****")
             return
         SKU2 = random.choice(self.SKU2_LIST)
-        logger.info(f"[CHECKOUT] SKU: {SKU2} [ATTEMPT: {retry + 1}]")
+        logger.info(f"[CHECKOUT] SKU [WITHOUT ENGRAVING]: {SKU2} [ATTEMPT: {retry + 1}]")
         try:
             self.search.test_search_with_sku(SKU2)
             if self.is_visible(self.ADD_TO_BAG_CTA):
@@ -100,7 +100,7 @@ class Checkout_PDP_SPP_No_Size(BasePage):
                 self.click(self.ADD_TO_BAG_CTA)
                 self.timeout(2000)
 
-                logger.info(f"[CHECKOUT] SKU: {SKU2} [ADDED WITHOUT ENGRAVING], DELIVERY DATE: {delivery_date.upper()}..")
+                logger.info(f"[CHECKOUT] SKU: {SKU2} [ADDED WITHOUT ENGRAVING], DELIVERY DATE: {delivery_date.upper()}")
                 #self.screenshot.take_Page_screenshot("CHECKOUT_SPP_NO_SIZE_ADD_BAG")
                 self.click(self.minicart_close_icon)
             else:

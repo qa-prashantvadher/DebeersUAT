@@ -76,7 +76,10 @@ class Checkout_Review(BasePage):
             total_including_tax = self.get_text(self.total_including_tax).strip()
 
             logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] SUBTOTAL: {subtotal.upper()}")
-            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX: {calculated_tax.upper()}")
+            if self.COUNTRY == "US":
+                logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX (EXCLUSIVE): {calculated_tax.upper()}")
+            else:
+                logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] TAX (INCLUSIVE): {calculated_tax.upper()}")
             logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] GRAND TOTAL (INCLUDING TAX): {total_including_tax.upper()}")
 
             shipping_method_text = self.get_text(self.shipping_method).strip()
@@ -89,13 +92,13 @@ class Checkout_Review(BasePage):
 
             billing_address_summary_text = self.get_text(self.billing_address_summary)
             clean_billing_address_summary_text = "\n".join(line.strip() for line in billing_address_summary_text.splitlines() if line.strip())
-            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: \n{clean_billing_address_summary_text.upper()}..")
+            logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER REVIEW] BILLING ADDRESS: \n{clean_billing_address_summary_text.upper()}")
 
             if self.ENV in ["UAT", "QA"]:
                 self.click(self.place_order_cta)
                 self.timeout(10000)
                 order_number = self.get_text(self.order_number_confirmation_page).split()[-1]
-                logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}..")
+                logger.info(f"##### [{self.COUNTRY}-{self.ENV}][ORDER CONFIRMATION] ORDER NUMBER: {order_number} AND DELIVERY DATE: {delivery_date.upper()}")
                 self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
