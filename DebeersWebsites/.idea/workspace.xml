@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/base_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
@@ -23,14 +24,15 @@
       <change beforePath="$PROJECT_DIR$/pages/search_slp_pdp.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_slp_pdp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/take_screenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/update_my_account_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/update_my_account_details.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_32_update_my_account_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_32_update_my_account_details.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,21 +61,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/PlayWright Python/DebeersWebsites/tests&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "D:/PlayWright Python/DebeersWebsites/tests",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PlayWright Python\DebeersWebsites\tests" />
@@ -474,7 +476,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778503603287</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778587348433</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1778587348433</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

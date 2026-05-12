@@ -50,6 +50,8 @@ class Login_Page(BasePage):
                     self.timeout(1000)
                     #self.screenshot.take_Page_screenshot("HEADER_LOGIN")
                     self.click(self.modal_login_button)
+                    # Wait for my account element
+                    self.wait_for_visible(self.my_account_landing_not_you, timeout=30000)
                     self.timeout(10000)
                     #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
                     logger.info("[HEADER-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")

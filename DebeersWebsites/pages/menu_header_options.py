@@ -152,8 +152,8 @@ class Open_Menu_Header_Options (BasePage):
             "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a"
         }
 
-    elif COUNTRY == "MC":
-        # MC Country Records
+    elif COUNTRY == "MO":
+        # MO Country Records
         country_value_locator = {
             "australia": "//*[@id='accordionCountrySelector_mobile']/li[1]/a",
             "austria": "//*[@id='accordionCountrySelector_mobile']/li[2]/a",

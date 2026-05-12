@@ -508,5 +508,5 @@ def test_checkout_as_guest_user_self_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_review.test_place_an_order_from_order_review_page()
 
-    elif COUNTRY == "FR" or COUNTRY == "TW" or COUNTRY == "MC":
+    elif COUNTRY == "FR" or COUNTRY == "TW" or COUNTRY == "MO":
             print(f"[{ENV}-{COUNTRY}] NO CASES RELATED TO THE COLLECT IN STORE TAB..")

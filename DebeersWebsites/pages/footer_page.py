@@ -156,8 +156,8 @@ class Footer_Page(BasePage):
             "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a"
         }
 
-    elif COUNTRY == "MC":
-        # MC Country dropdown records
+    elif COUNTRY == "MO":
+        # MO Country dropdown records
         location_keyword = {
             "australia": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[1]/a",
             "austria": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[2]/a",
@@ -175,7 +175,7 @@ class Footer_Page(BasePage):
             "united_kingdom": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[15]/a",
             "united_states": "//*[@id='accordionCountrySelector_desktop']/div/ul/li[16]/a"
         }
-        # MC Language dropdown records
+        # MO Language dropdown records
         language_keyword = {
             "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a",
             "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",

@@ -158,7 +158,7 @@ class Checkout_Payment(BasePage):
                 "billing_postal_code_text": "65141"
             }]
 
-    elif COUNTRY == "MC":
+    elif COUNTRY == "MO":
         # Billing Name
         billing_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
         billing_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
@@ -167,22 +167,22 @@ class Checkout_Payment(BasePage):
         # Billing Address List
         billing_addresses = [
             {
-                "premium_address_text": "Rua Cidade de Lisboa, 130",
-                "premium_city_text": "Taipa",
-                "premium_state_county_text": "Macau",
-                "premium_postal_code_text": ""
+                "billing_address_text": "130, Rua Cidade de Lisboa",
+                "billing_city_text": "Taipa",
+                "billing_state_county_text": "Macau",
+                "billing_postal_code_text": ""
             },
             {
-                "premium_address_text": "Estrada Marginal da Ilha Verde, 14-17",
-                "premium_city_text": "Macau",
-                "premium_state_county_text": "",
-                "premium_postal_code_text": ""
+                "billing_address_text": "14-17, Estrada Marginal da Ilha Verde",
+                "billing_city_text": "Macau",
+                "billing_state_county_text": "",
+                "billing_postal_code_text": ""
             },
             {
-                "premium_address_text": "Estrada de Dom Maria II, 7",
-                "premium_city_text": "Macau",
-                "premium_state_county_text": "",
-                "premium_postal_code_text": ""
+                "billing_address_text": "7, Estrada de Dom Maria II",
+                "billing_city_text": "Macau",
+                "billing_state_county_text": "",
+                "billing_postal_code_text": ""
             }]
 
     #Payment Methods
@@ -247,7 +247,7 @@ class Checkout_Payment(BasePage):
 
     def test_select_paypal_payment_method(self):
         try:
-            self.timeout(1000)
+            self.timeout(5000)
             if self.page.locator(self.payment_by_paypal).is_checked():
                 logger.info("[CHECKOUT-PAYMENT] \"PAYPAL\" PAYMENT METHOD IS ALREADY SELECTED..")
             elif self.page.locator(self.payment_by_cards).is_checked():
@@ -260,7 +260,7 @@ class Checkout_Payment(BasePage):
 
     def test_select_cards_payment_method(self):
         try:
-            self.timeout(1000)
+            self.timeout(5000)
             if self.page.locator(self.payment_by_cards).is_checked():
                 logger.info("[CHECKOUT-PAYMENT] \"CARDS\" PAYMENT METHOD IS ALREADY SELECTED..")
             elif self.page.locator(self.payment_by_paypal).is_checked():
@@ -391,14 +391,24 @@ class Checkout_Payment(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.billing_county_input, selected_billing_address["billing_state_county_text"])
-            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MC":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MO":
                 # State Text-field
                 self.fill(self.billing_state_input, selected_billing_address["billing_state_county_text"])
             self.fill(self.billing_city_input,selected_billing_address["billing_city_text"])
             self.fill(self.billing_postal_code_input,selected_billing_address["billing_postal_code_text"])
             self.screenshot.take_order_page_screenshot("CHECKOUT_BILLING_ADDRESS")
             logger.info("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE ADDED ON THE PAYMENT PAGE..")
-            logger.info(f"##### [CHECKOUT-BILLING] BILLING ADDRESS: {selected_billing_address["billing_address_text"].upper()},{selected_billing_address["billing_city_text"].upper()}, {selected_billing_address["billing_state_county_text"].upper()}, {selected_billing_address["billing_postal_code_text"].upper()}")
+            address_parts = [
+                selected_billing_address["billing_address_text"].upper(),
+                selected_billing_address["billing_city_text"].upper(),
+                selected_billing_address["billing_state_county_text"].upper(),
+                selected_billing_address["billing_postal_code_text"].upper(),
+                self.COUNTRY
+            ]
+            # Remove empty values
+            address_parts = [part.strip() for part in address_parts if part.strip()]
+            formatted_address = ", ".join(address_parts)
+            logger.info(f"##### [CHECKOUT-BILLING] BILLING ADDRESS: {formatted_address}")
         except:
             logger.error("*****[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 

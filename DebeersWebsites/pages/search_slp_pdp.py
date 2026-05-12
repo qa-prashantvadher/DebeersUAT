@@ -60,7 +60,7 @@ class SearchSKU(BasePage):
         cut_emerald_option = "//div[contains(text(),'Emerald')]"
         cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
-    elif COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MC":
+    elif COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MO":
         # PLP  Page > Filter
         filter_label = "button.btn-filtered.js-show-filters"
 

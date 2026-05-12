@@ -197,36 +197,36 @@ class Checkout_Delivery(BasePage):
                 "premium_postal_code_text": "65141"
             }]
 
-    elif COUNTRY == "MC":
+    elif COUNTRY == "MO":
         # Delivery and Collector Name
         delivery_collector_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
         delivery_collector_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
         # Gift Message Text
-        gift_message_text = "測試訂單並附有禮品資訊。我希望這件作品能為您的收藏增添一抹美麗，並真正為您每天佩戴它帶來歡樂和優雅。"
+        gift_message_text = "中文订单，附赠留言。希望这件饰品能为您的收藏增添一抹亮丽的色彩，并让您在佩戴的每一天都感受到喜悦与优雅。"
         # Shipping Methods
-        premium_delivery_tab = "//button[@id='MC-SHIPPING-01']"
-        collect_in_store_tab = "//button[@id='MC-SHIPPING-02']"
+        premium_delivery_tab = "//button[@id='MO-SHIPPING-01']"
+        collect_in_store_tab = "//button[@id='MO-SHIPPING-02']"
         # State Input Field
         premium_state_input = "//input[@id='shippingState']"
         # Delivery Date
-        premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MC-SHIPPING-01']"
-        collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MC-SHIPPING-02']"
+        premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MO-SHIPPING-01']"
+        collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MO-SHIPPING-02']"
         # Delivery Address list
         delivery_addresses = [
             {
-                "premium_address_text": "Rua Cidade de Lisboa, 130",
+                "premium_address_text": "130, Rua Cidade de Lisboa",
                 "premium_city_text": "Taipa",
                 "premium_state_county_text": "Macau",
                 "premium_postal_code_text": ""
             },
             {
-                "premium_address_text": "Estrada Marginal da Ilha Verde, 14-17",
+                "premium_address_text": "14-17, Estrada Marginal da Ilha Verde",
                 "premium_city_text": "Macau",
                 "premium_state_county_text": "",
                 "premium_postal_code_text": ""
             },
             {
-                "premium_address_text": "Estrada de Dom Maria II, 7",
+                "premium_address_text": "7, Estrada de Dom Maria II",
                 "premium_city_text": "Macau",
                 "premium_state_county_text": "",
                 "premium_postal_code_text": ""
@@ -406,7 +406,7 @@ class Checkout_Delivery(BasePage):
                 elif self.COUNTRY == "UK":
                     # County Text-field
                     self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-                elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MC":
+                elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MO":
                     # State text field
                     self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
@@ -440,7 +440,7 @@ class Checkout_Delivery(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MC":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MO":
                 # State text field
                 self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
             self.fill(self.premium_city_input, "TESTING")

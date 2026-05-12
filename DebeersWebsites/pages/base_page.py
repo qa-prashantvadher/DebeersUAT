@@ -2,6 +2,12 @@ class BasePage:
     def __init__(self, page):
         self.page = page
 
+    def wait_for_visible(self, locator, timeout=30000):
+        self.page.locator(locator).wait_for(
+            state="visible",
+            timeout=timeout
+        )
+
     def select_option(self, locator: object, text: object):
         self.page.locator(locator).select_option(text)
 
@@ -46,17 +52,27 @@ class BasePage:
     def is_checked(self, locator):
         return self.page.locator(locator).is_checked()
 
-    def is_not_visible(self, locator):
-        return self.page.locator(locator).is_not_visible()
+    def is_not_visible(self, locator, timeout=5000):
+        try:
+            self.page.locator(locator).wait_for(
+                state="hidden",
+                timeout=timeout
+            )
+            return True
+        except:
+            return False
 
     def press(self, locator, text):
         return self.page.locator(locator).press(text)
 
     def keyboard_press(self, text):
-        return self.page.keyboard_press(text)
+        return self.page.keyboard.press(text)
 
-    def wait_for_element(self, locator, timeout):
-        return self.page.locator(locator).wait_for_element(timeout)
+    def wait_for_element(self, locator, timeout=5000):
+        return self.page.locator(locator).wait_for(
+            state="visible",
+            timeout=timeout
+        )
 
     def timeout(self, timeout):
         return self.page.wait_for_timeout(timeout)
@@ -66,3 +82,12 @@ class BasePage:
 
     def scroll_down(self, locator):
         return self.page.locator(locator).scroll_into_view_if_needed()
+
+    def count(self, locator):
+        return self.page.locator(locator).count()
+
+    def first(self, locator):
+        return self.page.locator(locator).first
+
+    def nth(self, locator, index):
+        return self.page.locator(locator).nth(index)
