@@ -7,7 +7,30 @@
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add_engraving.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add_engraving.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/checkout_delivery_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_delivery_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_payment_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_payment_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/checkout_review_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_review_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/client_services_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/client_services_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/footer_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/footer_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_pages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/open_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_plp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search_slp_pdp.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search_slp_pdp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/take_screenshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/take_screenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_12_search_and_slp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_24_checkout_as_registered_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_25_checkout_as_registered_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_26_checkout_as_registered_user_someone_else_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_28_checkout_as_mixed_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -443,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778502133530</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778503603287</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1778503603287</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -463,15 +494,5 @@
     <MESSAGE value="replaced print with logger" />
     <MESSAGE value="minor changes" />
     <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pages/hj_upp_single_variant.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

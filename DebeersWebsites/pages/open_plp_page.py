@@ -17,7 +17,7 @@ class Open_EngagementRings_PLP_Page(BasePage):
         engagement_rings = "a[id='N10050'] span[class='menu__nav-link-span']"
 
 
-    elif COUNTRY == "UK" or COUNTRY == "FR" or COUNTRY == "HK" or COUNTRY == "TW":
+    elif COUNTRY == "UK" or COUNTRY == "FR" or COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MC":
         engagement_bridal_sub_menu = "button[id='G10002'] span[class='menu__nav-link-span']"
         engagement_rings = "a[id='G10050'] span[class='menu__nav-link-span']"
 
@@ -59,7 +59,7 @@ class Open_EngagementRings_PLP_Page(BasePage):
         cut_emerald_option = "//div[contains(text(),'Emerald')]"
         cut_apply_button = "div[class='refinement-content is-filter-bar productCut'] a[name='apply']"
 
-    elif COUNTRY == "HK" or COUNTRY == "TW":
+    elif COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MC":
         # PLP  Page > Filter
         filter_label = "button.btn-filtered.js-show-filters"
 

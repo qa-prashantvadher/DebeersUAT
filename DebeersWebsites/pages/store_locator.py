@@ -52,7 +52,7 @@ class Search_Locator_Page(BasePage):
         new_york_madison_avenue_map_marker = "gmp-advanced-marker[title='New York Madison Avenue'] div[class='js-store-marker'] svg"
         hover_map_marker_close = "button[class='gm-ui-hover-effect']"
 
-    elif COUNTRY == "HK" or COUNTRY == "TW":
+    elif COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MC":
         show_all_stores_section = "//*[@id='js-view-all']"
         europe_in_show_all = "h3:has-text('歐洲')"
         middle_east_in_show_all = "h3:has-text('中東')"

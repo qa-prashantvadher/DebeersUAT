@@ -43,7 +43,7 @@ class Login_Page(BasePage):
         def test_login_from_header(self):
             try:
                 self.click(self.my_account_to_login_icon)
-                self.timeout(2000)
+                self.timeout(8000)
                 if self.is_visible(self.modal_user_name_input):
                     self.fill(self.modal_user_name_input,self.user_name_text)
                     self.fill(self.modal_password_input,self.password_text)

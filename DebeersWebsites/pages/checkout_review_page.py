@@ -28,6 +28,9 @@ class Checkout_Review(BasePage):
     elif COUNTRY == "TW":
         delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime TW-SHIPPING-01']"
         delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime TW-SHIPPING-02']"
+    elif COUNTRY == "MC":
+        delivery_date_premium_review_page = "//span[@class='time estimatedArrivalTime MC-SHIPPING-01']"
+        delivery_date_collect_review_page = "//span[@class='time estimatedArrivalTime MC-SHIPPING-02']"
     place_order_cta = "//button[@class='btn btn-primary place-order']"
     payment_tab = "//button[@data-stage='payment']"
     order_number_confirmation_page = "//span[@class='order-number']"

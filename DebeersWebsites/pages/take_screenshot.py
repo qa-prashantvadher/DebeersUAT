@@ -27,7 +27,7 @@ class PageScreenshot(BasePage):
         if self.ENV not in env_map:
             raise ValueError(f"Invalid Environment: {self.ENV}")
 
-        if self.COUNTRY not in ["UK", "US", "FR", "HK", "TW"]:
+        if self.COUNTRY not in ["UK", "US", "FR", "HK", "TW", "MC"]:
             raise ValueError(f"Invalid Country: {self.COUNTRY}")
 
         self.base_path = os.path.join(screenshot_path, env_map[self.ENV], self.COUNTRY)

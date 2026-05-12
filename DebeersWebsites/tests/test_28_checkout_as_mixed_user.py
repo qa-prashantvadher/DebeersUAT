@@ -31,7 +31,6 @@ def test_checkout_as_mixed_user(page):
     checkout_back_from_review =  Checkout_Go_Back_From_Review(page)
 
     if COUNTRY == "UK" or COUNTRY == "US" or COUNTRY == "HK":
-
             print("----> TEST CASE 1 OF 4")
             # REGISTERED
             login_logout.test_login_from_header()

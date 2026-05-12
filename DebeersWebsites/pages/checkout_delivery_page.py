@@ -197,6 +197,41 @@ class Checkout_Delivery(BasePage):
                 "premium_postal_code_text": "65141"
             }]
 
+    elif COUNTRY == "MC":
+        # Delivery and Collector Name
+        delivery_collector_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
+        delivery_collector_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
+        # Gift Message Text
+        gift_message_text = "測試訂單並附有禮品資訊。我希望這件作品能為您的收藏增添一抹美麗，並真正為您每天佩戴它帶來歡樂和優雅。"
+        # Shipping Methods
+        premium_delivery_tab = "//button[@id='MC-SHIPPING-01']"
+        collect_in_store_tab = "//button[@id='MC-SHIPPING-02']"
+        # State Input Field
+        premium_state_input = "//input[@id='shippingState']"
+        # Delivery Date
+        premium_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MC-SHIPPING-01']"
+        collect_in_store_delivery_date = "//span[@class='method-date__text-time estimatedArrivalTime MC-SHIPPING-02']"
+        # Delivery Address list
+        delivery_addresses = [
+            {
+                "premium_address_text": "Rua Cidade de Lisboa, 130",
+                "premium_city_text": "Taipa",
+                "premium_state_county_text": "Macau",
+                "premium_postal_code_text": ""
+            },
+            {
+                "premium_address_text": "Estrada Marginal da Ilha Verde, 14-17",
+                "premium_city_text": "Macau",
+                "premium_state_county_text": "",
+                "premium_postal_code_text": ""
+            },
+            {
+                "premium_address_text": "Estrada de Dom Maria II, 7",
+                "premium_city_text": "Macau",
+                "premium_state_county_text": "",
+                "premium_postal_code_text": ""
+            }]
+
 
     #Premium Delivery > Shipping Address Info
     premium_address_input = "//input[@id='shippingAddressOne']"
@@ -254,10 +289,10 @@ class Checkout_Delivery(BasePage):
                     logger.info("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
                 self.click(Checkout_Delivery.premium_delivery_tab)
                 self.timeout(2000)
-                logger.info("[CHECKOUT-DELIVERY] \"PREMIUM DELIVERY\" TAB IS SELECTED..")
+                logger.info("[CHECKOUT-DELIVERY] SELECTED \"PREMIUM DELIVERY\" SHIPPING METHOD..")
 
         except:
-            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"PREMIUM DELIVERY\" TAB..*****")
+            logger.error("*****[CHECKOUT-DELIVERY] NOT ABLE TO SELECT \"PREMIUM DELIVERY\" SHIPPING METHOD..*****")
 
     def test_open_collect_in_store_tab(self):
         try:
@@ -280,9 +315,9 @@ class Checkout_Delivery(BasePage):
                     logger.error("[CHECKOUT-IN STORE] \"YOUR ADDRESS\" SECTION IS NOT VISIBLE..")
                 self.click(Checkout_Delivery.collect_in_store_tab)
                 self.timeout(3000)
-                logger.info("[CHECKOUT-DELIVERY] \"COLLECT IN STORE\" TAB IS SELECTED..")
+                logger.info("[CHECKOUT-DELIVERY] SELECTED \"COLLECT IN STORE\" SHIPPING METHOD..")
         except:
-            logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO OPEN \"COLLECT IN STORE\" TAB..*****")
+            logger.info("*****[CHECKOUT-DELIVERY] NOT ABLE TO SELECT \"COLLECT IN STORE\" SHIPPING METHOD..*****")
 
     def test_select_self_collect_checkbox(self):
         try:
@@ -371,7 +406,7 @@ class Checkout_Delivery(BasePage):
                 elif self.COUNTRY == "UK":
                     # County Text-field
                     self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-                elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW":
+                elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MC":
                     # State text field
                     self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
                 self.fill(self.premium_city_input, selected_delivery_address["premium_city_text"])
@@ -405,7 +440,7 @@ class Checkout_Delivery(BasePage):
             elif self.COUNTRY == "UK":
                 # County Text-field
                 self.fill(self.premium_county_input, selected_delivery_address["premium_state_county_text"])
-            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW":
+            elif self.COUNTRY == "FR" or self.COUNTRY == "HK" or self.COUNTRY == "TW" or self.COUNTRY == "MC":
                 # State text field
                 self.fill(self.premium_state_input, selected_delivery_address["premium_state_county_text"])
             self.fill(self.premium_city_input, "TESTING")

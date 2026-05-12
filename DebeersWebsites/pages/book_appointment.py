@@ -90,7 +90,7 @@ class Book_Appointment(BasePage):
         appointment_product_question_text = "[THIS IS A TESTING RECORD. PLEASE IGNORE] Je souhaite obtenir des informations complémentaires sur les produits de Haute Joaillerie proposés par De Beers."
         appointment_question_text = "[THIS IS A TESTING RECORD. PLEASE IGNORE] Je souhaite obtenir des informations complémentaires sur les autres produits proposés par De Beers."
 
-    elif COUNTRY == "HK" or COUNTRY == "TW":
+    elif COUNTRY == "HK" or COUNTRY == "TW" or COUNTRY == "MC":
         # Delivery and Collector Name
         appointment_first_name_list = ["Yan", "Yee", "Wah", "Ming", "Mei", "Man", "Kwong", "Kei", "Ho"]
         appointment_last_name_list = ["Chan", "Wong", "Lee", "Leung", "Ho", "Cheung", "Lam", "Lau", "Tang", "Yeung"]
