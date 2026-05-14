@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 class Open_Menu_Header_Options (BasePage):
     URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
+    ENV = os.getenv("ENVIRONMENT").upper()
 
     menu_icon = "//button[contains(@class,'js-btn-hamburger')]"
 
@@ -21,9 +22,10 @@ class Open_Menu_Header_Options (BasePage):
 
     country_language_selector = "//*[@id='languageSelectorLink']"
 
-    choose_language_dropdown = "//*[@id='languageHeading']/button"
+    choose_language_dropdown = "//button[@data-bs-target='#accordionLanguageSelector_mobile']"
 
-    choose_country_dropdown = "//*[@id='countryHeading']/button"
+    choose_country_dropdown = "//button[@data-bs-target='#accordionCountrySelector_mobile']"
+
     if COUNTRY == "US":
         # US Country Records
         country_value_locator = {
@@ -173,9 +175,7 @@ class Open_Menu_Header_Options (BasePage):
         }
         # Language Records
         language_value_locator = {
-            "english": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a",
-            "french": "//div[@id='navigation']//div[@class='accordion-item']//li[2]//a",
-            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[3]//a"
+            "chinese": "//div[@id='navigation']//div[@class='accordion-item']//li[1]//a"
         }
 
     header_client_service_icon = "//*[@id='headerClientSupport']//a[@id='headerClientSupportButton']"
@@ -284,13 +284,14 @@ class Open_Menu_Header_Options (BasePage):
                  self.timeout(1000)
                  self.click(locator)
                  self.timeout(8000)
-                 try:
-                    self.timeout(2000)
-                    self.website.test_cookie_consent()
-                    self.timeout(2000)
-                    self.website.test_country_selector()
-                 except:
-                     logger.warning("[COOKIE] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
+                 if self.ENV != "QA":
+                     try:
+                        self.timeout(2000)
+                        self.website.test_cookie_consent()
+                        self.timeout(2000)
+                        self.website.test_country_selector()
+                     except:
+                         logger.warning("[COOKIE] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..")
                  self.timeout(2000)
                  page_url = self.page.url
                  logger.info(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")

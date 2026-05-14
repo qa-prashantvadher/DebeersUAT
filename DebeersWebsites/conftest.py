@@ -25,7 +25,12 @@ def browser(playwright_instance):
     browser = playwright_instance.chromium.launch(
         channel="msedge",
         headless=False,
-        args=["--start-maximized"]
+        args=[
+              "--start-maximized",
+              "--disable-features=Translate,msEdgeTranslate,EdgeTranslate,TranslateUI",
+              "--disable-translate",
+              "--lang=en-US"
+        ]
     )
     yield browser
     browser.close()
@@ -37,6 +42,7 @@ def context(browser, playwright_instance):
     ENV = os.getenv("ENVIRONMENT").upper()
     COUNTRY = os.getenv("LOCALE").upper()
     DEVICE = os.getenv("DEVICE").upper()
+    LOCALE = os.getenv("LOCALE").lower()
 
     date_folder = time.strftime('%d%m%Y')
     base_path = r"D:\Debeers Videos and Screenshots\Videos"
@@ -57,9 +63,16 @@ def context(browser, playwright_instance):
     )
     os.makedirs(video_full_path, exist_ok=True)
 
+    locale_map = {
+        "fr-fr",
+        "zh-hk",
+        "zh-tw",
+        "zh-mo"
+    }
     context_args = {
         "record_video_dir": video_full_path,
         "permissions": ["geolocation"],
+        "locale": LOCALE,
         "geolocation": {
             "latitude": 51.508099,
             "longitude": -0.140295

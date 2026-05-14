@@ -1,6 +1,12 @@
 from pages.store_locator import Search_Locator_Page
 from pages.footer_page import Footer_Page
 from pages.faq_page import FAQ_Page
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
+ENV = os.getenv("ENVIRONMENT").upper()
+COUNTRY = os.getenv("LOCALE").upper()
 
 '''
 TEST SCENARIOS:
@@ -22,22 +28,30 @@ def test_footer_section(page):
     footer_section = Footer_Page(page)
     faq_section  = FAQ_Page(page)
 
-    # FOOTER SECTION
-    print("----> TEST CASE 1 OF 8")
-    footer_section.test_locate_a_store_link_from_footer()
-    store_locator.test_close_store_locator_page()
-    print("----> TEST CASE 2 OF 8")
-    footer_section.test_book_an_appointment_link_from_footer()
-    print("----> TEST CASE 3 OF 8")
-    footer_section.test_delivery_returns_link_from_footer()
-    print("----> TEST CASE 4 OF 8")
-    footer_section.test_contact_us_link_from_footer()
-    print("----> TEST CASE 5 OF 8")
-    footer_section.test_faq_link_from_footer()
-    faq_section.test_all_faq_categories()
-    print("----> TEST CASE 6 OF 8")
-    footer_section.test_news_letter_from_footer()
-    print("----> TEST CASE 7 OF 8")
-    footer_section.test_select_country_records_from_location_footer()
-    print("----> TEST CASE 8 OF 8")
-    footer_section.test_select_language_records_from_language_footer()
+    print(f"COUNTRY VALUE = [{COUNTRY}]")
+
+    if COUNTRY != "MO":
+        footer_section.test_all_client_services_link_from_footer()
+    else:
+        # FOOTER SECTION
+        print("----> TEST CASE 1 OF 8")
+        footer_section.test_locate_a_store_link_from_footer()
+        store_locator.test_close_store_locator_page()
+        print("----> TEST CASE 2 OF 8")
+        footer_section.test_book_an_appointment_link_from_footer()
+        print("----> TEST CASE 3 OF 8")
+        footer_section.test_delivery_returns_link_from_footer()
+        print("----> TEST CASE 4 OF 8")
+        footer_section.test_contact_us_link_from_footer()
+        print("----> TEST CASE 5 OF 8")
+        footer_section.test_faq_link_from_footer()
+        faq_section.test_all_faq_categories()
+        print("----> TEST CASE 6 OF 8")
+        footer_section.test_news_letter_from_footer()
+        '''
+            print("----> TEST CASE 7 OF 8")
+            footer_section.test_select_country_records_from_location_footer()
+            if COUNTRY != "MO":
+                print("----> TEST CASE 8 OF 8")
+                footer_section.test_select_language_records_from_language_footer()
+            '''

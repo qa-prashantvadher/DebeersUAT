@@ -52,7 +52,7 @@ class Login_Page(BasePage):
                     self.click(self.modal_login_button)
                     # Wait for my account element
                     self.wait_for_visible(self.my_account_landing_not_you, timeout=30000)
-                    self.timeout(10000)
+                    self.timeout(15000)
                     #self.screenshot.take_Page_screenshot("HEADER_LOGIN_MY_ACCOUNT")
                     logger.info("[HEADER-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
                 else:
@@ -71,7 +71,7 @@ class Login_Page(BasePage):
                 #self.screenshot.take_Page_screenshot("CART_LOGIN")
                 self.timeout(1000)
                 self.click(self.cart_login_button)
-                self.timeout(5000)
+                self.timeout(10000)
                 #self.screenshot.take_Page_screenshot("CART_LOGIN_CART")
                 logger.info("[CART-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:
@@ -89,7 +89,7 @@ class Login_Page(BasePage):
                 #self.screenshot.take_Page_screenshot("REGISTER_LOGIN")
                 self.timeout(1000)
                 self.click(self.register_login_button)
-                self.timeout(5000)
+                self.timeout(10000)
                 #self.screenshot.take_Page_screenshot("REGISTER_LOGIN_MY_ACCOUNT")
                 logger.info("[REGISTER-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:
@@ -106,7 +106,7 @@ class Login_Page(BasePage):
                 #self.screenshot.take_Page_screenshot("WISHLIST_LOGIN")
                 self.timeout(1000)
                 self.click(self.modal_login_button)
-                self.timeout(5000)
+                self.timeout(10000)
                 #self.screenshot.take_Page_screenshot("WISHLIST_LOGIN_MY_ACCOUNT")
                 logger.info("[WISHLIST-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
             except:

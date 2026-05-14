@@ -12,8 +12,10 @@ class Footer_Page(BasePage):
 
     URL = os.getenv("BASE_URL")
     COUNTRY = os.getenv("LOCALE").upper()
+    ENV = os.getenv("ENVIRONMENT").upper()
 
     # Client Services Links
+    client_services_all_links = "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
     locate_a_store_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[1]/a"
     book_an_appointment_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[2]/a"
     delivery_returns_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[3]/a"
@@ -177,9 +179,7 @@ class Footer_Page(BasePage):
         }
         # MO Language dropdown records
         language_keyword = {
-            "english_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a",
-            "france_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[2]/a",
-            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[3]/a"
+            "chinese_language": "//*[@id='accordionLanguageSelector_desktop']/div/ul/li[1]/a"
         }
 
 
@@ -191,6 +191,29 @@ class Footer_Page(BasePage):
         self.screenshot = PageScreenshot(page)
         self.website = OpenHomePage(page)
 
+    def test_all_client_services_link_from_footer(self):
+        footer_links = self.page.locator(
+            "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
+        )
+        total_links = footer_links.count()
+
+        for i in range(total_links):
+            # Re-locate every loop
+            footer_links = self.page.locator(
+                "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
+            )
+
+            link = footer_links.nth(i)
+
+            link_text = link.text_content().strip()
+
+            print(f"Opening link: {link_text}")
+
+            # Optional
+            link.scroll_into_view_if_needed()
+
+            # Click link
+            link.click()
 
     def test_locate_a_store_link_from_footer(self):
          try:
@@ -289,11 +312,12 @@ class Footer_Page(BasePage):
             for country,locator in self.location_keyword.items():
                 self.click(locator)
                 self.timeout(5000)
-                try:
-                    self.website.test_cookie_consent()
-                    self.website.test_country_selector()
-                except:
-                    logger.warning("*****[FOOTER] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..*****")
+                if self.ENV != "QA":
+                    try:
+                        self.website.test_cookie_consent()
+                        self.website.test_country_selector()
+                    except:
+                        logger.warning("*****[FOOTER] COOKIE CONSENT AND COUNTRY POPUP IS NOT VISIBLE..*****")
                 page_url = self.page.url
                 logger.info(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
