@@ -223,7 +223,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_enter_collector_details_in_store_collect()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -250,7 +250,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -277,7 +277,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_continue_to_review_from_payment_page()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_select_self_collect_checkbox()
             checkout_delivery.test_enter_collector_details_in_store_collect()
@@ -303,7 +303,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_enter_collector_details_in_store_collect()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -327,7 +327,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
             checkout_payment.test_enter_union_pay_credit_card_details()
             checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_open_premium_delivery_tab()
             checkout_delivery.test_enter_user_details_in_premium_delivery()
@@ -445,7 +445,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_back_from_review.test_go_back_to_shopping_cart_from_review_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_enter_collector_details_in_store_collect()
             checkout_delivery.test_delivery_date_on_collect_in_store()
@@ -471,7 +471,7 @@ def test_checkout_as_guest_user_someone_else_collect(page):
                     checkout_review.test_page_refresh()
             checkout_back_from_payment.test_go_back_to_shopping_cart_from_payment_page()
             shopping_cart.test_continue_to_checkout_from_cart()
-            if ENV == "QA":
+            if ENV == "QA" or ENV == "UAT":
                     checkout_login.test_checkout_as_guest_user()
             checkout_delivery.test_enter_collector_details_in_store_collect()
             checkout_delivery.test_delivery_date_on_collect_in_store()

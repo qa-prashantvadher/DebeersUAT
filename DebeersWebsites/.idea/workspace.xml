@@ -5,18 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/pages/generate_report_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checkout_pdp_add_to_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/footer_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/footer_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/generate_report_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/generate_report_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/hj_upp_multiple_variant.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/hj_upp_multiple_variant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/hj_upp_single_variant.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/hj_upp_single_variant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_pages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/open_website.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_website.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_11_test_login_logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_11_test_login_logout.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_16_client_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_16_client_services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_33_footer_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_33_footer_options.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +42,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;qa-prashantvadher&quot;,
+      &quot;author&quot;: &quot;qa-prashantvadher&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;qa-prashantvadher&quot;,
+    &quot;author&quot;: &quot;qa-prashantvadher&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/qa-prashantvadher/DebeersUAT.git&quot;,
+    &quot;accountId&quot;: &quot;1eedf609-014b-4486-94f7-55adbe36664f&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -469,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778587348433</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778740907063</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1778740907063</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -70,6 +70,9 @@ class Book_Appointment(BasePage):
     #Success Message Text
     success_message_text = "//*[@id='successBookingMsg']/div[1]"
 
+    #Error Message Text
+    error_message_text = "//*[@id='user-errors']"
+
     #Summary Info
     appointment_summary = ".appointmentSummary__info"
     user_summary = "#userSummary"
@@ -118,11 +121,11 @@ class Book_Appointment(BasePage):
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
                 self.press(self.search_store_input, "Enter")
+                self.timeout(2000)
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -132,6 +135,7 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             logger.info("[IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             logger.error("*****[IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
@@ -147,7 +151,6 @@ class Book_Appointment(BasePage):
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -161,6 +164,7 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             logger.info("[BB IN STORE APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             logger.error("*****[BB IN STORE APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
@@ -180,11 +184,11 @@ class Book_Appointment(BasePage):
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click() # Select anyone service from first 3 records
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
                 self.press(self.search_store_input, "Enter")
+                self.timeout(2000)
                 self.scroll_down(self.store_locator.new_york_madison_avenue_map_marker)
                 self.store_locator.test_click_close_new_york_madison_avenue_in_map()
             elif self.COUNTRY == "UK":
@@ -194,6 +198,8 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
+            self.click(self.book_appointment_first_store)
+
             logger.info("[VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             logger.error("*****[VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
@@ -209,7 +215,6 @@ class Book_Appointment(BasePage):
             service_detail = self.page.locator(self.service_detail_list)
             service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
             self.timeout(2000)
-            self.click(self.book_appointment_first_store)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
                 self.fill(self.search_store_input, "New York")
@@ -223,6 +228,7 @@ class Book_Appointment(BasePage):
                 self.scroll_down(self.store_locator.paris_flagship_store_map_marker)
                 self.store_locator.test_click_close_paris_flagship_in_map()
             self.timeout(2000)
+            self.click(self.book_appointment_first_store)
             logger.info("[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE SELECTED..")
         except:
             logger.error("*****[BB VIRTUAL APPOINTMENT] ALL OPTIONS ARE NOT SELECTED..*****")
@@ -241,13 +247,13 @@ class Book_Appointment(BasePage):
                 date.click()
                 self.timeout(2000)
                 selected_date_text = self.get_text(self.selected_date).strip()
-                logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED DATE IS: {selected_date_text.upper()}")
+                logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED DATE: {selected_date_text.upper()}")
 
                 self.timeout(2000)
 
                 # Check if "no slots" message is visible
                 if self.page.locator("#noSlots:not(.d-none)").is_visible():
-                    logger.warning(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT..")
+                    logger.warning(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {selected_date_text.upper()}, RETRYING NEXT..")
                     continue  # try next date
 
                 # Get available timeslots
@@ -257,11 +263,11 @@ class Book_Appointment(BasePage):
                     timeslots.first.click()
                     self.timeout(2000)
                     selected_timeslot_text = self.get_text(self.selected_timeslot).strip()
-                    logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME SLOT: {selected_timeslot_text}")
+                    logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME: {selected_timeslot_text}")
                     return True
 
                 # Safety fallback (rare case)
-                logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {self.selected_date}, RETRYING NEXT..")
+                logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {selected_date_text.upper()}, RETRYING NEXT..")
 
                 self.timeout(2000)
 
@@ -297,9 +303,9 @@ class Book_Appointment(BasePage):
         try:
             self.timeout(1000)
             if self.is_checked(self.appointment_subscribe_checkbox):
-                logger.warning("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED..")
+                logger.info("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS ALREADY SELECTED..")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
                 else:
                     self.click(self.appointment_terms_checkbox)
                     logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED..")
@@ -307,7 +313,7 @@ class Book_Appointment(BasePage):
                 self.click(self.appointment_subscribe_checkbox)
                 logger.info("[APPOINTMENT-STEP3] NEWSLETTER SUBSCRIPTION CHECKBOX IS NOW CHECKED..")
                 if self.is_checked(self.appointment_terms_checkbox):
-                    logger.warning("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
+                    logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS ALREADY SELECTED..")
                 else:
                     self.click(self.appointment_terms_checkbox)
                     logger.info("[APPOINTMENT-STEP3] TERMS AND CONDITIONS CHECKBOX IS NOW CHECKED..")
@@ -339,6 +345,13 @@ class Book_Appointment(BasePage):
             self.timeout(1000)
             self.click(self.appointment_submit_cta)
             self.timeout(5000)
+            if self.is_visible(self.error_message_text):
+                error_message = self.get_text(self.error_message_text).strip()
+                logger.warning(
+                    f"##### [APPOINTMENT-ERROR] {error_message.upper()}"
+                )
+                return
+
             if self.is_visible(self.success_message_text):
                 success_message = self.get_text(self.success_message_text).strip()
                 logger.info(f"##### [APPOINTMENT-SUCCESS] {success_message.upper()}")
@@ -367,6 +380,7 @@ class Book_Appointment(BasePage):
                 logger.info(f"##### [{self.ENV}-{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
         except Exception as e:
             logger.error(e)
+
     def test_go_back_to_step_1_with_edit_icon(self):
         try:
             self.timeout(1000)
@@ -375,6 +389,7 @@ class Book_Appointment(BasePage):
             logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING EDIT ICON..")
         except Exception as e:
             logger.error(e)
+
     def test_go_back_to_step_1_with_back_button(self):
         try:
             self.timeout(3000)
@@ -383,6 +398,7 @@ class Book_Appointment(BasePage):
             logger.info("[APPOINTMENT] USER IS REDIRECTED TO THE STEP-1 USING BACK BUTTON..")
         except Exception as e:
             logger.error(e)
+
     def test_go_back_to_step_2_with_edit_icon(self):
         try:
             self.timeout(1000)

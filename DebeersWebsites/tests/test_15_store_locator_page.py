@@ -30,7 +30,8 @@ def test_store_locator_page(page):
     store_locator.test_search_store_by_keyword("PARIS")
     store_locator.test_open_paris_store_detail_page()
     store_locator.test_click_close_paris_flagship_in_map()
-    store_locator.test_book_an_appointment_cta_store_detail_page()
+    if COUNTRY != "MO" and COUNTRY != "CA":
+        store_locator.test_book_an_appointment_cta_store_detail_page()
 
     print("----> TEST CASE 5 OF 8")
     store_locator.test_open_store_locator_page_from_header()
@@ -42,7 +43,7 @@ def test_store_locator_page(page):
     store_locator.test_open_london_store_detail_page()
     store_locator.test_click_close_london_marker_in_map()
 
-    if COUNTRY != "MO":
+    if COUNTRY != "MO" and COUNTRY != "CA":
         store_locator.test_book_an_appointment_cta_store_detail_page()
         book_appointment.test_in_store_appointment_type()
         book_appointment.test_step1_select_date_time()
@@ -54,25 +55,23 @@ def test_store_locator_page(page):
         if ENV == "QA" or ENV == "UAT":
             book_appointment.test_click_on_submit_cta()
 
-        if (ENV == "QA") and (COUNTRY == "UK" or COUNTRY == "US"):
-            book_appointment.test_virtual_appointment_type()
-            book_appointment.test_step1_select_date_time()
-            book_appointment.test_click_on_continue_cta()
-            book_appointment.test_step2_enter_contact_details()
-            book_appointment.test_click_on_continue_cta()
-            book_appointment.test_step3_enter_additional_information()
-            book_appointment.test_step3_select_checkboxes()
-            if ENV == "QA" or ENV == "UAT":
-                book_appointment.test_click_on_submit_cta()
-
     print("----> TEST CASE 7 OF 8")
     store_locator.test_open_store_locator_page_from_header()
 
     store_locator.test_search_store_by_keyword("10065")
     store_locator.test_open_new_york_store_detail_page()
     store_locator.test_click_close_new_york_madison_avenue_in_map()
-    if COUNTRY != "MO":
+    if (ENV == "QA") and (COUNTRY == "UK" or COUNTRY == "US"):
         store_locator.test_book_an_appointment_cta_store_detail_page()
+        book_appointment.test_virtual_appointment_type()
+        book_appointment.test_step1_select_date_time()
+        book_appointment.test_click_on_continue_cta()
+        book_appointment.test_step2_enter_contact_details()
+        book_appointment.test_click_on_continue_cta()
+        book_appointment.test_step3_enter_additional_information()
+        book_appointment.test_step3_select_checkboxes()
+        if ENV == "QA" or ENV == "UAT":
+            book_appointment.test_click_on_submit_cta()
 
     print("----> TEST CASE 8 OF 8")
     store_locator.test_open_store_locator_page_from_header()

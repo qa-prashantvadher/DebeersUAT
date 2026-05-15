@@ -123,7 +123,7 @@ class Search_Locator_Page(BasePage):
             self.press(self.search_store_input, "Enter")
             self.timeout(3000)
             #self.screenshot.take_Page_screenshot(f"STORE_SEARCH_{keyword}")
-            logger.info(f"[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE KEYWORD:{keyword.upper()}..")
+            logger.info(f"[STORE LOCATOR] PAGE IS NOW VISIBLE WITH THE KEYWORD: {keyword.upper()}")
         except:
             logger.error("*****[STORE LOCATOR] NOT ABLE TO SEARCH RECORDS..*****")
 

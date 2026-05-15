@@ -28,10 +28,20 @@ def test_footer_section(page):
     footer_section = Footer_Page(page)
     faq_section  = FAQ_Page(page)
 
-    print(f"COUNTRY VALUE = [{COUNTRY}]")
-
-    if COUNTRY != "MO":
-        footer_section.test_all_client_services_link_from_footer()
+    if COUNTRY == "MO" or COUNTRY == "CA":
+        print("----> TEST CASE 1 OF 6")
+        footer_section.test_delivery_returns_link_from_footer()
+        print("----> TEST CASE 2 OF 6")
+        footer_section.test_contact_us_link_from_footer()
+        print("----> TEST CASE 3 OF 6")
+        footer_section.test_faq_link_from_footer()
+        faq_section.test_all_faq_categories()
+        print("----> TEST CASE 4 OF 6")
+        footer_section.test_news_letter_from_footer()
+        print("----> TEST CASE 5 OF 6")
+        footer_section.test_select_country_records_from_location_footer()
+        print("----> TEST CASE 6 OF 6")
+        footer_section.test_select_language_records_from_language_footer()
     else:
         # FOOTER SECTION
         print("----> TEST CASE 1 OF 8")
@@ -48,10 +58,7 @@ def test_footer_section(page):
         faq_section.test_all_faq_categories()
         print("----> TEST CASE 6 OF 8")
         footer_section.test_news_letter_from_footer()
-        '''
-            print("----> TEST CASE 7 OF 8")
-            footer_section.test_select_country_records_from_location_footer()
-            if COUNTRY != "MO":
-                print("----> TEST CASE 8 OF 8")
-                footer_section.test_select_language_records_from_language_footer()
-            '''
+        print("----> TEST CASE 7 OF 8")
+        footer_section.test_select_country_records_from_location_footer()
+        print("----> TEST CASE 8 OF 8")
+        footer_section.test_select_language_records_from_language_footer()

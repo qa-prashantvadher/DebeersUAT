@@ -23,6 +23,7 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
+            self.timeout(5000)
             logger.info(f"[{self.COUNTRY}-{self.ENV}] [HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
        except:
             logger.error(f"*****[{self.COUNTRY}-{self.ENV}] [HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..*****")
@@ -30,7 +31,7 @@ class OpenHomePage(BasePage):
     def test_cookie_consent(self):
          # Accept Consent Cookies if the popup appears
          try:
-            self.timeout(7000)
+            self.timeout(5000)
             if self.is_visible(self.approve_cookie_button):
                   self.click(self.approve_cookie_button)
                   logger.info("[COOKIE] COOKIE CONSENT IS ACCEPTED..")

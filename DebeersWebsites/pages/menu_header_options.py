@@ -298,7 +298,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.screenshot.take_page_screenshot(f"MENU_COUNTRY_{country_name.upper()}")
                  self.navigate(self.URL)
                  logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
-                 self.timeout(5000)
+                 self.timeout(10000)
                  
         except:
             logger.error("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")

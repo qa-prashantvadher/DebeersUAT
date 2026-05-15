@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class HJ_UPP_Multiple_Variant(BasePage):
 
         SKU1 = "R102134"
-        SKU2 = "R102218"
+        SKU2 = "R102127"
         FIND_YOUR_DIAMOND_CTA = "//div[@class='primary-btn-wrap']/button[1]"
 
         # CTA details for the upp product with and without engraving support

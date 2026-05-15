@@ -14,13 +14,20 @@ class Footer_Page(BasePage):
     COUNTRY = os.getenv("LOCALE").upper()
     ENV = os.getenv("ENVIRONMENT").upper()
 
-    # Client Services Links
-    client_services_all_links = "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
-    locate_a_store_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[1]/a"
-    book_an_appointment_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[2]/a"
-    delivery_returns_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[3]/a"
-    contact_us_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[4]/a"
-    faq_footer = "//*[@id='footeracc-collapse-Client-Services']/ul/li[5]/a"
+    if COUNTRY == "MO" or COUNTRY == "CA":
+        # Client Services Links
+        client_services_all_links = "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
+        delivery_returns_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[1]/a"
+        contact_us_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[2]/a"
+        faq_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[3]/a"
+    else:
+        # Client Services Links
+        client_services_all_links = "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
+        locate_a_store_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[1]/a"
+        book_an_appointment_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[2]/a"
+        delivery_returns_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[3]/a"
+        contact_us_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[4]/a"
+        faq_footer = "//div[contains(@id,'footeracc-collapse-Client')]/ul/li[5]/a"
 
     # Connect/NewsLetter Subscription
     email_address_footer_input = "//*[@id='email_footer']"
@@ -28,7 +35,10 @@ class Footer_Page(BasePage):
     email_address_text = os.getenv("USERNAME")
 
     # Locator dropdown
-    locator_dropdown_footer = "//*[@id='countryHeadingFooter']/button"
+    locator_dropdown_footer = "button[data-bs-target='#accordionCountrySelector_desktop']"
+
+    # Language Dropdown
+    language_dropdown_footer = "button[data-bs-target='#accordionLanguageSelector_desktop']"
 
     if COUNTRY == "US":
         # US Country dropdown records
@@ -183,9 +193,6 @@ class Footer_Page(BasePage):
         }
 
 
-    # Language Dropdown
-    language_dropdown_footer = "//*[@id='languageHeadingFooter']/button"
-
     def __init__(self, page):
         super().__init__(page)
         self.screenshot = PageScreenshot(page)
@@ -196,6 +203,7 @@ class Footer_Page(BasePage):
             "//div[contains(@id,'footeracc-collapse-Client')]//a[contains(@class,'footer-acc-link')]"
         )
         total_links = footer_links.count()
+        logger.info(f"[FOOTER] TOTAL LINKS IN THE FOOTER CLIENT SERVICES SECTION: {footer_links}")
 
         for i in range(total_links):
             # Re-locate every loop
@@ -207,7 +215,7 @@ class Footer_Page(BasePage):
 
             link_text = link.text_content().strip()
 
-            print(f"Opening link: {link_text}")
+            logger.info(f"OPENING LINK FROM THE CLIENT SERVICES: {link_text}")
 
             # Optional
             link.scroll_into_view_if_needed()
@@ -321,9 +329,10 @@ class Footer_Page(BasePage):
                 page_url = self.page.url
                 logger.info(f"[FOOTER] '{country.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
+                self.timeout(5000)
                 self.navigate(self.URL)
                 logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
-                self.timeout(5000)
+                self.timeout(10000)
                 self.test_location_dropdown_from_footer()
         except:
             logger.error("*****[FOOTER] NOT ABLE TO SELECT LOCATION RECORDS..*****")

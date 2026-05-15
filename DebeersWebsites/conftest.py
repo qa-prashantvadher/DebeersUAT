@@ -55,7 +55,7 @@ def context(browser, playwright_instance):
 
     if ENV not in env_map:
         raise ValueError(f"Invalid Environment: {ENV}")
-    if COUNTRY not in ["UK", "US", "FR", "HK", "TW", "MO"]:
+    if COUNTRY not in ["UK", "US", "FR", "HK", "TW", "MO", "CA"]:
         raise ValueError(f"Invalid Country: {COUNTRY}")
 
     video_full_path = os.path.join(
@@ -63,16 +63,22 @@ def context(browser, playwright_instance):
     )
     os.makedirs(video_full_path, exist_ok=True)
 
+    # CONTEXT LANGUAGE MAP
     locale_map = {
-        "fr-fr",
-        "zh-hk",
-        "zh-tw",
-        "zh-mo"
+        "UK": "en-GB",
+        "US": "en-US",
+        "FR": "fr-FR",
+        "HK": "zh-HK",
+        "TW": "zh-TW",
+        "MO": "zh-MO"
     }
+
+    browser_locale = locale_map.get(COUNTRY, "en-US")
+
     context_args = {
         "record_video_dir": video_full_path,
         "permissions": ["geolocation"],
-        "locale": LOCALE,
+        "locale": browser_locale,
         "geolocation": {
             "latitude": 51.508099,
             "longitude": -0.140295
@@ -105,8 +111,8 @@ def context(browser, playwright_instance):
         })
         print("[DEVICE] RUNNING IN DESKTOP MODE..")
 
-    # AUTH FOR UAT WEBSITE
-    if ENV == "UAT":
+    # AUTH FOR UAT AND STAGING WEBSITE
+    if ENV == "UAT" or ENV == "STAGING":
         context_args["http_credentials"] = creds
 
     context = browser.new_context(**context_args)

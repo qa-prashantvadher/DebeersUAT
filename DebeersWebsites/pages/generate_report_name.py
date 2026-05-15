@@ -13,6 +13,6 @@ MODULE = os.getenv("MODULE").upper()
 
 timestamp = datetime.now().strftime("%d%m%Y-%H%M")
 
-report_name = f"reports/{timestamp}_{ENV}_{COUNTRY}_{TESTING}_{MODULE} TESTING_REPORT.html"
+report_name = f"reports/{timestamp}_{ENV}_{COUNTRY}_{TESTING}_{MODULE}_REPORT.html"
 
 print(report_name)

@@ -13,7 +13,7 @@ def test_book_appointment_cta_from_pdp(page):
     pdp_enquire_appointment = PDP_Enquire_Book_Appointment(page)
     book_appointment = Book_Appointment(page)
 
-    if COUNTRY != "MO":
+    if COUNTRY != "MO" and COUNTRY != "CA":
         # BOOK APPOINTMENT CTA AND BOOK IN STORE/VIRTUAL APPOINTMENT OPTIONS ON THE PDP PAGE
         print("----> TEST CASE 1 OF 2")
         pdp_enquire_appointment.test_book_appointment_hj_master_level()

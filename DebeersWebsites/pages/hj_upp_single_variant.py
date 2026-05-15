@@ -32,7 +32,7 @@ class HJ_UPP_Single_Variant(BasePage):
             try:
                 if ENV == "QA":
                     self.search.test_search_with_sku(self.SKU1)
-                    self.timeout(3000)
+                    self.timeout(5000)
                     if self.is_visible(self.ADD_TO_BAG_CTA):
                         #self.screenshot.take_Page_screenshot("HJ_UPP_SINGLE")
                         self.click(self.ADD_ENGRAVING_CTA)
@@ -50,16 +50,16 @@ class HJ_UPP_Single_Variant(BasePage):
                         self.click(self.ADDED_ENGRAVING_CTA)
                         self.engraving.test_update_engraving()
                         logger.info(f"[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} ENGRAVING TEXT IS UPDATED..")
-                else:
-                    logger.warning(f"*****[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} PRODUCT IS NOT BUYABLE..*****")
-                    pass
+                    else:
+                        logger.warning(f"*****[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} PRODUCT IS NOT BUYABLE..*****")
+                        pass
             except:
                 logger.error(f"*****[HJ UPP SINGLE VARIANT WITH ENGRAVING] {self.SKU1} IS NOT ADDED TO THE CART..*****")
 
         def test_hj_upp_single_variant_without_engraving(self):
             try:
                 self.search.test_search_with_sku(self.SKU2)
-                self.timeout(3000)
+                self.timeout(5000)
                 #self.screenshot.take_Page_screenshot("HJ_UPP_SINGLE")
                 if self.is_visible(self.ADD_TO_BAG_CTA):
                     self.click(self.ADD_TO_BAG_CTA)

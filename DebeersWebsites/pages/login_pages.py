@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class Login_Page(BasePage):
 
-        user_name_text = os.getenv("USERNAME")
+        username_text = os.getenv("USERNAME")
         password_text = os.getenv("PASSWORD")
 
         my_account_to_login_icon = "//*[@id='headerMyAccount']/button"
@@ -19,7 +19,12 @@ class Login_Page(BasePage):
 
         wishlist_create_account_button = "//button[contains(@class,'wish-page__login-btn')]"
 
-        modal_user_name_input = "//*[@id='login-form-email-modal']"
+        book_appointment_signin = "button.accordion-button.yourDetails__login"
+        book_appointment_username_input = "#bookingLoginEmail"
+        book_appointment_password_input = "#bookingLoginPassword"
+        book_appointment_login_button = "#signIn"
+
+        modal_username_input = "//*[@id='login-form-email-modal']"
         modal_password_input = "//*[@id='login-form-password-modal']"
         modal_login_button = "//*[@id='phantomRecaptchaLoginFormModal']"
 
@@ -44,8 +49,8 @@ class Login_Page(BasePage):
             try:
                 self.click(self.my_account_to_login_icon)
                 self.timeout(8000)
-                if self.is_visible(self.modal_user_name_input):
-                    self.fill(self.modal_user_name_input,self.user_name_text)
+                if self.is_visible(self.modal_username_input):
+                    self.fill(self.modal_username_input,self.username_text)
                     self.fill(self.modal_password_input,self.password_text)
                     self.timeout(1000)
                     #self.screenshot.take_Page_screenshot("HEADER_LOGIN")
@@ -66,7 +71,7 @@ class Login_Page(BasePage):
             try:
                 self.click(self.cart_icon)
                 self.timeout(2000)
-                self.fill(self.cart_username_input,self.user_name_text)
+                self.fill(self.cart_username_input,self.username_text)
                 self.fill(self.cart_password_input,self.password_text)
                 #self.screenshot.take_Page_screenshot("CART_LOGIN")
                 self.timeout(1000)
@@ -84,7 +89,7 @@ class Login_Page(BasePage):
                 self.timeout(2000)
                 self.click(self.register_create_account_button)
                 self.timeout(5000)
-                self.fill(self.register_username_input, self.user_name_text)
+                self.fill(self.register_username_input, self.username_text)
                 self.fill(self.register_password_input,self.password_text)
                 #self.screenshot.take_Page_screenshot("REGISTER_LOGIN")
                 self.timeout(1000)
@@ -101,7 +106,7 @@ class Login_Page(BasePage):
                 self.timeout(2000)
                 self.click(self.wishlist_create_account_button)
                 self.timeout(2000)
-                self.fill(self.modal_user_name_input, self.user_name_text)
+                self.fill(self.modal_username_input, self.username_text)
                 self.fill(self.modal_password_input,self.password_text)
                 #self.screenshot.take_Page_screenshot("WISHLIST_LOGIN")
                 self.timeout(1000)
@@ -112,6 +117,22 @@ class Login_Page(BasePage):
             except:
                 logger.error("*****[WISHLIST-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
+        def test_login_from_book_appointment(self):
+            try:
+                self.click(self.book_appointment_signin)
+                self.timeout(3000)
+                if self.is_not_visible(self.book_appointment_username_input):
+                    self.click(self.book_appointment_signin)
+                self.fill(self.book_appointment_username_input, self.username_text)
+                self.fill(self.book_appointment_password_input, self.password_text)
+                # self.screenshot.take_Page_screenshot("WISHLIST_LOGIN")
+                self.timeout(1000)
+                self.click(self.book_appointment_login_button)
+                self.timeout(10000)
+                # self.screenshot.take_Page_screenshot("WISHLIST_LOGIN_MY_ACCOUNT")
+                logger.info("[BOOK APPOINTMENT-LOGIN] USER IS SUCCESSFULLY LOGGED IN..")
+            except:
+                logger.error("*****[BOOK APPOINTMENT-LOGIN] USER IS NOT ABLE TO LOGGED IN..*****")
 
         def test_logout_from_my_account_not_you(self):
             try:

@@ -27,7 +27,7 @@ class PDP_Enquire_Book_Appointment(BasePage):
     find_your_diamonds_cta = "//div[@class='primary-btn-wrap']/button[1]"
     enquire_upp_multiple_variant = "(//li[contains(@class,'variation-tile')]//button[contains(@class,'btn-enquire-online')])[1]"
 
-    bb_contact_us_section = "//*[@id='pdpAttrAccContactUs']/button"
+    bb_contact_us_section = "button[data-bs-target='#collapseFour']"
 
     if COUNTRY == "US" or COUNTRY == "UK":
         bb_email_us_button = "button:has-text('Email Us')"
@@ -50,9 +50,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_enquire_old_master_level(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU1)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.enquire_old_master_level)
             self.timeout(2000)
             logger.info("[OLD PDP] EMAIL US POPUP IS NOW VISIBLE..")
@@ -62,9 +62,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_contact_us_old_master_level(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU1)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.contact_us_old)
             self.timeout(2000)
             logger.info("[OLD PDP] USER IS REDIRECTED TO THE CLIENT SERVICE PAGE..")
@@ -74,9 +74,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_enquire_hj_master_level(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU2)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.enquire_hj_master_level)
             self.timeout(2000)
             logger.info("[HJ PDP] USER IS REDIRECTED TO THE CLIENT SERVICE PAGE..")
@@ -86,9 +86,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_book_appointment_hj_master_level(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU2)
-            self.timeout(5000)
+            self.timeout(7000)
             self.is_visible(self.book_appointment_hj_master_level)
             self.timeout(2000)
             self.click(self.book_appointment_hj_master_level)
@@ -100,11 +100,11 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_enquire_online_bb_upp_variant_level(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU3)
             self.timeout(5000)
             self.click(self.find_your_diamonds_cta)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.enquire_upp_multiple_variant)
             self.timeout(2000)
             logger.info("[BB PDP] EMAIL US POPUP IS NOW VISIBLE..")
@@ -114,9 +114,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_in_store_appointment_bb_contact_us(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU3)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.bb_contact_us_section)
             self.timeout(2000)
             self.click(self.bb_book_in_store_appointment_button)
@@ -128,9 +128,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_virtual_appointment_bb_contact_us(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU3)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.bb_contact_us_section)
             self.timeout(2000)
             self.click(self.bb_book_a_virtual_appointment_button)
@@ -142,9 +142,9 @@ class PDP_Enquire_Book_Appointment(BasePage):
 
     def test_email_us_bb_contact_us(self):
         try:
-            self.timeout(3000)
+            self.timeout(2000)
             self.search.test_search_with_sku(self.SKU3)
-            self.timeout(5000)
+            self.timeout(7000)
             self.click(self.bb_contact_us_section)
             self.timeout(2000)
             self.click(self.bb_email_us_button)
