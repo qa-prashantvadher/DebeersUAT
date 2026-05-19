@@ -7,25 +7,9 @@
     <list default="true" id="28e7104f-a4c5-4506-8974-4551886c4aea" name="Changes" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/book_appointment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/footer_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/footer_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/generate_report_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/generate_report_name.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/hj_upp_multiple_variant.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/hj_upp_multiple_variant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/hj_upp_single_variant.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/hj_upp_single_variant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_pages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/menu_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/menu_header_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/open_website.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/open_website.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pdp_enquire_appointment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/store_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/store_locator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_10_menu_and_header_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_11_test_login_logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_11_test_login_logout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_15_store_locator_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_23_pdp_book_appointment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_29_checkout_as_guest_user_premium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_30_checkout_as_guest_user_self_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_31_checkout_as_guest_user_someone_else_collect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_33_footer_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_33_footer_options.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1776156497612</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Debeers Website project is now for US, UK and FR Websites">
-      <option name="closed" value="true" />
-      <created>1776158640331</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1776158640331</updated>
     </task>
     <task id="LOCAL-00002" summary="Debeers Website project is now for US, UK and FR Websites">
       <option name="closed" value="true" />
@@ -505,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778740907063</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1778856606217</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1778856606218</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -72,6 +72,7 @@ class Book_Appointment(BasePage):
 
     #Error Message Text
     error_message_text = "//*[@id='user-errors']"
+    server_error_message_text = "//*[@id='server-errors']"
 
     #Summary Info
     appointment_summary = ".appointmentSummary__info"
@@ -259,12 +260,25 @@ class Book_Appointment(BasePage):
                 # Get available timeslots
                 timeslots = self.page.locator(self.available_timeslot)
 
-                if timeslots.count() > 0:
-                    timeslots.first.click()
+                # Following code is to select random timeslot
+                timeslot_count = timeslots.count()
+                if timeslot_count > 0:
+                    random_index = random.randint(0, timeslot_count - 1)
+                    random_timeslot = timeslots.nth(random_index)
+                    random_timeslot.scroll_into_view_if_needed()
+                    random_timeslot.click()
                     self.timeout(2000)
                     selected_timeslot_text = self.get_text(self.selected_timeslot).strip()
                     logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME: {selected_timeslot_text}")
                     return True
+
+                # Following code is to select first timeslot
+                #if timeslots.count() > 0:
+                    #timeslots.first.click()
+                    #self.timeout(2000)
+                    #selected_timeslot_text = self.get_text(self.selected_timeslot).strip()
+                    #logger.info(f"[{self.ENV}-{self.COUNTRY}] SELECTED TIME: {selected_timeslot_text}")
+                    #return True
 
                 # Safety fallback (rare case)
                 logger.error(f"[{self.ENV}-{self.COUNTRY}] NO TIME SLOTS FOUND FOR THE SELECTED DATE: {selected_date_text.upper()}, RETRYING NEXT..")
@@ -349,6 +363,13 @@ class Book_Appointment(BasePage):
                 error_message = self.get_text(self.error_message_text).strip()
                 logger.warning(
                     f"##### [APPOINTMENT-ERROR] {error_message.upper()}"
+                )
+                return
+
+            if self.is_visible(self.server_error_message_text):
+                server_error_message = self.get_text(self.server_error_message_text).strip()
+                logger.warning(
+                    f"##### [APPOINTMENT-SERVER ERROR] {server_error_message.upper()}"
                 )
                 return
 

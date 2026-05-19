@@ -266,8 +266,9 @@ class Open_Menu_Header_Options (BasePage):
                  page_url = self.page.url
                  logger.info(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_LANGUAGE_{language_name.upper()}")
-        except:
+        except Exception as e:
                  logger.error("[MENU] NOT ABLE TO CHANGE LANGUAGE DETAILS..")
+                 logger.error(e)
 
     def test_change_country_menu(self):
         try:
@@ -299,6 +300,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.navigate(self.URL)
                  logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
                  self.timeout(10000)
-                 
-        except:
+
+        except Exception as e:
             logger.error("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")
+            logger.error(e)
