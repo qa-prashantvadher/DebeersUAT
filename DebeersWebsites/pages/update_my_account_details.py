@@ -76,7 +76,7 @@ class Update_My_Account_Page(BasePage):
                     logger.info("[MY ACCOUNT-ADDRESS BOOK] CLICKED \"REMOVE ADDRESS\" BUTTON..")
 
                     # Wait for address record to be removed
-                    self.timeout(5000)
+                    self.timeout(7000)
                     total_addresses = self.count(self.remove_address_book_buttons)
                     if total_addresses == 0:
                         logger.info("[MY ACCOUNT-ADDRESS BOOK] ALL ADDRESS RECORDS ARE REMOVED SUCCESSFULLY..")

@@ -507,9 +507,16 @@ class Checkout_Delivery(BasePage):
             else:
                 self.click(self.gift_checkbox)
                 self.timeout(1000)
-                self.fill(self.gift_message_input, self.gift_message_text)
                 logger.info(f"[CHECKOUT-DELIVERY] CHECKED \"GIFT MESSAGE\" CHECKBOX..")
-                logger.info(f"[CHECKOUT-DELIVERY] ENTERED GIFT MESSAGE: {self.gift_message_text}")
+                if self.is_visible(self.gift_message_input):
+                    gift_message_entered = self.page.locator(self.gift_message_input).input_value()
+                    logger.info(f"[CHECKOUT-DELIVERY] \"GIFT MESSAGE\" TEXT AREA IS VISIBLE..")
+                    self.fill(self.gift_message_input, self.gift_message_text)
+                    self.timeout(1000)
+                    logger.info(f"[CHECKOUT-DELIVERY] ENTERED GIFT MESSAGE: {self.gift_message_text}")
+                else:
+                    logger.error("*****[CHECKOUT-DELIVERY] \"GIFT MESSAGE\" TEXT AREA IS NOT VISIBLE..*****")
+                    pass
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_GIFT_MESSAGE")
         except:

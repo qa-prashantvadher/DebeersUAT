@@ -331,8 +331,8 @@ class Footer_Page(BasePage):
                 self.screenshot.take_page_screenshot(f"FOOTER_LOCATION_{country.upper()}")
                 self.timeout(5000)
                 self.navigate(self.URL)
+                self.timeout(5000)
                 logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
-                self.timeout(10000)
                 self.test_location_dropdown_from_footer()
         except Exception as e:
             logger.error("*****[FOOTER] NOT ABLE TO SELECT LOCATION RECORDS..*****")
@@ -343,7 +343,7 @@ class Footer_Page(BasePage):
             self.test_language_dropdown_from_footer()
             for language, locator  in self.language_keyword.items():
                 self.click(locator)
-                self.timeout(5000)
+                self.timeout(10000)
                 page_url = self.page.url
                 logger.info(f"[FOOTER] '{language.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                 self.screenshot.take_page_screenshot(f"FOOTER_LANGUAGE_{language.upper()}")

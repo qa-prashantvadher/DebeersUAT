@@ -17,8 +17,12 @@ class BasePage:
             f"el => {{ el.value = '{value}'; el.dispatchEvent(new Event('change', {{ bubbles: true }})); }}"
         )
 
+    def get_input_value(self, locator):
+        return self.page.locator(locator).input_value()
+
     def navigate(self, url):
         self.page.goto(url)
+        self.timeout(20000)
 
     def inner_text(self, locator):
         return self.page.locator(locator).inner_text()

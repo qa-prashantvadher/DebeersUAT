@@ -262,13 +262,15 @@ class Open_Menu_Header_Options (BasePage):
                  logger.info("[MENU] LANGUAGE SECTION IS NOW EXPANDED..")
                  #self.screenshot.take_Page_screenshot("MENU_LANGUAGE_EXPANDED")
                  self.click(locator)
-                 self.timeout(5000)
+                 self.timeout(10000)
                  page_url = self.page.url
                  logger.info(f"[MENU] '{language_name.upper()}' LANGUAGE IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_LANGUAGE_{language_name.upper()}")
         except Exception as e:
                  logger.error("[MENU] NOT ABLE TO CHANGE LANGUAGE DETAILS..")
                  logger.error(e)
+                 self.navigate(self.URL)
+                 self.timeout(5000)
 
     def test_change_country_menu(self):
         try:
@@ -285,7 +287,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.timeout(1000)
                  self.click(locator)
                  self.timeout(8000)
-                 if self.ENV != "QA":
+                 if self.ENV == "PROD":
                      try:
                         self.timeout(2000)
                         self.website.test_cookie_consent()
@@ -298,9 +300,11 @@ class Open_Menu_Header_Options (BasePage):
                  logger.info(f"[MENU] '{country_name.upper()}' COUNTRY IS SELECTED. CURRENT URL: {page_url.upper()}")
                  self.screenshot.take_page_screenshot(f"MENU_COUNTRY_{country_name.upper()}")
                  self.navigate(self.URL)
+                 self.timeout(5000)
                  logger.info(f"[HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
-                 self.timeout(10000)
 
         except Exception as e:
             logger.error("[MENU] NOT ABLE TO CHANGE COUNTRY DETAILS..")
             logger.error(e)
+            self.navigate(self.URL)
+            self.timeout(5000)

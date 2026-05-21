@@ -425,6 +425,20 @@ class Checkout_Payment(BasePage):
   
     def test_continue_to_review_from_payment_page(self):
         try:
+            self.timeout(5000)
+            # Check if billing fields are visible
+            billing_address_visible = self.is_visible(self.billing_address_input, timeout=3000)
+            billing_postal_visible = self.is_visible(self.billing_postal_code_input, timeout=3000)
+
+            # Execute only if both fields are visible
+            if billing_address_visible and billing_postal_visible:
+                # Get current field values
+                billing_address = self.get_input_value(self.billing_address_input)
+                billing_postal_code = self.get_input_value(self.billing_postal_code_input)
+                # If required fields are empty, add billing address
+                if not billing_address.strip() or not billing_postal_code.strip():
+                    logger.warning("[CHECKOUT-BILLING] BILLING ADDRESS DETAILS ARE EMPTY. ADDING BILLING ADDRESS DETAILS..")
+                    self.test_enter_change_billing_address_details()
             self.timeout(1000)
             self.click(self.continue_to_review_cta)
             self.timeout(2000)

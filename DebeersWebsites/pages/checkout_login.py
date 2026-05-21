@@ -37,8 +37,9 @@ class Checkout_Login(BasePage):
                     logger.info(f"[CHECKOUT-LOGIN] REGISTERED EMAIL [PRE-FILLED]: {registered_email_value}")
                 self.fill(self.guest_email_address_input,self.email_address_text)
                 self.screenshot.take_order_page_screenshot("CHECKOUT_LOGIN_GUEST")
+                self.timeout(2000)
                 self.click(self.checkout_as_guest_cta)
-                self.timeout(5000)
+                self.timeout(10000)
                 logger.info("[CHECKOUT-GUEST] USER IS REDIRECTED TO THE \"DELIVERY\" PAGE..")
             else:
                 pass
@@ -60,8 +61,9 @@ class Checkout_Login(BasePage):
                 self.fill(self.registered_email_address_input, self.email_address_text)
                 self.fill(self.registered_password_input, self.password_text)
                 self.screenshot.take_page_screenshot("CHECKOUT_LOGIN_REGISTERED")
+                self.timeout(2000)
                 self.click(self.checkout_as_register_cta)
-                self.timeout(5000)
+                self.timeout(10000)
                 logger.info("[CHECKOUT-REGISTERED] USER IS REDIRECTED TO THE \"DELIVERY\" PAGE..")
             else:
                 pass

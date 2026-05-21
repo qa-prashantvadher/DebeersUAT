@@ -23,7 +23,7 @@ class OpenHomePage(BasePage):
     def test_navigate_to_url(self):
        try:
             self.navigate(self.URL)
-            self.timeout(5000)
+            self.timeout(7000)
             logger.info(f"[{self.COUNTRY}-{self.ENV}] [HOME PAGE] NAVIGATED TO: {self.URL.upper()}")
        except:
             logger.error(f"*****[{self.COUNTRY}-{self.ENV}] [HOME PAGE] PAGE IS NOT AVAILABLE. LAUNCH BROWSER FIRST..*****")

@@ -100,6 +100,7 @@ class SearchSKU(BasePage):
         except:
             logger.error(f"*****[SEARCH] NOT ABLE TO SEARCH WITH THE '{sku}' SKU..*****")
             self.navigate(self.URL)
+            self.timeout(5000)
 
     def test_search_with_keyword(self, keyword):
         try:
