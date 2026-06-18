@@ -287,7 +287,7 @@ class Open_Menu_Header_Options (BasePage):
                  self.timeout(1000)
                  self.click(locator)
                  self.timeout(8000)
-                 if self.ENV == "PROD":
+                 if ENV == "PROD" or ENV == "UAT":
                      try:
                         self.timeout(2000)
                         self.website.test_cookie_consent()

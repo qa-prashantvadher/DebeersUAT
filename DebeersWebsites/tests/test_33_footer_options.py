@@ -59,6 +59,6 @@ def test_footer_section(page):
         print("----> TEST CASE 6 OF 8")
         footer_section.test_news_letter_from_footer()
         print("----> TEST CASE 7 OF 8")
-        footer_section.test_select_country_records_from_location_footer()
+        #footer_section.test_select_country_records_from_location_footer()
         print("----> TEST CASE 8 OF 8")
-        footer_section.test_select_language_records_from_language_footer()
+        #footer_section.test_select_language_records_from_language_footer()

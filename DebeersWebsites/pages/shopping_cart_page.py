@@ -36,15 +36,15 @@ class Open_Shopping_Cart_Page(BasePage):
             count=0
             return count
 
-    def test_remove_product_from_cart(self):
+    def test_remove_product_from_cart(self, product_counter):
         try:
             self.timeout(3000)
             self.click(self.remove_product_icon)
             self.timeout(7000)
-            logger.info("[CART] PRODUCT IS REMOVED FROM THE \"SHOPPING BAG\" PAGE..")
+            logger.info(f"[CART] PRODUCT-{product_counter} IS REMOVED FROM THE \"SHOPPING BAG\" PAGE..")
             #self.screenshot.take_Page_screenshot("CART_REMOVE_PRODUCT")
         except:
-            logger.error("*****[CART] PRODUCT IS NOT REMOVED FROM THE \"SHOPPING BAG\" PAGE..*****")
+            logger.error(f"*****[CART] PRODUCT-{product_counter} IS NOT REMOVED FROM THE \"SHOPPING BAG\" PAGE..*****")
 
     def test_continue_to_checkout_from_cart(self):
         try:

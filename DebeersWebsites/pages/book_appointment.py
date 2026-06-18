@@ -77,6 +77,9 @@ class Book_Appointment(BasePage):
     #Summary Info
     appointment_summary = ".appointmentSummary__info"
     user_summary = "#userSummary"
+    user_summary_name = "//*[@id='userName']/span"
+    user_summary_phone = "//*[@id='userPhoneNumber']/span"
+    user_summary_email = "//*[@id='userEmail']/span"
     product_question_summary = "#productQuestionsReadOnly"
     question_summary = "#questionsReadOnly"
 
@@ -115,12 +118,23 @@ class Book_Appointment(BasePage):
             self.timeout(2000)
             self.scroll_down(self.in_store_appointment_type)
             self.click(self.in_store_appointment_type)
+            logger.info(f"SELECTED APPOINTMENT TYPE: IN STORE")
             self.timeout(2000)
             service = self.page.locator(self.service_list)
-            service.nth(random.randrange(service.count())).click()
+            selected_service = service.nth(random.randrange(service.count()))
+            selected_service.click()
+            service_text = selected_service.locator(
+                "span.csform__tile-title"
+            ).text_content().strip()
+            logger.info(f"SELECTED SERVICE: {service_text.upper()}")
             self.timeout(2000)
             service_detail = self.page.locator(self.service_detail_list)
-            service_detail.nth(random.randrange(3)).click()  # Select anyone service from first 3 records
+            selected_service_detail = service_detail.nth(random.randrange(3))  # Select anyone service from first 3 records
+            selected_service_detail.click()
+            service_detail_text = selected_service_detail.locator(
+                "span.csform__tile-title"
+            ).text_content().strip()
+            logger.info(f"SELECTED SERVICE DETAIL: {service_detail_text.upper()}")
             self.timeout(2000)
             if self.COUNTRY == "US":
                 self.fill(self.search_store_input, "")
@@ -383,20 +397,21 @@ class Book_Appointment(BasePage):
                     for line in appointment_summary_text.splitlines()
                     if line.strip()
                 )
-                user_summary_text = self.get_text(self.user_summary)
 
-                clean_user_summary_text = "\n".join(
-                    line.replace("\n", " ").strip()
-                    for line in user_summary_text.splitlines()
-                    if line.strip()
-                )
-                clean_user_summary_text = clean_user_summary_text.replace("\n", " ")
+                name = " ".join(self.get_text(self.user_summary_name).split())
+                phone = self.get_text(self.user_summary_phone).strip()
+                email = self.get_text(self.user_summary_email).strip()
 
                 product_question_summary_text = self.get_text(self.product_question_summary).strip()
                 question_summary_text = self.get_text(self.question_summary).strip()
 
                 logger.info(f"##### [{self.ENV}-{self.COUNTRY}] APPOINTMENT SUMMARY:\n{clean_appointment_summary_text.upper()}")
-                logger.info(f"##### [{self.ENV}-{self.COUNTRY}] USER SUMMARY:\n{clean_user_summary_text.upper()}")
+                logger.info(
+                    f"##### [{self.ENV}-{self.COUNTRY}] USER SUMMARY:\n"
+                    f"NAME: {name.upper()}\n"
+                    f"PHONE NUMBER: {phone.upper()}\n"
+                    f"EMAIL: {email.upper()}"
+                )
                 logger.info(f"##### [{self.ENV}-{self.COUNTRY}] PRODUCT QUESTION: {product_question_summary_text.upper()}")
                 logger.info(f"##### [{self.ENV}-{self.COUNTRY}] OTHER QUESTION: {question_summary_text.upper()}")
         except Exception as e:

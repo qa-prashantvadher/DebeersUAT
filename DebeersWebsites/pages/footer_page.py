@@ -320,7 +320,7 @@ class Footer_Page(BasePage):
             for country,locator in self.location_keyword.items():
                 self.click(locator)
                 self.timeout(5000)
-                if self.ENV != "QA":
+                if self.ENV == "PROD" or self.ENV == "UAT":
                     try:
                         self.website.test_cookie_consent()
                         self.website.test_country_selector()

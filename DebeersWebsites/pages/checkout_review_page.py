@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 import os
 from pages.take_screenshot import PageScreenshot
 from pages.shopping_cart_page import Open_Shopping_Cart_Page
+from pages.go_back_from_review_page import Checkout_Go_Back_From_Review
 from dotenv import load_dotenv
 import logging
 
@@ -48,6 +49,7 @@ class Checkout_Review(BasePage):
         super().__init__(page)
         self.screenshot = PageScreenshot(page)
         self.shopping_bag = Open_Shopping_Cart_Page(page)
+        self.open_cart = Checkout_Go_Back_From_Review(page)
 
     def test_page_refresh(self):
         try:
@@ -105,13 +107,11 @@ class Checkout_Review(BasePage):
                 self.screenshot.take_order_page_screenshot(f"[{self.COUNTRY}-{self.ENV}]_ORDER#_{order_number}_{delivery_date.upper()}")
             else:
                 # REMOVE ALL PRODUCTS FROM THE CART
-                self.navigate(self.URL)
-                self.timeout(5000)
-                self.shopping_bag.test_open_shopping_cart_page()
-                cart_products = self.shopping_bag.test_get_cart_products_count()
-                if cart_products > 0:
-                    for cart_products in range(1, cart_products + 1):
-                        self.shopping_bag.test_remove_product_from_cart()
+                self.open_cart.test_go_back_to_shopping_cart_from_review_page()
+                product_counter = 1
+                while self.shopping_bag.test_get_cart_products_count() > 0:
+                    self.shopping_bag.test_remove_product_from_cart(product_counter)
+                    product_counter += 1
         except:
             self.navigate(self.URL)
             logger.error(f"*****[CHECKOUT-CONFIRMATION] ORDER IS NOT CREATED.. USER IS NAVIGATED TO: {self.URL.upper()}*****")

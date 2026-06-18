@@ -17,10 +17,10 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
 
     # BB SPP WITHOUT SIZE PDP: REMOVE 2 PRODUCTS FROM THE CART
     shopping_bag.test_open_shopping_cart_page()
-    cart_products = shopping_bag.test_get_cart_products_count()
-    if cart_products > 0:
-       for cart_products in range(1, cart_products + 1):
-           shopping_bag.test_remove_product_from_cart()
+    product_counter = 1
+    while shopping_bag.test_get_cart_products_count() > 0:
+        shopping_bag.test_remove_product_from_cart(product_counter)
+        product_counter += 1
 
 
     # HJ SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -30,10 +30,10 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
 
     # HJ SPP WITHOUT SIZE PDP: REMOVE 2 PRODUCTS FROM THE CART
     shopping_bag.test_open_shopping_cart_page()
-    cart_products = shopping_bag.test_get_cart_products_count()
-    if cart_products > 0:
-        for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+    product_counter = 1
+    while shopping_bag.test_get_cart_products_count() > 0:
+        shopping_bag.test_remove_product_from_cart(product_counter)
+        product_counter += 1
 
 '''
     # OLD SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -45,7 +45,7 @@ def test_add_to_bag_for_spp_no_size_all_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 '''
     #https://development.debeers.co.uk/en-gb/db-classic-pear-shaped-diamond-pendant/N102152.html [HJ UPP SINGLE without E]

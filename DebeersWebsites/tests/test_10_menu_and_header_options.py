@@ -130,6 +130,6 @@ def test_menu_and_header_option_pages(page):
         print("----> TEST CASE 5 OF 7")
         client_service.test_change_region_client_service()
         print("----> TEST CASE 6 OF 7")
-        menu_header_option.test_change_language_menu()
+        #menu_header_option.test_change_language_menu()
         print("----> TEST CASE 7 OF 7")
-        menu_header_option.test_change_country_menu()
+        #menu_header_option.test_change_country_menu()

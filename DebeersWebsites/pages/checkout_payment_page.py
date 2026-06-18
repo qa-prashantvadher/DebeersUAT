@@ -282,7 +282,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_AMEX")
-            logger.info("[CHECKOUT-CARDS] \"AMEX\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"AMEX\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.amex_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.amex_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.amex_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"AMEX\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -297,7 +300,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_MASTERCARD")
-            logger.info("[CHECKOUT-CARDS] \"MASTERCARD\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"MASTERCARD\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.mc_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.mc_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.mc_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"MASTERCARD\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -312,7 +318,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_VISA")
-            logger.info("[CHECKOUT-CARDS] \"VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.visa_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.visa_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.visa_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"VISA\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -327,7 +336,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_UNION_PAY")
-            logger.info("[CHECKOUT-CARDS] \"UNION PAY\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"UNION PAY\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.union_pay_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.union_pay_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.union_pay_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"UNION PAY\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -342,7 +354,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            logger.info("[CHECKOUT-CARDS] \"DISCOVER\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"DISCOVER\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.discover_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.discover_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.discover_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"DISCOVER\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 
@@ -357,7 +372,10 @@ class Checkout_Payment(BasePage):
             self.fill(self.card_holder_name_input, self.card_holder_name_text)
             self.timeout(1000)
             self.screenshot.take_order_page_screenshot("CHECKOUT_PAYMENT_DISCOVER")
-            logger.info("[CHECKOUT-CARDS] \"CARTES VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info("[CHECKOUT-CARDS] FOLLOWING \"CARTES VISA\" CREDIT CARD DETAILS ARE ADDED ON THE PAYMENT PAGE..")
+            logger.info(f"[CHECKOUT-CARDS] CARD NUMBER: {self.cartes_visa_card_number_text}")
+            logger.info(f"[CHECKOUT-CARDS] EXPIRY DATE: {self.cartes_visa_expiry_date_text}")
+            logger.info(f"[CHECKOUT-CARDS] CVV: {self.cartes_visa_cvv_text}")
         except:
             logger.error("*****[CHECKOUT-CARDS] \"CARTES VISA\" CREDIT CARD DETAILS ARE NOT ADDED ON THE PAYMENT PAGE..*****")
 

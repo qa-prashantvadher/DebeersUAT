@@ -36,7 +36,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
        for cart_products in range(1, cart_products + 1):
-           shopping_bag.test_remove_product_from_cart()
+           shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # BB SPP WITH SINGLE SIZE PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
@@ -48,7 +48,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # BB SPP WITH MULTIPLE SIZE PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
@@ -60,7 +60,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # BB UPP WITH MULTIPLE VARIANTS PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
@@ -72,7 +72,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
     # HJ UPP WITH MULTIPLE VARIANTS PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
     hj_upp_multiple_variant.test_hj_upp_multiple_variant_with_engraving()
@@ -83,7 +83,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # HJ UPP WITH SINGLE VARIANT PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
@@ -95,7 +95,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # HJ SPP WITH SINGLE SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -107,7 +107,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # HJ SPP WITH MULTIPLE SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -119,7 +119,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # HJ SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -131,7 +131,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     # OLD SPP WITHOUT SIZE PDP: ADD PRODUCT TO THE CART WITHOUT ENGRAVING
@@ -143,7 +143,7 @@ def test_add_to_bag_for_all_product_types_and_templates(page):
     cart_products = shopping_bag.test_get_cart_products_count()
     if cart_products > 0:
         for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+            shopping_bag.test_remove_product_from_cart(cart_products)
 
 
     #UPP MULTIPLE VARIANTS PDP: APPLY FILTER IN THE VARIANT SECTION

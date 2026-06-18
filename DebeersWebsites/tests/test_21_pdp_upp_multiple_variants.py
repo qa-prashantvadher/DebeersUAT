@@ -19,10 +19,10 @@ def test_add_to_bag_for_upp_multiple_variants_all_templates(page):
 
     # BB UPP WITH MULTIPLE VARIANTS PDP: REMOVE 2 PRODUCTS FROM THE CART
     shopping_bag.test_open_shopping_cart_page()
-    cart_products = shopping_bag.test_get_cart_products_count()
-    if cart_products > 0:
-        for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+    product_counter = 1
+    while shopping_bag.test_get_cart_products_count() > 0:
+        shopping_bag.test_remove_product_from_cart(product_counter)
+        product_counter += 1
 
     # HJ UPP WITH MULTIPLE VARIANTS PDP: ADD PRODUCT TO THE CART WITH AND WITHOUT ENGRAVING
     print("----> TEST CASE 2 OF 4")
@@ -31,10 +31,10 @@ def test_add_to_bag_for_upp_multiple_variants_all_templates(page):
 
     # HJ UPP WITH MULTIPLE VARIANTS PDP: REMOVE 2 PRODUCTS FROM THE CART
     shopping_bag.test_open_shopping_cart_page()
-    cart_products = shopping_bag.test_get_cart_products_count()
-    if cart_products > 0:
-        for cart_products in range(1, cart_products + 1):
-            shopping_bag.test_remove_product_from_cart()
+    product_counter = 1
+    while shopping_bag.test_get_cart_products_count() > 0:
+        shopping_bag.test_remove_product_from_cart(product_counter)
+        product_counter += 1
 
     #UPP MULTIPLE VARIANTS PDP: APPLY FILTER IN THE VARIANT SECTION
     print("----> TEST CASE 3 OF 4")
